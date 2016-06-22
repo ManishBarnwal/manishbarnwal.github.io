@@ -5,42 +5,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://mlwhiz.com/index.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/archives.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tags.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/categories.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/index2.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/pages/about.html</loc>
-<lastmod>2015-09-10T21:56:00-00:00</lastmod>
+<lastmod>2016-06-22T03:56:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -96,147 +96,147 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://mlwhiz.com/category/big-data-hadoop.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/category/python-bash-tools.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/category/python-flask-ml.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/category/python-visualization-statistics.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/stanford-software-seaborn.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/pairplot-seaborn.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/seaborn.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/big-data.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/hadoop.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/matplotlib.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/lmplot-seaborn.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/bash-commands.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/bash-for-data-science.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/ggplot2.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/hive.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/regplot.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/python-visualizations.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/deploy-ml-models.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/openshift.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/tag/flaskapp.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mlwhiz.com/author/manish-barnwal.html</loc>
-<lastmod>2016-06-22T15:41:54-00:00</lastmod>
+<lastmod>2016-06-22T15:57:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
