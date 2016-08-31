@@ -45,9 +45,8 @@ So far we know that every other thing is puking data. And they are puking in bul
 &lt;blockquote&gt;
 &lt;p&gt;1 terabytes = 1000,000 Mb. So the total time ~ 1000,000/100 ~ 10000 seconds ~ 10000/3600 ~ 3 hours&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;br&gt;
-&lt;br&gt;
-3 hours is too huge a time to read 1 terabyte of data given the amount of data giants like Facebook generates on daily basis. Also, a single machine won’t be able to handle this much data. So what is the solution?
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;3 hours is too huge a time to read 1 terabyte of data given the amount of data giants like Facebook generates on daily basis. Also, a single machine won’t be able to handle this much data. So what is the solution?
 &lt;br&gt;
 &lt;br&gt;
 What if we could distribute the data across multiple machines? Yes, that sounds promising. The data that is big enough to handle by one machine can be distributed across multiple machines such that each machine has some portion of the actual data. Now these machines are interconnected with each other and so there is no issue of interactions between these machines. And that is exactly what a cluster is.
@@ -66,5 +65,4 @@ A &lt;em&gt;cluster&lt;/em&gt; is a combination of many machines connected to ea
 &lt;br&gt;
 &lt;br&gt;
 We will talk more about Spark in future posts. I am exploring it rigorously and plan to write out my understanding of it soon.&lt;/p&gt;
-&lt;p&gt;I hope you enjoyed reading this post and feel a little more familiar with big data now.&lt;/p&gt;
-&lt;p&gt;Hit the share button if you would like your friends to read this.&lt;/p&gt;</summary><category term="big data"></category><category term="analytics"></category><category term="hadoop"></category><category term="spark"></category></entry></feed>
+&lt;p&gt;I hope you enjoyed reading this post and feel a little more familiar with big data now. Hit the share button if you would like your friends to read this.&lt;/p&gt;</summary><category term="big data"></category><category term="analytics"></category><category term="hadoop"></category><category term="spark"></category></entry></feed>
