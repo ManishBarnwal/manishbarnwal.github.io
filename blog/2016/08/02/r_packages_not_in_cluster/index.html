@@ -1812,7 +1812,7 @@ jQuery(document).ready(function($) {
       <p class="meta"><time datetime="2016-08-02T07:00:00" pubdate>Aug 02, 2016</time></p>
 </header>
 
-  <div class="entry-content"><p>When deploying R codes across the cluster, many a times the reason for the failure of the task is unavailability of a particular package across all nodes of the cluster. The solution to this is you wait for the open-source team of the cluster to get the package installed. This may take some days for them to get it done. What do we do? We wait. Naah!
+  <div class="entry-content"><p>When deploying R codes across the cluster, many a times the reason for the failure of the task is unavailability of a particular package across all nodes of the cluster. We wait for someone to get the package installed across all the nodes. This may take some days. Do we wait for them? <em>Naah!</em>
 <br>
 <br>
 Presenting a temporary solution that one of my colleague came up with. I have used this technique and this works smoothly.
@@ -1828,12 +1828,13 @@ The following are the steps:</p>
 <li>Install the required package, say 'randomForest' in the directory just created
     <pre style="font-size:60%; padding:7px; margin:0em;">
     <code class="r">install.packages('randomForest', repos=’repo_name', lib='rPackages/')
+    Note that you need to choose the appropriate repo_name. The one that your company allows.
     </code></pre></li>
 </ul>
 </li>
 </ol>
 <p><br>
-2. Check if you can load the package from this local directory by using,
+2. Check if you can load the package from this local directory
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">library(randomForest, lib.loc='rPackages/')
 </code></pre></p>
@@ -1849,7 +1850,7 @@ The following are the steps:</p>
 Don’t forget the semicolon
 </code></pre></p>
 <p><br>
-5. Unzip the file inside R script (i.e. Each reducer will have dir_location directory now)
+5. Unzip the file inside R script i.e. each reducer will have <em>rPackages</em> directory now
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="bash">unzip('rPackages.zip', overwrite=TRUE)
 </code></pre></p>

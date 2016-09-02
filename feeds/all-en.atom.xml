@@ -64,7 +64,7 @@ You can write your script in any language you want, but it needs to be available
 Enough theoretical stuff. The interesting part is the code framework of mapper and reducer that I will explain in the next post. 
 &lt;br&gt;
 &lt;br&gt;
-I hope you feel more educated on big data after reading this. Please leave a comment if you have questions/insights. I will reply as soon as possible.&lt;/p&gt;</summary><category term="big data"></category><category term="analytics"></category><category term="hadoop"></category></entry><entry><title>When R package is not available across the cluster</title><link href="http://manishbarnwal.github.io/blog/2016/08/02/r_packages_not_in_cluster/" rel="alternate"></link><updated>2016-08-02T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-08-02:blog/2016/08/02/r_packages_not_in_cluster/</id><summary type="html">&lt;p&gt;When deploying R codes across the cluster, many a times the reason for the failure of the task is unavailability of a particular package across all nodes of the cluster. The solution to this is you wait for the open-source team of the cluster to get the package installed. This may take some days for them to get it done. What do we do? We wait. Naah!
+I hope you feel more educated on big data after reading this. Please leave a comment if you have questions/insights. I will reply as soon as possible.&lt;/p&gt;</summary><category term="big data"></category><category term="analytics"></category><category term="hadoop"></category></entry><entry><title>When R package is not available across the cluster</title><link href="http://manishbarnwal.github.io/blog/2016/08/02/r_packages_not_in_cluster/" rel="alternate"></link><updated>2016-08-02T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-08-02:blog/2016/08/02/r_packages_not_in_cluster/</id><summary type="html">&lt;p&gt;When deploying R codes across the cluster, many a times the reason for the failure of the task is unavailability of a particular package across all nodes of the cluster. We wait for someone to get the package installed across all the nodes. This may take some days. Do we wait for them? &lt;em&gt;Naah!&lt;/em&gt;
 &lt;br&gt;
 &lt;br&gt;
 Presenting a temporary solution that one of my colleague came up with. I have used this technique and this works smoothly.
@@ -80,12 +80,13 @@ The following are the steps:&lt;/p&gt;
 &lt;li&gt;Install the required package, say 'randomForest' in the directory just created
     &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
     &lt;code class="r"&gt;install.packages('randomForest', repos=’repo_name', lib='rPackages/')
+    Note that you need to choose the appropriate repo_name. The one that your company allows.
     &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;br&gt;
-2. Check if you can load the package from this local directory by using,
+2. Check if you can load the package from this local directory
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="r"&gt;library(randomForest, lib.loc='rPackages/')
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
@@ -101,7 +102,7 @@ The following are the steps:&lt;/p&gt;
 Don’t forget the semicolon
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
-5. Unzip the file inside R script (i.e. Each reducer will have dir_location directory now)
+5. Unzip the file inside R script i.e. each reducer will have &lt;em&gt;rPackages&lt;/em&gt; directory now
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="bash"&gt;unzip('rPackages.zip', overwrite=TRUE)
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
