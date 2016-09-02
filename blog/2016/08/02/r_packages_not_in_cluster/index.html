@@ -1820,19 +1820,15 @@ Presenting a temporary solution that one of my colleague came up with. I have us
 <br>
 The following are the steps:</p>
 <ol>
-<li>
-<p>Install the package you require on one of the edge nodes into a local directory</p>
-</li>
-<li>
-<p>Create a local directory. Let's say our directory name is <em>rPackages</em><br />
-  <pre style="font-size:60%; padding:7px; margin:0em;">
-  <code class="bash">mkdir rPackages
-  </code></pre></p>
-</li>
+<li>Install the package you require on one of the edge nodes into a local directory</li>
+<li>Create a local directory. Let's say our directory name is <em>rPackages</em><br />
+    <pre style="font-size:60%; padding:7px; margin:0em;">
+    <code class="bash">mkdir rPackages
+    </code></pre></li>
 <li>Install the required package, say 'randomForest' in the directory just created
-  <pre style="font-size:60%; padding:7px; margin:0em;">
-  <code class="r">install.packages('randomForest', repos=’repo_name', lib='rPackages/')
-  </code></pre></li>
+    <pre style="font-size:60%; padding:7px; margin:0em;">
+    <code class="r">install.packages('randomForest', repos=’repo_name', lib='rPackages/')
+    </code></pre></li>
 </ol>
 <p><br>
 2. Check if you can load the package from this local directory by using,
@@ -1848,7 +1844,7 @@ The following are the steps:</p>
 4. Add this zip file in your HIVE hql (or anything else)
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="bash">add file rPackages.zip;
-<code class="bash">--Don’t forget semicolon
+Don’t forget semicolon
 </code></pre></p>
 <p><br>
 5. Unzip the file inside R script (i.e. Each reducer will have dir_location directory now)
@@ -1860,10 +1856,7 @@ The following are the steps:</p>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="bash">library(randomForest, lib.loc='rPackages/')
 </code></pre></p>
-<p><br>
-7. Try this
-  - bullet1
-  - bullet2</p>
+<p><br></p>
 <p>And you’re done! Remember, you have to build the package where you want to use, because built packages are OS dependent.</p></div>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- bar -->

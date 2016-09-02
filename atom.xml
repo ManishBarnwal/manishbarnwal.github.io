@@ -72,19 +72,15 @@ Presenting a temporary solution that one of my colleague came up with. I have us
 &lt;br&gt;
 The following are the steps:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Install the package you require on one of the edge nodes into a local directory&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Create a local directory. Let's say our directory name is &lt;em&gt;rPackages&lt;/em&gt;&lt;br /&gt;
-  &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-  &lt;code class="bash"&gt;mkdir rPackages
-  &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Install the package you require on one of the edge nodes into a local directory&lt;/li&gt;
+&lt;li&gt;Create a local directory. Let's say our directory name is &lt;em&gt;rPackages&lt;/em&gt;&lt;br /&gt;
+    &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+    &lt;code class="bash"&gt;mkdir rPackages
+    &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;Install the required package, say 'randomForest' in the directory just created
-  &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-  &lt;code class="r"&gt;install.packages('randomForest', repos=’repo_name', lib='rPackages/')
-  &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+    &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+    &lt;code class="r"&gt;install.packages('randomForest', repos=’repo_name', lib='rPackages/')
+    &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;br&gt;
 2. Check if you can load the package from this local directory by using,
@@ -100,7 +96,7 @@ The following are the steps:&lt;/p&gt;
 4. Add this zip file in your HIVE hql (or anything else)
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="bash"&gt;add file rPackages.zip;
-&lt;code class="bash"&gt;--Don’t forget semicolon
+Don’t forget semicolon
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 5. Unzip the file inside R script (i.e. Each reducer will have dir_location directory now)
@@ -112,10 +108,7 @@ The following are the steps:&lt;/p&gt;
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="bash"&gt;library(randomForest, lib.loc='rPackages/')
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-7. Try this
-  - bullet1
-  - bullet2&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;And you’re done! Remember, you have to build the package where you want to use, because built packages are OS dependent.&lt;/p&gt;</summary><category term="big data"></category><category term="R"></category></entry><entry><title>The most inspiring talk I ever attended live</title><link href="http://manishbarnwal.github.io/blog/2016/07/26/the_most_inspiring_talk_live/" rel="alternate"></link><updated>2016-07-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-07-26:blog/2016/07/26/the_most_inspiring_talk_live/</id><summary type="html">&lt;p&gt;Last week &lt;a href="https://www.linkedin.com/company/walmartlabs-india"&gt;WalmartLabs&lt;/a&gt; India was one of the sponsors of IIT Bombay’s alumni meet and I along with few of my colleagues got a chance to attend the meet-up. I didn’t have much idea about the speakers who were going to present. All I knew was, we wanted to get some good talent for our company and we had set up a booth where we were presenting the work we do at WalmartLabs.
 &lt;br&gt;
 &lt;br&gt;
