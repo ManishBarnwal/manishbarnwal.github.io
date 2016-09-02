@@ -1820,11 +1820,15 @@ Presenting a temporary solution that one of my colleague came up with. I have us
 <br>
 The following are the steps:</p>
 <ol>
-<li>Install the package you require on one of the edge nodes into a local directory</li>
-<li>Create a local directory. Let's say our directory name is <em>rPackages</em><br />
+<li>
+<p>Install the package you require on one of the edge nodes into a local directory</p>
+</li>
+<li>
+<p>Create a local directory. Let's say our directory name is <em>rPackages</em><br />
   <pre style="font-size:60%; padding:7px; margin:0em;">
   <code class="bash">mkdir rPackages
-  </code></pre></li>
+  </code></pre></p>
+</li>
 <li>Install the required package, say 'randomForest' in the directory just created
   <pre style="font-size:60%; padding:7px; margin:0em;">
   <code class="r">install.packages('randomForest', repos=’repo_name', lib='rPackages/')
@@ -1841,9 +1845,10 @@ The following are the steps:</p>
 <code class="bash">zip -r rPackages.zip rPackages/
 </code></pre></p>
 <p><br>
-4. Add this zip file in your HIVE hql (or anything else) (Don’t forget semicolon)
+4. Add this zip file in your HIVE hql (or anything else)
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="bash">add file rPackages.zip;
+<code class="bash">--Don’t forget semicolon
 </code></pre></p>
 <p><br>
 5. Unzip the file inside R script (i.e. Each reducer will have dir_location directory now)
@@ -1856,7 +1861,10 @@ The following are the steps:</p>
 <code class="bash">library(randomForest, lib.loc='rPackages/')
 </code></pre></p>
 <p><br>
-And you’re done! Let me know if you need assistance. Remember, you have to build the package where you want to use, because built packages are OS dependent.</p></div>
+7. Try this
+  - bullet1
+  - bullet2</p>
+<p>And you’re done! Remember, you have to build the package where you want to use, because built packages are OS dependent.</p></div>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- bar -->
 <ins class="adsbygoogle"

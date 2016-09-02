@@ -7,11 +7,15 @@ Presenting a temporary solution that one of my colleague came up with. I have us
 &lt;br&gt;
 The following are the steps:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Install the package you require on one of the edge nodes into a local directory&lt;/li&gt;
-&lt;li&gt;Create a local directory. Let's say our directory name is &lt;em&gt;rPackages&lt;/em&gt;&lt;br /&gt;
+&lt;li&gt;
+&lt;p&gt;Install the package you require on one of the edge nodes into a local directory&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a local directory. Let's say our directory name is &lt;em&gt;rPackages&lt;/em&gt;&lt;br /&gt;
   &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
   &lt;code class="bash"&gt;mkdir rPackages
-  &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;Install the required package, say 'randomForest' in the directory just created
   &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
   &lt;code class="r"&gt;install.packages('randomForest', repos=’repo_name', lib='rPackages/')
@@ -28,9 +32,10 @@ The following are the steps:&lt;/p&gt;
 &lt;code class="bash"&gt;zip -r rPackages.zip rPackages/
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
-4. Add this zip file in your HIVE hql (or anything else) (Don’t forget semicolon)
+4. Add this zip file in your HIVE hql (or anything else)
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="bash"&gt;add file rPackages.zip;
+&lt;code class="bash"&gt;--Don’t forget semicolon
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 5. Unzip the file inside R script (i.e. Each reducer will have dir_location directory now)
@@ -43,4 +48,7 @@ The following are the steps:&lt;/p&gt;
 &lt;code class="bash"&gt;library(randomForest, lib.loc='rPackages/')
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
-And you’re done! Let me know if you need assistance. Remember, you have to build the package where you want to use, because built packages are OS dependent.&lt;/p&gt;</summary><category term="big data"></category><category term="R"></category></entry></feed>
+7. Try this
+  - bullet1
+  - bullet2&lt;/p&gt;
+&lt;p&gt;And you’re done! Remember, you have to build the package where you want to use, because built packages are OS dependent.&lt;/p&gt;</summary><category term="big data"></category><category term="R"></category></entry></feed>
