@@ -64,53 +64,51 @@ You can write your script in any language you want, but it needs to be available
 Enough theoretical stuff. The interesting part is the code framework of mapper and reducer that I will explain in the next post. 
 &lt;br&gt;
 &lt;br&gt;
-I hope you feel more educated on big data after reading this. Please leave a comment if you have questions/insights. I will reply as soon as possible.&lt;/p&gt;</summary><category term="big data"></category><category term="analytics"></category><category term="hadoop"></category></entry><entry><title>When R package is not available across the cluster</title><link href="http://manishbarnwal.github.io/blog/2016/08/02/r_packages_not_in_cluster/" rel="alternate"></link><updated>2016-08-02T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-08-02:blog/2016/08/02/r_packages_not_in_cluster/</id><summary type="html">&lt;p&gt;When deploying codes across the cluster, many a times the reason for the failure of the task is unavailability of a particular package across all the nodes of the cluster. The solution to this is you wait for the open-source team of the cluster to get you install the required packages. The open-source team may not be available at that very instant. What do we do? We wait. Naah!&lt;/p&gt;
-&lt;p&gt;Presenting a temporary solution that one of my colleague came up with. I have used this technique and this works smoothly.&lt;/p&gt;
-&lt;p&gt;The following are the steps:&lt;/p&gt;
+I hope you feel more educated on big data after reading this. Please leave a comment if you have questions/insights. I will reply as soon as possible.&lt;/p&gt;</summary><category term="big data"></category><category term="analytics"></category><category term="hadoop"></category></entry><entry><title>When R package is not available across the cluster</title><link href="http://manishbarnwal.github.io/blog/2016/08/02/r_packages_not_in_cluster/" rel="alternate"></link><updated>2016-08-02T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-08-02:blog/2016/08/02/r_packages_not_in_cluster/</id><summary type="html">&lt;p&gt;When deploying R codes across the cluster, many a times the reason for the failure of the task is unavailability of a particular package across all nodes of the cluster. The solution to this is you wait for the open-source team of the cluster to get the package installed. This may take some days for them to get it done. What do we do? We wait. Naah!
+&lt;br&gt;
+&lt;br&gt;
+Presenting a temporary solution that one of my colleague came up with. I have used this technique and this works smoothly.
+&lt;br&gt;
+&lt;br&gt;
+The following are the steps:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Install the package you require on one of the edge nodes into a local directory(create this local dir first).&lt;/li&gt;
-&lt;li&gt;Create a local directory. Let's say our directory name is rPackages
+&lt;li&gt;Install the package you require on one of the edge nodes into a local directory&lt;/li&gt;
+&lt;li&gt;Create a local directory. Let's say our directory name is &lt;em&gt;rPackages&lt;/em&gt;&lt;br /&gt;
   &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
   &lt;code class="bash"&gt;mkdir rPackages
   &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Install the required package, say 'randomForest' in the directory just created
+&lt;li&gt;Install the required package, say 'randomForest' in the directory just created
   &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-  &lt;code class="r"&gt;install.packages(“package_name”, repos=’repo_name', lib=“dir_location/”)
-  &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Check if you can load the package from this local directory by using,
-&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="r"&gt;library(package_name, lib.loc=“dir_location/”)
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Create zip file of “dir_location” using command
-&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="bash"&gt;zip -r dir_location.zip dir_location
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Add this zip file in your HIVE hql (or anything else) (Don’t forget semicolon)
-&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="bash"&gt;add file dir_location.zip;
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Unzip the file inside R script (i.e. Each reducer will have dir_location directory now)
-&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="bash"&gt;unzip(“dir_location.zip”, overwrite=TRUE)
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Load the package now
-&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="bash"&gt;library(package_name, lib.loc=”dir_location/“)
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;/li&gt;
+  &lt;code class="r"&gt;install.packages('randomForest', repos=’repo_name', lib='rPackages/')
+  &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;And you’re done! Let me know if you need assistance. Remember, you have to build the package where you want to use, because built packages are OS dependent.&lt;/p&gt;</summary><category term="big data"></category><category term="R"></category></entry><entry><title>The most inspiring talk I ever attended live</title><link href="http://manishbarnwal.github.io/blog/2016/07/26/the_most_inspiring_talk_live/" rel="alternate"></link><updated>2016-07-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-07-26:blog/2016/07/26/the_most_inspiring_talk_live/</id><summary type="html">&lt;p&gt;Last week &lt;a href="https://www.linkedin.com/company/walmartlabs-india"&gt;WalmartLabs&lt;/a&gt; India was one of the sponsors of IIT Bombay’s alumni meet and I along with few of my colleagues got a chance to attend the meet-up. I didn’t have much idea about the speakers who were going to present. All I knew was, we wanted to get some good talent for our company and we had set up a booth where we were presenting the work we do at WalmartLabs.
+&lt;p&gt;&lt;br&gt;
+2. Check if you can load the package from this local directory by using,
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;library(randomForest, lib.loc='rPackages/')
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+3. Create zip file of “dir_location” using command
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;zip -r rPackages.zip rPackages/
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+4. Add this zip file in your HIVE hql (or anything else) (Don’t forget semicolon)
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;add file rPackages.zip;
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+5. Unzip the file inside R script (i.e. Each reducer will have dir_location directory now)
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;unzip('rPackages.zip', overwrite=TRUE)
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+6. Load the package now
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;library(randomForest, lib.loc='rPackages/')
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+And you’re done! Let me know if you need assistance. Remember, you have to build the package where you want to use, because built packages are OS dependent.&lt;/p&gt;</summary><category term="big data"></category><category term="R"></category></entry><entry><title>The most inspiring talk I ever attended live</title><link href="http://manishbarnwal.github.io/blog/2016/07/26/the_most_inspiring_talk_live/" rel="alternate"></link><updated>2016-07-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-07-26:blog/2016/07/26/the_most_inspiring_talk_live/</id><summary type="html">&lt;p&gt;Last week &lt;a href="https://www.linkedin.com/company/walmartlabs-india"&gt;WalmartLabs&lt;/a&gt; India was one of the sponsors of IIT Bombay’s alumni meet and I along with few of my colleagues got a chance to attend the meet-up. I didn’t have much idea about the speakers who were going to present. All I knew was, we wanted to get some good talent for our company and we had set up a booth where we were presenting the work we do at WalmartLabs.
 &lt;br&gt;
 &lt;br&gt;
 Of all the speakers that presented their talk, one was mesmerizing. I was impressed by this speaker. The way he confidently took the stage. Stood casually by the dais. He didn’t carry any presentation with him unlike the other speakers. There was a charm and calmness in his presence. It was as if he knew that we were eagerly waiting to hear him out.

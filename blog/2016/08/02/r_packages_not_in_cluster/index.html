@@ -1812,53 +1812,51 @@ jQuery(document).ready(function($) {
       <p class="meta"><time datetime="2016-08-02T07:00:00" pubdate>Aug 02, 2016</time></p>
 </header>
 
-  <div class="entry-content"><p>When deploying codes across the cluster, many a times the reason for the failure of the task is unavailability of a particular package across all the nodes of the cluster. The solution to this is you wait for the open-source team of the cluster to get you install the required packages. The open-source team may not be available at that very instant. What do we do? We wait. Naah!</p>
-<p>Presenting a temporary solution that one of my colleague came up with. I have used this technique and this works smoothly.</p>
-<p>The following are the steps:</p>
+  <div class="entry-content"><p>When deploying R codes across the cluster, many a times the reason for the failure of the task is unavailability of a particular package across all nodes of the cluster. The solution to this is you wait for the open-source team of the cluster to get the package installed. This may take some days for them to get it done. What do we do? We wait. Naah!
+<br>
+<br>
+Presenting a temporary solution that one of my colleague came up with. I have used this technique and this works smoothly.
+<br>
+<br>
+The following are the steps:</p>
 <ol>
-<li>Install the package you require on one of the edge nodes into a local directory(create this local dir first).</li>
-<li>Create a local directory. Let's say our directory name is rPackages
+<li>Install the package you require on one of the edge nodes into a local directory</li>
+<li>Create a local directory. Let's say our directory name is <em>rPackages</em><br />
   <pre style="font-size:60%; padding:7px; margin:0em;">
   <code class="bash">mkdir rPackages
   </code></pre></li>
-<li>
-<p>Install the required package, say 'randomForest' in the directory just created
+<li>Install the required package, say 'randomForest' in the directory just created
   <pre style="font-size:60%; padding:7px; margin:0em;">
-  <code class="r">install.packages(“package_name”, repos=’repo_name', lib=“dir_location/”)
-  </code></pre></p>
-</li>
-<li>
-<p>Check if you can load the package from this local directory by using,
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">library(package_name, lib.loc=“dir_location/”)
-</code></pre></p>
-</li>
-<li>
-<p>Create zip file of “dir_location” using command
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">zip -r dir_location.zip dir_location
-</code></pre></p>
-</li>
-<li>
-<p>Add this zip file in your HIVE hql (or anything else) (Don’t forget semicolon)
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">add file dir_location.zip;
-</code></pre></p>
-</li>
-<li>
-<p>Unzip the file inside R script (i.e. Each reducer will have dir_location directory now)
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">unzip(“dir_location.zip”, overwrite=TRUE)
-</code></pre></p>
-</li>
-<li>
-<p>Load the package now
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">library(package_name, lib.loc=”dir_location/“)
-</code></pre></p>
-</li>
+  <code class="r">install.packages('randomForest', repos=’repo_name', lib='rPackages/')
+  </code></pre></li>
 </ol>
-<p>And you’re done! Let me know if you need assistance. Remember, you have to build the package where you want to use, because built packages are OS dependent.</p></div>
+<p><br>
+2. Check if you can load the package from this local directory by using,
+<pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="r">library(randomForest, lib.loc='rPackages/')
+</code></pre></p>
+<p><br>
+3. Create zip file of “dir_location” using command
+<pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="bash">zip -r rPackages.zip rPackages/
+</code></pre></p>
+<p><br>
+4. Add this zip file in your HIVE hql (or anything else) (Don’t forget semicolon)
+<pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="bash">add file rPackages.zip;
+</code></pre></p>
+<p><br>
+5. Unzip the file inside R script (i.e. Each reducer will have dir_location directory now)
+<pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="bash">unzip('rPackages.zip', overwrite=TRUE)
+</code></pre></p>
+<p><br>
+6. Load the package now
+<pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="bash">library(randomForest, lib.loc='rPackages/')
+</code></pre></p>
+<p><br>
+And you’re done! Let me know if you need assistance. Remember, you have to build the package where you want to use, because built packages are OS dependent.</p></div>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- bar -->
 <ins class="adsbygoogle"
