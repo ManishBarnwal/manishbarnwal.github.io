@@ -7,7 +7,7 @@ Presenting a temporary solution that one of my colleague came up with. I have us
 &lt;br&gt;
 The following are the steps:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Install the package you require on one of the edge nodes into a local directory&lt;/li&gt;
+&lt;li&gt;Install the package you require on one of the edge nodes into a local directory&lt;ul&gt;
 &lt;li&gt;Create a local directory. Let's say our directory name is &lt;em&gt;rPackages&lt;/em&gt;&lt;br /&gt;
     &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
     &lt;code class="bash"&gt;mkdir rPackages
@@ -16,6 +16,8 @@ The following are the steps:&lt;/p&gt;
     &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
     &lt;code class="r"&gt;install.packages('randomForest', repos=’repo_name', lib='rPackages/')
     &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;br&gt;
 2. Check if you can load the package from this local directory by using,
@@ -31,7 +33,7 @@ The following are the steps:&lt;/p&gt;
 4. Add this zip file in your HIVE hql (or anything else)
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="bash"&gt;add file rPackages.zip;
-Don’t forget semicolon
+Don’t forget the semicolon
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 5. Unzip the file inside R script (i.e. Each reducer will have dir_location directory now)

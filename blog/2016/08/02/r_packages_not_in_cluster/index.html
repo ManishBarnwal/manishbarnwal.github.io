@@ -1820,7 +1820,7 @@ Presenting a temporary solution that one of my colleague came up with. I have us
 <br>
 The following are the steps:</p>
 <ol>
-<li>Install the package you require on one of the edge nodes into a local directory</li>
+<li>Install the package you require on one of the edge nodes into a local directory<ul>
 <li>Create a local directory. Let's say our directory name is <em>rPackages</em><br />
     <pre style="font-size:60%; padding:7px; margin:0em;">
     <code class="bash">mkdir rPackages
@@ -1829,6 +1829,8 @@ The following are the steps:</p>
     <pre style="font-size:60%; padding:7px; margin:0em;">
     <code class="r">install.packages('randomForest', repos=’repo_name', lib='rPackages/')
     </code></pre></li>
+</ul>
+</li>
 </ol>
 <p><br>
 2. Check if you can load the package from this local directory by using,
@@ -1844,7 +1846,7 @@ The following are the steps:</p>
 4. Add this zip file in your HIVE hql (or anything else)
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="bash">add file rPackages.zip;
-Don’t forget semicolon
+Don’t forget the semicolon
 </code></pre></p>
 <p><br>
 5. Unzip the file inside R script (i.e. Each reducer will have dir_location directory now)
