@@ -1,5 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-07-26T08:00:00-03:00</updated><entry><title>The most inspiring talk I ever attended live</title><link href="http://manishbarnwal.github.io/blog/2016/07/26/the_most_inspiring_talk_live/" rel="alternate"></link><updated>2016-07-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-07-26:blog/2016/07/26/the_most_inspiring_talk_live/</id><summary type="html">&lt;p&gt;Last week &lt;a href="https://www.linkedin.com/company/walmartlabs-india"&gt;WalmartLabs&lt;/a&gt; India was one of the sponsors of IIT Bombay’s alumni meet and I along with few of my colleagues got a chance to attend the meet-up. I didn’t have much idea about the speakers who were going to present. All I knew was, we wanted to get some good talent for our company and we had set up a booth where we were presenting the work we do at WalmartLabs.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-08-29T07:00:00-03:00</updated><entry><title>Hadoop Streaming</title><link href="http://manishbarnwal.github.io/blog/2016/08/29/hadoop_streaming/" rel="alternate"></link><updated>2016-08-29T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-08-29:blog/2016/08/29/hadoop_streaming/</id><summary type="html">&lt;p&gt;A few days ago, I had written a post on &lt;strong&gt;The Big Data Problem&lt;/strong&gt; which attempted to understand why we need big data and what the fuss is all about. You may want to read it &lt;a href="http://manishbarnwal.com/blog/2016/06/29/big_data_problem/"&gt;here&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;
+Having understood why we need big data, let’s understand how we can go about analyzing the same. What is the way out to do analysis on big data? The solution is Streaming…Hadoop Streaming. &lt;em&gt;James Bond style&lt;/em&gt;
+&lt;br&gt;
+&lt;br&gt;
+To recount a personal experience, I was faced with the following Data Analysis task — Scaling a particular analytics technique on retail data from one store to all stores across the US. Sounds interesting so far, doesn’t it? The catch however, was that the program took 2 days just to compute the results for 1 department.
+&lt;br&gt;
+&lt;br&gt;
+Imagine, the time it would take if we were restricted to a single machine/Rstudio.
+&lt;br&gt;
+&lt;br&gt;
+Let’s understand the gravity of the problem and get an idea of a rough time estimate. 
+So for one department the time taken was two days. Let us assume, each store has close to 100 departments and we have a total of 5000 stores. So the total time taken for all of the stores would be roughly 2 X 100 X 5000 = 1 million days = 2740 years. This is just a rough estimate assuming a linear relationship between the number of departments and the time taken.
+&lt;br&gt;
+&lt;br&gt;
+Obviously, using RStudio stand alone was not a feasible solution. We had at our disposal Hadoop cluster. We wanted to see if we could exploit the number of machines in our cluster to solve this Herculean challenge of the Big Data world.
+&lt;br&gt;
+&lt;br&gt;
+A fresh college graduate, I was a complete stranger to the world of Hadoop and out of anxiety, I purchased a copy of &lt;em&gt;Hadoop-The definitive guide&lt;/em&gt;. I started going through the chapters. It was in no time that I realized this book was meant for someone with an understanding of Java. Unfortunately, I was not one of them. Saddened and almost defeated. What other choice do I have? I came across this wonderful concept — Hadoop streaming.
+&lt;br&gt;
+&lt;br&gt;
+Wow! This looks like it could solve the problem. I started reading more about it on the internet. There were not many resources on this technique. Fortunately, a colleague of mine had worked on Hadoop Streaming earlier and with his help we were able to accomplish the task successfully.
+&lt;br&gt;
+&lt;br&gt;
+Now that you have the context, let me try to answer some basic technical questions.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;So what exactly is Hadoop streaming?&lt;/h3&gt;
+&lt;p&gt;Hadoop streaming — ‘hadoop’ and ‘streaming’. We use the availability of machines in the cluster to process data in parallel. Let me elaborate. When we do our analysis on Rstudio, we just have one machine (our laptop). Now imagine we have 100s of such machines in our cluster. We can take advantage of this and distribute our input data in such a way that each machine gets some portion of your input data and they are processed in parallel.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Now, you may ask what is streaming here.&lt;/h3&gt;
+&lt;p&gt;The input data is sent to each of the machines in the cluster via stdin() (standard input) and the analyzed output is thrown at stdout() (standard output). Your input data is streamed via stdin and the output gets flushed out to stdout.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;What languages can I use for Hadoop streaming?&lt;/h3&gt;
+&lt;p&gt;You can use any scripting language — R, Python, Ruby. Care should be taken to choose your scripting language. The analysis you are planning to do on your data should decide your choice of language. Say, we want to do a forecasting of sales at item level for a retail store. We know that R is the suitable choice to use when it comes to do forecasting as we have well-developed packages in R which is not the case with Ruby. So do put some thought into choosing the language.
+&lt;br&gt;
+&lt;br&gt;
+I hope we are now clear on the basics of Hadoop Streaming and its benefits.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hadoop Streaming is not the answer to all your Big Data analysis problems. It can be used only for cases where each machine can independently perform its analysis with a small portion of input data that is fed to it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Example where Hadoop Streaming can be used&lt;/h3&gt;
+&lt;p&gt;Sales forecasting at item level. Say, we have weekly data for 2 years at item level. And say there are 10,000 items for which we want to do the forecasting. Each item has close to 104 rows (2 years weekly data). So our input data has close to 104 X 10,000 = 1,040,000 ~ 1 million rows. 
+&lt;br&gt;
+&lt;br&gt;
+Assume we have 100 machines in our cluster. What we do next is pretty intuitive. We distribute our data such that each machine receives 1 item at a time, and once it is done processing that item, we send the next item to it. So, in a single go, we will have 100 items processed across the cluster. In, the next go, again more 100 items will be processed and this goes on until all the 10,000 items are processed.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Example where Hadoop Streaming won’t work&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/K-means_clustering"&gt;Clustering&lt;/a&gt;. In clustering we need to find the hidden patterns that are there in the complete dataset. A smaller portion of the dataset can’t be sent to a machine to do the analysis because the purpose will not be served.
+&lt;br&gt;
+&lt;br&gt;
+I think this is worth mentioning.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In Hadoop Streaming, you are not writing an &lt;strong&gt;org.apache.hadoop.mapred.Mapper class&lt;/strong&gt;! This is just a simple script that reads rows from stdin (columns separated by ‘\t’ or any delimiter) and should write rows to stdout (again, columns separated by ‘\t’ or other delimiter). It’s probably worth mentioning this again but you shouldn’t be thinking in traditional map-reduce &lt;strong&gt;Key Value&lt;/strong&gt; terms, you need to think about columns.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br&gt;
+You can write your script in any language you want, but it needs to be available on all machines in the cluster. Any easy way to do this is to take advantage of the Hadoop &lt;strong&gt;distributed cache support&lt;/strong&gt;, and just use add file /path/to/script within hive. The script will then be distributed and can be run as just ./script (assuming it is executable)
+Enough theoretical stuff. The interesting part is the code framework of mapper and reducer that I will explain in the next post. 
+&lt;br&gt;
+&lt;br&gt;
+I hope you feel more educated on big data after reading this. Please leave a comment if you have questions/insights. I will reply as soon as possible.&lt;/p&gt;</summary><category term="big data"></category><category term="analytics"></category><category term="hadoop"></category></entry><entry><title>The most inspiring talk I ever attended live</title><link href="http://manishbarnwal.github.io/blog/2016/07/26/the_most_inspiring_talk_live/" rel="alternate"></link><updated>2016-07-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-07-26:blog/2016/07/26/the_most_inspiring_talk_live/</id><summary type="html">&lt;p&gt;Last week &lt;a href="https://www.linkedin.com/company/walmartlabs-india"&gt;WalmartLabs&lt;/a&gt; India was one of the sponsors of IIT Bombay’s alumni meet and I along with few of my colleagues got a chance to attend the meet-up. I didn’t have much idea about the speakers who were going to present. All I knew was, we wanted to get some good talent for our company and we had set up a booth where we were presenting the work we do at WalmartLabs.
 &lt;br&gt;
 &lt;br&gt;
 Of all the speakers that presented their talk, one was mesmerizing. I was impressed by this speaker. The way he confidently took the stage. Stood casually by the dais. He didn’t carry any presentation with him unlike the other speakers. There was a charm and calmness in his presence. It was as if he knew that we were eagerly waiting to hear him out.

@@ -4,10 +4,10 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>The Walmart Interview</title>
+  <title>Hadoop Streaming</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="This post talks about my interview experience for Statistical Analyst at @WalmartLabs" >
-  <meta name="keywords" content="analytics, walmartLabs, interview, walmart" >
+  <meta name="description" content="This post talks about the hadoop streaming framework" >
+  <meta name="keywords" content="big data, analytics, hadoop" >
   
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1808,85 +1808,76 @@ jQuery(document).ready(function($) {
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">The Walmart Interview</h1>
-      <p class="meta"><time datetime="2014-03-04T08:00:00" pubdate>Mar 04, 2014</time></p>
+      <h1 class="entry-title">Hadoop Streaming</h1>
+      <p class="meta"><time datetime="2016-08-29T07:00:00" pubdate>Aug 29, 2016</time></p>
 </header>
 
-  <div class="entry-content"><p>Now that you are reading this, I’ll assume that you are someone looking for an opportunity of placement or an internship. Go ahead and read. You have a long journey to cover.
+  <div class="entry-content"><p>A few days ago, I had written a post on <strong>The Big Data Problem</strong> which attempted to understand why we need big data and what the fuss is all about. You may want to read it <a href="http://manishbarnwal.com/blog/2016/06/29/big_data_problem/">here</a>.
 <br>
 <br>
-I was offered a job of Statistical Analyst at WalmartLabs. Let me guide you through their placement procedure. Sometime in October, we had the Pre-placement talk (we call it PPT here) where we were introduced to the company’s fundamentals, its businesses and some awesomeness of Walmart. The guy presenting the PPT looked geeky without paying much heed to if we were at all listening. But frankly, he had covered almost everything.
+Having understood why we need big data, let’s understand how we can go about analyzing the same. What is the way out to do analysis on big data? The solution is Streaming…Hadoop Streaming. <em>James Bond style</em>
 <br>
 <br>
-A month later, we had the online test which was based on statistical questions covering mostly topics such as:</p>
-<ul>
-<li>Hypothesis Testing</li>
-<li>R square</li>
-<li>Regression</li>
-<li>Basic probability distribution functions</li>
-<li>Confidence interval
+To recount a personal experience, I was faced with the following Data Analysis task — Scaling a particular analytics technique on retail data from one store to all stores across the US. Sounds interesting so far, doesn’t it? The catch however, was that the program took 2 days just to compute the results for 1 department.
 <br>
 <br>
-It also had 2 coding questions out of which I somehow managed to write the logic of one of them. The duration of the test was 90 minutes. I had started with statistical questions first and later moved to the coding part. My friends who had started with the coding questions were not able to attempt some very easy statistics questions. My advice to you is, go for the objective statistics questions first.  I managed to attempt some 17 questions out of a total of 23 questions. Based on the performance in the test a further shortlist of 7 students was declared. Needless to say I was one of them.
+Imagine, the time it would take if we were restricted to a single machine/Rstudio.
 <br>
 <br>
-So I was selected for the personal interview of WalmartLabs. A lot had to be done. I didn’t know where to start. The first thing I did was to talk to one of my seniors, Manikanta Dinesh. His advice and suggestions helped. A lot. I kept myself surrounded with books for quite a few days. I had interviews for a few other companies as well. I couldn't put all my energy into this one company.</li>
-</ul>
+Let’s understand the gravity of the problem and get an idea of a rough time estimate. 
+So for one department the time taken was two days. Let us assume, each store has close to 100 departments and we have a total of 5000 stores. So the total time taken for all of the stores would be roughly 2 X 100 X 5000 = 1 million days = 2740 years. This is just a rough estimate assuming a linear relationship between the number of departments and the time taken.
+<br>
+<br>
+Obviously, using RStudio stand alone was not a feasible solution. We had at our disposal Hadoop cluster. We wanted to see if we could exploit the number of machines in our cluster to solve this Herculean challenge of the Big Data world.
+<br>
+<br>
+A fresh college graduate, I was a complete stranger to the world of Hadoop and out of anxiety, I purchased a copy of <em>Hadoop-The definitive guide</em>. I started going through the chapters. It was in no time that I realized this book was meant for someone with an understanding of Java. Unfortunately, I was not one of them. Saddened and almost defeated. What other choice do I have? I came across this wonderful concept — Hadoop streaming.
+<br>
+<br>
+Wow! This looks like it could solve the problem. I started reading more about it on the internet. There were not many resources on this technique. Fortunately, a colleague of mine had worked on Hadoop Streaming earlier and with his help we were able to accomplish the task successfully.
+<br>
+<br>
+Now that you have the context, let me try to answer some basic technical questions.
+<br>
+<br></p>
+<h3>So what exactly is Hadoop streaming?</h3>
+<p>Hadoop streaming — ‘hadoop’ and ‘streaming’. We use the availability of machines in the cluster to process data in parallel. Let me elaborate. When we do our analysis on Rstudio, we just have one machine (our laptop). Now imagine we have 100s of such machines in our cluster. We can take advantage of this and distribute our input data in such a way that each machine gets some portion of your input data and they are processed in parallel.
+<br>
+<br></p>
+<h3>Now, you may ask what is streaming here.</h3>
+<p>The input data is sent to each of the machines in the cluster via stdin() (standard input) and the analyzed output is thrown at stdout() (standard output). Your input data is streamed via stdin and the output gets flushed out to stdout.
+<br>
+<br></p>
+<h3>What languages can I use for Hadoop streaming?</h3>
+<p>You can use any scripting language — R, Python, Ruby. Care should be taken to choose your scripting language. The analysis you are planning to do on your data should decide your choice of language. Say, we want to do a forecasting of sales at item level for a retail store. We know that R is the suitable choice to use when it comes to do forecasting as we have well-developed packages in R which is not the case with Ruby. So do put some thought into choosing the language.
+<br>
+<br>
+I hope we are now clear on the basics of Hadoop Streaming and its benefits.</p>
 <blockquote>
-<p>“Don’t keep all your fruits in one basket. Diversify.”</p>
+<p>Hadoop Streaming is not the answer to all your Big Data analysis problems. It can be used only for cases where each machine can independently perform its analysis with a small portion of input data that is fed to it.</p>
+</blockquote>
+<p><br></p>
+<h3>Example where Hadoop Streaming can be used</h3>
+<p>Sales forecasting at item level. Say, we have weekly data for 2 years at item level. And say there are 10,000 items for which we want to do the forecasting. Each item has close to 104 rows (2 years weekly data). So our input data has close to 104 X 10,000 = 1,040,000 ~ 1 million rows. 
+<br>
+<br>
+Assume we have 100 machines in our cluster. What we do next is pretty intuitive. We distribute our data such that each machine receives 1 item at a time, and once it is done processing that item, we send the next item to it. So, in a single go, we will have 100 items processed across the cluster. In, the next go, again more 100 items will be processed and this goes on until all the 10,000 items are processed.
+<br>
+<br></p>
+<h3>Example where Hadoop Streaming won’t work</h3>
+<p><a href="https://en.wikipedia.org/wiki/K-means_clustering">Clustering</a>. In clustering we need to find the hidden patterns that are there in the complete dataset. A smaller portion of the dataset can’t be sent to a machine to do the analysis because the purpose will not be served.
+<br>
+<br>
+I think this is worth mentioning.</p>
+<blockquote>
+<p>In Hadoop Streaming, you are not writing an <strong>org.apache.hadoop.mapred.Mapper class</strong>! This is just a simple script that reads rows from stdin (columns separated by ‘\t’ or any delimiter) and should write rows to stdout (again, columns separated by ‘\t’ or other delimiter). It’s probably worth mentioning this again but you shouldn’t be thinking in traditional map-reduce <strong>Key Value</strong> terms, you need to think about columns.</p>
 </blockquote>
 <p><br>
-<br>
-It was day 1, 1st December. I was selected in only one company.  CGPA plays a crucial part. If you have a low CGPA, chances are that you will see students getting shortlisted and your name won’t grace any of the lists. I know that feeling. You see, CGPA plays its part. A strong one.
-<br>
-<br>
-Next day, Day 2, the only company to appear for – WalmartLabs. So I took all the interview funda from a friend, actually a mentor, Tushar – well, he knew more about interviews at that time, Day 1 placed at Credit Suisse. Having all well-prepared, suited up, drove my cycle to Nalanda Complex. On my way, I kept blabbering and preparing my answers, mostly the introduction part. You see, how you open the interview is important.
+You can write your script in any language you want, but it needs to be available on all machines in the cluster. Any easy way to do this is to take advantage of the Hadoop <strong>distributed cache support</strong>, and just use add file /path/to/script within hive. The script will then be distributed and can be run as just ./script (assuming it is executable)
+Enough theoretical stuff. The interesting part is the code framework of mapper and reducer that I will explain in the next post. 
 <br>
 <br>
-Though there were 2 HR guys from Walmart, the 1st round was a Skype interview. I had the experience of talking to my girlfriend at Skype. So 1st round well. That was just said in jest. The 1st round lasted for some 50 minutes. I was asked mostly about my internship at <a href="http://www.idrbt.ac.in/">IDRBT</a>. A few puzzles – 3 doors puzzle or the famous <a href="http://www.mathsisfun.com/puzzles/monty-hall.html">Monty hall</a>. I was able to answer almost all the puzzles. The interviewer was a CS graduate from IIT Bombay working at WalmartLabs for the past 6 years. How do I know? You ask. Well, I had asked him about it towards the end of the interview where you get to ask questions to the interviewer.
-“Never miss this opportunity. Always ask questions. Period.”
-<br>
-<br>
-So the 1st round went well. Two of my friends couldn’t make to the 2nd round. This round was a Skype interview as well. This guy, the interviewer was a dude. We talked – I didn’t feel like it was an interview for some 90 minutes. Some very basic concepts of statistics were talked about. Some of which I recall:</p>
-<ul>
-<li>How would you explain probability to your grandmother?</li>
-<li>How would you teach statistics to a layman?</li>
-<li>What are assumptions of linear regression? What are their implications?</li>
-<li>A few puzzles.</li>
-<li>Explain your work at CRISIL Ltd.
-<br>
-<br>
-Confident of my grasp at Statistics, the interviewer moved towards courses like Real Analysis and Measure Theory.
-Question: Tell me about Cauchy’s law of convergence?
-I was blank. Total blank. Few seconds passed. I muttered a few words vaguely. Finally I reiterated confidently. “Sir, I don’t remember this as of now. I didn’t like these courses much. But if you want me to know these subjects, I can very well be versed in them given a day or two.”
-Guess what? He was impressed by my say. He said – “Not a problem Manish! I was just curious. You are good in Statistics and that is what mostly matters here.”
-<br>
-<br>
-The 3rd round started with only two of us in the game now. The interviewer was a senior executive from US. He asked some general questions from my CV. No more puzzles. This round too lasted for some 50 minutes. Finishing this round, I expected they would announce their result. But they had more in their basket. The other friend of mine couldn’t clear the 3rd round.
-<br>
-<br>
-The 4th round was an HR round with one of the 2 guys who were present there. This lasted for some 15 minutes. By this time, I was determined – determined to be selected. Cleared it with a smile.
-Yes there was a 5th round –a telephonic interview with the senior HR, Bangalore office. Again a 30 minutes interview. Some of the questions I recall:</li>
-<li>Why Walmart?</li>
-<li>Who is your best buddy? Worst buddy?</li>
-<li>What is your greatest weakness?</li>
-<li>Any questions you would like to ask?
-<br>
-<br>
-The time now was 7:00 p.m. I was waiting for the result of longest interview of my life, walking restlessly outside the room. Waited for some 15 minutes. I could see the HR guys talking and discussing intensely over phone. A few more minutes passed. The wait was getting heavy now. The HR guy finally came out and with a broad smile, he said –“Congratulations! Welcome to the team.”
-<br>
-<br>
-That moment I knew what success tasted like. I was happy, excited. Overwhelmed! All of a sudden, I felt like a hero. They clicked a photo of me wearing the Walmart cap. They gave me a bag of gifts as a sign of welcome. On my way to hall, I gave a quick call to my father and then to my maa –She said she had been worshipping the whole day. Her prayers had played their charms and she was thankful to her Gods.
-<br>
-<br>
-Reached my wing, told my friends and then they congratulated –GPL. The night was great. It called for a celebration. We headed to the bar. Time for some drinks.
-<br>
-<br>
-One final thought:<blockquote>
-<p>“Ek din hota hai, ek job hota hai aur ek tum hote ho.”</p>
-</blockquote>
-</li>
-</ul></div>
+I hope you feel more educated on big data after reading this. Please leave a comment if you have questions/insights. I will reply as soon as possible.</p></div>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- bar -->
 <ins class="adsbygoogle"
@@ -1900,11 +1891,10 @@ One final thought:<blockquote>
   <span class="byline author vcard">
     Posted by <span class="fn">Manish Barnwal</span>
   </span>
-<time datetime="2014-03-04T08:00:00" pubdate>Mar 04, 2014</time>  <span class="categories">
+<time datetime="2016-08-29T07:00:00" pubdate>Aug 29, 2016</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/big-data.html">big data</a>
     <a class="category" href="http://manishbarnwal.github.io/tag/analytics.html">analytics</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/statistics.html">statistics</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/interview.html">interview</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/walmart.html">walmart</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/hadoop.html">hadoop</a>
   </span>
 </p><div class="sharing">
 </div>    </footer>
@@ -1977,9 +1967,9 @@ One final thought:<blockquote>
 </p></footer>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
-          var disqus_identifier = '/blog/2014/03/04/walmart_interview/';
-          var disqus_url = 'http://manishbarnwal.com/blog/2014/03/04/walmart_interview/';
-          var disqus_title = 'The Walmart Interview';
+          var disqus_identifier = '/blog/2016/08/29/hadoop_streaming/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2016/08/29/hadoop_streaming/';
+          var disqus_title = 'Hadoop Streaming';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
