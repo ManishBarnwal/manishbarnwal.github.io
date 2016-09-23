@@ -1,5 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-08-29T07:00:00-03:00</updated><entry><title>Hadoop Streaming</title><link href="http://manishbarnwal.github.io/blog/2016/08/29/hadoop_streaming/" rel="alternate"></link><updated>2016-08-29T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-08-29:blog/2016/08/29/hadoop_streaming/</id><summary type="html">&lt;p&gt;A few days ago, I had written a post on &lt;strong&gt;The Big Data Problem&lt;/strong&gt; which attempted to understand why we need big data and what the fuss is all about. You may want to read it &lt;a href="http://manishbarnwal.com/blog/2016/06/29/big_data_problem/"&gt;here&lt;/a&gt;.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-09-22T04:00:00-03:00</updated><entry><title>Vim/Vi editor shortcuts</title><link href="http://manishbarnwal.github.io/blog/2016/09/22/vim_shortcuts/" rel="alternate"></link><updated>2016-09-22T04:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-09-22:blog/2016/09/22/vim_shortcuts/</id><summary type="html">&lt;p&gt;Repetitive tasks should be done using as many shortcuts as possible. You are not doing  anything new and hence not even an extra minute should be spent on doing the same. This post refers to the shortcuts that come in handy when working on the vi/vim editor. This is not an exhaustive list. These are the ones I use frequently. Feel free to comment down your favorite shortcuts.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Navigation keys&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;0   Moves cursor to the start of the line&lt;/li&gt;
+&lt;li&gt;$   Moves cursor to the end of the line&lt;/li&gt;
+&lt;li&gt;w   Moves forward one word&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;b   Moves backward one word&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;G   Moves to the end of the file&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;1 + G   Moves to the beginning of file
+ &lt;br&gt;
+ &lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Delete text&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;dw    Deletes a word ahead of the cursor&lt;/li&gt;
+&lt;li&gt;db    Deletes a word behind the cursor&lt;/li&gt;
+&lt;li&gt;d0    Deletes the complete line till beginning&lt;/li&gt;
+&lt;li&gt;d$    Deletes the complete line till the end&lt;/li&gt;
+&lt;li&gt;dd    Deletes the complete line&lt;/li&gt;
+&lt;li&gt;10dd   Deletes the following 5 lines&lt;/li&gt;
+&lt;li&gt;dG    Deletes till the end of the file
+ &lt;br&gt;
+ &lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Undo/Redo operation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;u   Undo the last operation&lt;/li&gt;
+&lt;li&gt;Ctrl + r  Redo the last undo
+&lt;br&gt;
+&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Search and Replace keys&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;/search_text  Finds 'search_text' in file going forward&lt;/li&gt;
+&lt;li&gt;?search_text  Finds 'search_text' in file going backward&lt;/li&gt;
+&lt;li&gt;n   Finds the next occurrence of 'search_text'&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;N   Finds the previous occurrence of 'search_text'&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;:%s/replace_what/replace_with   Replaces first occurrence&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;:%s/replace_what/replace_with/g   Replaces all occurrences globally&lt;/li&gt;
+&lt;li&gt;:%s/replace_what/replace_with/c   Asks for confirmation
+&lt;br&gt;
+&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Save and quit&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;:q!   Force quit without saving&lt;/li&gt;
+&lt;li&gt;:wq   Saves the changes made to the document&lt;/li&gt;
+&lt;li&gt;:wq!  Forcefully saves the changes made to the document&lt;/li&gt;
+&lt;li&gt;:w new_file_name  Saves the file to a new file named new_file_name
+&lt;br&gt;
+&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Command line shortcuts&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Ctrl + a    Brings to the beginning of the line&lt;/li&gt;
+&lt;li&gt;Ctrl + e    Brings to the end of the line&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="vi/vim"></category></entry><entry><title>Hadoop Streaming</title><link href="http://manishbarnwal.github.io/blog/2016/08/29/hadoop_streaming/" rel="alternate"></link><updated>2016-08-29T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-08-29:blog/2016/08/29/hadoop_streaming/</id><summary type="html">&lt;p&gt;A few days ago, I had written a post on &lt;strong&gt;The Big Data Problem&lt;/strong&gt; which attempted to understand why we need big data and what the fuss is all about. You may want to read it &lt;a href="http://manishbarnwal.com/blog/2016/06/29/big_data_problem/"&gt;here&lt;/a&gt;.
 &lt;br&gt;
 &lt;br&gt;
 Having understood why we need big data, let’s understand how we can go about analyzing the same. What is the way out to do analysis on big data? The solution is Streaming…Hadoop Streaming. &lt;em&gt;James Bond style&lt;/em&gt;
