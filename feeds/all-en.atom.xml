@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-09-26T08:00:00-03:00</updated><entry><title>ROC and AUC - three lettered acronyms</title><link href="http://manishbarnwal.github.io/blog/2016/09/26/three_letter_acronym_roc_and_auc/" rel="alternate"></link><updated>2016-09-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-09-26:blog/2016/09/26/three_letter_acronym_roc_and_auc/</id><summary type="html">&lt;p&gt;I don't feel bad to confess this that &lt;em&gt;ROC curve&lt;/em&gt;, &lt;em&gt;AUC&lt;/em&gt;, &lt;em&gt;True-positive&lt;/em&gt; and related terms took quite some time for me to understand. If today I contemplate on the reasons why I found this topic confusing. The first would be there are not many resources that explains intuitively what these mean. They just jump to the terms and the mathematical formula for them. The second being I had not used them even in my project work. You see the project work is never enough for all your learnings.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-09-26T08:00:00-03:00</updated><entry><title>ROC and AUC - The three lettered acronyms</title><link href="http://manishbarnwal.github.io/blog/2016/09/26/three_letter_acronym_roc_and_auc/" rel="alternate"></link><updated>2016-09-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-09-26:blog/2016/09/26/three_letter_acronym_roc_and_auc/</id><summary type="html">&lt;p&gt;I don't feel bad to confess this that &lt;em&gt;ROC curve&lt;/em&gt;, &lt;em&gt;AUC&lt;/em&gt;, &lt;em&gt;True-positive&lt;/em&gt; and related terms took quite some time for me to understand. If today I contemplate on the reasons why I found this topic confusing. The first would be there are not many resources that explains intuitively what these mean. They just jump to the terms and the mathematical formula for them. The second being I had not used them even in my project work. You see the project work is never enough for all your learnings.
 &lt;br&gt;
 &lt;br&gt;
 In this post, I will try to explain my understanding both intuitively and mathematically.&lt;/p&gt;
@@ -20,15 +20,12 @@ There are two levels in the &lt;em&gt;default&lt;/em&gt; variable that we are tr
 &lt;br&gt;
 &lt;br&gt;
 We train a binary classification model on this dataset having 1000 rows. The predictions that the model makes for the training data will either be correct or incorrect.&lt;/p&gt;
-&lt;h3&gt;There will be two cases for incorrect predictions&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Predicting positive when the actual was negative i.e classifying a customer as default when in actual he is not-default&lt;/li&gt;
-&lt;li&gt;Predicting negative when the actual was positive i.e classifying a customer as not-default when in actual he is default&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3&gt;There will be two cases for correct predictions&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Predicting positive when the actual was positive i.e correctly classifying default as default&lt;/li&gt;
-&lt;li&gt;Predicting negative when the actual was negative i.e correctly classifying not-default as not-default
+&lt;p&gt;&lt;strong&gt;There will be two cases for incorrect predictions&lt;/strong&gt;
+1. Predicting positive when the actual was negative i.e classifying a customer as default when in actual he is not-default
+2. Predicting negative when the actual was positive i.e classifying a customer as not-default when in actual he is default&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;There will be two cases for correct predictions&lt;/strong&gt;
+1. Predicting positive when the actual was positive i.e correctly classifying default as default
+2. Predicting negative when the actual was negative i.e correctly classifying not-default as not-default
 &lt;br&gt;
 &lt;br&gt;
 Now, FP, FN are incorrect predictions (notice False in the name) as the name suggests and TP, TN are the correct predictions. Don't be in a hurry here. Take some time to digest these 2 lettered acronyms. Read them loud. Take a notebook and write them down on your own.
@@ -38,32 +35,49 @@ Once we are comfortable with these terms we will discuss about something called 
 This looks something like this.
 &lt;Insert a picture&gt;
 &lt;br&gt;
-&lt;br&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Why we need TPR, FPR if we already have mis-classification error?&lt;/h3&gt;
-&lt;p&gt;The data I describe above is a typical case of imbalanced data wherein one of the class is having majority of observations (90% non-defaulters (negatives) in our data) and the remaining class is a minority (only 10% defaulters (positives)). In such cases, the predictions on new dataset will be skewed towards negatives i.e the model will classify a lot of defaulters (positives) into negatives. The bank can't afford to have such predictions. The bank wants to know for sure the defaulters (positives). Imagine, the loss to bank if the model classify a probable defaulter (positive) to non-defaulter.&lt;/p&gt;
-&lt;p&gt;In such cases, accuracy corresponding to mis-classification alone is not acceptable. The bank would be more interested in correctly classifying the positives into positive i.e the bank wants to classify the defaulters into defaulters without fail.&lt;/p&gt;
-&lt;p&gt;Comes into picture TPR, TNR, FPR, FNR. These 3 lettered acronyms are nothing but the rates of TP, TN, FP and FN respectively.
+&lt;p&gt;The data I describe above is a typical case of imbalanced data wherein one of the class is having majority of observations (90% non-defaulters (negatives) in our data) and the remaining class is a minority (only 10% defaulters (positives)). In such cases, the predictions on new dataset will be skewed towards negatives i.e the model will classify a lot of defaulters (positives) into negatives. The bank can't afford to have such predictions. The bank wants to know for sure the defaulters (positives). Imagine, the loss to bank if the model classify a probable defaulter (positive) to non-defaulter.
+&lt;br&gt;
+&lt;br&gt;
+In such cases, accuracy corresponding to mis-classification alone is not acceptable. The bank would be more interested in correctly classifying the positives into positive i.e the bank wants to classify the defaulters into defaulters without fail.
+&lt;br&gt;
+&lt;br&gt;
+Comes into picture TPR, TNR, FPR, FNR. These 3 lettered acronyms are nothing but the rates of TP, TN, FP and FN respectively.
 Below is the formula. To digest the formula, let's move to our data having 1000 rows - 100 defaulters (positives) and 900 non-defaulters(negatives). Suppose we employed a logistic regression that classified 80 defaulters correctly and incorrectly classified 90 non-defaulters as defaulters.
 TPR = 80 / 100 = 0.8
-FPR = 90/ 900 = 0.1&lt;/p&gt;
-&lt;p&gt;How does the TPR and FPR gets calculated?
-Whenever you do any classification, the model always gives you probabilities of each observation getting classified in each of the classes.
-Based on what cut-off you choose, you will get different predictions for the data and hence different TPR and FPR overall. You can choose whatever probability cut-off between [0, 1] and you will get different tuples of TPR and FPR.&lt;/p&gt;
+FPR = 90/ 900 = 0.1
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;How does the TPR and FPR gets calculated?&lt;/h3&gt;
+&lt;p&gt;Whenever you do any classification, the model always gives you probabilities of each observation getting classified in each of the classes.
+Based on what cut-off you choose, you will get different predictions for the data and hence different TPR and FPR overall. You can choose whatever probability cut-off between [0, 1] and you will get different tuples of TPR and FPR.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;TPR and FPR can be generated for each of the probability value one chooses.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;One can plot these tuples (probability, FPR, TPR) on a graph. You know what this graph is called? ROC-Receiver Operating Characteristics.
+&lt;p&gt;TPR and FPR can be generated for each of the probability value one chooses.
+&lt;br&gt;
+&lt;br&gt;
+One can plot these tuples (probability, FPR, TPR) on a graph. You know what this graph is called? ROC-Receiver Operating Characteristics.
 There is a trade-off between TPR and FPR. Depending on the requirement one can choose the probability cut-off that best fulfills their purpose. For instance, in the bank's case, the bank wants to not miss a single defaulter(positives) i.e the bank wants a higher TPR. The ROC curve looks something like this.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Alright, all this is clear to me.
-What about AUC ?
-AUC is nothing but the area under curve of ROC curve. Let's say we built a logistic regression model that gave us the probabilities for each row. Now we try with probability cut-offs from 0.1 to 1.0 with step size of 0.1 i.e we would have 10 probabilites to try with and corresponding to each of the 10 values we would have corresponding (FPR, TPR). If we plot these values on a graph we would get a graph having 10 points. This 10 point graph is what we call an ROC curve and the area under this graph is called AUC.&lt;/p&gt;
-&lt;p&gt;The larger the area the better. If we have to choose between two classifiers having different AUCs we choose the one having larger AUC.&lt;/p&gt;
-&lt;p&gt;How do you decide what probability cut-off should you choose to classify them into either of the classes?
-Some say they take a cut-off of 0.5 i.e observation having probability greater than 0.5 will be classified as positive or else negative. Do you see the problem in here? Try thinking.&lt;/p&gt;
-&lt;p&gt;Come into picture ROC curve. Look at the ROC curve and depending on what value of TPR or FPR you want from your model, you take probability corresponding to that point.&lt;/p&gt;
-&lt;p&gt;ROC, AUC can easily be plotted and calculated using modern analytical tools like R or Python. But I would suggest for better understanding of this topic, try writing your own code.&lt;/p&gt;
-&lt;p&gt;I will make an attempt of the same soon and will share it on this space. Keep learning and sharing.&lt;/p&gt;</summary><category term="roc"></category><category term="auc"></category></entry><entry><title>Vim/Vi editor shortcuts</title><link href="http://manishbarnwal.github.io/blog/2016/09/22/vim_shortcuts/" rel="alternate"></link><updated>2016-09-22T04:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-09-22:blog/2016/09/22/vim_shortcuts/</id><summary type="html">&lt;p&gt;Repetitive tasks should be done using as many shortcuts as possible. You are not doing  anything new and hence not even an extra minute should be spent on doing the same. This post refers to the shortcuts that come in handy when working on the vi/vim editor.&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;What about AUC ?&lt;/h3&gt;
+&lt;p&gt;AUC is nothing but the area under curve of ROC curve. Let's say we built a logistic regression model that gave us the probabilities for each row. Now we try with probability cut-offs from 0.1 to 1.0 with step size of 0.1 i.e we would have 10 probabilites to try with and corresponding to each of the 10 values we would have corresponding (FPR, TPR). If we plot these values on a graph we would get a graph having 10 points. This 10 point graph is what we call an ROC curve and the area under this graph is called AUC.&lt;/p&gt;
+&lt;p&gt;The larger the area the better. If we have to choose between two classifiers having different AUCs we choose the one having larger AUC.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;How do you decide what probability cut-off should you choose to classify them into either of the classes?&lt;/h3&gt;
+&lt;p&gt;Some say they take a cut-off of 0.5 i.e observation having probability greater than 0.5 will be classified as positive or else negative. Do you see the problem in here? Try thinking.
+&lt;br&gt;
+&lt;br&gt;
+Come into picture ROC curve. Look at the ROC curve and depending on what value of TPR or FPR you want from your model, you take probability corresponding to that point.&lt;/p&gt;
+&lt;p&gt;ROC, AUC can easily be plotted and calculated using modern analytical tools like R or Python. But I would suggest for better understanding of this topic, try writing your own code.
+&lt;br&gt;
+&lt;br&gt;
+I will make an attempt of the same soon and will share it on this space. Keep learning and sharing.&lt;/p&gt;</summary><category term="roc"></category><category term="auc"></category></entry><entry><title>Vim/Vi editor shortcuts</title><link href="http://manishbarnwal.github.io/blog/2016/09/22/vim_shortcuts/" rel="alternate"></link><updated>2016-09-22T04:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-09-22:blog/2016/09/22/vim_shortcuts/</id><summary type="html">&lt;p&gt;Repetitive tasks should be done using as many shortcuts as possible. You are not doing  anything new and hence not even an extra minute should be spent on doing the same. This post refers to the shortcuts that come in handy when working on the vi/vim editor.&lt;/p&gt;
 &lt;p&gt;This is not an exhaustive list. These are the ones I use frequently. Feel free to comment down your favorite shortcuts.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;

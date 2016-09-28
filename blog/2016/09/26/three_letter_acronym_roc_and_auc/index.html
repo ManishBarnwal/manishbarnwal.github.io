@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ROC and AUC - three lettered acronyms</title>
+  <title>ROC and AUC - The three lettered acronyms</title>
   <meta name="author" content="Manish Barnwal">
   <meta name="description" content="This post talks about one of the most inspiring talks I ever attended live." >
   <meta name="keywords" content="roc, auc, tpr, fpr, probability cut-off" >
@@ -1808,7 +1808,7 @@ jQuery(document).ready(function($) {
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">ROC and AUC - three lettered acronyms</h1>
+      <h1 class="entry-title">ROC and AUC - The three lettered acronyms</h1>
       <p class="meta"><time datetime="2016-09-26T08:00:00" pubdate>Sep 26, 2016</time></p>
 </header>
 
@@ -1833,15 +1833,12 @@ There are two levels in the <em>default</em> variable that we are trying to pred
 <br>
 <br>
 We train a binary classification model on this dataset having 1000 rows. The predictions that the model makes for the training data will either be correct or incorrect.</p>
-<h3>There will be two cases for incorrect predictions</h3>
-<ol>
-<li>Predicting positive when the actual was negative i.e classifying a customer as default when in actual he is not-default</li>
-<li>Predicting negative when the actual was positive i.e classifying a customer as not-default when in actual he is default</li>
-</ol>
-<h3>There will be two cases for correct predictions</h3>
-<ol>
-<li>Predicting positive when the actual was positive i.e correctly classifying default as default</li>
-<li>Predicting negative when the actual was negative i.e correctly classifying not-default as not-default
+<p><strong>There will be two cases for incorrect predictions</strong>
+1. Predicting positive when the actual was negative i.e classifying a customer as default when in actual he is not-default
+2. Predicting negative when the actual was positive i.e classifying a customer as not-default when in actual he is default</p>
+<p><strong>There will be two cases for correct predictions</strong>
+1. Predicting positive when the actual was positive i.e correctly classifying default as default
+2. Predicting negative when the actual was negative i.e correctly classifying not-default as not-default
 <br>
 <br>
 Now, FP, FN are incorrect predictions (notice False in the name) as the name suggests and TP, TN are the correct predictions. Don't be in a hurry here. Take some time to digest these 2 lettered acronyms. Read them loud. Take a notebook and write them down on your own.
@@ -1851,32 +1848,49 @@ Once we are comfortable with these terms we will discuss about something called 
 This looks something like this.
 <Insert a picture>
 <br>
-<br></li>
-</ol>
+<br></p>
 <h3>Why we need TPR, FPR if we already have mis-classification error?</h3>
-<p>The data I describe above is a typical case of imbalanced data wherein one of the class is having majority of observations (90% non-defaulters (negatives) in our data) and the remaining class is a minority (only 10% defaulters (positives)). In such cases, the predictions on new dataset will be skewed towards negatives i.e the model will classify a lot of defaulters (positives) into negatives. The bank can't afford to have such predictions. The bank wants to know for sure the defaulters (positives). Imagine, the loss to bank if the model classify a probable defaulter (positive) to non-defaulter.</p>
-<p>In such cases, accuracy corresponding to mis-classification alone is not acceptable. The bank would be more interested in correctly classifying the positives into positive i.e the bank wants to classify the defaulters into defaulters without fail.</p>
-<p>Comes into picture TPR, TNR, FPR, FNR. These 3 lettered acronyms are nothing but the rates of TP, TN, FP and FN respectively.
+<p>The data I describe above is a typical case of imbalanced data wherein one of the class is having majority of observations (90% non-defaulters (negatives) in our data) and the remaining class is a minority (only 10% defaulters (positives)). In such cases, the predictions on new dataset will be skewed towards negatives i.e the model will classify a lot of defaulters (positives) into negatives. The bank can't afford to have such predictions. The bank wants to know for sure the defaulters (positives). Imagine, the loss to bank if the model classify a probable defaulter (positive) to non-defaulter.
+<br>
+<br>
+In such cases, accuracy corresponding to mis-classification alone is not acceptable. The bank would be more interested in correctly classifying the positives into positive i.e the bank wants to classify the defaulters into defaulters without fail.
+<br>
+<br>
+Comes into picture TPR, TNR, FPR, FNR. These 3 lettered acronyms are nothing but the rates of TP, TN, FP and FN respectively.
 Below is the formula. To digest the formula, let's move to our data having 1000 rows - 100 defaulters (positives) and 900 non-defaulters(negatives). Suppose we employed a logistic regression that classified 80 defaulters correctly and incorrectly classified 90 non-defaulters as defaulters.
 TPR = 80 / 100 = 0.8
-FPR = 90/ 900 = 0.1</p>
-<p>How does the TPR and FPR gets calculated?
-Whenever you do any classification, the model always gives you probabilities of each observation getting classified in each of the classes.
-Based on what cut-off you choose, you will get different predictions for the data and hence different TPR and FPR overall. You can choose whatever probability cut-off between [0, 1] and you will get different tuples of TPR and FPR.</p>
+FPR = 90/ 900 = 0.1
+<br>
+<br></p>
+<h3>How does the TPR and FPR gets calculated?</h3>
+<p>Whenever you do any classification, the model always gives you probabilities of each observation getting classified in each of the classes.
+Based on what cut-off you choose, you will get different predictions for the data and hence different TPR and FPR overall. You can choose whatever probability cut-off between [0, 1] and you will get different tuples of TPR and FPR.
+<br>
+<br></p>
 <blockquote>
-<p>TPR and FPR can be generated for each of the probability value one chooses.</p>
-</blockquote>
-<p>One can plot these tuples (probability, FPR, TPR) on a graph. You know what this graph is called? ROC-Receiver Operating Characteristics.
+<p>TPR and FPR can be generated for each of the probability value one chooses.
+<br>
+<br>
+One can plot these tuples (probability, FPR, TPR) on a graph. You know what this graph is called? ROC-Receiver Operating Characteristics.
 There is a trade-off between TPR and FPR. Depending on the requirement one can choose the probability cut-off that best fulfills their purpose. For instance, in the bank's case, the bank wants to not miss a single defaulter(positives) i.e the bank wants a higher TPR. The ROC curve looks something like this.</p>
+</blockquote>
 <p>Alright, all this is clear to me.
-What about AUC ?
-AUC is nothing but the area under curve of ROC curve. Let's say we built a logistic regression model that gave us the probabilities for each row. Now we try with probability cut-offs from 0.1 to 1.0 with step size of 0.1 i.e we would have 10 probabilites to try with and corresponding to each of the 10 values we would have corresponding (FPR, TPR). If we plot these values on a graph we would get a graph having 10 points. This 10 point graph is what we call an ROC curve and the area under this graph is called AUC.</p>
-<p>The larger the area the better. If we have to choose between two classifiers having different AUCs we choose the one having larger AUC.</p>
-<p>How do you decide what probability cut-off should you choose to classify them into either of the classes?
-Some say they take a cut-off of 0.5 i.e observation having probability greater than 0.5 will be classified as positive or else negative. Do you see the problem in here? Try thinking.</p>
-<p>Come into picture ROC curve. Look at the ROC curve and depending on what value of TPR or FPR you want from your model, you take probability corresponding to that point.</p>
-<p>ROC, AUC can easily be plotted and calculated using modern analytical tools like R or Python. But I would suggest for better understanding of this topic, try writing your own code.</p>
-<p>I will make an attempt of the same soon and will share it on this space. Keep learning and sharing.</p></div>
+<br>
+<br></p>
+<h3>What about AUC ?</h3>
+<p>AUC is nothing but the area under curve of ROC curve. Let's say we built a logistic regression model that gave us the probabilities for each row. Now we try with probability cut-offs from 0.1 to 1.0 with step size of 0.1 i.e we would have 10 probabilites to try with and corresponding to each of the 10 values we would have corresponding (FPR, TPR). If we plot these values on a graph we would get a graph having 10 points. This 10 point graph is what we call an ROC curve and the area under this graph is called AUC.</p>
+<p>The larger the area the better. If we have to choose between two classifiers having different AUCs we choose the one having larger AUC.
+<br>
+<br></p>
+<h3>How do you decide what probability cut-off should you choose to classify them into either of the classes?</h3>
+<p>Some say they take a cut-off of 0.5 i.e observation having probability greater than 0.5 will be classified as positive or else negative. Do you see the problem in here? Try thinking.
+<br>
+<br>
+Come into picture ROC curve. Look at the ROC curve and depending on what value of TPR or FPR you want from your model, you take probability corresponding to that point.</p>
+<p>ROC, AUC can easily be plotted and calculated using modern analytical tools like R or Python. But I would suggest for better understanding of this topic, try writing your own code.
+<br>
+<br>
+I will make an attempt of the same soon and will share it on this space. Keep learning and sharing.</p></div>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- bar -->
 <ins class="adsbygoogle"
@@ -1908,7 +1922,7 @@ Some say they take a cut-off of 0.5 i.e observation having probability greater t
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2016/09/26/three_letter_acronym_roc_and_auc/">ROC and AUC - three lettered acronyms</a>
+          <a href="http://manishbarnwal.github.io/blog/2016/09/26/three_letter_acronym_roc_and_auc/">ROC and AUC - The three lettered acronyms</a>
       </li>
       <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2016/09/22/vim_shortcuts/">Vim/Vi editor shortcuts</a>
@@ -1928,11 +1942,11 @@ Some say they take a cut-off of 0.5 i.e observation having probability greater t
       
     <h1>Categories</h1>
     <ul id="recent_posts">
+        <li><a href="http://manishbarnwal.github.io/category/2-ml-data-science.html">2. ML, Data Science</a></li>
         <li><a href="http://manishbarnwal.github.io/category/big-data.html">Big Data</a></li>
         <li><a href="http://manishbarnwal.github.io/category/hacksnshortcuts.html">HacksNshortcuts</a></li>
         <li><a href="http://manishbarnwal.github.io/category/interview.html">Interview</a></li>
         <li><a href="http://manishbarnwal.github.io/category/life.html">Life</a></li>
-        <li><a href="http://manishbarnwal.github.io/category/machine-learning.html">Machine Learning</a></li>
         <li><a href="http://manishbarnwal.github.io/category/r.html">R</a></li>
     </ul>
   </section>
@@ -1963,7 +1977,7 @@ Some say they take a cut-off of 0.5 i.e observation having probability greater t
 	  var disqus_shortname = 'manishbarnwal';
           var disqus_identifier = '/blog/2016/09/26/three_letter_acronym_roc_and_auc/';
           var disqus_url = 'http://manishbarnwal.com/blog/2016/09/26/three_letter_acronym_roc_and_auc/';
-          var disqus_title = 'ROC and AUC - three lettered acronyms';
+          var disqus_title = 'ROC and AUC - The three lettered acronyms';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
