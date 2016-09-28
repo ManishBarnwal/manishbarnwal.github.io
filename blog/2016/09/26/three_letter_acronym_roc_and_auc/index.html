@@ -1834,11 +1834,11 @@ There are two levels in the <em>default</em> variable that we are trying to pred
 <br>
 We train a binary classification model on this dataset having 1000 rows. The predictions that the model makes for the training data will either be correct or incorrect.</p>
 <p><strong>There will be two cases for incorrect predictions</strong>
-1. Predicting positive when the actual was negative i.e classifying a customer as default when in actual he is not-default
-2. Predicting negative when the actual was positive i.e classifying a customer as not-default when in actual he is default</p>
+- Predicting positive when the actual was negative i.e classifying a customer as default when in actual he is not-default
+- Predicting negative when the actual was positive i.e classifying a customer as not-default when in actual he is default</p>
 <p><strong>There will be two cases for correct predictions</strong>
-1. Predicting positive when the actual was positive i.e correctly classifying default as default
-2. Predicting negative when the actual was negative i.e correctly classifying not-default as not-default
+- Predicting positive when the actual was positive i.e correctly classifying default as default
+- Predicting negative when the actual was negative i.e correctly classifying not-default as not-default
 <br>
 <br>
 Now, FP, FN are incorrect predictions (notice False in the name) as the name suggests and TP, TN are the correct predictions. Don't be in a hurry here. Take some time to digest these 2 lettered acronyms. Read them loud. Take a notebook and write them down on your own.
@@ -1856,7 +1856,7 @@ This looks something like this.
 In such cases, accuracy corresponding to mis-classification alone is not acceptable. The bank would be more interested in correctly classifying the positives into positive i.e the bank wants to classify the defaulters into defaulters without fail.
 <br>
 <br>
-Comes into picture TPR, TNR, FPR, FNR. These 3 lettered acronyms are nothing but the rates of TP, TN, FP and FN respectively.
+Comes into picture <em>TPR</em>, <em>TNR</em>, <em>FPR</em>, <em>FNR</em>. These 3 lettered acronyms are nothing but the rates of TP, TN, FP and FN respectively.
 Below is the formula. To digest the formula, let's move to our data having 1000 rows - 100 defaulters (positives) and 900 non-defaulters(negatives). Suppose we employed a logistic regression that classified 80 defaulters correctly and incorrectly classified 90 non-defaulters as defaulters.
 TPR = 80 / 100 = 0.8
 FPR = 90/ 900 = 0.1
@@ -1877,7 +1877,7 @@ There is a trade-off between TPR and FPR. Depending on the requirement one can c
 <p>Alright, all this is clear to me.
 <br>
 <br></p>
-<h3>What about AUC ?</h3>
+<h3>What about AUC?</h3>
 <p>AUC is nothing but the area under curve of ROC curve. Let's say we built a logistic regression model that gave us the probabilities for each row. Now we try with probability cut-offs from 0.1 to 1.0 with step size of 0.1 i.e we would have 10 probabilites to try with and corresponding to each of the 10 values we would have corresponding (FPR, TPR). If we plot these values on a graph we would get a graph having 10 points. This 10 point graph is what we call an ROC curve and the area under this graph is called AUC.</p>
 <p>The larger the area the better. If we have to choose between two classifiers having different AUCs we choose the one having larger AUC.
 <br>
