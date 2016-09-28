@@ -20,12 +20,15 @@ There are two levels in the &lt;em&gt;default&lt;/em&gt; variable that we are tr
 &lt;br&gt;
 &lt;br&gt;
 We train a binary classification model on this dataset having 1000 rows. The predictions that the model makes for the training data will either be correct or incorrect.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;There will be two cases for incorrect predictions&lt;/strong&gt;
-- Predicting positive when the actual was negative i.e classifying a customer as default when in actual he is not-default
-- Predicting negative when the actual was positive i.e classifying a customer as not-default when in actual he is default&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;There will be two cases for correct predictions&lt;/strong&gt;
-- Predicting positive when the actual was positive i.e correctly classifying default as default
-- Predicting negative when the actual was negative i.e correctly classifying not-default as not-default
+&lt;p&gt;&lt;strong&gt;There will be two cases for incorrect predictions&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Predicting positive when the actual was negative i.e classifying a customer as default when in actual he is not-default&lt;/li&gt;
+&lt;li&gt;Predicting negative when the actual was positive i.e classifying a customer as not-default when in actual he is default&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;There will be two cases for correct predictions&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Predicting positive when the actual was positive i.e correctly classifying default as default&lt;/li&gt;
+&lt;li&gt;Predicting negative when the actual was negative i.e correctly classifying not-default as not-default
 &lt;br&gt;
 &lt;br&gt;
 Now, FP, FN are incorrect predictions (notice False in the name) as the name suggests and TP, TN are the correct predictions. Don't be in a hurry here. Take some time to digest these 2 lettered acronyms. Read them loud. Take a notebook and write them down on your own.
@@ -35,7 +38,8 @@ Once we are comfortable with these terms we will discuss about something called 
 This looks something like this.
 &lt;Insert a picture&gt;
 &lt;br&gt;
-&lt;br&gt;&lt;/p&gt;
+&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;Why we need TPR, FPR if we already have mis-classification error?&lt;/h3&gt;
 &lt;p&gt;The data I describe above is a typical case of imbalanced data wherein one of the class is having majority of observations (90% non-defaulters (negatives) in our data) and the remaining class is a minority (only 10% defaulters (positives)). In such cases, the predictions on new dataset will be skewed towards negatives i.e the model will classify a lot of defaulters (positives) into negatives. The bank can't afford to have such predictions. The bank wants to know for sure the defaulters (positives). Imagine, the loss to bank if the model classify a probable defaulter (positive) to non-defaulter.
 &lt;br&gt;
@@ -58,7 +62,6 @@ Based on what cut-off you choose, you will get different predictions for the dat
 &lt;p&gt;TPR and FPR are be generated for each of the probability value one chooses. And these values are then plotted on an ROC curve.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;br&gt;
-&lt;br&gt;
 One can plot these tuples (probability, FPR, TPR) on a graph. You know what this graph is called? ROC-Receiver Operating Characteristics.
 There is a trade-off between TPR and FPR. Depending on the requirement one can choose the probability cut-off that best fulfills their purpose. For instance, in the bank's case, the bank wants to not miss a single defaulter(positives) i.e the bank wants a higher TPR. The ROC curve looks something like this.&lt;/p&gt;
 &lt;p&gt;Alright, all this is clear to me.
