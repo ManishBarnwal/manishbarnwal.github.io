@@ -4,7 +4,7 @@
 &lt;br&gt;
 I will use the file- ‘data.txt’ to illustrate these commands. ‘data.txt’ is a file having 200 rows and 8 columns. You can access the &lt;a href="https://github.com/ManishBarnwal/LearnNew/blob/master/LearnShellCommands/data.txt"&gt;data&lt;/a&gt; here.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;cat&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;cat&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Throws the the contents of the entire file at your terminal
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
@@ -13,7 +13,7 @@ I will use the file- ‘data.txt’ to illustrate these commands. ‘data.txt’
 We don’t want to bombard our terminal with the complete content of the file. Instead, if you want to have a complete look at the file, open the file in vim editor&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;vim&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;vim&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;Will open the file in the editor  &lt;br /&gt;
         &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
