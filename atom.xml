@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-09-26T08:00:00-03:00</updated><entry><title>ROC and AUC - The three lettered acronyms</title><link href="http://manishbarnwal.github.io/blog/2016/09/26/three_letter_acronym_roc_and_auc/" rel="alternate"></link><updated>2016-09-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-09-26:blog/2016/09/26/three_letter_acronym_roc_and_auc/</id><summary type="html">&lt;p&gt;I don't feel bad to confess this that &lt;em&gt;ROC curve&lt;/em&gt;, &lt;em&gt;AUC&lt;/em&gt;, &lt;em&gt;True-positive&lt;/em&gt; and related terms took quite some time for me to understand. If today I contemplate on the reasons why I found this topic confusing. The first would be there are not many resources that explains intuitively what these mean. They just jump to the terms and the mathematical formula for them. The second being I had not used them even in my project work. You see the project work is never enough for all your learnings.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-09-30T07:00:00-03:00</updated><entry><title>Shell commands come in handy for a data scientist</title><link href="http://manishbarnwal.github.io/blog/2016/09/30/shell_commands_for_data_scientist/" rel="alternate"></link><updated>2016-09-30T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-09-30:blog/2016/09/30/shell_commands_for_data_scientist/</id><summary type="html">&lt;p&gt;I am no expert of shell commands. I have been using them for quite some time and thought I give an attempt to list down the most common commands. I am writing these mostly from the perspective of a data-science guy. Let us get started.
+&lt;br&gt;
+&lt;br&gt;
+I will use the file- ‘data.txt’ to illustrate these commands. ‘data.txt’ is a file having 200 rows and 8 columns. You can access the &lt;a href="https://github.com/ManishBarnwal/LearnNew/blob/master/LearnShellCommands/data.txt"&gt;data&lt;/a&gt; here.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;cat&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Throws the the contents of the entire file at your terminal
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;cat data.txt
+&lt;/code&gt;&lt;/pre&gt;
+We don’t want to bombard our terminal with the complete content of the file. Instead, if you want to have a complete look at the file, open the file in vim editor&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;vim&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Will open the file in the editor  &lt;br /&gt;
+        &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+        &lt;code class="bash"&gt;vim data.txt
+        &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;
+3. Create zip file of “dir_location” using command
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;zip -r rPackages.zip rPackages/
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+4. Add this zip file in your HIVE hql (or anything else)
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;add file rPackages.zip;
+Don’t forget the semicolon
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+5. Unzip the file inside R script i.e. each reducer will have &lt;em&gt;rPackages&lt;/em&gt; directory now
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;unzip('rPackages.zip', overwrite=TRUE)
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+6. Load the package now
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;library(randomForest, lib.loc='rPackages/')
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;And you’re done! Remember, you have to build the package where you want to use, because built packages are OS dependent.&lt;/p&gt;</summary><category term="shell-commands"></category></entry><entry><title>ROC and AUC - The three lettered acronyms</title><link href="http://manishbarnwal.github.io/blog/2016/09/26/three_letter_acronym_roc_and_auc/" rel="alternate"></link><updated>2016-09-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-09-26:blog/2016/09/26/three_letter_acronym_roc_and_auc/</id><summary type="html">&lt;p&gt;I don't feel bad to confess this that &lt;em&gt;ROC curve&lt;/em&gt;, &lt;em&gt;AUC&lt;/em&gt;, &lt;em&gt;True-positive&lt;/em&gt; and related terms took quite some time for me to understand. If today I contemplate on the reasons why I found this topic confusing. The first would be there are not many resources that explains intuitively what these mean. They just jump to the terms and the mathematical formula for them. The second being I had not used them even in my project work. You see the project work is never enough for all your learnings.
 &lt;br&gt;
 &lt;br&gt;
 In this post, I will try to explain my understanding both intuitively and mathematically.&lt;/p&gt;
