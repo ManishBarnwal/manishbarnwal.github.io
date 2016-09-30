@@ -1836,34 +1836,33 @@ We don’t want to bombard our terminal with the complete content of the file. I
 <p><br>
 <strong>tail</strong> &nbsp; &nbsp; &nbsp; &nbsp; Gives the bottom 10 rows of the text file at your terminal
 <pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">tail -n 2 data.txt
-</code></pre>
-This will give you the bottom 2 rows of the file</p>
-<p><br>
-<pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="bash">tail -n 2 data.txt -- This will give you the bottom 2 rows of the file
+</code></pre></p>
+<p><br></p>
+<h4>The <em>piping</em> operator</h4>
+<p><pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="bash">cat data.txt | head
 </code></pre></p>
 <p><br>
 Notice the <strong>|</strong> operator. This is called pipe operator. There is a concept of piping wherein you can perform a sequence of operations in a single command.</p>
 <h3>So what exactly is piping?</h3>
-<p>A pipe is a facility of the shell that makes it easy to chain together multiple commands. When used between two Unix commands, it means that output from the first command should become the input to the second command. Just read the <strong>|</strong> in the command as <em>pass the data onto</em>. More on this operator later in the post.</p>
-<p><strong>wc</strong></p>
+<p>A pipe is a facility of the shell that makes it easy to chain together multiple commands. When used between two Unix commands, it means that output from the first command should become the input to the second command. Just read the <strong>|</strong> in the command as <em>pass the data onto</em>. More on this operator later in the post.
+<br>
+<br>
+<strong>wc</strong></p>
 <p><strong>wc</strong> is a fairly useful shell command that lets you count the number of lines(-l), words(-w) or characters(-c) in a given file
 <br>
 <pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">wc -l data.txt
--- gives you the number of lines in the file
+<code class="bash">wc -l data.txt -- gives you the number of lines in the file
 </code></pre></p>
 <p><br></p>
 <pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">wc -w data.txt
--- gives you the number of words in the file
+<code class="bash">wc -w data.txt -- gives you the number of words in the file
 </code></pre>
 
 <p><br></p>
 <pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">wc -c data.txt
--- gives you the number of characters in the file
+<code class="shell">wc -c data.txt -- gives you the number of characters in the file
 </code></pre>
 
 <p><br></p>

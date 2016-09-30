@@ -23,34 +23,33 @@ We don’t want to bombard our terminal with the complete content of the file. I
 &lt;p&gt;&lt;br&gt;
 &lt;strong&gt;tail&lt;/strong&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Gives the bottom 10 rows of the text file at your terminal
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="bash"&gt;tail -n 2 data.txt
-&lt;/code&gt;&lt;/pre&gt;
-This will give you the bottom 2 rows of the file&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;tail -n 2 data.txt -- This will give you the bottom 2 rows of the file
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h4&gt;The &lt;em&gt;piping&lt;/em&gt; operator&lt;/h4&gt;
+&lt;p&gt;&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="bash"&gt;cat data.txt | head
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 Notice the &lt;strong&gt;|&lt;/strong&gt; operator. This is called pipe operator. There is a concept of piping wherein you can perform a sequence of operations in a single command.&lt;/p&gt;
 &lt;h3&gt;So what exactly is piping?&lt;/h3&gt;
-&lt;p&gt;A pipe is a facility of the shell that makes it easy to chain together multiple commands. When used between two Unix commands, it means that output from the first command should become the input to the second command. Just read the &lt;strong&gt;|&lt;/strong&gt; in the command as &lt;em&gt;pass the data onto&lt;/em&gt;. More on this operator later in the post.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;wc&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A pipe is a facility of the shell that makes it easy to chain together multiple commands. When used between two Unix commands, it means that output from the first command should become the input to the second command. Just read the &lt;strong&gt;|&lt;/strong&gt; in the command as &lt;em&gt;pass the data onto&lt;/em&gt;. More on this operator later in the post.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;wc&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;wc&lt;/strong&gt; is a fairly useful shell command that lets you count the number of lines(-l), words(-w) or characters(-c) in a given file
 &lt;br&gt;
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="bash"&gt;wc -l data.txt
--- gives you the number of lines in the file
+&lt;code class="bash"&gt;wc -l data.txt -- gives you the number of lines in the file
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="bash"&gt;wc -w data.txt
--- gives you the number of words in the file
+&lt;code class="bash"&gt;wc -w data.txt -- gives you the number of words in the file
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="bash"&gt;wc -c data.txt
--- gives you the number of characters in the file
+&lt;code class="shell"&gt;wc -c data.txt -- gives you the number of characters in the file
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
