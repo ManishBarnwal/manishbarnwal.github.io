@@ -2,35 +2,64 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-09-30T07:00:00-03:00</updated><entry><title>Shell commands come in handy for a data scientist</title><link href="http://manishbarnwal.github.io/blog/2016/09/30/shell_commands_for_data_scientist/" rel="alternate"></link><updated>2016-09-30T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-09-30:blog/2016/09/30/shell_commands_for_data_scientist/</id><summary type="html">&lt;p&gt;I am no expert of shell commands. I have been using them for quite some time and thought I give an attempt to list down the most common commands. I am writing these mostly from the perspective of a data-science guy. Let us get started.
 &lt;br&gt;
 &lt;br&gt;
-I will use the file- ‘data.txt’ to illustrate these commands. ‘data.txt’ is a file having 200 rows and 8 columns. You can access the &lt;a href="https://github.com/ManishBarnwal/LearnNew/blob/master/LearnShellCommands/data.txt"&gt;data&lt;/a&gt; here.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;cat&lt;/strong&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Throws the the contents of the entire file at your terminal&lt;/p&gt;
-&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="bash"&gt;cat data.txt
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br&gt;
+I will use the file- ‘data.txt’ to illustrate these commands. ‘data.txt’ is a file having 200 rows and 8 columns. You can access the &lt;a href="https://github.com/ManishBarnwal/LearnNew/blob/master/LearnShellCommands/data.txt"&gt;data&lt;/a&gt; here.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;cat&lt;/strong&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Throws the the contents of the entire file at your terminal
+    &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+    &lt;code class="bash"&gt;cat data.txt
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
 We don’t want to bombard our terminal with the complete content of the file. Instead, if you want to have a complete look at the file, open the file in vim editor&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;vim&lt;/strong&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Opens the file in the editor  &lt;br /&gt;
-        &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-        &lt;code class="bash"&gt;vim data.txt
-        &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+    &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+    &lt;code class="bash"&gt;vim data.txt
+    &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
+&lt;strong&gt;head&lt;/strong&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Gives the top 10 rows of the text file at your terminal
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;head data.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;strong&gt;tail&lt;/strong&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Gives the bottom 10 rows of the text file at your terminal
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;tail -n 2 data.txt
+&lt;/code&gt;&lt;/pre&gt;
+This will give you the bottom 2 rows of the file&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;cat data.txt | head
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+Notice the &lt;strong&gt;|&lt;/strong&gt; operator. This is called pipe operator. There is a concept of piping wherein you can perform a sequence of operations in a single command.&lt;/p&gt;
+&lt;h3&gt;So what exactly is piping?&lt;/h3&gt;
+&lt;p&gt;A pipe is a facility of the shell that makes it easy to chain together multiple commands. When used between two Unix commands, it means that output from the first command should become the input to the second command. Just read the &lt;strong&gt;|&lt;/strong&gt; in the command as &lt;em&gt;pass the data onto&lt;/em&gt;. More on this operator later in the post.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;wc&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;wc&lt;/strong&gt; is a fairly useful shell command that lets you count the number of lines(-l), words(-w) or characters(-c) in a given file
 &lt;br&gt;
-Create zip file of “dir_location” using command
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="bash"&gt;zip -r rPackages.zip rPackages/
+&lt;code class="bash"&gt;wc -l data.txt
+-- gives you the number of lines in the file
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-4. Add this zip file in your HIVE hql (or anything else)
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="bash"&gt;add file rPackages.zip;
-Don’t forget the semicolon
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-5. Unzip the file inside R script i.e. each reducer will have &lt;em&gt;rPackages&lt;/em&gt; directory now
+&lt;code class="bash"&gt;wc -w data.txt
+-- gives you the number of words in the file
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;wc -c data.txt
+-- gives you the number of characters in the file
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Unzip the file inside R script i.e. each reducer will have &lt;em&gt;rPackages&lt;/em&gt; directory now
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="bash"&gt;unzip('rPackages.zip', overwrite=TRUE)
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;br&gt;
 6. Load the package now
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;

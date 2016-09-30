@@ -1815,35 +1815,64 @@ jQuery(document).ready(function($) {
   <div class="entry-content"><p>I am no expert of shell commands. I have been using them for quite some time and thought I give an attempt to list down the most common commands. I am writing these mostly from the perspective of a data-science guy. Let us get started.
 <br>
 <br>
-I will use the file- ‘data.txt’ to illustrate these commands. ‘data.txt’ is a file having 200 rows and 8 columns. You can access the <a href="https://github.com/ManishBarnwal/LearnNew/blob/master/LearnShellCommands/data.txt">data</a> here.</p>
-<p><strong>cat</strong> &nbsp; &nbsp; &nbsp; &nbsp; Throws the the contents of the entire file at your terminal</p>
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">cat data.txt
-</code></pre>
-
-<p><br>
+I will use the file- ‘data.txt’ to illustrate these commands. ‘data.txt’ is a file having 200 rows and 8 columns. You can access the <a href="https://github.com/ManishBarnwal/LearnNew/blob/master/LearnShellCommands/data.txt">data</a> here.
+<br>
+<br>
+<strong>cat</strong> &nbsp; &nbsp; &nbsp; &nbsp; Throws the the contents of the entire file at your terminal
+    <pre style="font-size:60%; padding:7px; margin:0em;">
+    <code class="bash">cat data.txt
+    </code></pre>
+<br>
 We don’t want to bombard our terminal with the complete content of the file. Instead, if you want to have a complete look at the file, open the file in vim editor</p>
 <p><strong>vim</strong> &nbsp; &nbsp; &nbsp; &nbsp; Opens the file in the editor  <br />
-        <pre style="font-size:60%; padding:7px; margin:0em;">
-        <code class="bash">vim data.txt
-        </code></pre></p>
+    <pre style="font-size:60%; padding:7px; margin:0em;">
+    <code class="bash">vim data.txt
+    </code></pre></p>
 <p><br>
+<strong>head</strong> &nbsp; &nbsp; &nbsp; &nbsp; Gives the top 10 rows of the text file at your terminal
+<pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="bash">head data.txt
+</code></pre></p>
+<p><br>
+<strong>tail</strong> &nbsp; &nbsp; &nbsp; &nbsp; Gives the bottom 10 rows of the text file at your terminal
+<pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="bash">tail -n 2 data.txt
+</code></pre>
+This will give you the bottom 2 rows of the file</p>
+<p><br>
+<pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="bash">cat data.txt | head
+</code></pre></p>
+<p><br>
+Notice the <strong>|</strong> operator. This is called pipe operator. There is a concept of piping wherein you can perform a sequence of operations in a single command.</p>
+<h3>So what exactly is piping?</h3>
+<p>A pipe is a facility of the shell that makes it easy to chain together multiple commands. When used between two Unix commands, it means that output from the first command should become the input to the second command. Just read the <strong>|</strong> in the command as <em>pass the data onto</em>. More on this operator later in the post.</p>
+<p><strong>wc</strong></p>
+<p><strong>wc</strong> is a fairly useful shell command that lets you count the number of lines(-l), words(-w) or characters(-c) in a given file
 <br>
-Create zip file of “dir_location” using command
 <pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">zip -r rPackages.zip rPackages/
+<code class="bash">wc -l data.txt
+-- gives you the number of lines in the file
 </code></pre></p>
-<p><br>
-4. Add this zip file in your HIVE hql (or anything else)
+<p><br></p>
 <pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">add file rPackages.zip;
-Don’t forget the semicolon
-</code></pre></p>
-<p><br>
-5. Unzip the file inside R script i.e. each reducer will have <em>rPackages</em> directory now
+<code class="bash">wc -w data.txt
+-- gives you the number of words in the file
+</code></pre>
+
+<p><br></p>
+<pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="bash">wc -c data.txt
+-- gives you the number of characters in the file
+</code></pre>
+
+<p><br></p>
+<ol>
+<li>Unzip the file inside R script i.e. each reducer will have <em>rPackages</em> directory now
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="bash">unzip('rPackages.zip', overwrite=TRUE)
-</code></pre></p>
+</code></pre></li>
+</ol>
 <p><br>
 6. Load the package now
 <pre style="font-size:60%; padding:7px; margin:0em;">
