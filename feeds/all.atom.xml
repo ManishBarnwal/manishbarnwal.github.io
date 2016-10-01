@@ -14,25 +14,24 @@ We don’t want to bombard our terminal with the complete content of the file. I
 &lt;p&gt;&lt;strong&gt;vim&lt;/strong&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Opens the file in the editor  &lt;br /&gt;
     &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
     &lt;code class="bash"&gt;vim data.txt
-    &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
 &lt;strong&gt;head&lt;/strong&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Gives the top 10 rows of the text file at your terminal
-&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="bash"&gt;head data.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
+    &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+    &lt;code class="bash"&gt;head data.txt
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
 &lt;strong&gt;tail&lt;/strong&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Gives the bottom 10 rows of the text file at your terminal
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="bash"&gt;tail -n 2 data.txt -- This will give you the bottom 2 rows of the file
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;h4&gt;The piping operator&lt;/h4&gt;
 &lt;p&gt;&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="bash"&gt;cat data.txt | head
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
-Notice the &lt;strong&gt;|&lt;/strong&gt; operator. This is called pipe operator. Piping is a concept wherein you can perform a sequence of operations in a single command.
+&lt;/code&gt;&lt;/pre&gt;
 &lt;br&gt;
+Notice the &lt;strong&gt;|&lt;/strong&gt; operator. This is called pipe operator. Piping is a concept wherein you can perform a sequence of operations in a single command.
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;So what exactly is piping?&lt;/h3&gt;
 &lt;p&gt;A pipe is a facility of the shell that makes it easy to chain together multiple commands. When used between two Unix commands, it means that output from the first command should become the input to the second command. Just read the &lt;strong&gt;|&lt;/strong&gt; in the command as &lt;em&gt;pass the data onto&lt;/em&gt;. More on this operator later in the post.
@@ -55,8 +54,8 @@ Notice the &lt;strong&gt;|&lt;/strong&gt; operator. This is called pipe operator
 &lt;p&gt;&lt;br&gt;
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="shell"&gt;head -n 1 data.txt| wc -w -- gives you the number of columns in the file
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
 &lt;br&gt;
 &lt;strong&gt;grep&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Consider ‘grep’ as a command to filter on the results you get. You may want to print all the lines in your file which have a particular phrase. Say for example you want to see people who are ‘Very Happy’. You simply pass this to grep command.&lt;/p&gt;
@@ -70,8 +69,8 @@ Notice the &lt;strong&gt;|&lt;/strong&gt; operator. This is called pipe operator
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="shell"&gt;grep 'Not Happy' data.txt | wc -l
 -- gives you the top 10 rows having 'Very Happy'
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
 &lt;br&gt;
 &lt;strong&gt;sort&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;If you want to sort the data based on some column, say ‘Score’; ‘Score’ is the 3rd column in the file- data.txt&lt;/p&gt;
@@ -104,14 +103,14 @@ So if you want to get unique values from a column, you need to first sort the da
 &lt;p&gt;To get the unique of a column, say the 2nd column
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="shell"&gt;cut data.txt -d ',' -f 2 |sort|uniq
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
 &lt;br&gt;
 This command could be used with argument -c to count the occurrence of these distinct values. Something like to count distinct in SQL.
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="shell"&gt;cut data.txt -d ',' -f 2 |sort|uniq-c
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
 &lt;br&gt;
 &lt;strong&gt;tr&lt;/strong&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;strong&gt;tr&lt;/strong&gt; stands for translate&lt;/p&gt;
 &lt;p&gt;‘Find and Replace’ function that we have in excel. Yes we have that in UNIX as well.

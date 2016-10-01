@@ -1827,25 +1827,24 @@ We don’t want to bombard our terminal with the complete content of the file. I
 <p><strong>vim</strong> &nbsp; &nbsp; &nbsp; &nbsp; Opens the file in the editor  <br />
     <pre style="font-size:60%; padding:7px; margin:0em;">
     <code class="bash">vim data.txt
-    </code></pre></p>
-<p><br>
+    </code></pre>
+<br>
 <strong>head</strong> &nbsp; &nbsp; &nbsp; &nbsp; Gives the top 10 rows of the text file at your terminal
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">head data.txt
-</code></pre></p>
-<p><br>
+    <pre style="font-size:60%; padding:7px; margin:0em;">
+    <code class="bash">head data.txt
+    </code></pre>
+<br>
 <strong>tail</strong> &nbsp; &nbsp; &nbsp; &nbsp; Gives the bottom 10 rows of the text file at your terminal
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="bash">tail -n 2 data.txt -- This will give you the bottom 2 rows of the file
-</code></pre></p>
-<p><br></p>
+</code></pre>
+<br></p>
 <h4>The piping operator</h4>
 <p><pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="bash">cat data.txt | head
-</code></pre></p>
-<p><br>
-Notice the <strong>|</strong> operator. This is called pipe operator. Piping is a concept wherein you can perform a sequence of operations in a single command.
+</code></pre>
 <br>
+Notice the <strong>|</strong> operator. This is called pipe operator. Piping is a concept wherein you can perform a sequence of operations in a single command.
 <br></p>
 <h3>So what exactly is piping?</h3>
 <p>A pipe is a facility of the shell that makes it easy to chain together multiple commands. When used between two Unix commands, it means that output from the first command should become the input to the second command. Just read the <strong>|</strong> in the command as <em>pass the data onto</em>. More on this operator later in the post.
@@ -1868,8 +1867,8 @@ Notice the <strong>|</strong> operator. This is called pipe operator. Piping is 
 <p><br>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="shell">head -n 1 data.txt| wc -w -- gives you the number of columns in the file
-</code></pre></p>
-<p><br>
+</code></pre>
+<br>
 <br>
 <strong>grep</strong></p>
 <p>Consider ‘grep’ as a command to filter on the results you get. You may want to print all the lines in your file which have a particular phrase. Say for example you want to see people who are ‘Very Happy’. You simply pass this to grep command.</p>
@@ -1883,8 +1882,8 @@ Notice the <strong>|</strong> operator. This is called pipe operator. Piping is 
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="shell">grep 'Not Happy' data.txt | wc -l
 -- gives you the top 10 rows having 'Very Happy'
-</code></pre></p>
-<p><br>
+</code></pre>
+<br>
 <br>
 <strong>sort</strong></p>
 <p>If you want to sort the data based on some column, say ‘Score’; ‘Score’ is the 3rd column in the file- data.txt</p>
@@ -1917,14 +1916,14 @@ So if you want to get unique values from a column, you need to first sort the da
 <p>To get the unique of a column, say the 2nd column
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="shell">cut data.txt -d ',' -f 2 |sort|uniq
-</code></pre></p>
-<p><br>
+</code></pre>
+<br>
 <br>
 This command could be used with argument -c to count the occurrence of these distinct values. Something like to count distinct in SQL.
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="shell">cut data.txt -d ',' -f 2 |sort|uniq-c
-</code></pre></p>
-<p><br>
+</code></pre>
+<br>
 <br>
 <strong>tr</strong> &nbsp; &nbsp; &nbsp; &nbsp; <strong>tr</strong> stands for translate</p>
 <p>‘Find and Replace’ function that we have in excel. Yes we have that in UNIX as well.
