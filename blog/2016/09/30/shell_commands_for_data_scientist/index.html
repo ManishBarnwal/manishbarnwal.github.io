@@ -1907,6 +1907,7 @@ Notice the <strong>|</strong> operator. This is called pipe operator. Piping is 
 <br>
 Explanation: ‘,’ is the delimiter. 4 is the column number that you want to see.
 <br>
+<br>
 <strong>uniq</strong></p>
 <p>Do not confuse this command for ‘unique’. It is slightly different. This <strong>removes sequential duplicates</strong>.
 So if you want to get unique values from a column, you need to first sort the data and then use this <em>uniq</em> command in sequence.</p>
@@ -1914,7 +1915,6 @@ So if you want to get unique values from a column, you need to first sort the da
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="shell">cut data.txt -d ',' -f 2 |sort|uniq
 </code></pre>
-<br>
 <br>
 This command could be used with argument -c to count the occurrence of these distinct values. Something like to count distinct in SQL.
 <pre style="font-size:60%; padding:7px; margin:0em;">
