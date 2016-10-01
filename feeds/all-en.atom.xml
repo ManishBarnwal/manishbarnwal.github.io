@@ -92,8 +92,8 @@ Notice the &lt;strong&gt;|&lt;/strong&gt; operator. This is called pipe operator
 &lt;p&gt;This command gives you only specific column. Say you want to see only the 4th column of the file.
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="shell"&gt;cut data.txt -d ',' -f 4 |head
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
 Explanation: ‘,’ is the delimiter. 4 is the column number that you want to see.
 &lt;br&gt;
 &lt;br&gt;
