@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-10-02T08:00:00-03:00</updated><entry><title>Don’t introduce that bias in your child</title><link href="http://manishbarnwal.github.io/blog/2016/10/02/bias_in_child/" rel="alternate"></link><updated>2016-10-02T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-02:blog/2016/10/02/bias_in_child/</id><summary type="html">&lt;p&gt;A thought crossed my mind yesterday and just when it was about to get lost in the cloud of many thoughts that scatters in mind…I caught hold of it. I felt I had gathered the maximum out of this thought but I wanted to write about it so that the mind has to think more on it and may be, just may be, I will be able to know more.
-Here’s the thought.&lt;/p&gt;
+Here’s the thought.
+&lt;br&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Every child learns something or the other from every human it spends time with.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;This statement sounds more promising when we think about it in this context. We tend to become more like our parents because we spend maximum time with them. Our characters and behaviors are imitated from theirs.
+&lt;p&gt;&lt;br&gt;
+This statement sounds more promising when we think about it in this context. We tend to become more like our parents because we spend maximum time with them. Our characters and behaviors are imitated from theirs.
 &lt;br&gt;
 &lt;br&gt;
 How does it happen that a &lt;em&gt;baniya&lt;/em&gt;’s son is almost always good in calculations and Maths? Why is that? Why doesn’t it tend to behave more like a musician?
@@ -24,7 +26,7 @@ Let the brain enjoy the feel of reading. The idea of living many lives through t
 Do you realize, what have you done by reading out everyday to your child?
 &lt;br&gt;
 &lt;br&gt;
-You have introduced a bias in your child’s character. A good bias, I would say. How interesting is that we can relate machine-learning and a child’s learning behaviors. And, we all know what happens to a biased model. It doesn’t work well. There is a [trade-off] between bias and variance (http://scott.fortmann-roe.com/docs/BiasVariance.html) you know.
+You have introduced a bias in your child’s character. A good bias, I would say. How interesting is that we can relate machine-learning and a child’s learning behaviors. And, we all know what happens to a biased model. It doesn’t work well. There is a &lt;a href="http://scott.fortmann-roe.com/docs/BiasVariance.html"&gt;trade-off&lt;/a&gt; between bias and variance you know.
 &lt;br&gt;
 &lt;br&gt;
 While, it’s good to have the child spend time with good people and have a nurtured learning. The child would know about the right things. But don’t stop your child from interacting with someone who is not in your good books. Let us call that someone Asura.
