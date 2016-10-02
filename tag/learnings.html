@@ -4,10 +4,10 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Vim/Vi editor shortcuts</title>
+  <title>Manish Barnwal - learnings</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="This post talks shortcuts in vim editor" >
-  <meta name="keywords" content="vi/vim" >
+  <meta name="description" content="" >
+  <meta name="keywords" content="" >
   
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1804,125 +1804,30 @@ jQuery(document).ready(function($) {
 </ul></nav>
   <div id="main">
     <div id="content">
-
-<div>
-  <article class="hentry" role="article">
+<div class="blog-index">
+  		<article>
 <header>
-      <h1 class="entry-title">Vim/Vi editor shortcuts</h1>
-      <p class="meta"><time datetime="2016-09-22T04:00:00" pubdate>Sep 22, 2016</time></p>
+      <h1 class="entry-title">
+        <a href="http://manishbarnwal.github.io/blog/2016/10/02/bias_in_child/">Don’t introduce that bias in your child</a>
+      </h1>
+      <p class="meta"><time datetime="2016-10-02T08:00:00" pubdate>Oct 02, 2016</time></p>
 </header>
 
-  <div class="entry-content"><p>Repetitive tasks should be done using as many shortcuts as possible. You are not doing  anything new and hence not even an extra minute should be spent on doing the same. This post refers to the shortcuts that come in handy when working on the vi/vim editor.</p>
-<p>This is not an exhaustive list. These are the ones I use frequently. Feel free to comment down your favorite shortcuts.
-<br>
-<br></p>
-<h3>Navigation keys</h3>
-<ul>
-<li><strong>0</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Moves cursor to the start of the line</li>
-<li><strong>$</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Moves cursor to the end of the line</li>
-<li><strong>w</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Moves forward one word</li>
-<li>
-<p><strong>b</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Moves backward one word</p>
-</li>
-<li>
-<p><strong>G</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Moves to the end of the file</p>
-</li>
-<li><strong>1 + G</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Moves to the beginning of file
- <br>
- <br></li>
-</ul>
-<h3>Delete text</h3>
-<ul>
-<li><strong>dw</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Deletes a word ahead of the cursor</li>
-<li><strong>db</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Deletes a word behind the cursor</li>
-<li><strong>d0</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Deletes the complete line till beginning</li>
-<li><strong>d$</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Deletes the complete line till the end</li>
-<li><strong>dd</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Deletes the complete line</li>
-<li><strong>10dd</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Deletes the following 5 lines</li>
-<li><strong>dG</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Deletes till the end of the file
- <br>
- <br></li>
-</ul>
-<h3>Undo/Redo operation</h3>
-<ul>
-<li><strong>u</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Undo the last operation</li>
-<li><strong>Ctrl + r</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Redo the last undo
-<br>
-<br></li>
-</ul>
-<h3>Search and Replace keys</h3>
-<ul>
-<li><strong>/search_text</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Finds 'search_text' in file going forward</li>
-<li><strong>?search_text</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Finds 'search_text' in file going backward</li>
-<li><strong>n</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Finds the next occurrence of 'search_text'</li>
-<li>
-<p><strong>N</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Finds the previous occurrence of 'search_text'</p>
-</li>
-<li>
-<p><strong>:%s/replace_what/replace_with</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Replaces first occurrence</p>
-</li>
-<li><strong>:%s/replace_what/replace_with/g</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Replaces all occurrences globally</li>
-<li><strong>:%s/replace_what/replace_with/c</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Asks for confirmation
-<br>
-<br></li>
-</ul>
-<h3>Save and quit</h3>
-<ul>
-<li><strong>:q!</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Force quit without saving</li>
-<li><strong>:wq</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Saves the changes made to the document</li>
-<li><strong>:wq!</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Forcefully saves the changes made to the document</li>
-<li><strong>:w new_file_name</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Saves the file to a new file named new_file_name
-<br>
-<br></li>
-</ul>
-<h3>Command line shortcuts</h3>
-<ul>
-<li><strong>Ctrl + a</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Brings to the beginning of the line</li>
-<li><strong>Ctrl + e</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Brings to the end of the line</li>
-</ul></div>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- bar -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-8629778873290024"
-     data-ad-slot="5364549320"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>    <footer>
-<p class="meta">
-  <span class="byline author vcard">
-    Posted by <span class="fn">Manish Barnwal</span>
-  </span>
-<time datetime="2016-09-22T04:00:00" pubdate>Sep 22, 2016</time>  <span class="categories">
-    <a class="category" href="http://manishbarnwal.github.io/tag/vivim.html">vi/vim</a>
-  </span>
-</p><div class="sharing">
-</div>    </footer>
-  </article>
+  <div class="entry-content"><p>A thought crossed my mind yesterday and just when it was about to get lost in the cloud of many thoughts that scatters in mind…I caught hold of it. I felt I had gathered the maximum out of this thought but I wanted to write about it so that ...</p></div>
+  <footer>
+    <a rel="full-article" href="http://manishbarnwal.github.io/blog/2016/10/02/bias_in_child/">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
-  </section>
-</div>
+  <br />
+</div></div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2016/10/02/bias_in_child/">Don’t introduce that bias in your child</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2016/09/30/shell_commands_for_data_scientist/">Shell commands come in handy for a data scientist</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2016/09/26/three_letter_acronym_roc_and_auc/">ROC and AUC - The three lettered acronyms</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2016/09/22/vim_shortcuts/">Vim/Vi editor shortcuts</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2016/08/29/hadoop_streaming/">Hadoop Streaming</a>
       </li>
     </ul>
   </section>
@@ -1958,14 +1863,11 @@ jQuery(document).ready(function($) {
 </script></aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2014-2016  - Manish Barnwal -
+    Copyright &copy;  2016  - Manish Barnwal -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
-          var disqus_identifier = '/blog/2016/09/22/vim_shortcuts/';
-          var disqus_url = 'http://manishbarnwal.com/blog/2016/09/22/vim_shortcuts/';
-          var disqus_title = 'Vim/Vi editor shortcuts';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

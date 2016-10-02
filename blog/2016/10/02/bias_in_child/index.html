@@ -4,10 +4,10 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Vim/Vi editor shortcuts</title>
+  <title>Don’t introduce that bias in your child</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="This post talks shortcuts in vim editor" >
-  <meta name="keywords" content="vi/vim" >
+  <meta name="description" content="This post talks about an analogy between machine-learning and child&#39;s learnings" >
+  <meta name="keywords" content="life, learnings, thoughts" >
   
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1808,78 +1808,51 @@ jQuery(document).ready(function($) {
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">Vim/Vi editor shortcuts</h1>
-      <p class="meta"><time datetime="2016-09-22T04:00:00" pubdate>Sep 22, 2016</time></p>
+      <h1 class="entry-title">Don’t introduce that bias in your child</h1>
+      <p class="meta"><time datetime="2016-10-02T08:00:00" pubdate>Oct 02, 2016</time></p>
 </header>
 
-  <div class="entry-content"><p>Repetitive tasks should be done using as many shortcuts as possible. You are not doing  anything new and hence not even an extra minute should be spent on doing the same. This post refers to the shortcuts that come in handy when working on the vi/vim editor.</p>
-<p>This is not an exhaustive list. These are the ones I use frequently. Feel free to comment down your favorite shortcuts.
+  <div class="entry-content"><p>A thought crossed my mind yesterday and just when it was about to get lost in the cloud of many thoughts that scatters in mind…I caught hold of it. I felt I had gathered the maximum out of this thought but I wanted to write about it so that the mind has to think more on it and may be, just may be, I will be able to know more.
+Here’s the thought.</p>
+<blockquote>
+<p>Every child learns something or the other from every human it spends time with.</p>
+</blockquote>
+<p>This statement sounds more promising when we think about it in this context. We tend to become more like our parents because we spend maximum time with them. Our characters and behaviors are imitated from theirs.
 <br>
-<br></p>
-<h3>Navigation keys</h3>
-<ul>
-<li><strong>0</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Moves cursor to the start of the line</li>
-<li><strong>$</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Moves cursor to the end of the line</li>
-<li><strong>w</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Moves forward one word</li>
-<li>
-<p><strong>b</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Moves backward one word</p>
-</li>
-<li>
-<p><strong>G</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Moves to the end of the file</p>
-</li>
-<li><strong>1 + G</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Moves to the beginning of file
- <br>
- <br></li>
-</ul>
-<h3>Delete text</h3>
-<ul>
-<li><strong>dw</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Deletes a word ahead of the cursor</li>
-<li><strong>db</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Deletes a word behind the cursor</li>
-<li><strong>d0</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Deletes the complete line till beginning</li>
-<li><strong>d$</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Deletes the complete line till the end</li>
-<li><strong>dd</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Deletes the complete line</li>
-<li><strong>10dd</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Deletes the following 5 lines</li>
-<li><strong>dG</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Deletes till the end of the file
- <br>
- <br></li>
-</ul>
-<h3>Undo/Redo operation</h3>
-<ul>
-<li><strong>u</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Undo the last operation</li>
-<li><strong>Ctrl + r</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Redo the last undo
 <br>
-<br></li>
-</ul>
-<h3>Search and Replace keys</h3>
-<ul>
-<li><strong>/search_text</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Finds 'search_text' in file going forward</li>
-<li><strong>?search_text</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Finds 'search_text' in file going backward</li>
-<li><strong>n</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Finds the next occurrence of 'search_text'</li>
-<li>
-<p><strong>N</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Finds the previous occurrence of 'search_text'</p>
-</li>
-<li>
-<p><strong>:%s/replace_what/replace_with</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Replaces first occurrence</p>
-</li>
-<li><strong>:%s/replace_what/replace_with/g</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Replaces all occurrences globally</li>
-<li><strong>:%s/replace_what/replace_with/c</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Asks for confirmation
+How does it happen that a <em>baniya</em>’s son is almost always good in calculations and Maths? Why is that? Why doesn’t it tend to behave more like a musician?
 <br>
-<br></li>
-</ul>
-<h3>Save and quit</h3>
-<ul>
-<li><strong>:q!</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Force quit without saving</li>
-<li><strong>:wq</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Saves the changes made to the document</li>
-<li><strong>:wq!</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Forcefully saves the changes made to the document</li>
-<li><strong>:w new_file_name</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Saves the file to a new file named new_file_name
 <br>
-<br></li>
-</ul>
-<h3>Command line shortcuts</h3>
-<ul>
-<li><strong>Ctrl + a</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Brings to the beginning of the line</li>
-<li><strong>Ctrl + e</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Brings to the end of the line</li>
-</ul></div>
+Because, the child spends the maximum time with his parents. He sees the kind of work his father does or the daily chores that his mother gets involved it. He might not be paying much attention to all of this throughout his life. But the brain keeps on peeping through. The unconscious learning happens. Or what we call an <strong>unsupervised</strong> learning in data-science.
+<br>
+<br>
+In the long run, the best learning happens when it is not enforced. When the child learns on his own, at his own rate.
+You want your child to be interested in reading? Make your home a library. Not so fancy or anything. Just surround the room and tables with books. Read it to your baby even when you think the baby doesn’t understand a single word. Let the unsupervised learning happen. 
+<br>
+<br>
+Let the brain enjoy the feel of reading. The idea of living many lives through these books. Every character in these stories will add to the learning. And by the time the child grows, the brain is already hooked to this habit of reading. It has tasted the palatable food of reading. And it can’t survive without it now.</p>
+<p>Let’s say, you want him to be a musician. You already know what you need to do.
+<br>
+<br>
+Do you realize, what have you done by reading out everyday to your child?
+<br>
+<br>
+You have introduced a bias in your child’s character. A good bias, I would say. How interesting is that we can relate machine-learning and a child’s learning behaviors. And, we all know what happens to a biased model. It doesn’t work well. There is a [trade-off] between bias and variance (http://scott.fortmann-roe.com/docs/BiasVariance.html) you know.
+<br>
+<br>
+While, it’s good to have the child spend time with good people and have a nurtured learning. The child would know about the right things. But don’t stop your child from interacting with someone who is not in your good books. Let us call that someone Asura.
+<br>
+<br>
+Now Asura may not be on good terms with you and you may have legitimate reasons for that. Maybe you feel that Asura is immoral and unscrupulous. But you have seen only a part of Asura’s character. Maybe Asura is an excellent guitar player or a seasoned writer or he could be an expert in other domains. You don’t know.
+<br>
+<br>
+Let his learning be flexible. Let the bad data be part of his life. Let him enjoy the outliers as well, be it a good or a bad one. With the bad outlier — Asura, make sure you enforce a little of your experience and monitor the child’s learning of good and the evil. Let the supervised learning come into play.
+<br>
+<br>
+Don’t let your child have limited experiences of just the right things. Don’t limit the datasets in his life or the variance will be huge which again is not a good thing.
+<br>
+<br>
+Let the learning be both a mix of unsupervised and supervised. A semi-supervised learning we call it in data-science.</p></div>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- bar -->
 <ins class="adsbygoogle"
@@ -1893,8 +1866,10 @@ jQuery(document).ready(function($) {
   <span class="byline author vcard">
     Posted by <span class="fn">Manish Barnwal</span>
   </span>
-<time datetime="2016-09-22T04:00:00" pubdate>Sep 22, 2016</time>  <span class="categories">
-    <a class="category" href="http://manishbarnwal.github.io/tag/vivim.html">vi/vim</a>
+<time datetime="2016-10-02T08:00:00" pubdate>Oct 02, 2016</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/life.html">life</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/learnings.html">learnings</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/thoughts.html">thoughts</a>
   </span>
 </p><div class="sharing">
 </div>    </footer>
@@ -1963,9 +1938,9 @@ jQuery(document).ready(function($) {
 </p></footer>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
-          var disqus_identifier = '/blog/2016/09/22/vim_shortcuts/';
-          var disqus_url = 'http://manishbarnwal.com/blog/2016/09/22/vim_shortcuts/';
-          var disqus_title = 'Vim/Vi editor shortcuts';
+          var disqus_identifier = '/blog/2016/10/02/bias_in_child/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2016/10/02/bias_in_child/';
+          var disqus_title = 'Don’t introduce that bias in your child';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
