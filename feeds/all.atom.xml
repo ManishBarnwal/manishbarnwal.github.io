@@ -27,16 +27,14 @@ Error: package or namespace load failed for 'caret'
 &lt;br&gt;
 &lt;br&gt;
 &lt;strong&gt;What is the way out?&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;We install an older version of this package.&lt;/p&gt;
+&lt;p&gt;We install an older version of this package.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;How do you install an older version of some package in R?&lt;/h3&gt;
 &lt;p&gt;Let us say the package name is 'package_name'. So 'package_name' in our case is 'pbkrtest'&lt;/p&gt;
-&lt;p&gt;Open this &lt;a href="https://cran.r-project.org/src/contrib/Archive/pbkrtest"&gt;url&lt;/a&gt; and just replace the last word &lt;em&gt;pbkrtest&lt;/em&gt; with the package you want to install. So if I my package_name is &lt;em&gt;Rcpp&lt;/em&gt; this would be my &lt;a href="https://cran.r-project.org/src/contrib/Archive/Rcpp"&gt;url&lt;/a&gt;
-&lt;br&gt;
-&lt;br&gt;
-You will see the various versions of the package listed there. Choose the version you want to install. Let's say I want to install the &lt;em&gt;pbkrtest_0.4-5.tar.gz&lt;/em&gt; version.
-&lt;br&gt;
-&lt;br&gt;
-We now create a variable 'packageUrl' which contains all this information. Create a variable &lt;em&gt;packageUrl&lt;/em&gt; and assign it the url of the page.
+&lt;p&gt;Open this &lt;a href="https://cran.r-project.org/src/contrib/Archive/pbkrtest"&gt;url&lt;/a&gt;. You will see various versions of the package listed there. Choose the version you want to install. Let's say I want to install the &lt;em&gt;pbkrtest_0.4-5.tar.gz&lt;/em&gt; version.
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;We now create a variable 'packageUrl' which contains all this information. Create a variable &lt;em&gt;packageUrl&lt;/em&gt; and assign it the url of the page.
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="r"&gt;packageUrl&amp;lt;- "https://cran.r-project.org/src/contrib/Archive/pbkrtest/pbkrtest_0.4-5.tar.gz"
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
@@ -44,7 +42,13 @@ We now create a variable 'packageUrl' which contains all this information. Creat
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="r"&gt;install.packages(packageUrl, repos=NULL, type='source')
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;p&gt;And we are done! Let me know in comments if you have any issues.&lt;/p&gt;</summary><category term="R"></category></entry><entry><title>Don’t introduce that bias in your child</title><link href="http://manishbarnwal.github.io/blog/2016/10/02/bias_in_child/" rel="alternate"></link><updated>2016-10-02T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-02:blog/2016/10/02/bias_in_child/</id><summary type="html">&lt;p&gt;A thought crossed my mind yesterday and just when it was about to get lost in the cloud of many thoughts that scatters in mind…I caught hold of it. I felt I had gathered the maximum out of this thought but I wanted to write about it so that the mind has to think more on it and may be, just may be, I will be able to know more.
+&lt;p&gt;And we are done!
+&lt;br&gt;
+&lt;br&gt;
+Now if you have some other package to install, just replace the last word &lt;em&gt;pbkrtest&lt;/em&gt; with the package name you want to install and you will be able to see all the older versions of that package. For &lt;em&gt;Rcpp&lt;/em&gt; the link would be &lt;a href="https://cran.r-project.org/src/contrib/Archive/Rcpp"&gt;url&lt;/a&gt;. Follow the same steps as stated above and you should be done with it.
+&lt;br&gt;
+&lt;br&gt;
+Let me know in comments if you have any issues.&lt;/p&gt;</summary><category term="R"></category></entry><entry><title>Don’t introduce that bias in your child</title><link href="http://manishbarnwal.github.io/blog/2016/10/02/bias_in_child/" rel="alternate"></link><updated>2016-10-02T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-02:blog/2016/10/02/bias_in_child/</id><summary type="html">&lt;p&gt;A thought crossed my mind yesterday and just when it was about to get lost in the cloud of many thoughts that scatters in mind…I caught hold of it. I felt I had gathered the maximum out of this thought but I wanted to write about it so that the mind has to think more on it and may be, just may be, I will be able to know more.
 Here’s the thought.
 &lt;br&gt;&lt;/p&gt;
 &lt;blockquote&gt;
