@@ -68,8 +68,16 @@ There is a trade-off between TPR and FPR. Depending on the requirement one can c
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;What about AUC?&lt;/h3&gt;
-&lt;p&gt;AUC is nothing but the area under curve of ROC curve. Let's say we built a logistic regression model that gave us the probabilities for each row. Now we try with probability cut-offs from 0.1 to 1.0 with step size of 0.1 i.e we would have 10 probabilites to try with and corresponding to each of the 10 values we would have corresponding (FPR, TPR). If we plot these values on a graph we would get a graph having 10 points. This 10 point graph is what we call an ROC curve and the area under this graph is called AUC.&lt;/p&gt;
-&lt;p&gt;The larger the area the better. If we have to choose between two classifiers having different AUCs, we choose the one having larger AUC.
+&lt;p&gt;AUC is nothing but the area under curve of ROC curve. Let's say we built a logistic regression model that gave us the probabilities for each row. Now we try with probability cut-offs from 0.1 to 1.0 with step size of 0.1 i.e we would have 10 probabilites to try with and corresponding to each of the 10 values we would have corresponding (FPR, TPR). If we plot these values on a graph we would get a graph having 10 points. This 10 point graph is what we call an ROC curve and the area under this graph is called AUC.
+&lt;br&gt;
+&lt;br&gt;
+The AUC is a common evaluation metric for binary classification problems. Consider a plot of the true positive rate vs the false positive rate as the threshold value for classifying an item as 0 or is increased from 0 to 1: if the classifier is very good, the true positive rate will increase quickly and the area under the curve will be close to 1. If the classifier is no better than random guessing, the true positive rate will increase linearly with the false positive rate and the area under the curve will be around 0.5.
+&lt;br&gt;
+&lt;br&gt;
+One characteristic of the AUC is that it is independent of the fraction of the test population which is class 0 or class 1: this makes the AUC useful for evaluating the performance of classifiers on unbalanced data sets.
+&lt;br&gt;
+&lt;br&gt;
+The larger the area the better. If we have to choose between two classifiers having different AUCs, we choose the one having larger AUC.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;How do you decide what probability cut-off should you choose to classify them into either of the classes?&lt;/h3&gt;

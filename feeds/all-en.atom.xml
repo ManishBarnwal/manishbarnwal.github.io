@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-10-02T08:00:00-03:00</updated><entry><title>Don’t introduce that bias in your child</title><link href="http://manishbarnwal.github.io/blog/2016/10/02/bias_in_child/" rel="alternate"></link><updated>2016-10-02T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-02:blog/2016/10/02/bias_in_child/</id><summary type="html">&lt;p&gt;A thought crossed my mind yesterday and just when it was about to get lost in the cloud of many thoughts that scatters in mind…I caught hold of it. I felt I had gathered the maximum out of this thought but I wanted to write about it so that the mind has to think more on it and may be, just may be, I will be able to know more.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-10-05T07:00:00-03:00</updated><entry><title>How to install a package of a particular version in R</title><link href="http://manishbarnwal.github.io/blog/2016/10/05/install_a_package_particular_version_in_R/" rel="alternate"></link><updated>2016-10-05T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-05:blog/2016/10/05/install_a_package_particular_version_in_R/</id><summary type="html">&lt;p&gt;I recently tried installing &lt;em&gt;caret&lt;/em&gt; package in R using
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;install.packages('caret', dependencies=T)
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;Normally this installation of package works and I continue to work with the functions associated with the package.
+When I tried including the package using
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;library(caret)
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;I got the following error.&lt;/p&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;Error in loadNamespace(j &lt;- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) :there is no package called 'pbkrtest'
+In addition: Warning message:package 'caret' was built under R version 3.2.5
+Error: package or namespace load failed for 'caret'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;R was not able to install this dependency package- &lt;em&gt;pbkrtest&lt;/em&gt;. So I tried installing it separately, again using
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;install.package('pbkrtest', dependencies=T)
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;This too didn't work. And the error again this time was
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;Error in loadNamespace(j &amp;lt;- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : there is no package called ‘pbkrtest’ In addition: Warning message: package ‘pbkrtest’ was built under R version 3.2.3
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;So this particular package is not available for the R version that I am using.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;What is the way out?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We install an older version of this package.&lt;/p&gt;
+&lt;h3&gt;How do you install an older version of some package in R?&lt;/h3&gt;
+&lt;p&gt;Let us say the package name is 'package_name'. So 'package_name' in our case is 'pbkrtest'&lt;/p&gt;
+&lt;p&gt;Open this &lt;a href="https://cran.r-project.org/src/contrib/Archive/pbkrtest"&gt;url&lt;/a&gt; and just replace the last word &lt;em&gt;pbkrtest&lt;/em&gt; with the package you want to install. So if I my package_name is &lt;em&gt;Rcpp&lt;/em&gt; this would be my &lt;a href="https://cran.r-project.org/src/contrib/Archive/Rcpp"&gt;url&lt;/a&gt;
+&lt;br&gt;
+&lt;br&gt;
+You will see the various versions of the package listed there. Choose the version you want to install. Let's say I want to install the &lt;em&gt;pbkrtest_0.4-5.tar.gz&lt;/em&gt; version.
+&lt;br&gt;
+&lt;br&gt;
+We now create a variable 'packageUrl' which contains all this information. Create a variable &lt;em&gt;packageUrl&lt;/em&gt; and assign it the url of the page.
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;packageUrl&amp;lt;- "https://cran.r-project.org/src/contrib/Archive/pbkrtest/pbkrtest_0.4-5.tar.gz"
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;You then install this version of the package using
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;install.packages(packageUrl, repos=NULL, type='source')
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;And we are done! Let me know in comments if you have any issues.&lt;/p&gt;</summary><category term="R"></category></entry><entry><title>Don’t introduce that bias in your child</title><link href="http://manishbarnwal.github.io/blog/2016/10/02/bias_in_child/" rel="alternate"></link><updated>2016-10-02T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-02:blog/2016/10/02/bias_in_child/</id><summary type="html">&lt;p&gt;A thought crossed my mind yesterday and just when it was about to get lost in the cloud of many thoughts that scatters in mind…I caught hold of it. I felt I had gathered the maximum out of this thought but I wanted to write about it so that the mind has to think more on it and may be, just may be, I will be able to know more.
 Here’s the thought.
 &lt;br&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -233,8 +278,16 @@ There is a trade-off between TPR and FPR. Depending on the requirement one can c
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;What about AUC?&lt;/h3&gt;
-&lt;p&gt;AUC is nothing but the area under curve of ROC curve. Let's say we built a logistic regression model that gave us the probabilities for each row. Now we try with probability cut-offs from 0.1 to 1.0 with step size of 0.1 i.e we would have 10 probabilites to try with and corresponding to each of the 10 values we would have corresponding (FPR, TPR). If we plot these values on a graph we would get a graph having 10 points. This 10 point graph is what we call an ROC curve and the area under this graph is called AUC.&lt;/p&gt;
-&lt;p&gt;The larger the area the better. If we have to choose between two classifiers having different AUCs, we choose the one having larger AUC.
+&lt;p&gt;AUC is nothing but the area under curve of ROC curve. Let's say we built a logistic regression model that gave us the probabilities for each row. Now we try with probability cut-offs from 0.1 to 1.0 with step size of 0.1 i.e we would have 10 probabilites to try with and corresponding to each of the 10 values we would have corresponding (FPR, TPR). If we plot these values on a graph we would get a graph having 10 points. This 10 point graph is what we call an ROC curve and the area under this graph is called AUC.
+&lt;br&gt;
+&lt;br&gt;
+The AUC is a common evaluation metric for binary classification problems. Consider a plot of the true positive rate vs the false positive rate as the threshold value for classifying an item as 0 or is increased from 0 to 1: if the classifier is very good, the true positive rate will increase quickly and the area under the curve will be close to 1. If the classifier is no better than random guessing, the true positive rate will increase linearly with the false positive rate and the area under the curve will be around 0.5.
+&lt;br&gt;
+&lt;br&gt;
+One characteristic of the AUC is that it is independent of the fraction of the test population which is class 0 or class 1: this makes the AUC useful for evaluating the performance of classifiers on unbalanced data sets.
+&lt;br&gt;
+&lt;br&gt;
+The larger the area the better. If we have to choose between two classifiers having different AUCs, we choose the one having larger AUC.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;How do you decide what probability cut-off should you choose to classify them into either of the classes?&lt;/h3&gt;

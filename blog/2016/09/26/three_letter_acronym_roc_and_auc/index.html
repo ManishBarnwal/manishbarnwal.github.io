@@ -1881,8 +1881,16 @@ There is a trade-off between TPR and FPR. Depending on the requirement one can c
 <br>
 <br></p>
 <h3>What about AUC?</h3>
-<p>AUC is nothing but the area under curve of ROC curve. Let's say we built a logistic regression model that gave us the probabilities for each row. Now we try with probability cut-offs from 0.1 to 1.0 with step size of 0.1 i.e we would have 10 probabilites to try with and corresponding to each of the 10 values we would have corresponding (FPR, TPR). If we plot these values on a graph we would get a graph having 10 points. This 10 point graph is what we call an ROC curve and the area under this graph is called AUC.</p>
-<p>The larger the area the better. If we have to choose between two classifiers having different AUCs, we choose the one having larger AUC.
+<p>AUC is nothing but the area under curve of ROC curve. Let's say we built a logistic regression model that gave us the probabilities for each row. Now we try with probability cut-offs from 0.1 to 1.0 with step size of 0.1 i.e we would have 10 probabilites to try with and corresponding to each of the 10 values we would have corresponding (FPR, TPR). If we plot these values on a graph we would get a graph having 10 points. This 10 point graph is what we call an ROC curve and the area under this graph is called AUC.
+<br>
+<br>
+The AUC is a common evaluation metric for binary classification problems. Consider a plot of the true positive rate vs the false positive rate as the threshold value for classifying an item as 0 or is increased from 0 to 1: if the classifier is very good, the true positive rate will increase quickly and the area under the curve will be close to 1. If the classifier is no better than random guessing, the true positive rate will increase linearly with the false positive rate and the area under the curve will be around 0.5.
+<br>
+<br>
+One characteristic of the AUC is that it is independent of the fraction of the test population which is class 0 or class 1: this makes the AUC useful for evaluating the performance of classifiers on unbalanced data sets.
+<br>
+<br>
+The larger the area the better. If we have to choose between two classifiers having different AUCs, we choose the one having larger AUC.
 <br>
 <br></p>
 <h3>How do you decide what probability cut-off should you choose to classify them into either of the classes?</h3>
@@ -1925,6 +1933,9 @@ I will make an attempt of the same soon and will share it on this space. Keep le
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2016/10/05/install_a_package_particular_version_in_R/">How to install a package of a particular version in R</a>
+      </li>
+      <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2016/10/02/bias_in_child/">Don’t introduce that bias in your child</a>
       </li>
       <li class="post">
@@ -1935,9 +1946,6 @@ I will make an attempt of the same soon and will share it on this space. Keep le
       </li>
       <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2016/09/22/vim_shortcuts/">Vim/Vi editor shortcuts</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2016/08/29/hadoop_streaming/">Hadoop Streaming</a>
       </li>
     </ul>
   </section>
