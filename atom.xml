@@ -1,5 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-10-05T07:00:00-03:00</updated><entry><title>How to install a package of a particular version in R</title><link href="http://manishbarnwal.github.io/blog/2016/10/05/install_a_package_particular_version_in_R/" rel="alternate"></link><updated>2016-10-05T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-05:blog/2016/10/05/install_a_package_particular_version_in_R/</id><summary type="html">&lt;p&gt;I recently tried installing &lt;em&gt;caret&lt;/em&gt; package in R using
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-10-13T10:00:00-03:00</updated><entry><title>Improve runtime of Random Forest in R</title><link href="http://manishbarnwal.github.io/blog/2016/10/13/improve_runtime_random_forest_r/" rel="alternate"></link><updated>2016-10-13T10:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-13:blog/2016/10/13/improve_runtime_random_forest_r/</id><summary type="html">&lt;p&gt;There are two ways one can write the code to train a random forest model in R. The package to include to use this function is randomForest.
+Both the ways are listed below.
+&lt;br&gt;
+&lt;br&gt;
+A normal and frequent way of writing the command to train the random forest model is something like this.
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;rfModel &amp;lt;- randomForest(Survived~. , data = trainSample[, -c(6, 8, 9)])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Notice the &lt;strong&gt;~&lt;/strong&gt; sign.
+&lt;br&gt;
+&lt;br&gt;
+Another way of writing the command to train the random forest model is shown below.
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;rfModel &amp;lt;- randomForest(y=trainSample$Survived, x= trainSample[, -c(6, 8, 9)], data = trainSample)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Here we explicitly mentions the y-variable and the x variables.
+&lt;br&gt;
+&lt;br&gt;
+Recently, I was working on a huge dataset where the task was to predict a variable based on some 12 independent variables. The dataset had close to 1.3 million rows. I ran a normal random forest code to train the model using the first method. Sadly, the time taken was huge and I had to kill the task.
+&lt;br&gt;
+&lt;br&gt;
+It was then, I got to know that if you train the model using the second format command, the code runs relatively fast. When investigated further, I got to know that the reason for the difference int time is that the code of random forest is written in C and when one writes in the &lt;em&gt;formula format&lt;/em&gt;, the x and y variables are explicitly converted into proper format and this is what takes time.
+&lt;br&gt;
+&lt;br&gt;
+The time difference is not significant for smaller datasets. However, for larger datasets I would suggest using the second format.&lt;/p&gt;
+&lt;p&gt;To illustrate the time difference, I have taken a dataset having 2,23,874 rows and 6 columns.&lt;/p&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;system.time( rfModel1 &lt;- randomForest(DepDelay~. , data = subset(df, select = c(1,2,3,4,5, 13))) )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;user  system elapsed
+94.582  11.356 &lt;strong&gt;109.311&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;system.time( rfModel2 &lt;-randomForest(y=df$DepDelay, x=df[,c(1,2,3,4,5)], data=subset(df, select = c(1,2,3,4,5, 13))) )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;user  system elapsed
+93.499  10.248 &lt;strong&gt;106.205&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;This shows a time difference of 3 seconds. Note that all of these columns were numeric and if one takes categorical columns as well, the time difference would be more.
+&lt;br&gt;
+&lt;br&gt;
+Also, this dataset is not huge. One would appreciate this more on larger datasets.&lt;/p&gt;</summary><category term="life"></category><category term="learnings"></category><category term="thoughts"></category></entry><entry><title>How to install a package of a particular version in R</title><link href="http://manishbarnwal.github.io/blog/2016/10/05/install_a_package_particular_version_in_R/" rel="alternate"></link><updated>2016-10-05T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-05:blog/2016/10/05/install_a_package_particular_version_in_R/</id><summary type="html">&lt;p&gt;I recently tried installing &lt;em&gt;caret&lt;/em&gt; package in R using
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="r"&gt;install.packages('caret', dependencies=T)
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
@@ -618,7 +667,65 @@ It has been almost a year since I had presented this talk. Now when I think abou
 &lt;br&gt;
 Next time, don’t let that chance pass away. Take that risk, prepare well and make it your first attempt at public speaking. We all need to start somewhere.&lt;/p&gt;</summary><category term="life"></category><category term="thoughts"></category><category term="nostalgia"></category></entry><entry><title>Understanding HIVE for data science people</title><link href="http://manishbarnwal.github.io/blog/2016/06/22/understanding_hive_data_science/" rel="alternate"></link><updated>2016-06-22T04:43:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-06-22:blog/2016/06/22/understanding_hive_data_science/</id><summary type="html">&lt;p&gt;I have been working as Statistical analyst for the last 1.5 years and fortunately I got to work on Hadoop on one of my initial projects. Hadoop sounds scary to a lot of people and I am no exception. In this post, I would make an attempt to explain HIVE-the data warehouse for Hadoop ecosystem. &lt;/p&gt;
 &lt;p&gt;What is HIVE? And why as an analyst I should care about it?&lt;/p&gt;
-&lt;p&gt;HIVE is the part of the Hadoop infrastructure where data gets stored and you can write your query to fetch data from HIVE (tables). Now when I had started working on Hadoop, I knew a little SQL and a tad little of data science. I had take a few courses on Statistics during my college but then who really studies in college! Having allocated to a project which required an understanding of Hadoop, I planned how I need to understand this system so that I can contribute my best to the project.&lt;/p&gt;</summary><category term="Hive"></category><category term="hadoop"></category><category term="big data"></category></entry><entry><title>Pre-Placement Talk Snippets</title><link href="http://manishbarnwal.github.io/blog/2014/09/07/pre-placement_talk_snippets/" rel="alternate"></link><updated>2014-09-07T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2014-09-07:blog/2014/09/07/pre-placement_talk_snippets/</id><summary type="html">&lt;p&gt;I'd attended &lt;em&gt;PPTs&lt;/em&gt; (Pre-placement Talks) of almost all the companies I'd interest in during my placement time. Many students find attending PPTs a waste of time. I was not one of them.
+&lt;p&gt;HIVE is the part of the Hadoop infrastructure where data gets stored and you can write your query to fetch data from HIVE (tables). Now when I had started working on Hadoop, I knew a little SQL and a tad little of data science. I had take a few courses on Statistics during my college but then who really studies in college! Having allocated to a project which required an understanding of Hadoop, I planned how I need to understand this system so that I can contribute my best to the project.&lt;/p&gt;
+&lt;p&gt;The first thing you need to build any model is data. Comes to picture-HIVE. As I said, I knew SQL and as I started working on HIVE I got to know that if one knows SQL then one knows HIVE, it’s just that he is not aware of it yet. &lt;/p&gt;
+&lt;p&gt;Why do I say so? 
+Because, HIVE was built with the sole purpose that database people who are comfortable working on SQL need not require to learn a completely new language to fetch and interact with data in the Hadoop ecosystem. And I believe the founders of Hadoop have achieved this successfully. &lt;/p&gt;
+&lt;p&gt;HIVE hides the map-reduce processes from the user and all you need to worry about is writing your SQL query. You don’t need to worry at all about mappers and reducers. All these information is hidden from the user and if one wants to know more on these, there are ways to know that as well (advanced users of HIVE).&lt;/p&gt;
+&lt;p&gt;I will cover most common queries that we deal with when working as an analyst on Hadoop- creating a table (external/internal), getting information about table, setting common HIVE settings and a few others.&lt;/p&gt;
+&lt;p&gt;Creating a table
+Table in HIVE can be of 2 types: Internal or External
+Stay with me for next few lines and I will explain the differences. 
+By default, the table that we create in most of the cases is internal table. However, external tables come into picture when you want to build a table over some file.&lt;/p&gt;
+&lt;p&gt;The difference between external and internal table is in terms of what happens when we drop a table. 
+External table:
+ —  If you drop the table, the table and the metadata of the data is dropped but not the data 
+ The data is located in hdfs (and not in local file system) and since this data is accessed by many tables we don’t want the data to get dropped.&lt;/p&gt;
+&lt;p&gt;Just add the keyword external to specify that we want to build an external table.
+ —  CREATE EXTERNAL TABLE external_table_name&lt;/p&gt;
+&lt;p&gt;Internal table:
+ —  If you drop the table, the table, metadata and even the data is dropped
+ —  If the data for the table resides in the local file system, you should go for creating internal table&lt;/p&gt;
+&lt;p&gt;—  CREATE INTERNAL TABLE internal_table or just CREATE TABLE internal_table
+Once the table gets created, we want to get the data from the table for our analysis. Before we dive into getting the data from the table, it is a good idea to get an idea about the overall structure of the table — column names, column types, whether external or internal, owner of the table.&lt;/p&gt;
+&lt;p&gt;All of these information can be retrieved by using this: describe formatted table_name; This gives you a lot of information in a formatted manner. If you are in a hurry and just want to see the column names and no other details, use desc table_name;&lt;/p&gt;
+&lt;p&gt;External tables are created over some file. This file should be located in hdfs-file system for hadoop. A few command lines would easily move the file to hdfs.&lt;/p&gt;
+&lt;h3&gt;How to move a file to hdfs?&lt;/h3&gt;
+&lt;p&gt;Below are the steps:
+- Create a directory where you want to move the file
+  hadoop fs -mkdir directory_name
+- Check if the directory got created
+  hadoop fs -ls ; you should see your directory name here
+  This directory is empty right now. You can check this using
+  hadoop fs -ls directory_name; It's empty
+- Move the file from local to hdfs
+  hadoop fs -copyFromLocal 'path where file is stored' directory_name
+- Check if the file has been copied to directory
+  hadoop fs -ls directory_name; You should see the file now.&lt;/p&gt;
+&lt;p&gt;Open vim editor and write the below codes in any file. I will name my file create_table.hql
+vim create_table.hql
+Creating table. Code below&lt;/p&gt;
+&lt;p&gt;drop external table if exists db_name.table_name;
+create external table if not exists db_name.table_name (
+ID    string,
+WorkStatus     string,
+Score    int,
+Residence_Region    string,
+income    string,
+Gender    smallint,
+Alcohol_Consumption    string,
+Happy    string
+)
+row format delimited
+fields terminated by ‘\t’
+stored as textfile
+location ‘/user/mbarnwa/data1’
+;&lt;/p&gt;
+&lt;p&gt;Dropping a database
+Many a times, you may want to drop a database that you don’t need anymore. Say, the database to be dropped is ‘userdb’, then if you do this: drop database userdb; 
+Now the above command will work if your database is empty i.e. the database, ‘userdb’ has no tables in it. 
+But that is rarely a case, so either you can go ahead on deleting each table in the database by using this command drop table ‘tableName’; or addition of a simple keyword — CASCADE will solve your purpose. So the final command to drop a database (even if it has tables) is 
+drop database ‘userdb’ cascade;&lt;/p&gt;</summary><category term="Hive"></category><category term="hadoop"></category><category term="big data"></category></entry><entry><title>Pre-Placement Talk Snippets</title><link href="http://manishbarnwal.github.io/blog/2014/09/07/pre-placement_talk_snippets/" rel="alternate"></link><updated>2014-09-07T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2014-09-07:blog/2014/09/07/pre-placement_talk_snippets/</id><summary type="html">&lt;p&gt;I'd attended &lt;em&gt;PPTs&lt;/em&gt; (Pre-placement Talks) of almost all the companies I'd interest in during my placement time. Many students find attending PPTs a waste of time. I was not one of them.
 &lt;br&gt;
 &lt;br&gt;
 I liked attending PPTs. I felt they gave me continuous motivation to be consistent in my preparation. I remember the first PPT I'd attended. It was EXL and it felt like almost every final year student was in that room. Not a single chair in &lt;em&gt;Kalidas Auditorium&lt;/em&gt; was unoccupied.
