@@ -31,6 +31,7 @@ The time difference is not significant for smaller datasets. However, for larger
 &lt;code class="r"&gt;system.time( rfModel1 &lt;- randomForest(DepDelay~. , data = subset(df, select = c(1,2,3,4,5, 13))) )
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;user  system elapsed&lt;/p&gt;
 &lt;p&gt;94.582  11.356 &lt;strong&gt;109.311&lt;/strong&gt;&lt;/p&gt;
@@ -40,6 +41,7 @@ The time difference is not significant for smaller datasets. However, for larger
 &lt;code class="r"&gt;system.time( rfModel2 &lt;-randomForest(y=df$DepDelay, x=df[,c(1,2,3,4,5)], data=subset(df, select = c(1,2,3,4,5, 13))) )
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;user  system elapsed&lt;/p&gt;
 &lt;p&gt;93.499  10.248 &lt;strong&gt;106.205&lt;/strong&gt;&lt;/p&gt;
