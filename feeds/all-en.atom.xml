@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-10-13T10:00:00-03:00</updated><entry><title>Improve runtime of Random Forest in R</title><link href="http://manishbarnwal.github.io/blog/2016/10/13/improve_runtime_random_forest_r/" rel="alternate"></link><updated>2016-10-13T10:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-13:blog/2016/10/13/improve_runtime_random_forest_r/</id><summary type="html">&lt;p&gt;There are two ways one can write the code to train a random forest model in R. The package to include to use this function is randomForest.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-10-13T10:00:00-03:00</updated><entry><title>Improve runtime of Random Forest in R</title><link href="http://manishbarnwal.github.io/blog/2016/10/13/improve_runtime_random_forest_r/" rel="alternate"></link><updated>2016-10-13T10:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-13:blog/2016/10/13/improve_runtime_random_forest_r/</id><summary type="html">&lt;p&gt;There are two ways one can write the code to train a random forest model in R.
 Both the ways are listed below.
 &lt;br&gt;
 &lt;br&gt;
@@ -8,7 +8,7 @@ A normal and frequent way of writing the command to train the random forest mode
 &lt;code class="r"&gt;rfModel &amp;lt;- randomForest(Survived~. , data = trainSample[, -c(6, 8, 9)])
 &lt;/code&gt;&lt;/pre&gt;
 &lt;br&gt;&lt;/p&gt;
-&lt;p&gt;Notice the &lt;strong&gt;~&lt;/strong&gt; sign.
+&lt;p&gt;Notice the &lt;strong&gt;~&lt;/strong&gt; sign. We call this the formula way of writing.
 &lt;br&gt;
 &lt;br&gt;
 Another way of writing the command to train the random forest model is shown below.
@@ -19,7 +19,7 @@ Another way of writing the command to train the random forest model is shown bel
 &lt;p&gt;Here we explicitly mention the y-variable and the x variables.
 &lt;br&gt;
 &lt;br&gt;
-Recently, I was working on a huge dataset where the task was to predict a variable based on some 12 independent variables. The dataset had close to 1.3 million rows. I tried train the model using the first method. Sadly, I had to kill the task as it was taking a lot of time.
+Recently, I was working on a huge dataset where the task was to predict a variable based on some 12 independent variables. The dataset had close to 1.3 million rows. I tried train the model using the first method i.e the formula way. Sadly, I had to kill the task as it was taking a lot of time.
 &lt;br&gt;
 &lt;br&gt;
 It was then, I got to know that if you train the model using the second format command, the code runs relatively faster. When investigated further, I got to know that the reason for the difference in time is that the code for random forest is written in C and when one writes in the &lt;em&gt;formula format&lt;/em&gt;, the x and y variables are explicitly converted into proper format and this is what takes time. &lt;a href="http://stats.stackexchange.com/questions/116952/improving-randomforest-running-time"&gt;ref&lt;/a&gt;
