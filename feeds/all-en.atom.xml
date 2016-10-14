@@ -25,7 +25,18 @@ Recently, I was working on a huge dataset where the task was to predict a variab
 It was then, I got to know that if you train the model using the second format command, the code runs relatively faster. When investigated further, I got to know that the reason for the difference in time is that the code for random forest is written in C and when one writes in the &lt;em&gt;formula format&lt;/em&gt;, the x and y variables are explicitly converted into proper format and this is what takes time. &lt;a href="http://stats.stackexchange.com/questions/116952/improving-randomforest-running-time"&gt;ref&lt;/a&gt;
 &lt;br&gt;
 &lt;br&gt;
-The time difference is not significant for smaller datasets. However, for larger datasets I would suggest using the second format.&lt;/p&gt;
+Even the help page of randomForest in R says the same thing.
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;?randomForest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For large data sets, especially those with large number of variables, calling randomForest via the formula interface is not advised: There may be too much overhead in handling the formula.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br&gt;
+Look just before the 'Authors' section.&lt;/p&gt;
+&lt;p&gt;The time difference is not significant for smaller datasets. However, for larger datasets I would suggest using the second format.&lt;/p&gt;
 &lt;p&gt;To illustrate the time difference, I have taken a dataset having 2,23,874 rows and 6 columns.&lt;/p&gt;
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="r"&gt;system.time( rfModel1 &lt;- randomForest(DepDelay~. , data = subset(df, select = c(1,2,3,4,5, 13))) )

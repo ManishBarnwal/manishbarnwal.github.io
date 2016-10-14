@@ -1838,7 +1838,18 @@ Recently, I was working on a huge dataset where the task was to predict a variab
 It was then, I got to know that if you train the model using the second format command, the code runs relatively faster. When investigated further, I got to know that the reason for the difference in time is that the code for random forest is written in C and when one writes in the <em>formula format</em>, the x and y variables are explicitly converted into proper format and this is what takes time. <a href="http://stats.stackexchange.com/questions/116952/improving-randomforest-running-time">ref</a>
 <br>
 <br>
-The time difference is not significant for smaller datasets. However, for larger datasets I would suggest using the second format.</p>
+Even the help page of randomForest in R says the same thing.
+<pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="r">?randomForest
+</code></pre>
+<br>
+<br></p>
+<blockquote>
+<p>For large data sets, especially those with large number of variables, calling randomForest via the formula interface is not advised: There may be too much overhead in handling the formula.</p>
+</blockquote>
+<p><br>
+Look just before the 'Authors' section.</p>
+<p>The time difference is not significant for smaller datasets. However, for larger datasets I would suggest using the second format.</p>
 <p>To illustrate the time difference, I have taken a dataset having 2,23,874 rows and 6 columns.</p>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">system.time( rfModel1 <- randomForest(DepDelay~. , data = subset(df, select = c(1,2,3,4,5, 13))) )
