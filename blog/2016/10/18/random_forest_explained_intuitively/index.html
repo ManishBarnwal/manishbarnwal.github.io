@@ -1818,16 +1818,22 @@ jQuery(document).ready(function($) {
 Say, you appeared for the position of Statistical analyst at WalmartLabs. Now like most of the companies, you don't just have one round of interview. You have multiple rounds of interviews. Each of these interviews is chaired by independent panels. Each panel assess the candidate separately and independently. Generally, even the questions asked in these interviews differ from each other. Randomness is important here.
 <br>
 <br>
-If you have heard about decision tree, then you are not very far from understanding what random forests are. Random forests is a forest of many decision trees. So you now understand why is it called forest.</p>
+If you have heard about decision tree, then you are not very far from understanding what random forests are. Random forests is a forest of many decision trees. So you now understand why is it called forest.
+<br>
+<br></p>
 <h3>Why is it called random then?</h3>
 <p>Say our dataset has 1,000 rows and 30 columns.</p>
 <p>There are two levels of randomness in this algorithm:</p>
 <ul>
-<li>At row level- Each of these decision trees gets a random sample of the training data (say 10%) i.e. each of these trees will be trained independently on 100 randomly chosen rows out of 1,000 rows of data</li>
-<li>At column level- The second level of randomness is introduced at the column level. Not all the columns are passed into training each of the decision trees. Say we want only 10% of columns to be sent to each tree. This means a randomly selected 3 column will be sent to each tree. So for first decision tree, may be column C1, C2 and C4 were chosen. The next DT will have C4, C5, C10 as chosen columns.
+<li>
+<p>At row level- Each of these decision trees gets a random sample of the training data (say 10%) i.e. each of these trees will be trained independently on 100 randomly chosen rows out of 1,000 rows of data</p>
+</li>
+<li>
+<p>At column level- The second level of randomness is introduced at the column level. Not all the columns are passed into training each of the decision trees. Say we want only 10% of columns to be sent to each tree. This means a randomly selected 3 column will be sent to each tree. So for first decision tree, may be column C1, C2 and C4 were chosen. The next DT will have C4, C5, C10 as chosen columns.
 <br>
 <br>
-Let me draw an analogy now.</li>
+Let me draw an analogy now.</p>
+</li>
 </ul>
 <p>Let us now understand how interview selection process resembles a random forest algorithm. Each panel in the interview process is actually a decision tree. Each panel gives a result whether the candidate is a pass or fail and then a majority of these results is declared as final. Say there were 5 panels, 3 said yes and 2 said no. The final verdict will be yes.
 <br>
@@ -1841,25 +1847,27 @@ With the advent of huge computational power at our disposal, we hardly think for
 <h3>When is a random forest a poor choice relative to other algorithms?</h3>
 <ol>
 <li>
-<p>Random forests doesn't train well on smaller datasets as it fails to pick on the pattern. To simplify, say we know that 1 pen costs $1, 2 pens cost $2, 3 pens cost $6. In this case linear regression will easily estimate the cost of 4 pens but random forests will fail to come up with a good estimate.</p>
+<p><strong>Random forests doesn't train well on smaller datasets</strong> as it fails to pick on the pattern. To simplify, say we know that 1 pen costs $1, 2 pens cost $2, 3 pens cost $6. In this case linear regression will easily estimate the cost of 4 pens but random forests will fail to come up with a good estimate.</p>
 </li>
 <li>
-<p>There is a problem of interpretability with random forest. You can't see or understand the relationship between the response and the dependent variables. Understand that RF is a predictive tool and not a descriptive tool. You get variable importance but this may not suffice in many analysis of interests where the objective might be to see the relationship between response and the independent features.</p>
+<p><strong>There is a problem of interpretability with random forest.</strong> You can't see or understand the relationship between the response and the dependent variables. Understand that RF is a predictive tool and not a descriptive tool. You get variable importance but this may not suffice in many analysis of interests where the objective might be to see the relationship between response and the independent features.</p>
 </li>
 <li>
-<p>The time taken to train random forests may sometimes be too huge as you train multiple decision trees. Also, in case of categorical variable, the time complexity increases exponentially. For a categorical column with n levels, RF tries split at 2^n -1 points to find the maximal splitting point.</p>
+<p>The <strong>time taken to train random forests</strong> may sometimes be too huge as you train multiple decision trees. Also, in case of categorical variable, the time complexity increases exponentially. For a categorical column with n levels, RF tries split at 2^n -1 points to find the maximal splitting point.</p>
 </li>
 <li>
-<p>In case of regression problem, the range of values response variable can take is determine by the values already available in the training dataset. Unlike linear regression, RF can't take on value outside the training data.</p>
+<p>In case of regression problem, <strong>the range of values response variable can take</strong> is determine by the values already available in the training dataset. Unlike linear regression, RF can't take on value outside the training data.
+<br>
+<br></p>
 </li>
 </ol>
 <h3>What are the advantages of using random forest?</h3>
 <ol>
 <li>
-<p>Since we are using multiple decision trees, the bias remains same as that of a single decision tree. However, the variance decreases and thus we decrease the chances of overfitting.</p>
+<p>Since we are using multiple decision trees, <em>the bias remains same as that of a single decision tree</em>. However, the variance decreases and thus we decrease the chances of overfitting.</p>
 </li>
 <li>
-<p>When all you care about is the predictions and want a quick and dirty way-out, random forest comes to the rescue.
+<p>When all you care about is the predictions and <em>want a quick and dirty way-out</em>, random forest comes to the rescue.
 <br>
 <br>
 I will add in the R code snippets as well to get an idea of how this is executed soon.</p>
