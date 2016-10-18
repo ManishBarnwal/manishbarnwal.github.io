@@ -4,10 +4,10 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Improve runtime of Random Forest in R</title>
+  <title>Manish Barnwal - data-science</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="This post talks about a trick to improve the runtime of random forest package in R for large datasets" >
-  <meta name="keywords" content="random forest, hack" >
+  <meta name="description" content="" >
+  <meta name="keywords" content="" >
   
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1804,122 +1804,30 @@ jQuery(document).ready(function($) {
 </ul></nav>
   <div id="main">
     <div id="content">
-
-<div>
-  <article class="hentry" role="article">
+<div class="blog-index">
+  		<article>
 <header>
-      <h1 class="entry-title">Improve runtime of Random Forest in R</h1>
-      <p class="meta"><time datetime="2016-10-13T10:00:00" pubdate>Oct 13, 2016</time></p>
+      <h1 class="entry-title">
+        <a href="http://manishbarnwal.github.io/blog/2016/10/18/random_forest_explained_intuitively/">Random Forest explained intuitively</a>
+      </h1>
+      <p class="meta"><time datetime="2016-10-18T08:00:00" pubdate>Oct 18, 2016</time></p>
 </header>
 
-  <div class="entry-content"><p>There are two ways one can write the code to train a random forest model in R.
-Both the ways are listed below.
-<br>
-<br>
-A normal and frequent way of writing the command to train the random forest model is something like this.
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">rfModel &lt;- randomForest(Survived~. , data = trainSample[, -c(6, 8, 9)])
-</code></pre>
-<br></p>
-<p>Notice the <strong>~</strong> sign. We call this the formula way of writing.
-<br>
-<br>
-Another way of writing the command to train the random forest model is shown below.
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">rfModel &lt;- randomForest(y=trainSample$Survived, x= trainSample[, -c(6, 8, 9)], data = trainSample)
-</code></pre>
-<br></p>
-<p>Here we explicitly mention the y-variable and the x variables.
-<br>
-<br>
-Recently, I was working on a huge dataset where the task was to predict a variable based on some 12 independent variables. The dataset had close to 1.3 million rows. I tried train the model using the first method i.e the formula way. Sadly, I had to kill the task as it was taking a lot of time.
-<br>
-<br>
-It was then, I got to know that if you train the model using the second format command, the code runs relatively faster. When investigated further, I got to know that the reason for the difference in time is that the code for random forest is written in C and when one writes in the <em>formula format</em>, the x and y variables are explicitly converted into proper format and this is what takes time. <a href="http://stats.stackexchange.com/questions/116952/improving-randomforest-running-time">ref</a>
-<br>
-<br>
-Even the help page of randomForest in R says the same thing.
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">?randomForest
-</code></pre>
-<br>
-<br></p>
-<blockquote>
-<p>For large data sets, especially those with large number of variables, calling randomForest via the formula interface is not advised: There may be too much overhead in handling the formula.</p>
-</blockquote>
-<p><br>
-Look just before the 'Authors' section.</p>
-<p>The time difference is not significant for smaller datasets. However, for larger datasets I would suggest using the second format.</p>
-<p>To illustrate the time difference, I have taken a dataset having 2,23,874 rows and 6 columns.</p>
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">system.time( rfModel1 <- randomForest(DepDelay~. , data = subset(df, select = c(1,2,3,4,5, 13))) )
-</code></pre>
+  <div class="entry-content"><p>Random Forests algorithm has always fascinated me. I like how this algorithm can be easily explained to anyone without much hassle. One quick example, I use very frequently to explain the working of random forests is the way a company has multiple rounds of interview to hire a candidate. Let ...</p></div>
+  <footer>
+    <a rel="full-article" href="http://manishbarnwal.github.io/blog/2016/10/18/random_forest_explained_intuitively/">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
 
-<p><br></p>
-<blockquote>
-<p>user  system elapsed</p>
-<p>94.582  11.356 <strong>109.311</strong></p>
-</blockquote>
-<p><br></p>
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">system.time( rfModel2 <-randomForest(y=df$DepDelay, x=df[,c(1,2,3,4,5)], data=subset(df, select = c(1,2,3,4,5, 13))) )
-</code></pre>
-
-<p><br></p>
-<blockquote>
-<p>user  system elapsed</p>
-<p>93.499  10.248 <strong>106.205</strong></p>
-</blockquote>
-<p><br></p>
-<p>This shows a time difference of 3 seconds. Note that all of these columns were numeric and if one takes categorical columns as well, the time difference would be more.
-<br>
-<br>
-Also, this dataset is not huge. One would appreciate this more on larger datasets.</p></div>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- bar -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-8629778873290024"
-     data-ad-slot="5364549320"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>    <footer>
-<p class="meta">
-  <span class="byline author vcard">
-    Posted by <span class="fn">Manish Barnwal</span>
-  </span>
-<time datetime="2016-10-13T10:00:00" pubdate>Oct 13, 2016</time>  <span class="categories">
-    <a class="category" href="http://manishbarnwal.github.io/tag/life.html">life</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/learnings.html">learnings</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/thoughts.html">thoughts</a>
-  </span>
-</p><div class="sharing">
-</div>    </footer>
-  </article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
-  </section>
-</div>
+  <br />
+</div></div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2016/10/18/random_forest_explained_intuitively/">Random Forest explained intuitively</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2016/10/13/improve_runtime_random_forest_r/">Improve runtime of Random Forest in R</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2016/10/05/install_a_package_particular_version_in_R/">How to install a package of a particular version in R</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2016/10/02/bias_in_child/">Don’t introduce that bias in your child</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2016/09/30/shell_commands_for_data_scientist/">Shell commands come in handy for a data scientist</a>
       </li>
     </ul>
   </section>
@@ -1955,14 +1863,11 @@ Also, this dataset is not huge. One would appreciate this more on larger dataset
 </script></aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2014-2016  - Manish Barnwal -
+    Copyright &copy;  2016  - Manish Barnwal -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
-          var disqus_identifier = '/blog/2016/10/13/improve_runtime_random_forest_r/';
-          var disqus_url = 'http://manishbarnwal.com/blog/2016/10/13/improve_runtime_random_forest_r/';
-          var disqus_title = 'Improve runtime of Random Forest in R';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
