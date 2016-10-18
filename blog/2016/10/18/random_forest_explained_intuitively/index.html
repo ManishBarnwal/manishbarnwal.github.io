@@ -1826,10 +1826,10 @@ If you have heard about decision tree, then you are not very far from understand
 <p>There are two levels of randomness in this algorithm:</p>
 <ul>
 <li>
-<p>At row level- Each of these decision trees gets a random sample of the training data (say 10%) i.e. each of these trees will be trained independently on 100 randomly chosen rows out of 1,000 rows of data</p>
+<p><strong>At row level</strong>: Each of these decision trees gets a random sample of the training data (say 10%) i.e. each of these trees will be trained independently on 100 randomly chosen rows out of 1,000 rows of data</p>
 </li>
 <li>
-<p>At column level- The second level of randomness is introduced at the column level. Not all the columns are passed into training each of the decision trees. Say we want only 10% of columns to be sent to each tree. This means a randomly selected 3 column will be sent to each tree. So for first decision tree, may be column C1, C2 and C4 were chosen. The next DT will have C4, C5, C10 as chosen columns.
+<p><strong>At column level</strong>: The second level of randomness is introduced at the column level. Not all the columns are passed into training each of the decision trees. Say we want only 10% of columns to be sent to each tree. This means a randomly selected 3 column will be sent to each tree. So for first decision tree, may be column C1, C2 and C4 were chosen. The next DT will have C4, C5, C10 as chosen columns.
 <br>
 <br>
 Let me draw an analogy now.</p>
@@ -1847,7 +1847,7 @@ With the advent of huge computational power at our disposal, we hardly think for
 <h3>When is a random forest a poor choice relative to other algorithms?</h3>
 <ol>
 <li>
-<p><strong>Random forests doesn't train well on smaller datasets</strong> as it fails to pick on the pattern. To simplify, say we know that 1 pen costs $1, 2 pens cost $2, 3 pens cost $6. In this case linear regression will easily estimate the cost of 4 pens but random forests will fail to come up with a good estimate.</p>
+<p><strong>Random forests doesn't train well on smaller datasets</strong> as it fails to pick on the pattern. To simplify, say we know that 1 pen costs INR 1, 2 pens cost INR 2, 3 pens cost INR 6. In this case linear regression will easily estimate the cost of 4 pens but random forests will fail to come up with a good estimate.</p>
 </li>
 <li>
 <p><strong>There is a problem of interpretability with random forest.</strong> You can't see or understand the relationship between the response and the dependent variables. Understand that RF is a predictive tool and not a descriptive tool. You get variable importance but this may not suffice in many analysis of interests where the objective might be to see the relationship between response and the independent features.</p>
@@ -1864,10 +1864,10 @@ With the advent of huge computational power at our disposal, we hardly think for
 <h3>What are the advantages of using random forest?</h3>
 <ol>
 <li>
-<p>Since we are using multiple decision trees, <em>the bias remains same as that of a single decision tree</em>. However, the variance decreases and thus we decrease the chances of overfitting.</p>
+<p>Since we are using multiple decision trees, <strong>the bias remains same as that of a single decision tree</strong>. However, the variance decreases and thus we decrease the chances of overfitting.</p>
 </li>
 <li>
-<p>When all you care about is the predictions and <em>want a quick and dirty way-out</em>, random forest comes to the rescue.
+<p>When all you care about is the predictions and <strong>want a quick and dirty way-out</strong>, random forest comes to the rescue.
 <br>
 <br>
 I will add in the R code snippets as well to get an idea of how this is executed soon.</p>
