@@ -57,7 +57,10 @@ With the advent of huge computational power at our disposal, we hardly think for
 &lt;p&gt;When all you care about is the predictions and &lt;strong&gt;want a quick and dirty way-out&lt;/strong&gt;, random forest comes to the rescue.
 &lt;br&gt;
 &lt;br&gt;
-I will add in the R code snippets as well to get an idea of how this is executed soon.&lt;/p&gt;
+I will add in the R code snippets as well to get an idea of how this is executed soon.
+&lt;br&gt;
+&lt;br&gt;
+Did you find the article useful? If you did, share your thoughts on the topic in the comments.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;</summary><category term="random forest"></category><category term="ml"></category><category term="data-science"></category></entry><entry><title>ROC and AUC - The three lettered acronyms</title><link href="http://manishbarnwal.github.io/blog/2016/09/26/three_letter_acronym_roc_and_auc/" rel="alternate"></link><updated>2016-09-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-09-26:blog/2016/09/26/three_letter_acronym_roc_and_auc/</id><summary type="html">&lt;p&gt;I don't feel bad to confess this that &lt;em&gt;ROC curve&lt;/em&gt;, &lt;em&gt;AUC&lt;/em&gt;, &lt;em&gt;True-positive&lt;/em&gt; and related terms took quite some time for me to understand. If today I contemplate on the reasons why I found this topic confusing. The first would be there are not many resources that explains intuitively what these mean. They just jump to the terms and the mathematical formula for them. The second being I had not used them even in my project work. You see the project work is never enough for all your learnings.
 &lt;br&gt;
@@ -148,4 +151,5 @@ Come into picture ROC curve. Look at the ROC curve and depending on what value o
 &lt;p&gt;ROC, AUC can easily be plotted and calculated using modern analytical tools like R or Python. But I would suggest for better understanding of this topic, try writing your own code.
 &lt;br&gt;
 &lt;br&gt;
-I will make an attempt of the same soon and will share it on this space. Keep learning and sharing.&lt;/p&gt;</summary><category term="roc"></category><category term="auc"></category></entry></feed>
+I will make an attempt of the same soon and will share it on this space. Keep learning and sharing.&lt;/p&gt;
+&lt;p&gt;Did you find the article useful? If you did, share your thoughts on the topic in the comments.&lt;/p&gt;</summary><category term="roc"></category><category term="auc"></category></entry></feed>

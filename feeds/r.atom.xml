@@ -48,7 +48,7 @@ Error: package or namespace load failed for 'caret'
 Now if you have some other package to install, just replace the last word &lt;em&gt;pbkrtest&lt;/em&gt; with the package name you want to install and you will be able to see all the older versions of that package. For &lt;em&gt;Rcpp&lt;/em&gt; the link would be &lt;a href="https://cran.r-project.org/src/contrib/Archive/Rcpp"&gt;url&lt;/a&gt;. Choose the version you want to install and follow the steps stated above.
 &lt;br&gt;
 &lt;br&gt;
-Let me know in comments if you have any questions.&lt;/p&gt;
+Did you find the article useful? If you did, share your thoughts on the topic in the comments.&lt;/p&gt;
 &lt;p&gt;Cheers,&lt;/p&gt;
 &lt;p&gt;Manish&lt;/p&gt;</summary><category term="R"></category></entry><entry><title>When R package is not available across the cluster</title><link href="http://manishbarnwal.github.io/blog/2016/08/02/r_packages_not_in_cluster/" rel="alternate"></link><updated>2016-08-02T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-08-02:blog/2016/08/02/r_packages_not_in_cluster/</id><summary type="html">&lt;p&gt;When deploying R codes across the cluster, many a times the reason for the failure of the task is unavailability of a particular package across all nodes of the cluster. We wait for someone to get the package installed across all the nodes. This may take some days. Do we wait for them? &lt;em&gt;Naah!&lt;/em&gt;
 &lt;br&gt;
@@ -98,4 +98,5 @@ Don’t forget the semicolon
 &lt;code class="bash"&gt;library(randomForest, lib.loc='rPackages/')
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;And you’re done! Remember, you have to build the package where you want to use, because built packages are OS dependent.&lt;/p&gt;</summary><category term="big data"></category><category term="R"></category></entry></feed>
+&lt;p&gt;And you’re done! Remember, you have to build the package where you want to use, because built packages are OS dependent.&lt;/p&gt;
+&lt;p&gt;Did you find the article useful? If you did, share your thoughts in the comments.&lt;/p&gt;</summary><category term="big data"></category><category term="R"></category></entry></feed>
