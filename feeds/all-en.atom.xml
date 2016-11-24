@@ -1,5 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-10-18T08:00:00-02:00</updated><entry><title>Random Forest explained intuitively</title><link href="http://manishbarnwal.github.io/blog/2016/10/18/random_forest_explained_intuitively/" rel="alternate"></link><updated>2016-10-18T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-18:blog/2016/10/18/random_forest_explained_intuitively/</id><summary type="html">&lt;p&gt;Random Forests algorithm has always fascinated me. I like how this algorithm can be easily explained to anyone without much hassle. One quick example, I use very frequently to explain the working of random forests is the way a company has multiple rounds of interview to hire a candidate. Let me elaborate.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-11-24T07:00:00-02:00</updated><entry><title>Fix you | Ghar aa jaao</title><link href="http://manishbarnwal.github.io/blog/2016/11/24/ghar_aa_jaao/" rel="alternate"></link><updated>2016-11-24T07:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-11-24:blog/2016/11/24/ghar_aa_jaao/</id><summary type="html">&lt;p&gt;Last month on a mundane weekend, I was practicing this song - Fix you by Coldplay when my friend, Dipu came to the room. He stood there for some time to understand what I was trying to play. I am not that pro on guitar yet. Chances are you may want to throw me and my guitar out of your sight.
+&lt;br&gt;
+&lt;br&gt;
+After some trouble, Dipu finally guessed the song and randomly uttered some lines in Hindi along the tune of the original song. And when he was bored, he left the room. I continued my attempt to make the song perfect on the guitar. It was then when I thought what if I write the complete song in Hindi along the tune of the original.
+&lt;br&gt;
+&lt;br&gt;
+Without much thought, I picked up my notebook and started scribbling few lines. Later, Dipu also joined me in this attempt and below is the final song that we came up with.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Verse 1&lt;/strong&gt;
+Jab har koshish pe ho jaati hai haar
+Jab milta nahi jo ho tera pyaar
+Jab saath nahin ho mera wo yaar
+Akela hoon main...
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Verse 2&lt;/strong&gt;
+Jab lagta hai sab gaya hai bikhar
+Jab lagta hai suna, bin tere sheher
+Jab aati nahi ho tum nazar
+Sab kuch hai soo … oo ... na
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Chorus&lt;/strong&gt;
+Ghar aa jaao tum
+Sath seh lenge hum
+Kal fir aayega
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Verse 3&lt;/strong&gt;
+Sadkon pe hoon, ab main khada
+Aakhon me hain, bas chehra tera
+Aur hoton pe hai, bas vaada tera
+Tujh sang hamesha..aaa
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Chorus&lt;/strong&gt;
+Ghar aa jaao tum
+Sath seh lenge hum
+Kal fir aayega
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Bridge&lt;/strong&gt;
+Aasoon bahein, tere chehre pe
+Aur main kuch na kar paaya
+Aasoon bahein, tere chehre pe
+Aur main...
+&lt;br&gt;
+Aasoo bahein tere chehre pe
+Aur main bebas hoon yahan
+Aasoo bahein tere chehre pe
+Aur main ...
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Chorus&lt;/strong&gt;
+Ghar aa jaao tum
+Sath seh lenge hum
+Kal fir aayega
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Chorus&lt;/strong&gt;
+Ghar aa jaao tum
+Sath seh lenge hum
+Kal fir aayega
+&lt;br&gt;
+&lt;br&gt;
+The practice is on. Hopefully, we will have the song recorded and if it's worth listening to, I will upload it on my &lt;a href="https://www.youtube.com/channel/UCbZuY83yIUrbm0dZYP9eFHw/videos?view=0&amp;amp;sort=dd&amp;amp;shelf_id=0"&gt;Youtube channel&lt;/a&gt;.&lt;/p&gt;</summary><category term="Coldplay"></category></entry><entry><title>Random Forest explained intuitively</title><link href="http://manishbarnwal.github.io/blog/2016/10/18/random_forest_explained_intuitively/" rel="alternate"></link><updated>2016-10-18T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-18:blog/2016/10/18/random_forest_explained_intuitively/</id><summary type="html">&lt;p&gt;Random Forests algorithm has always fascinated me. I like how this algorithm can be easily explained to anyone without much hassle. One quick example, I use very frequently to explain the working of random forests is the way a company has multiple rounds of interview to hire a candidate. Let me elaborate.
 &lt;br&gt;
 &lt;br&gt;
 Say, you appeared for the position of Statistical analyst at WalmartLabs. Now like most of the companies, you don't just have one round of interview. You have multiple rounds of interviews. Each of these interviews is chaired by independent panels. Each panel assess the candidate separately and independently. Generally, even the questions asked in these interviews differ from each other. Randomness is important here.
@@ -1150,4 +1216,6 @@ One final thought:&lt;blockquote&gt;
 &lt;p&gt;“Ek din hota hai, ek job hota hai aur ek tum hote ho.”&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</summary><category term="analytics"></category><category term="statistics"></category><category term="interview"></category><category term="walmart"></category></entry></feed>
+&lt;/ul&gt;
+&lt;p&gt;&lt;br&gt;
+Did you find the article useful? If you did, share your thoughts in the comments.&lt;/p&gt;</summary><category term="analytics"></category><category term="statistics"></category><category term="interview"></category><category term="walmart"></category></entry></feed>
