@@ -4,10 +4,10 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Visualization aka EDA is way too under-rated</title>
+  <title>Visualization in ML data is under-rated</title>
   <meta name="author" content="Manish Barnwal">
   <meta name="description" content="This post talks about visualization -one of the most important aspects of data science that often gets ignored." >
-  <meta name="keywords" content="life, career" >
+  <meta name="keywords" content="visualization, R, data science, ML" >
   
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1808,7 +1808,7 @@ jQuery(document).ready(function($) {
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">Visualization aka EDA is way too under-rated</h1>
+      <h1 class="entry-title">Visualization in ML data is under-rated</h1>
       <p class="meta"><time datetime="2017-01-27T08:00:00" pubdate>Jan 27, 2017</time></p>
 </header>
 
@@ -1827,19 +1827,25 @@ I have learnt this hard way - You can't ignore EDA, visualization if you want to
 I have always wondered, how does the winners go about finding those patterns. Isn't there a course that could teach me these hacks to find the unseen patterns. Unfortunately, there are courses that teaches EDA, they teach you how to use ggplot2. But the thing I am talking about takes altogether a different mindset. One needs to be patient with this chunk of work. There are no defined paths to it. You just keep doing the EDA, observe the patterns, try to create new features based on this and once you have done this a hundred times, then you realize you finally understand this thing.
 <br>
 <br>
-<strong>So how do you master the art of EDA?</strong>
-The short answer is practice. But then how do you practice EDA? You take shorter assignments, try to write the code snippet of common plots like histogram, scatterplot, bar-plot. And when you plot these graphs, I would strongly recommend to use <em>ggplot2</em> if you are using R. In one of the talks, Hadley Wickham has strongly asserted that one should start learning visualization using <em>ggplot2</em>. The syntax is very intuitive and makes plots interesting and beautiful. And when a person like Hadley advises a thing, you just follow it.
+<strong>So how do you master the art of EDA?</strong></p>
+<p>The short answer is practice. But then how do you practice EDA? You take shorter assignments, try to write the code snippet of common plots like histogram, scatterplot, bar-plot. And when you plot these graphs, I would strongly recommend to use <em>ggplot2</em> if you are using R. In one of the talks, Hadley Wickham has strongly asserted that one should start learning visualization using <em>ggplot2</em>. The syntax is very intuitive and makes plots interesting and beautiful. And when a person like Hadley advises a thing, you just follow it.
 <br>
 <br>
-I have learnt more about R by looking at other people's codes. Look at the Kernels shared on <a href="www.Kaggle.com">Kaggle</a> by the top performers of Kaggle. The kind of analysis they do is just mind-blowing. And the best part is they share the code for everyone.</p>
-<p>In this post, I would just share the code snippets for the most common visualization tasks. Below are some of the most common plots to know about your data.</p>
+I have learnt more about R by looking at other people's codes. Look at the Kernels shared on Kaggle by the top performers of Kaggle. The kind of analysis they do is just mind-blowing. And the best part is they share the code for everyone.
+<br>
+<br>
+In this post, I would just share the code snippets for the most common visualization tasks. Below are some of the most common plots to know about your data.
+<br>
+<br></p>
 <h3>Barplot</h3>
 <p><pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r"> ggplot(data = mpg) +
   geom_bar(mapping = aes(x = as.factor(class))) +
   ggtitle(label = 'Plot of class of vehicle') +
   xlab('Class of vehicle') + ylab('Count')
-</code></pre></p>
+</code></pre>
+<br>
+<br></p>
 <h3>Scatterplot</h3>
 <p>The scatterplot is useful for displaying the relationship between two continuous variables, although it can also be used with one continuous and one categorical variable, or two categorical variables.</p>
 <pre style="font-size:60%; padding:7px; margin:0em;">
@@ -1849,14 +1855,18 @@ I have learnt more about R by looking at other people's codes. Look at the Kerne
   xlab('Engine size (litres)') + ylab('Highway mileage')
 </code></pre>
 
+<p><br>
+<br></p>
 <h3>Linechart plot</h3>
 <p><pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r"> ggplot(data = mpg) +
   geom_line(mapping = aes(x = displ, y = hwy)) +
   ggtitle(label = 'Plot of engine size v/s mileage') +
   xlab('Engine size (litres)') + ylab('Highway mileage')
-</code></pre></p>
-<p>I will add a tutorial on visualization in R using <strong>ggplot2</strong> soon. Did you find the article useful? If you did, share your thoughts in the comments.</p></div>
+</code></pre>
+<br>
+<br>
+I will add a tutorial on visualization in R using <strong>ggplot2</strong> soon. Did you find the article useful? If you did, share your thoughts in the comments.</p></div>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- bar -->
 <ins class="adsbygoogle"
@@ -1888,7 +1898,7 @@ I have learnt more about R by looking at other people's codes. Look at the Kerne
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2017/01/27/visualization_is_under-rated/">Visualization aka EDA is way too under-rated</a>
+          <a href="http://manishbarnwal.github.io/blog/2017/01/27/visualization_is_under-rated/">Visualization in ML data is under-rated</a>
       </li>
       <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2016/12/22/filmy_secret_santa/">The filmy Secret Santa</a>
@@ -1944,7 +1954,7 @@ I have learnt more about R by looking at other people's codes. Look at the Kerne
 	  var disqus_shortname = 'manishbarnwal';
           var disqus_identifier = '/blog/2017/01/27/visualization_is_under-rated/';
           var disqus_url = 'http://manishbarnwal.com/blog/2017/01/27/visualization_is_under-rated/';
-          var disqus_title = 'Visualization aka EDA is way too under-rated';
+          var disqus_title = 'Visualization in ML data is under-rated';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
