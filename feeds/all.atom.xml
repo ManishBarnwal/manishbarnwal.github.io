@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2016-12-22T07:00:00-02:00</updated><entry><title>The filmy Secret Santa</title><link href="http://manishbarnwal.github.io/blog/2016/12/22/filmy_secret_santa/" rel="alternate"></link><updated>2016-12-22T07:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-12-22:blog/2016/12/22/filmy_secret_santa/</id><summary type="html">&lt;p&gt;Ever heard of secret Santa game? If not, you may not appreciate this article. Wait till you join the corporate world. But if you have, secret Santa may ring some bell.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-01-27T08:00:00-02:00</updated><entry><title>Visualization aka EDA is way too under-rated</title><link href="http://manishbarnwal.github.io/blog/2017/01/27/visualization_is_under-rated/" rel="alternate"></link><updated>2017-01-27T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-01-27:blog/2017/01/27/visualization_is_under-rated/</id><summary type="html">&lt;p&gt;Visualization is one of the most important pillars of data science. Every one wants to learn Machine learning but if you explain them the little tasks that involve the overall workflow of the process, it turns them off. Everyone just wants to do the cool stuff. They want to build models and be done with it. And I was one of them. I understand that feeling when you get the data and without much understanding of the features in the dataset, we just want to throw in the data to a model and hope that something good comes out.
+&lt;br&gt;
+&lt;br&gt;
+I have participated in many hacks relating to ML and I used to just hope the trained model would do the task. Sadly, this thought always betrayed me. Even ensemble of various models may not work. Sometimes there are patterns in data which one gets to know only when one does EDA, when one plots a few graphs. One tries to understand the relationship of one feature with the other or do univariate analysis of the columns. An ML model is not always sufficient to understand the patterns in data.
+&lt;br&gt;
+&lt;br&gt;
+After a point, the learning of a model becomes saturated. It can only perform to a certain point. If there is a pattern that you have identified, it would definitely help the model to better train on it.
+&lt;br&gt;
+&lt;br&gt;
+I have learnt this hard way - You can't ignore EDA, visualization if you want to come in the top 1% of the leaderboard. Anyone and everyone can run a random forest model. Tuning the parameters is a little tedious but that too can be done with little practice. But finding the hidden patterns in the dataset, finding the relationship, understanding the little nuances in the data is an art. It's a skill. It takes practice. A lot of practice.
+&lt;br&gt;
+&lt;br&gt;
+I have always wondered, how does the winners go about finding those patterns. Isn't there a course that could teach me these hacks to find the unseen patterns. Unfortunately, there are courses that teaches EDA, they teach you how to use ggplot2. But the thing I am talking about takes altogether a different mindset. One needs to be patient with this chunk of work. There are no defined paths to it. You just keep doing the EDA, observe the patterns, try to create new features based on this and once you have done this a hundred times, then you realize you finally understand this thing.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;So how do you master the art of EDA?&lt;/strong&gt;
+The short answer is practice. But then how do you practice EDA? You take shorter assignments, try to write the code snippet of common plots like histogram, scatterplot, bar-plot. And when you plot these graphs, I would strongly recommend to use &lt;em&gt;ggplot2&lt;/em&gt; if you are using R. In one of the talks, Hadley Wickham has strongly asserted that one should start learning visualization using &lt;em&gt;ggplot2&lt;/em&gt;. The syntax is very intuitive and makes plots interesting and beautiful. And when a person like Hadley advises a thing, you just follow it.
+&lt;br&gt;
+&lt;br&gt;
+I have learnt more about R by looking at other people's codes. Look at the Kernels shared on &lt;a href="www.Kaggle.com"&gt;Kaggle&lt;/a&gt; by the top performers of Kaggle. The kind of analysis they do is just mind-blowing. And the best part is they share the code for everyone.&lt;/p&gt;
+&lt;p&gt;In this post, I would just share the code snippets for the most common visualization tasks. Below are some of the most common plots to know about your data.&lt;/p&gt;
+&lt;h3&gt;Barplot&lt;/h3&gt;
+&lt;p&gt;&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt; ggplot(data = mpg) +
+  geom_bar(mapping = aes(x = as.factor(class))) +
+  ggtitle(label = 'Plot of class of vehicle') +
+  xlab('Class of vehicle') + ylab('Count')
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;h3&gt;Scatterplot&lt;/h3&gt;
+&lt;p&gt;The scatterplot is useful for displaying the relationship between two continuous variables, although it can also be used with one continuous and one categorical variable, or two categorical variables.&lt;/p&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt; ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  ggtitle(label = 'Plot of engine size v/s mileage') +
+  xlab('Engine size (litres)') + ylab('Highway mileage')
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Linechart plot&lt;/h3&gt;
+&lt;p&gt;&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt; ggplot(data = mpg) +
+  geom_line(mapping = aes(x = displ, y = hwy)) +
+  ggtitle(label = 'Plot of engine size v/s mileage') +
+  xlab('Engine size (litres)') + ylab('Highway mileage')
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;I will add a tutorial on visualization in R using &lt;strong&gt;ggplot2&lt;/strong&gt; soon. Did you find the article useful? If you did, share your thoughts in the comments.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category></entry><entry><title>The filmy Secret Santa</title><link href="http://manishbarnwal.github.io/blog/2016/12/22/filmy_secret_santa/" rel="alternate"></link><updated>2016-12-22T07:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-12-22:blog/2016/12/22/filmy_secret_santa/</id><summary type="html">&lt;p&gt;Ever heard of secret Santa game? If not, you may not appreciate this article. Wait till you join the corporate world. But if you have, secret Santa may ring some bell.
 &lt;br&gt;
 &lt;br&gt;
 Dialogues define our cinema. Ever imagined this twist. What if the Secret Santa gets introduced to Bollywood? Presenting, &lt;em&gt;Secret Santa meets Bollywood!&lt;/em&gt;

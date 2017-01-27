@@ -4,10 +4,10 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My first attempt at public speaking</title>
+  <title>Visualization aka EDA is way too under-rated</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="This post is about making the first attempt at public speaking" >
-  <meta name="keywords" content="public-speaking, life, thoughts, nostalgia" >
+  <meta name="description" content="This post talks about visualization -one of the most important aspects of data science that often gets ignored." >
+  <meta name="keywords" content="life, career" >
   
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1808,41 +1808,55 @@ jQuery(document).ready(function($) {
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">My first attempt at public speaking</h1>
-      <p class="meta"><time datetime="2016-06-27T07:00:00" pubdate>Jun 27, 2016</time></p>
+      <h1 class="entry-title">Visualization aka EDA is way too under-rated</h1>
+      <p class="meta"><time datetime="2017-01-27T08:00:00" pubdate>Jan 27, 2017</time></p>
 </header>
 
-  <div class="entry-content"><p>Having graduated from college, it was just 6 months into my new job that I was asked to give a tech-talk on <em>Introduction to Data Science</em>. Imagine the thrill and fright of a fresher when he is presented with a situation like this. The first thing I asked my manager was — how many people are we expecting in the audience? Notice the fright in the question. I was scared that I might screw up in front of a large audience. I may not be able to present the talk eloquently, the audience may laugh at me and all those crappy thoughts that quickly clouds your mind with fear and uncertainty.
+  <div class="entry-content"><p>Visualization is one of the most important pillars of data science. Every one wants to learn Machine learning but if you explain them the little tasks that involve the overall workflow of the process, it turns them off. Everyone just wants to do the cool stuff. They want to build models and be done with it. And I was one of them. I understand that feeling when you get the data and without much understanding of the features in the dataset, we just want to throw in the data to a model and hope that something good comes out.
 <br>
 <br>
-Without much thought and ignoring the above questions, I straight away agreed to present the talk. <strong>The plan was simple</strong>. Commit to the task and then learn how to do it. In a few days, after a lot many iterations I had the presentation ready with me. I had not prepared any script or dialogues for the talk. The reason being, I wanted to give an impromptu talk. Days passed and I got busy in routine office work and meeting project deadlines.
+I have participated in many hacks relating to ML and I used to just hope the trained model would do the task. Sadly, this thought always betrayed me. Even ensemble of various models may not work. Sometimes there are patterns in data which one gets to know only when one does EDA, when one plots a few graphs. One tries to understand the relationship of one feature with the other or do univariate analysis of the columns. An ML model is not always sufficient to understand the patterns in data.
 <br>
 <br>
-Writing and public-speaking was something that has always fascinated me. I had read many a posts on effective public-speaking. Now was the time to apply whatever I had read about it.
+After a point, the learning of a model becomes saturated. It can only perform to a certain point. If there is a pattern that you have identified, it would definitely help the model to better train on it.
 <br>
 <br>
-The day had come when I had to give the tech-talk. That morning, I woke up a little early and I looked at a few videos on dealing with the stage-fear. I found this video in particular to be helpful.
+I have learnt this hard way - You can't ignore EDA, visualization if you want to come in the top 1% of the leaderboard. Anyone and everyone can run a random forest model. Tuning the parameters is a little tedious but that too can be done with little practice. But finding the hidden patterns in the dataset, finding the relationship, understanding the little nuances in the data is an art. It's a skill. It takes practice. A lot of practice.
 <br>
 <br>
-It’s not that I had not practiced at all. We had a few dry runs. Frankly, I didn’t had the exact lines that I intended to say. I had just planned the overall flow of the talk. As I had read on various blogs on public-speaking, I reached the conference room a little early, walked down the room confidently, talked to some of my colleagues about random topics so as to divert the attention and calm the nerves. 
+I have always wondered, how does the winners go about finding those patterns. Isn't there a course that could teach me these hacks to find the unseen patterns. Unfortunately, there are courses that teaches EDA, they teach you how to use ggplot2. But the thing I am talking about takes altogether a different mindset. One needs to be patient with this chunk of work. There are no defined paths to it. You just keep doing the EDA, observe the patterns, try to create new features based on this and once you have done this a hundred times, then you realize you finally understand this thing.
 <br>
 <br>
-Within a few minutes, the room got packed with folks from various teams. I hadn’t expected these many people to turn around. Nevertheless, I was happy and confident. I kept saying this to myself — <em>you are going to rock today! So many people have come just to listen to you. You know this stuff. This is your bread and butter</em>. I took a few deep breaths and started the talk. 
+<strong>So how do you master the art of EDA?</strong>
+The short answer is practice. But then how do you practice EDA? You take shorter assignments, try to write the code snippet of common plots like histogram, scatterplot, bar-plot. And when you plot these graphs, I would strongly recommend to use <em>ggplot2</em> if you are using R. In one of the talks, Hadley Wickham has strongly asserted that one should start learning visualization using <em>ggplot2</em>. The syntax is very intuitive and makes plots interesting and beautiful. And when a person like Hadley advises a thing, you just follow it.
 <br>
 <br>
-After first few minutes of the talk, I started reading some of the faces in the audience, trying to understand if they are following what was being spoken. A good proxy for this include people asking questions, nodding to your statements in agreement, and making notes. I could see the audience doing these. So the feedback was good and I continued with the talk.
-<br>
-<br>
-It was not all that easy. I stammered in between, fell short of the right words, the throat felt thirsty, some of the faces in audience looked scary but somehow the confidence in me was at peak. <strong>I was happy talking about something that I enjoyed doing</strong>.
-<br>
-<br>
-It has been almost a year since I had presented this talk. Now when I think about it, I feel good. I feel accomplished. I know I could have screwed up badly. I had to start somewhere. And today I am happy that I did take that chance.
-<br>
-<br>
-Next time, don’t let that chance pass away. Take that risk, prepare well and make it your first attempt at public speaking. We all need to start somewhere.
-<br>
-<br>
-Did you find the article useful? If you did, share your thoughts in the comments.</p></div>
+I have learnt more about R by looking at other people's codes. Look at the Kernels shared on <a href="www.Kaggle.com">Kaggle</a> by the top performers of Kaggle. The kind of analysis they do is just mind-blowing. And the best part is they share the code for everyone.</p>
+<p>In this post, I would just share the code snippets for the most common visualization tasks. Below are some of the most common plots to know about your data.</p>
+<h3>Barplot</h3>
+<p><pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="r"> ggplot(data = mpg) +
+  geom_bar(mapping = aes(x = as.factor(class))) +
+  ggtitle(label = 'Plot of class of vehicle') +
+  xlab('Class of vehicle') + ylab('Count')
+</code></pre></p>
+<h3>Scatterplot</h3>
+<p>The scatterplot is useful for displaying the relationship between two continuous variables, although it can also be used with one continuous and one categorical variable, or two categorical variables.</p>
+<pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="r"> ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  ggtitle(label = 'Plot of engine size v/s mileage') +
+  xlab('Engine size (litres)') + ylab('Highway mileage')
+</code></pre>
+
+<h3>Linechart plot</h3>
+<p><pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="r"> ggplot(data = mpg) +
+  geom_line(mapping = aes(x = displ, y = hwy)) +
+  ggtitle(label = 'Plot of engine size v/s mileage') +
+  xlab('Engine size (litres)') + ylab('Highway mileage')
+</code></pre></p>
+<p>I will add a tutorial on visualization in R using <strong>ggplot2</strong> soon. Did you find the article useful? If you did, share your thoughts in the comments.</p></div>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- bar -->
 <ins class="adsbygoogle"
@@ -1856,10 +1870,9 @@ Did you find the article useful? If you did, share your thoughts in the comments
   <span class="byline author vcard">
     Posted by <span class="fn">Manish Barnwal</span>
   </span>
-<time datetime="2016-06-27T07:00:00" pubdate>Jun 27, 2016</time>  <span class="categories">
-    <a class="category" href="http://manishbarnwal.github.io/tag/life.html">life</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/thoughts.html">thoughts</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/nostalgia.html">nostalgia</a>
+<time datetime="2017-01-27T08:00:00" pubdate>Jan 27, 2017</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/ml.html">ML</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/data-science.html">data science</a>
   </span>
 </p><div class="sharing">
 </div>    </footer>
@@ -1929,9 +1942,9 @@ Did you find the article useful? If you did, share your thoughts in the comments
 </p></footer>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
-          var disqus_identifier = '/blog/2016/06/27/first_attempt_at_public speaking/';
-          var disqus_url = 'http://manishbarnwal.com/blog/2016/06/27/first_attempt_at_public speaking/';
-          var disqus_title = 'My first attempt at public speaking';
+          var disqus_identifier = '/blog/2017/01/27/visualization_is_under-rated/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2017/01/27/visualization_is_under-rated/';
+          var disqus_title = 'Visualization aka EDA is way too under-rated';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
