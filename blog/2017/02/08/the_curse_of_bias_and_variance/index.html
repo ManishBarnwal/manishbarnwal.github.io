@@ -1853,19 +1853,22 @@ Let's say that true function is f.</li>
 <p>f: (gender, love-marriage, higher-studies, ...) --&gt; marital age</p>
 </blockquote>
 <p><br>
+Now we don't know the true f(). But we can estimate the true function using the data we may have from the past. It's easy to collect the data for the respective variables and the marital age. We are trying to come up with a function say fcap that resembles closely to the true function f.
 <br>
-Now we don't know the true f(). But we can estimate the true function using the data we may have from the past. It's easy to collect the data for the respective variables and the marital age. We are trying to come up with a function say fcap that resembles closely to the true function f.</p>
-<p>Whenever we try to estimate true f from the data in hand, we will obviously get some error. This error can be categorized in two types:
-1. Reducible Error
-   As the name suggests, this is something that the analyst has some control over. This can be reduced based on the kind of data you collect and the models (not all models are same right?)one uses to estimate the true f.
+<br>
+Whenever we try to estimate true f from the data in hand, we will obviously get some error. This error can be categorized in two types:</p>
+<ol>
+<li><strong>Reducible error</strong></li>
+</ol>
+<p>As the name suggests, this is something that the analyst has some control over. This can be reduced based on the kind of data you collect and the models (not all models are same right?)one uses to estimate the true f.
    This error can arise from a combination of 'bias' and 'variance'. We will talk about bias and variance in coming few paragraphs.</p>
 <ol>
-<li>Irreducible Error
-   As the name suggests, this error is something that the analyst has not control over. There is always some information that is difficult to capture in data. There is always some randomness in the data and that is difficult to explain. This error can't be reduced using any model whatsoever.</li>
+<li><strong>Irreducible error</strong></li>
 </ol>
+<p>As the name suggests, this error is something that the analyst has not control over. There is always some information that is difficult to capture in data. There is always some randomness in the data and that is difficult to explain. This error can't be reduced using any model whatsoever.</p>
 <p>Let us dig deeper into reducible error. We will talk about bias and variance here.</p>
-<p><strong>Bias</strong>
-When we talk about estimating the true f, there are various models that can be used. Now not all models are same. Each has some characteristics of its own. A linear regression, the simplest model is different from say a random forest model. Bias is the error that captures how far is the predicted value (say predicted marital age given the variables like gender, love or arranged marriage, etc.) from the true value (actual marital age).
+<p><strong>Bias</strong></p>
+<p>When we talk about estimating the true f, there are various models that can be used. Now not all models are same. Each has some characteristics of its own. A linear regression, the simplest model is different from say a random forest model. Bias is the error that captures how far is the predicted value (say predicted marital age given the variables like gender, love or arranged marriage, etc.) from the true value (actual marital age).
 <br>
 <br>
 Now you may ask is there a relationship between the bias and the type of models used? Yes there is one.
@@ -1875,8 +1878,8 @@ Bias tends to decrease as the complexity of model increases i.e it is expected t
 You may ask what is meant by complexity of a model or an example of it? Linear regression is a very simple model whereas random forest is a more complex model. Linear regression tries to fit just a line to the actual data and it assumes a linear relationship. A random forest model is more complex is the sense that it uses an ensemble of decision trees and is able to explain non-linear relationship as well.
 <br>
 <br>
-<strong>Variance</strong>
-When you estimate the true f, you use some data to train the model, that data is called training data. The data that the machine uses to train on, to find the patterns.
+<strong>Variance</strong></p>
+<p>When you estimate the true f, you use some data to train the model, that data is called training data. The data that the machine uses to train on, to find the patterns.
 Now once your model is trained, you want to use this to predict on unseen data (the data that the model has not been trained on) that data is called test data.
 <br>
 <br>
@@ -1889,8 +1892,12 @@ How is variance related to the complexity of models?
 As the complexity increases, the chances of overfitting increases i.e the variance increases. Coming to random forest and linear regression example, a random forest's variance is expected to be higher than that from a linear regression model.
 <br>
 <br>
-So if we talk about complexity, bias and variance together. This is the relationship between them.
-As the complexity of model increases, the bias decreases but the variance increases. So there is a trade-off between bias and variance. You can't get both low bias and low variance at the same time. You will have to accept a trade-off. Do you now understand why we call it the curse of bias and variance? I hope you do.
+So if we talk about complexity, bias and variance together, this is the relationship between them.</p>
+<blockquote>
+<p>As the complexity of model increases, the bias decreases but the variance increases.</p>
+</blockquote>
+<p><br>
+So there is a trade-off between bias and variance. You can't get both low bias and low variance at the same time. You will have to accept a trade-off. Do you now understand why we call it the curse of bias and variance? I hope you do.
 <br>
 <br>
 Did you find the article useful? If you did, share your thoughts in the comments. Please share this post with people who you think would enjoy reading this. Let's talk more of data-science.</p></div>
