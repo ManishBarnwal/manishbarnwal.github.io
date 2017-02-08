@@ -1,5 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-01-27T08:00:00-02:00</updated><entry><title>Visualization in ML is under-rated</title><link href="http://manishbarnwal.github.io/blog/2017/01/27/visualization_is_under-rated/" rel="alternate"></link><updated>2017-01-27T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-01-27:blog/2017/01/27/visualization_is_under-rated/</id><summary type="html">&lt;p&gt;Visualization is one of the most important pillars of data science. Every one wants to learn Machine learning but if you explain them the little tasks that involve the overall workflow of the process, it turns them off. Everyone just wants to do the cool stuff. They want to build models and be done with it. And I was one of them. I understand that feeling when you get the data and without much understanding of the features in the dataset, we just want to throw in the data to a model and hope that something good comes out.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-02-08T08:00:00-02:00</updated><entry><title>The curse of bias and variance</title><link href="http://manishbarnwal.github.io/blog/2017/02/08/the_curse_of_bias_and_variance/" rel="alternate"></link><updated>2017-02-08T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-08:blog/2017/02/08/the_curse_of_bias_and_variance/</id><summary type="html">&lt;p&gt;Statistics is the field of study where we try to draw conclusions about the population from a sample. Why do we talk about sample? Why can't we get the conclusions about the population directly from the population? Let me illustrate this by an example.
+&lt;br&gt;
+&lt;br&gt;
+Let us say we want to understand which brand of beer do the people of Bangalore prefers? An interesting question. If I ask you this question, how would you approach this problem?
+&lt;br&gt;
+&lt;br&gt;
+You can't go around asking each and every person their favorite beer? Or can we? No, we can't cover each and every individual because the 'population' is huge. One thing you can do is you may ask among your circle of friends their preference of beer and get an overall idea of the population. But we have a problem with this analysis. Do you see the problem? Your estimation is suffering from bias or we say your sample is biased. Biased sample is when it is not random. There is some form of personal preference in the choice of picking data.
+&lt;br&gt;
+&lt;br&gt;
+In your case, chances are most of your friends will be of same age as you. Intuitively, I feel that your age also decides what kind of beer you like. Say, when I was in college I'd never heard of Corona and Kingfisher was the best beer I had tasted. So we can't estimate the best brand of beer that Bangalore prefers from the sample of your friends.
+&lt;br&gt;
+&lt;br&gt;
+So population is a broader set of data that covers all the data points in the whole universe. Sample is a subset of that data. We try to infer the characteristics of the population from the sample or try to answer questions about the population from the sample. Getting or collecting population data is tough as explained in the above example (The favorite beer example).
+&lt;br&gt;
+&lt;br&gt;
+I hope the concept of population and sample is clear now. It's normally not feasible to get the data for the complete population so we try to estimate parameters or findings of the population from a sample.
+&lt;br&gt;
+&lt;br&gt;
+Another example. Not the beer but a rather completely different one - marriages.
+&lt;br&gt;
+&lt;br&gt;
+Say, now we want to understand what are the factors that affect the age at which one gets married. Some of the factors that came to me without much thought are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Gender&lt;/li&gt;
+&lt;li&gt;Love or arranged marriage&lt;/li&gt;
+&lt;li&gt;Plan for higher studies&lt;/li&gt;
+&lt;li&gt;Company type - Government of Private&lt;/li&gt;
+&lt;li&gt;Salary&lt;/li&gt;
+&lt;li&gt;Region&lt;/li&gt;
+&lt;li&gt;Religion
+&lt;br&gt;
+&lt;br&gt;
+Now we don't know the true relationship between marital age and the variables listed above. There should be a true function that maps response variable to the predictors but we don't know what that function is.
+&lt;br&gt;
+&lt;br&gt;
+Let's say that true function is f.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;f: (gender, love-marriage, higher-studies, ...) --&amp;gt; marital age&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;
+Now we don't know the true f(). But we can estimate the true function using the data we may have from the past. It's easy to collect the data for the respective variables and the marital age. We are trying to come up with a function say fcap that resembles closely to the true function f.&lt;/p&gt;
+&lt;p&gt;Whenever we try to estimate true f from the data in hand, we will obviously get some error. This error can be categorized in two types:
+1. Reducible Error
+   As the name suggests, this is something that the analyst has some control over. This can be reduced based on the kind of data you collect and the models (not all models are same right?)one uses to estimate the true f.
+   This error can arise from a combination of 'bias' and 'variance'. We will talk about bias and variance in coming few paragraphs.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Irreducible Error
+   As the name suggests, this error is something that the analyst has not control over. There is always some information that is difficult to capture in data. There is always some randomness in the data and that is difficult to explain. This error can't be reduced using any model whatsoever.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Let us dig deeper into reducible error. We will talk about bias and variance here.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bias&lt;/strong&gt;
+When we talk about estimating the true f, there are various models that can be used. Now not all models are same. Each has some characteristics of its own. A linear regression, the simplest model is different from say a random forest model. Bias is the error that captures how far is the predicted value (say predicted marital age given the variables like gender, love or arranged marriage, etc.) from the true value (actual marital age).
+&lt;br&gt;
+&lt;br&gt;
+Now you may ask is there a relationship between the bias and the type of models used? Yes there is one.
+Bias tends to decrease as the complexity of model increases i.e it is expected that the model error will decrease if we use a more complex model instead of a simple model. Now this is intuitive isn't it?
+&lt;br&gt;
+&lt;br&gt;
+You may ask what is meant by complexity of a model or an example of it? Linear regression is a very simple model whereas random forest is a more complex model. Linear regression tries to fit just a line to the actual data and it assumes a linear relationship. A random forest model is more complex is the sense that it uses an ensemble of decision trees and is able to explain non-linear relationship as well.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Variance&lt;/strong&gt;
+When you estimate the true f, you use some data to train the model, that data is called training data. The data that the machine uses to train on, to find the patterns.
+Now once your model is trained, you want to use this to predict on unseen data (the data that the model has not been trained on) that data is called test data.
+&lt;br&gt;
+&lt;br&gt;
+There is always some variability in the training data and the test data. You can't expect both these data to be exactly same.
+It is important to note that when you train your model, the model doesn't learn the exact values but instead try to find patterns so that when this pattern is seen on test data, the model is able to predict correctly.
+Many complex model overfits the data i.e models that perform well on training data but fails drastically on test data.
+&lt;br&gt;
+&lt;br&gt;
+How is variance related to the complexity of models?
+As the complexity increases, the chances of overfitting increases i.e the variance increases. Coming to random forest and linear regression example, a random forest's variance is expected to be higher than that from a linear regression model.
+&lt;br&gt;
+&lt;br&gt;
+So if we talk about complexity, bias and variance together. This is the relationship between them.
+As the complexity of model increases, the bias decreases but the variance increases. So there is a trade-off between bias and variance. You can't get both low bias and low variance at the same time. You will have to accept a trade-off. Do you now understand why we call it the curse of bias and variance? I hope you do.
+&lt;br&gt;
+&lt;br&gt;
+Did you find the article useful? If you did, share your thoughts in the comments. Please share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category><category term="overfitting"></category><category term="bias"></category><category term="variance"></category></entry><entry><title>Visualization in ML is under-rated</title><link href="http://manishbarnwal.github.io/blog/2017/01/27/visualization_is_under-rated/" rel="alternate"></link><updated>2017-01-27T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-01-27:blog/2017/01/27/visualization_is_under-rated/</id><summary type="html">&lt;p&gt;Visualization is one of the most important pillars of data science. Every one wants to learn Machine learning but if you explain them the little tasks that involve the overall workflow of the process, it turns them off. Everyone just wants to do the cool stuff. They want to build models and be done with it. And I was one of them. I understand that feeling when you get the data and without much understanding of the features in the dataset, we just want to throw in the data to a model and hope that something good comes out.
 &lt;br&gt;
 &lt;br&gt;
 I have participated in many hacks relating to ML and I used to just hope the trained model would do the task. Sadly, this thought always betrayed me. Even ensemble of various models may not work. Sometimes there are patterns in data which one gets to know only when one does EDA, when one plots a few graphs. One tries to understand the relationship of one feature with the other or do univariate analysis of the columns. An ML model is not always sufficient to understand the patterns in data.
@@ -103,7 +184,7 @@ Dialogues define our cinema. Ever imagined this twist. What if the Secret Santa 
 &lt;h3&gt;&lt;em&gt;Secret Santa is coming&lt;/em&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;br&gt;
 That is all for now, folks. &lt;/p&gt;
-&lt;p&gt;Is your favorite Bollywood dialogue in this list? Drop down your Secret Santa dialogues in comments.   &lt;/p&gt;</summary><category term="Christmas"></category><category term="office"></category></entry><entry><title>Fix you | Ghar aa jaao</title><link href="http://manishbarnwal.github.io/blog/2016/11/24/ghar_aa_jaao/" rel="alternate"></link><updated>2016-11-24T07:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-11-24:blog/2016/11/24/ghar_aa_jaao/</id><summary type="html">&lt;p&gt;Last month on a mundane weekend, I was practicing this song - Fix you by Coldplay when my friend, Dipu came to the room. He stood there for some time to understand what I was trying to play. I am not that pro on guitar yet. Chances are you may want to throw me and my guitar out of your sight.
+&lt;p&gt;Is your favorite Bollywood dialogue in this list? Drop down your Secret Santa dialogues in comments.   &lt;/p&gt;</summary><category term="Christmas"></category><category term="office"></category></entry><entry><title>Coldplay-Fix you | Ghar aa jaao</title><link href="http://manishbarnwal.github.io/blog/2016/11/24/ghar_aa_jaao/" rel="alternate"></link><updated>2016-11-24T07:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-11-24:blog/2016/11/24/ghar_aa_jaao/</id><summary type="html">&lt;p&gt;Last month on a mundane weekend, I was practicing this song - Fix you by Coldplay when my friend, Dipu came to the room. He stood there for some time to understand what I was trying to play. I am not that pro on guitar yet. Chances are you may want to throw me and my guitar out of your sight.
 &lt;br&gt;
 &lt;br&gt;
 After some trouble, Dipu finally guessed the song and randomly uttered some lines in Hindi along the tune of the original song. And when he was bored, he left the room. I continued my attempt to make the song perfect on the guitar. It was then when I thought what if I write the complete song in Hindi along the tune of the original.

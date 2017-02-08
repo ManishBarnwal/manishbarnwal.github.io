@@ -4,10 +4,10 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Manish Barnwal - random forest</title>
+  <title>The curse of bias and variance</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="" >
-  <meta name="keywords" content="" >
+  <meta name="description" content="This post talks about the trade-off between bias and variance." >
+  <meta name="keywords" content="ML, data science, overfitting, bias, variance" >
   
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1804,28 +1804,141 @@ jQuery(document).ready(function($) {
 </ul></nav>
   <div id="main">
     <div id="content">
-<div class="blog-index">
-  		<article>
+
+<div>
+  <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">
-        <a href="http://manishbarnwal.github.io/blog/2016/10/18/random_forest_explained_intuitively/">Random Forest explained intuitively</a>
-      </h1>
-      <p class="meta"><time datetime="2016-10-18T08:00:00" pubdate>Oct 18, 2016</time></p>
+      <h1 class="entry-title">The curse of bias and variance</h1>
+      <p class="meta"><time datetime="2017-02-08T08:00:00" pubdate>Feb 08, 2017</time></p>
 </header>
 
-  <div class="entry-content"><p>Random Forests algorithm has always fascinated me. I like how this algorithm can be easily explained to anyone without much hassle. One quick example, I use very frequently to explain the working of random forests is the way a company has multiple rounds of interview to hire a candidate. Let ...</p></div>
-  <footer>
-    <a rel="full-article" href="http://manishbarnwal.github.io/blog/2016/10/18/random_forest_explained_intuitively/">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
+  <div class="entry-content"><p>Statistics is the field of study where we try to draw conclusions about the population from a sample. Why do we talk about sample? Why can't we get the conclusions about the population directly from the population? Let me illustrate this by an example.
+<br>
+<br>
+Let us say we want to understand which brand of beer do the people of Bangalore prefers? An interesting question. If I ask you this question, how would you approach this problem?
+<br>
+<br>
+You can't go around asking each and every person their favorite beer? Or can we? No, we can't cover each and every individual because the 'population' is huge. One thing you can do is you may ask among your circle of friends their preference of beer and get an overall idea of the population. But we have a problem with this analysis. Do you see the problem? Your estimation is suffering from bias or we say your sample is biased. Biased sample is when it is not random. There is some form of personal preference in the choice of picking data.
+<br>
+<br>
+In your case, chances are most of your friends will be of same age as you. Intuitively, I feel that your age also decides what kind of beer you like. Say, when I was in college I'd never heard of Corona and Kingfisher was the best beer I had tasted. So we can't estimate the best brand of beer that Bangalore prefers from the sample of your friends.
+<br>
+<br>
+So population is a broader set of data that covers all the data points in the whole universe. Sample is a subset of that data. We try to infer the characteristics of the population from the sample or try to answer questions about the population from the sample. Getting or collecting population data is tough as explained in the above example (The favorite beer example).
+<br>
+<br>
+I hope the concept of population and sample is clear now. It's normally not feasible to get the data for the complete population so we try to estimate parameters or findings of the population from a sample.
+<br>
+<br>
+Another example. Not the beer but a rather completely different one - marriages.
+<br>
+<br>
+Say, now we want to understand what are the factors that affect the age at which one gets married. Some of the factors that came to me without much thought are:</p>
+<ol>
+<li>Gender</li>
+<li>Love or arranged marriage</li>
+<li>Plan for higher studies</li>
+<li>Company type - Government of Private</li>
+<li>Salary</li>
+<li>Region</li>
+<li>Religion
+<br>
+<br>
+Now we don't know the true relationship between marital age and the variables listed above. There should be a true function that maps response variable to the predictors but we don't know what that function is.
+<br>
+<br>
+Let's say that true function is f.</li>
+</ol>
+<blockquote>
+<p>f: (gender, love-marriage, higher-studies, ...) --&gt; marital age</p>
+</blockquote>
+<p><br>
+<br>
+Now we don't know the true f(). But we can estimate the true function using the data we may have from the past. It's easy to collect the data for the respective variables and the marital age. We are trying to come up with a function say fcap that resembles closely to the true function f.</p>
+<p>Whenever we try to estimate true f from the data in hand, we will obviously get some error. This error can be categorized in two types:
+1. Reducible Error
+   As the name suggests, this is something that the analyst has some control over. This can be reduced based on the kind of data you collect and the models (not all models are same right?)one uses to estimate the true f.
+   This error can arise from a combination of 'bias' and 'variance'. We will talk about bias and variance in coming few paragraphs.</p>
+<ol>
+<li>Irreducible Error
+   As the name suggests, this error is something that the analyst has not control over. There is always some information that is difficult to capture in data. There is always some randomness in the data and that is difficult to explain. This error can't be reduced using any model whatsoever.</li>
+</ol>
+<p>Let us dig deeper into reducible error. We will talk about bias and variance here.</p>
+<p><strong>Bias</strong>
+When we talk about estimating the true f, there are various models that can be used. Now not all models are same. Each has some characteristics of its own. A linear regression, the simplest model is different from say a random forest model. Bias is the error that captures how far is the predicted value (say predicted marital age given the variables like gender, love or arranged marriage, etc.) from the true value (actual marital age).
+<br>
+<br>
+Now you may ask is there a relationship between the bias and the type of models used? Yes there is one.
+Bias tends to decrease as the complexity of model increases i.e it is expected that the model error will decrease if we use a more complex model instead of a simple model. Now this is intuitive isn't it?
+<br>
+<br>
+You may ask what is meant by complexity of a model or an example of it? Linear regression is a very simple model whereas random forest is a more complex model. Linear regression tries to fit just a line to the actual data and it assumes a linear relationship. A random forest model is more complex is the sense that it uses an ensemble of decision trees and is able to explain non-linear relationship as well.
+<br>
+<br>
+<strong>Variance</strong>
+When you estimate the true f, you use some data to train the model, that data is called training data. The data that the machine uses to train on, to find the patterns.
+Now once your model is trained, you want to use this to predict on unseen data (the data that the model has not been trained on) that data is called test data.
+<br>
+<br>
+There is always some variability in the training data and the test data. You can't expect both these data to be exactly same.
+It is important to note that when you train your model, the model doesn't learn the exact values but instead try to find patterns so that when this pattern is seen on test data, the model is able to predict correctly.
+Many complex model overfits the data i.e models that perform well on training data but fails drastically on test data.
+<br>
+<br>
+How is variance related to the complexity of models?
+As the complexity increases, the chances of overfitting increases i.e the variance increases. Coming to random forest and linear regression example, a random forest's variance is expected to be higher than that from a linear regression model.
+<br>
+<br>
+So if we talk about complexity, bias and variance together. This is the relationship between them.
+As the complexity of model increases, the bias decreases but the variance increases. So there is a trade-off between bias and variance. You can't get both low bias and low variance at the same time. You will have to accept a trade-off. Do you now understand why we call it the curse of bias and variance? I hope you do.
+<br>
+<br>
+Did you find the article useful? If you did, share your thoughts in the comments. Please share this post with people who you think would enjoy reading this. Let's talk more of data-science.</p></div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- bar -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-8629778873290024"
+     data-ad-slot="5364549320"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Manish Barnwal</span>
+  </span>
+<time datetime="2017-02-08T08:00:00" pubdate>Feb 08, 2017</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/ml.html">ML</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/data-science.html">data science</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/overfitting.html">overfitting</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/bias.html">bias</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/variance.html">variance</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
 
-  <br />
-</div></div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/02/08/the_curse_of_bias_and_variance/">The curse of bias and variance</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/01/27/visualization_is_under-rated/">Visualization in ML is under-rated</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2016/12/22/filmy_secret_santa/">The filmy Secret Santa</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2016/11/24/ghar_aa_jaao/">Coldplay-Fix you | Ghar aa jaao</a>
+      </li>
       <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2016/10/18/random_forest_explained_intuitively/">Random Forest explained intuitively</a>
       </li>
@@ -1864,11 +1977,14 @@ jQuery(document).ready(function($) {
 </script></aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2016  - Manish Barnwal -
+    Copyright &copy;  2014-2017  - Manish Barnwal -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
+          var disqus_identifier = '/blog/2017/02/08/the_curse_of_bias_and_variance/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2017/02/08/the_curse_of_bias_and_variance/';
+          var disqus_title = 'The curse of bias and variance';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
