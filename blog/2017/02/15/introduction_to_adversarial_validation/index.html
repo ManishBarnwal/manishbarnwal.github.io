@@ -1834,16 +1834,15 @@ The use of validation data is to understand how the model is expected to perform
 <br>
 <br></p>
 <h3>The solution</h3>
-<p>The solution is adversarial validation. I got to know about this recently when I started participating in Numerai competition and read a post on this on fastml. Here's how it is done.</p>
-<ol>
-<li><em>Build a classifier to distinguish between training and test data</em></li>
-</ol>
+<p>The solution is <strong>adversarial validation</strong>. I got to know about this recently when I started participating in <a href="https://numer.ai/">Numerai</a> competition and read about this technique on fastml. Here's how it is done.</p>
+<p><br>
+1. <strong>Build a classifier to distinguish between training and test data</strong></p>
 <p>Combine your train and test data into one data. Create a response variable say isTest and assign it as 0 to all the rows in training data and 1 to all the rows in test data. Now your task is to build a classification model that will distinguish between the training and test data. This could be any classification model - logistic or random forest.</p>
 <p><br>
-2. <em>Sort the predicted probabilities of training data in decreasing order</em></p>
+2. <strong>Sort the predicted probabilities of training data in decreasing order</strong></p>
 <p>Once you have the model built, use this model to predict on the training data. You will get the fitted probabilities. Sort the probabilities in decreasing order i.e. the row having highest probability of being classified as test data comes to the top.</p>
 <p><br>
-3. <em>Take the starting few rows as your validation set</em></p>
+3. <strong>Take the starting few rows as your validation set</strong></p>
 <p>The starting few rows are now those rows of training data that resembles the most to test data. Take the starting few rows say 30% as your validation set. And the remaining as your train data to train your model.
 <br>
 <br>
