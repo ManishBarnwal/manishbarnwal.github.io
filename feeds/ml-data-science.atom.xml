@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/ml-data-science.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-02-08T08:00:00-02:00</updated><entry><title>The curse of bias and variance</title><link href="http://manishbarnwal.github.io/blog/2017/02/08/the_curse_of_bias_and_variance/" rel="alternate"></link><updated>2017-02-08T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-08:blog/2017/02/08/the_curse_of_bias_and_variance/</id><summary type="html">&lt;p&gt;Statistics is the field of study where we try to draw conclusions about the population from a sample. Why do we talk about sample? Why can't we get the conclusions about the population directly from the population? Let me illustrate this by an example.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/ml-data-science.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-02-15T08:00:00-02:00</updated><entry><title>An illustrated introduction to adversarial validation [draft]</title><link href="http://manishbarnwal.github.io/blog/2017/02/15/introduction_to_adversarial_validation/" rel="alternate"></link><updated>2017-02-15T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-15:blog/2017/02/15/introduction_to_adversarial_validation/</id><summary type="html">&lt;p&gt;You'd have heard about cross-validation - a common technique used in data-science process to avoid overfitting and many a times to tune the optimal parameters. Overfitting is when the model does well on training data but fails drastically on test data. The reason could be one of the following:
+1. The model is trying to map the exact findings of training data to test data instead of generalizing the patterns.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The train data and test data are significantly different from each other i.e. they have not been derived from the same population.
+&lt;br&gt;
+&lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;The problem&lt;/h3&gt;
+&lt;p&gt;We will try to understand the second issue. What is the problem with the second issue? If you have participated in Kaggle like competitions, then you would know the way these competitions work. You are given a training data set and test dataset. You train your model on training data, predict on the test data and upload the predictions on Kaggle to get your rank.
+&lt;br&gt;
+&lt;br&gt;
+What we typically do is divide the training data into train and validation data set. Validation data is used to get an idea of how your model will work on the test data. Now imagine if your train data and test data are different in terms of the population from where they've been derived. You won't see the same result in validation and test data. You see the problem here?
+&lt;br&gt;
+&lt;br&gt;
+The use of validation data is to understand how the model is expected to perform on test data. But if train and test are not identically distributed, validation and test data would show different results.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;The solution&lt;/h3&gt;
+&lt;p&gt;The solution is adversarial validation. I got to know about this recently when I started participating in Numerai competition and read a post on this on fastml. Here's how it is done.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Build a classifier to distinguish between training and test data
+Combine your train and test data into one data. Create a response variable say isTest and assign it as 0 to all the rows in training data and 1 to all the rows in test data. Now your task is to build a classification model that will distinguish between the training and test data. This could be any classification model - logistic or random forest.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sort the predicted probabilities of training data in decreasing order
+Once you have the model built, use this model to predict on the training data. You will get the fitted probabilities. Sort the probabilities in decreasing order i.e. the row having highest probability of being classified as test data comes to the top.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Take the starting few rows as your validation set
+The starting few rows are now those rows of training data that resembles the most to test data. Take the starting few rows say 30% as your validation set. And the remaining as your train data to train your model.
+&lt;br&gt;
+&lt;br&gt;
+Now, the accuracy metrics on your validation set should be similar to that on the test data. If your model works well on validation data, it should work well on test data. I will share the R code for the same in the next post.
+&lt;br&gt;
+&lt;br&gt;
+Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="ML"></category><category term="data science"></category><category term="overfitting"></category><category term="adversarial-validation"></category></entry><entry><title>The curse of bias and variance [draft]</title><link href="http://manishbarnwal.github.io/blog/2017/02/08/the_curse_of_bias_and_variance/" rel="alternate"></link><updated>2017-02-08T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-08:blog/2017/02/08/the_curse_of_bias_and_variance/</id><summary type="html">&lt;p&gt;Statistics is the field of study where we try to draw conclusions about the population from a sample. Why do we talk about sample? Why can't we get the conclusions about the population directly from the population? Let me illustrate this by an example.
 &lt;br&gt;
 &lt;br&gt;
 Let us say we want to understand which brand of beer do the people of Bangalore prefers? An interesting question. If I ask you this question, how would you approach this problem?
@@ -87,7 +125,7 @@ So if we talk about complexity, bias and variance together, this is the relation
 So there is a trade-off between bias and variance. You can't get both low bias and low variance at the same time. You will have to accept a trade-off. Do you now understand why we call it the curse of bias and variance? I hope you do.
 &lt;br&gt;
 &lt;br&gt;
-Did you find the article useful? If you did, share your thoughts in the comments. Please share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category><category term="overfitting"></category><category term="bias"></category><category term="variance"></category></entry><entry><title>Visualization in ML is under-rated</title><link href="http://manishbarnwal.github.io/blog/2017/01/27/visualization_is_under-rated/" rel="alternate"></link><updated>2017-01-27T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-01-27:blog/2017/01/27/visualization_is_under-rated/</id><summary type="html">&lt;p&gt;Visualization is one of the most important pillars of data science. Every one wants to learn Machine learning but if you explain them the little tasks that involve the overall workflow of the process, it turns them off. Everyone just wants to do the cool stuff. They want to build models and be done with it. And I was one of them. I understand that feeling when you get the data and without much understanding of the features in the dataset, we just want to throw in the data to a model and hope that something good comes out.
+Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category><category term="overfitting"></category><category term="bias"></category><category term="variance"></category></entry><entry><title>Visualization in ML is under-rated</title><link href="http://manishbarnwal.github.io/blog/2017/01/27/visualization_is_under-rated/" rel="alternate"></link><updated>2017-01-27T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-01-27:blog/2017/01/27/visualization_is_under-rated/</id><summary type="html">&lt;p&gt;Visualization is one of the most important pillars of data science. Every one wants to learn Machine learning but if you explain them the little tasks that involve the overall workflow of the process, it turns them off. Everyone just wants to do the cool stuff. They want to build models and be done with it. And I was one of them. I understand that feeling when you get the data and without much understanding of the features in the dataset, we just want to throw in the data to a model and hope that something good comes out.
 &lt;br&gt;
 &lt;br&gt;
 I have participated in many hacks relating to ML and I used to just hope the trained model would do the task. Sadly, this thought always betrayed me. Even ensemble of various models may not work. Sometimes there are patterns in data which one gets to know only when one does EDA, when one plots a few graphs. One tries to understand the relationship of one feature with the other or do univariate analysis of the columns. An ML model is not always sufficient to understand the patterns in data.
