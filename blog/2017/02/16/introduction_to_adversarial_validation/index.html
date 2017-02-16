@@ -1824,17 +1824,16 @@ library(data.table)
 library(MLmetrics)
 getwd()
 dir()
-</code></pre></p>
-<p><br>
+</code></pre>
+<br>
 <br></p>
 <h3>Reading train and test data set</h3>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
-
-train <- read.csv("Data/numerai_training_data.csv")
 train <- fread("Data/numerai_training_data.csv")
 train <- as.data.frame(train)
 train$target <- as.factor(train$target)
+
 str(train)
 dim(train) # has close to 136000 rows and having no missing values
 head(train)
@@ -1842,104 +1841,105 @@ head(train)
 test <- fread("Data/numerai_tournament_data.csv")
 test <- as.data.frame(test)
 dim(test) # has close to 150000 rows and having no missing values
-
+head(test)
 </code></pre>
 
+<p><br>
+<br></p>
 <h3>Creating the target variable to distinguish between train and test data</h3>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
-
-train$isTest <- 0
+train$isTest <- 0 # assigning 0 for train and 1 for test data
 test$isTest <- 1
-
 </code></pre>
 
+<p><br>
+<br></p>
 <h3>Combining train and test data into a single data frame</h3>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
-
 combi <- rbindlist(list(train[, -51], test[, -1])) # removing 'target' from train data and 't_id' from test data
 combi$isTest <- as.factor(combi$isTest)
 combi <- as.data.frame(combi)
 str(combi)
-
 </code></pre>
 
+<p><br>
+<br></p>
 <h3>Train a classifier to identify whether data comes from the train or test set</h3>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
 logitMod <- glm(formula = isTest~. , data = combi, family = 'binomial')
-
 summary(logitMod)
 head(logitMod$fitted.values)
-
-
 </code></pre>
 
+<p><br>
+<br></p>
 <h3>Predict on the training data to see which rows resembles most to the test data</h3>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
-
 pred <- predict(logitMod, newdata = train, type = 'response')
 head(pred)
 
 trainData <- train
 head(trainData)
 trainData$predictTest <- pred
-
 </code></pre>
 
+<p><br>
+<br></p>
 <h3>Sort the training data by it’s probability of being in the test set</h3>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
-
 trainData <- trainData[order(trainData$predictTest, decreasing = T), ]
 
 valIndx <- 1:(0.2*nrow(trainData))
-
 colsToKeep <- names(trainData)[!names(trainData) %in% c('isTest', 'predictTest')]
 
 trainFinal <- trainData[-valIndx, colsToKeep]
 valData <- trainData[valIndx, colsToKeep]
 
 write.csv(trainFinal, 'trainfinal.csv', row.names = F, quote = F)
-names(trainFinal)
-
 </code></pre>
 
+<p><br>
+<br></p>
 <h3>Build a random forest classifier to predict the 'target' variable</h3>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
-
-set.seed(1) # for reproducibility of the result
+set.seed(1) # setting seed for reproducibility of the result
 
 matX <- trainFinal[, -grep('target', names(trainFinal))]
 response <- trainFinal[, 'target']
 table(response)
 
-rfMod <- randomForest(x = matX, y = response, ntree = 200, mtry = 7)
-
+rfMod <- randomForest(x = matX, y = response, ntree = 200, mtry = 7) # training randomForest model
 </code></pre>
 
+<p><br>
+<br></p>
 <h3>Prediction on validation set</h3>
 <p><pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
 rfValPreds &lt;- predict(rfMod, newdata = valData, type="prob")
 head(valPreds)
-LogLoss(rfLassoValPreds, as.numeric(as.character(valData$target)))
-</code></pre></p>
-<p>The validation set gives a LogLoss of 0.699. Let us see how does this come out on test data set. For this we will predict on the test data and upload the predictions to the site.</p>
+LogLoss(rfLassoValPreds, as.numeric(as.character(valData$target))) # LogLoss function from MLmetrics package
+</code></pre>
+<br>
+<br>
+The validation set gives a LogLoss of 0.699. Let us see how does this come out on test data set. For this we will predict on the test data and upload the predictions to the site.
+<br>
+<br></p>
 <h3>Prediction on actual test data</h3>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
-
 testPreds <- predict(rfMod, newdata = test, type = 'prob')
-
 testPreds <- testPreds[, 2]
+
 submission <- data.frame(t_id = test$t_id, probability = testPreds)
 head(submission)
 write.csv(submission, 'submission.csv', row.names = F, quote = F)
-
 </code></pre>
 
 <p><br>
