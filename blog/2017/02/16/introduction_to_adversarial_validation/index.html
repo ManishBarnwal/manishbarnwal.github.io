@@ -1812,7 +1812,9 @@ jQuery(document).ready(function($) {
       <p class="meta"><time datetime="2017-02-16T08:00:00" pubdate>Feb 16, 2017</time></p>
 </header>
 
-  <div class="entry-content"><p>In the last post we talked about the <a href="http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/">idea of adversarial validation</a> and how it helps the problem when your validation set result doesn't comply with that of test set result. In this post, I will share the R code to help achieve the idea of adversarial validation. The data used would be from <a href="https://numer.ai/">Numerai competition</a>.</p>
+  <div class="entry-content"><p>In the last post we talked about the <a href="http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/">idea of adversarial validation</a> and how it helps the problem when your validation set result doesn't comply with that of test set result. In this post, I will share the R code to help achieve the idea of adversarial validation. The data used would be from <a href="https://numer.ai/">Numerai competition</a>.
+<br>
+<br></p>
 <h3>Loading required packages</h3>
 <p><pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
@@ -1823,6 +1825,8 @@ library(MLmetrics)
 getwd()
 dir()
 </code></pre></p>
+<p><br>
+<br></p>
 <h3>Reading train and test data set</h3>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
@@ -1844,8 +1848,8 @@ dim(test) # has close to 150000 rows and having no missing values
 <h3>Creating the target variable to distinguish between train and test data</h3>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
-train$isTest <- 0
 
+train$isTest <- 0
 test$isTest <- 1
 
 </code></pre>
@@ -1853,9 +1857,8 @@ test$isTest <- 1
 <h3>Combining train and test data into a single data frame</h3>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
-> removing 'target' from train data and 't_id' from test data
 
-combi <- rbindlist(list(train[, -51], test[, -1]))
+combi <- rbindlist(list(train[, -51], test[, -1])) # removing 'target' from train data and 't_id' from test data
 combi$isTest <- as.factor(combi$isTest)
 combi <- as.data.frame(combi)
 str(combi)
@@ -1873,7 +1876,7 @@ head(logitMod$fitted.values)
 
 </code></pre>
 
-<h1>Predict on the training data to see which rows resembles most to the test data</h1>
+<h3>Predict on the training data to see which rows resembles most to the test data</h3>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
 
@@ -1905,18 +1908,23 @@ names(trainFinal)
 </code></pre>
 
 <h3>Build a random forest classifier to predict the 'target' variable</h3>
-<p><pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r"></p>
-<p>set.seed(1) # for reproducibility of the result</p>
-<p>matX &lt;- trainFinal[, -grep('target', names(trainFinal))]
-response &lt;- trainFinal[, 'target']
-table(response)</p>
-<p>rfMod &lt;- randomForest(x = matX, y = response, ntree = 200, mtry = 7)</p>
-<p></code></pre></p>
+<pre style="font-size:60%; padding:7px; margin:0em;">
+<code class="r">
+
+set.seed(1) # for reproducibility of the result
+
+matX <- trainFinal[, -grep('target', names(trainFinal))]
+response <- trainFinal[, 'target']
+table(response)
+
+rfMod <- randomForest(x = matX, y = response, ntree = 200, mtry = 7)
+
+</code></pre>
+
 <h3>Prediction on validation set</h3>
 <p><pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r"></p>
-<p>rfValPreds &lt;- predict(rfMod, newdata = valData, type="prob")
+<code class="r">
+rfValPreds &lt;- predict(rfMod, newdata = valData, type="prob")
 head(valPreds)
 LogLoss(rfLassoValPreds, as.numeric(as.character(valData$target)))
 </code></pre></p>

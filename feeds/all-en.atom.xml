@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-02-16T08:00:00-02:00</updated><entry><title>An illustrated introduction to adversarial validation part 2 [draft]</title><link href="http://manishbarnwal.github.io/blog/2017/02/16/introduction_to_adversarial_validation/" rel="alternate"></link><updated>2017-02-16T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-16:blog/2017/02/16/introduction_to_adversarial_validation/</id><summary type="html">&lt;p&gt;In the last post we talked about the &lt;a href="http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/"&gt;idea of adversarial validation&lt;/a&gt; and how it helps the problem when your validation set result doesn't comply with that of test set result. In this post, I will share the R code to help achieve the idea of adversarial validation. The data used would be from &lt;a href="https://numer.ai/"&gt;Numerai competition&lt;/a&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-02-16T08:00:00-02:00</updated><entry><title>An illustrated introduction to adversarial validation part 2 [draft]</title><link href="http://manishbarnwal.github.io/blog/2017/02/16/introduction_to_adversarial_validation/" rel="alternate"></link><updated>2017-02-16T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-16:blog/2017/02/16/introduction_to_adversarial_validation/</id><summary type="html">&lt;p&gt;In the last post we talked about the &lt;a href="http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/"&gt;idea of adversarial validation&lt;/a&gt; and how it helps the problem when your validation set result doesn't comply with that of test set result. In this post, I will share the R code to help achieve the idea of adversarial validation. The data used would be from &lt;a href="https://numer.ai/"&gt;Numerai competition&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Loading required packages&lt;/h3&gt;
 &lt;p&gt;&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="r"&gt;
@@ -10,6 +12,8 @@ library(MLmetrics)
 getwd()
 dir()
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Reading train and test data set&lt;/h3&gt;
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="r"&gt;
@@ -31,8 +35,8 @@ dim(test) # has close to 150000 rows and having no missing values
 &lt;h3&gt;Creating the target variable to distinguish between train and test data&lt;/h3&gt;
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="r"&gt;
-train$isTest &lt;- 0
 
+train$isTest &lt;- 0
 test$isTest &lt;- 1
 
 &lt;/code&gt;&lt;/pre&gt;
@@ -40,9 +44,8 @@ test$isTest &lt;- 1
 &lt;h3&gt;Combining train and test data into a single data frame&lt;/h3&gt;
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="r"&gt;
-&gt; removing 'target' from train data and 't_id' from test data
 
-combi &lt;- rbindlist(list(train[, -51], test[, -1]))
+combi &lt;- rbindlist(list(train[, -51], test[, -1])) # removing 'target' from train data and 't_id' from test data
 combi$isTest &lt;- as.factor(combi$isTest)
 combi &lt;- as.data.frame(combi)
 str(combi)
@@ -60,7 +63,7 @@ head(logitMod$fitted.values)
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1&gt;Predict on the training data to see which rows resembles most to the test data&lt;/h1&gt;
+&lt;h3&gt;Predict on the training data to see which rows resembles most to the test data&lt;/h3&gt;
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="r"&gt;
 
@@ -92,18 +95,23 @@ names(trainFinal)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3&gt;Build a random forest classifier to predict the 'target' variable&lt;/h3&gt;
-&lt;p&gt;&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="r"&gt;&lt;/p&gt;
-&lt;p&gt;set.seed(1) # for reproducibility of the result&lt;/p&gt;
-&lt;p&gt;matX &amp;lt;- trainFinal[, -grep('target', names(trainFinal))]
-response &amp;lt;- trainFinal[, 'target']
-table(response)&lt;/p&gt;
-&lt;p&gt;rfMod &amp;lt;- randomForest(x = matX, y = response, ntree = 200, mtry = 7)&lt;/p&gt;
-&lt;p&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;
+
+set.seed(1) # for reproducibility of the result
+
+matX &lt;- trainFinal[, -grep('target', names(trainFinal))]
+response &lt;- trainFinal[, 'target']
+table(response)
+
+rfMod &lt;- randomForest(x = matX, y = response, ntree = 200, mtry = 7)
+
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h3&gt;Prediction on validation set&lt;/h3&gt;
 &lt;p&gt;&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
-&lt;code class="r"&gt;&lt;/p&gt;
-&lt;p&gt;rfValPreds &amp;lt;- predict(rfMod, newdata = valData, type="prob")
+&lt;code class="r"&gt;
+rfValPreds &amp;lt;- predict(rfMod, newdata = valData, type="prob")
 head(valPreds)
 LogLoss(rfLassoValPreds, as.numeric(as.character(valData$target)))
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
