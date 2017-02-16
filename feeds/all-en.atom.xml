@@ -1,5 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-02-15T10:00:00-02:00</updated><entry><title>How to use Git and Github [draft]</title><link href="http://manishbarnwal.github.io/blog/2017/02/15/git_and_github/" rel="alternate"></link><updated>2017-02-15T10:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-15:blog/2017/02/15/git_and_github/</id><summary type="html">&lt;p&gt;I had taken this course - How to use git and github some time last year. This post is an amalgamation of the course notes and other tutorials I have completed in understanding git. I will talk about the most frequently used commands.&lt;br /&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-02-16T08:00:00-02:00</updated><entry><title>An illustrated introduction to adversarial validation part 2 [draft]</title><link href="http://manishbarnwal.github.io/blog/2017/02/16/introduction_to_adversarial_validation/" rel="alternate"></link><updated>2017-02-16T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-16:blog/2017/02/16/introduction_to_adversarial_validation/</id><summary type="html">&lt;p&gt;In the last post we talked about the &lt;a href="http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/"&gt;idea of adversarial validation&lt;/a&gt; and how it helps the problem when your validation set result doesn't comply with that of test set result. In this post, I will share the R code to help achieve the idea of adversarial validation. The data used would be from &lt;a href="https://numer.ai/"&gt;Numerai competition&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Loading required packages&lt;/h3&gt;
+&lt;p&gt;&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;
+library(randomForest)
+library(glmnet)
+library(data.table)
+library(MLmetrics)
+getwd()
+dir()
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;h3&gt;Reading train and test data set&lt;/h3&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;
+
+train &lt;- read.csv("Data/numerai_training_data.csv")
+train &lt;- fread("Data/numerai_training_data.csv")
+train &lt;- as.data.frame(train)
+train$target &lt;- as.factor(train$target)
+str(train)
+dim(train) # has close to 136000 rows and having no missing values
+head(train)
+
+test &lt;- fread("Data/numerai_tournament_data.csv")
+test &lt;- as.data.frame(test)
+dim(test) # has close to 150000 rows and having no missing values
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Creating the target variable to distinguish between train and test data&lt;/h3&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;
+train$isTest &lt;- 0
+
+test$isTest &lt;- 1
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Combining train and test data into a single data frame&lt;/h3&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;
+&gt; removing 'target' from train data and 't_id' from test data
+
+combi &lt;- rbindlist(list(train[, -51], test[, -1]))
+combi$isTest &lt;- as.factor(combi$isTest)
+combi &lt;- as.data.frame(combi)
+str(combi)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Train a classifier to identify whether data comes from the train or test set&lt;/h3&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;
+logitMod &lt;- glm(formula = isTest~. , data = combi, family = 'binomial')
+
+summary(logitMod)
+head(logitMod$fitted.values)
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1&gt;Predict on the training data to see which rows resembles most to the test data&lt;/h1&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;
+
+pred &lt;- predict(logitMod, newdata = train, type = 'response')
+head(pred)
+
+trainData &lt;- train
+head(trainData)
+trainData$predictTest &lt;- pred
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Sort the training data by it’s probability of being in the test set&lt;/h3&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;
+
+trainData &lt;- trainData[order(trainData$predictTest, decreasing = T), ]
+
+valIndx &lt;- 1:(0.2*nrow(trainData))
+
+colsToKeep &lt;- names(trainData)[!names(trainData) %in% c('isTest', 'predictTest')]
+
+trainFinal &lt;- trainData[-valIndx, colsToKeep]
+valData &lt;- trainData[valIndx, colsToKeep]
+
+write.csv(trainFinal, 'trainfinal.csv', row.names = F, quote = F)
+names(trainFinal)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Build a random forest classifier to predict the 'target' variable&lt;/h3&gt;
+&lt;p&gt;&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;&lt;/p&gt;
+&lt;p&gt;set.seed(1) # for reproducibility of the result&lt;/p&gt;
+&lt;p&gt;matX &amp;lt;- trainFinal[, -grep('target', names(trainFinal))]
+response &amp;lt;- trainFinal[, 'target']
+table(response)&lt;/p&gt;
+&lt;p&gt;rfMod &amp;lt;- randomForest(x = matX, y = response, ntree = 200, mtry = 7)&lt;/p&gt;
+&lt;p&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;h3&gt;Prediction on validation set&lt;/h3&gt;
+&lt;p&gt;&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;&lt;/p&gt;
+&lt;p&gt;rfValPreds &amp;lt;- predict(rfMod, newdata = valData, type="prob")
+head(valPreds)
+LogLoss(rfLassoValPreds, as.numeric(as.character(valData$target)))
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;The validation set gives a LogLoss of 0.699. Let us see how does this come out on test data set. For this we will predict on the test data and upload the predictions to the site.&lt;/p&gt;
+&lt;h3&gt;Prediction on actual test data&lt;/h3&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;
+
+testPreds &lt;- predict(rfMod, newdata = test, type = 'prob')
+
+testPreds &lt;- testPreds[, 2]
+submission &lt;- data.frame(t_id = test$t_id, probability = testPreds)
+head(submission)
+write.csv(submission, 'submission.csv', row.names = F, quote = F)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;
+The predictions on test data shows a LogLoss of 0.694 which is same as that of the validation set. We can now hope to have same result on both validation set and test set.
+&lt;br&gt;
+&lt;br&gt;
+Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category><category term="overfitting"></category><category term="adversarial-validation"></category></entry><entry><title>How to use Git and Github [draft]</title><link href="http://manishbarnwal.github.io/blog/2017/02/15/git_and_github/" rel="alternate"></link><updated>2017-02-15T10:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-15:blog/2017/02/15/git_and_github/</id><summary type="html">&lt;p&gt;I had taken this course - How to use git and github some time last year. This post is an amalgamation of the course notes and other tutorials I have completed in understanding git. I will talk about the most frequently used commands.&lt;br /&gt;
 &lt;br&gt;
 &lt;br&gt;
 &lt;strong&gt;git init&lt;/strong&gt;&lt;/p&gt;
@@ -209,7 +336,7 @@ If you have a URL to a repository, you can copy it to your computer using git cl
 &lt;p&gt;This is true for both copying a directory and cloning a repository. In both cases, you’re making a copy that you can alter without changing the original.&lt;/p&gt;
 &lt;p&gt;- The state of every file in the directory or repository is copied.&lt;/p&gt;
 &lt;p&gt;This is true for both copying a directory and cloning a repository. In both cases, all the files are copied.
- &lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category><category term="git"></category><category term="github"></category></entry><entry><title>An illustrated introduction to adversarial validation [draft]</title><link href="http://manishbarnwal.github.io/blog/2017/02/15/introduction_to_adversarial_validation/" rel="alternate"></link><updated>2017-02-15T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-15:blog/2017/02/15/introduction_to_adversarial_validation/</id><summary type="html">&lt;p&gt;You'd have heard about cross-validation - a common technique used in data-science process to avoid overfitting and many a times to tune the optimal parameters. Overfitting is when the model does well on training data but fails drastically on test data. The reason could be one of the following:&lt;/p&gt;
+ &lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category><category term="git"></category><category term="github"></category></entry><entry><title>An illustrated introduction to adversarial validation part 1 [draft]</title><link href="http://manishbarnwal.github.io/blog/2017/02/15/introduction_to_adversarial_validation/" rel="alternate"></link><updated>2017-02-15T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-15:blog/2017/02/15/introduction_to_adversarial_validation/</id><summary type="html">&lt;p&gt;You'd have heard about cross-validation - a common technique used in data-science process to avoid overfitting and many a times to tune the optimal parameters. Overfitting is when the model does well on training data but fails drastically on test data. The reason could be one of the following:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;The model is trying to map the exact findings of training data to test data instead of generalizing the patterns.&lt;/p&gt;
