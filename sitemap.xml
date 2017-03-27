@@ -4,560 +4,560 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>http://mlwhiz.com/index.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/index.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/archives.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/archives.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tags.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tags.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/categories.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/categories.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/index2.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/index2.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/index3.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/index3.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/pages/about.html</loc>
+<loc>http://manishbarnwal.com/pages/about.html</loc>
 <lastmod>2016-06-22T03:56:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/pages/links.html</loc>
+<loc>http://manishbarnwal.com/pages/links.html</loc>
 <lastmod>2013-06-09T21:56:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/pages/mooc.html</loc>
+<loc>http://manishbarnwal.com/pages/mooc.html</loc>
 <lastmod>2015-09-01T21:56:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2017/02/16/introduction_to_adversarial_validation/</loc>
+<loc>http://manishbarnwal.com/blog/2017/02/16/introduction_to_adversarial_validation/</loc>
 <lastmod>2017-02-16T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2017/02/15/git_and_github/</loc>
+<loc>http://manishbarnwal.com/blog/2017/02/15/git_and_github/</loc>
 <lastmod>2017-02-15T10:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2017/02/15/introduction_to_adversarial_validation/</loc>
+<loc>http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/</loc>
 <lastmod>2017-02-15T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2017/02/08/the_curse_of_bias_and_variance/</loc>
+<loc>http://manishbarnwal.com/blog/2017/02/08/the_curse_of_bias_and_variance/</loc>
 <lastmod>2017-02-08T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2017/01/27/visualization_is_under-rated/</loc>
+<loc>http://manishbarnwal.com/blog/2017/01/27/visualization_is_under-rated/</loc>
 <lastmod>2017-01-27T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/12/22/filmy_secret_santa/</loc>
+<loc>http://manishbarnwal.com/blog/2016/12/22/filmy_secret_santa/</loc>
 <lastmod>2016-12-22T07:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/11/24/ghar_aa_jaao/</loc>
+<loc>http://manishbarnwal.com/blog/2016/11/24/ghar_aa_jaao/</loc>
 <lastmod>2016-11-24T07:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/10/18/random_forest_explained_intuitively/</loc>
+<loc>http://manishbarnwal.com/blog/2016/10/18/random_forest_explained_intuitively/</loc>
 <lastmod>2016-10-18T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/10/13/improve_runtime_random_forest_r/</loc>
+<loc>http://manishbarnwal.com/blog/2016/10/13/improve_runtime_random_forest_r/</loc>
 <lastmod>2016-10-13T10:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/10/05/install_a_package_particular_version_in_R/</loc>
+<loc>http://manishbarnwal.com/blog/2016/10/05/install_a_package_particular_version_in_R/</loc>
 <lastmod>2016-10-05T07:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/10/02/bias_in_child/</loc>
+<loc>http://manishbarnwal.com/blog/2016/10/02/bias_in_child/</loc>
 <lastmod>2016-10-02T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/09/30/shell_commands_for_data_scientist/</loc>
+<loc>http://manishbarnwal.com/blog/2016/09/30/shell_commands_for_data_scientist/</loc>
 <lastmod>2016-09-30T07:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/09/26/three_letter_acronym_roc_and_auc/</loc>
+<loc>http://manishbarnwal.com/blog/2016/09/26/three_letter_acronym_roc_and_auc/</loc>
 <lastmod>2016-09-26T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/09/22/vim_shortcuts/</loc>
+<loc>http://manishbarnwal.com/blog/2016/09/22/vim_shortcuts/</loc>
 <lastmod>2016-09-22T04:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/08/29/hadoop_streaming/</loc>
+<loc>http://manishbarnwal.com/blog/2016/08/29/hadoop_streaming/</loc>
 <lastmod>2016-08-29T07:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/08/02/r_packages_not_in_cluster/</loc>
+<loc>http://manishbarnwal.com/blog/2016/08/02/r_packages_not_in_cluster/</loc>
 <lastmod>2016-08-02T07:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/07/26/the_most_inspiring_talk_live/</loc>
+<loc>http://manishbarnwal.com/blog/2016/07/26/the_most_inspiring_talk_live/</loc>
 <lastmod>2016-07-26T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/06/29/big_data_problem/</loc>
+<loc>http://manishbarnwal.com/blog/2016/06/29/big_data_problem/</loc>
 <lastmod>2016-06-29T07:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/06/27/first_attempt_at_public speaking/</loc>
+<loc>http://manishbarnwal.com/blog/2016/06/27/first_attempt_at_public speaking/</loc>
 <lastmod>2016-06-27T07:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2016/06/22/understanding_hive_data_science/</loc>
+<loc>http://manishbarnwal.com/blog/2016/06/22/understanding_hive_data_science/</loc>
 <lastmod>2016-06-22T04:43:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2014/09/07/pre-placement_talk_snippets/</loc>
+<loc>http://manishbarnwal.com/blog/2014/09/07/pre-placement_talk_snippets/</loc>
 <lastmod>2014-09-07T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2014/07/31/the_placement_season/</loc>
+<loc>http://manishbarnwal.com/blog/2014/07/31/the_placement_season/</loc>
 <lastmod>2014-07-31T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2014/06/03/beautiful_sadness/</loc>
+<loc>http://manishbarnwal.com/blog/2014/06/03/beautiful_sadness/</loc>
 <lastmod>2014-06-03T10:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2014/04/16/stay_at_IIT_Kharagpur/</loc>
+<loc>http://manishbarnwal.com/blog/2014/04/16/stay_at_IIT_Kharagpur/</loc>
 <lastmod>2014-04-16T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2014/03/08/happy_women's_day/</loc>
+<loc>http://manishbarnwal.com/blog/2014/03/08/happy_women's_day/</loc>
 <lastmod>2014-03-08T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2014/03/04/walmart_interview/</loc>
+<loc>http://manishbarnwal.com/blog/2014/03/04/walmart_interview/</loc>
 <lastmod>2014-03-04T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/category/big-data.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/category/big-data.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/category/hacksnshortcuts.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/category/hacksnshortcuts.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/category/interview.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/category/interview.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/category/life.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/category/life.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/category/ml-data-science.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/category/ml-data-science.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/category/music.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/category/music.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/category/r.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/category/r.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/data-science.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/data-science.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/office.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/office.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/shell-commands.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/shell-commands.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/big-data.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/big-data.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/hadoop.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/hadoop.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/analytics.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/analytics.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/bias.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/bias.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/college.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/college.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/hive.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/hive.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/learnings.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/learnings.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/preparation.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/preparation.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/auc.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/auc.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/git.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/git.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/vivim.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/vivim.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/nostalgia.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/nostalgia.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/coldplay.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/coldplay.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/interview.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/interview.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/christmas.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/christmas.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/happy.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/happy.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/overfitting.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/overfitting.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/life.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/life.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/roc.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/roc.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/walmart.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/walmart.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/statistics.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/statistics.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/spark.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/spark.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/thoughts.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/thoughts.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/adversarial-validation.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/adversarial-validation.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/github.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/github.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/placement.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/placement.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/career.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/career.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/ml.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/ml.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/womens-day.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/womens-day.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/random-forest.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/random-forest.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/r.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/r.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/tag/variance.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/tag/variance.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/author/manish-barnwal.html</loc>
-<lastmod>2017-03-23T21:45:18-00:00</lastmod>
+<loc>http://manishbarnwal.com/author/manish-barnwal.html</loc>
+<lastmod>2017-03-27T22:18:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2017/02/15/introduction_to_adversarial_validation/</loc>
+<loc>http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/</loc>
 <lastmod>2017-02-15T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mlwhiz.com/blog/2017/02/16/introduction_to_adversarial_validation/</loc>
+<loc>http://manishbarnwal.com/blog/2017/02/16/introduction_to_adversarial_validation/</loc>
 <lastmod>2017-02-16T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
