@@ -586,7 +586,58 @@ I will add in the R code snippets as well to get an idea of how this is executed
 &lt;br&gt;
 Did you find the article useful? If you did, share your thoughts on the topic in the comments.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary><category term="random forest"></category><category term="ml"></category><category term="data-science"></category></entry><entry><title>ROC and AUC - The three lettered acronyms</title><link href="http://manishbarnwal.github.io/blog/2016/09/26/three_letter_acronym_roc_and_auc/" rel="alternate"></link><updated>2016-09-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-09-26:blog/2016/09/26/three_letter_acronym_roc_and_auc/</id><summary type="html">&lt;p&gt;I don't feel bad to confess this that &lt;em&gt;ROC curve&lt;/em&gt;, &lt;em&gt;AUC&lt;/em&gt;, &lt;em&gt;True-positive&lt;/em&gt; and related terms took quite some time for me to understand. If today I contemplate on the reasons why I found this topic confusing. The first would be there are not many resources that explains intuitively what these mean. They just jump to the terms and the mathematical formula for them. The second being I had not used them even in my project work. You see the project work is never enough for all your learnings.
+&lt;/ol&gt;</summary><category term="random forest"></category><category term="ml"></category><category term="data-science"></category></entry><entry><title>How to install a package of a particular version in R</title><link href="http://manishbarnwal.github.io/blog/2016/10/05/install_a_package_particular_version_in_R/" rel="alternate"></link><updated>2016-10-05T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-05:blog/2016/10/05/install_a_package_particular_version_in_R/</id><summary type="html">&lt;p&gt;I recently tried installing &lt;em&gt;caret&lt;/em&gt; package in R using
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;install.packages('caret', dependencies=T)
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;Normally this installation of package works and I continue to work with the functions associated with the package.
+When I tried including the package using
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;library(caret)
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;I got the following error.&lt;/p&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;Error in loadNamespace(j &lt;- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) :there is no package called 'pbkrtest'
+In addition: Warning message:package 'caret' was built under R version 3.2.5
+Error: package or namespace load failed for 'caret'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;R was not able to install this dependency package- &lt;em&gt;pbkrtest&lt;/em&gt;. So I tried installing it separately, again using
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;install.package('pbkrtest', dependencies=T)
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;This too didn't work. And the error again this time was
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;Error in loadNamespace(j &amp;lt;- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : there is no package called ‘pbkrtest’ In addition: Warning message: package ‘pbkrtest’ was built under R version 3.2.3
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;So this particular package is not available for the R version that I am using.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;What is the way out?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We install an older version of this package.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;How do you install an older version of some package in R?&lt;/h3&gt;
+&lt;p&gt;I will go ahead with package-&lt;em&gt;pbkrtest&lt;/em&gt; to illustrate the steps.&lt;/p&gt;
+&lt;p&gt;Open this &lt;a href="https://cran.r-project.org/src/contrib/Archive/pbkrtest"&gt;url&lt;/a&gt;. You will see various versions of the package listed there. Choose the version you want to install. Let's say I want to install the &lt;em&gt;pbkrtest_0.4-5.tar.gz&lt;/em&gt; version.
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;We now create a variable &lt;em&gt;packageUrl&lt;/em&gt; which contains all this information and assign it the url of the page.
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;packageUrl&amp;lt;- "https://cran.r-project.org/src/contrib/Archive/pbkrtest/pbkrtest_0.4-5.tar.gz"
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;You then install this version of the package using
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;install.packages(packageUrl, repos=NULL, type='source')
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;And we are done!
+&lt;br&gt;
+&lt;br&gt;
+Now if you have some other package to install, just replace the last word &lt;em&gt;pbkrtest&lt;/em&gt; with the package name you want to install and you will be able to see all the older versions of that package. For &lt;em&gt;Rcpp&lt;/em&gt; the link would be &lt;a href="https://cran.r-project.org/src/contrib/Archive/Rcpp"&gt;url&lt;/a&gt;. Choose the version you want to install and follow the steps stated above.
+&lt;br&gt;
+&lt;br&gt;
+Did you find the article useful? If you did, share your thoughts on the topic in the comments.&lt;/p&gt;
+&lt;p&gt;Cheers,&lt;/p&gt;
+&lt;p&gt;Manish&lt;/p&gt;</summary><category term="R"></category></entry><entry><title>ROC and AUC - The three lettered acronyms</title><link href="http://manishbarnwal.github.io/blog/2016/09/26/three_letter_acronym_roc_and_auc/" rel="alternate"></link><updated>2016-09-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-09-26:blog/2016/09/26/three_letter_acronym_roc_and_auc/</id><summary type="html">&lt;p&gt;I don't feel bad to confess this that &lt;em&gt;ROC curve&lt;/em&gt;, &lt;em&gt;AUC&lt;/em&gt;, &lt;em&gt;True-positive&lt;/em&gt; and related terms took quite some time for me to understand. If today I contemplate on the reasons why I found this topic confusing. The first would be there are not many resources that explains intuitively what these mean. They just jump to the terms and the mathematical formula for them. The second being I had not used them even in my project work. You see the project work is never enough for all your learnings.
 &lt;br&gt;
 &lt;br&gt;
 In this post, I will try to explain my understanding both intuitively and mathematically.&lt;/p&gt;
@@ -676,4 +727,53 @@ Come into picture ROC curve. Look at the ROC curve and depending on what value o
 &lt;br&gt;
 &lt;br&gt;
 I will make an attempt of the same soon and will share it on this space. Keep learning and sharing.&lt;/p&gt;
-&lt;p&gt;Did you find the article useful? If you did, share your thoughts on the topic in the comments.&lt;/p&gt;</summary><category term="roc"></category><category term="auc"></category></entry></feed>
+&lt;p&gt;Did you find the article useful? If you did, share your thoughts on the topic in the comments.&lt;/p&gt;</summary><category term="roc"></category><category term="auc"></category></entry><entry><title>When R package is not available across the cluster</title><link href="http://manishbarnwal.github.io/blog/2016/08/02/r_packages_not_in_cluster/" rel="alternate"></link><updated>2016-08-02T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-08-02:blog/2016/08/02/r_packages_not_in_cluster/</id><summary type="html">&lt;p&gt;When deploying R codes across the cluster, many a times the reason for the failure of the task is unavailability of a particular package across all nodes of the cluster. We wait for someone to get the package installed across all the nodes. This may take some days. Do we wait for them? &lt;em&gt;Naah!&lt;/em&gt;
+&lt;br&gt;
+&lt;br&gt;
+Presenting a temporary solution that one of my colleague came up with. I have used this technique and this works smoothly.
+&lt;br&gt;
+&lt;br&gt;
+The following are the steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install the package you require on one of the edge nodes into a local directory&lt;ul&gt;
+&lt;li&gt;Create a local directory. Let's say our directory name is &lt;em&gt;rPackages&lt;/em&gt;&lt;br /&gt;
+    &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+    &lt;code class="bash"&gt;mkdir rPackages
+    &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;Install the required package, say 'randomForest' in the directory just created
+    &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+    &lt;code class="r"&gt;install.packages('randomForest', repos=’repo_name', lib='rPackages/')
+    Note that you need to choose the appropriate repo_name. The one that your company allows.
+    &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;br&gt;
+2. Check if you can load the package from this local directory
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;library(randomForest, lib.loc='rPackages/')
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+3. Create zip file of “dir_location” using command
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;zip -r rPackages.zip rPackages/
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+4. Add this zip file in your HIVE hql (or anything else)
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;add file rPackages.zip;
+Don’t forget the semicolon
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+5. Unzip the file inside R script i.e. each reducer will have &lt;em&gt;rPackages&lt;/em&gt; directory now
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;unzip('rPackages.zip', overwrite=TRUE)
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+6. Load the package now
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="bash"&gt;library(randomForest, lib.loc='rPackages/')
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;And you’re done! Remember, you have to build the package where you want to use, because built packages are OS dependent.&lt;/p&gt;
+&lt;p&gt;Did you find the article useful? If you did, share your thoughts in the comments.&lt;/p&gt;</summary><category term="big data"></category><category term="R"></category></entry></feed>
