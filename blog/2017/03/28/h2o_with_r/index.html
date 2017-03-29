@@ -5,10 +5,10 @@
 <head>
 
   <meta charset="utf-8">
-  <title>An illustrated introduction to adversarial validation part 1</title>
+  <title>Diving into H2O with R</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="This post talks about adversarial validation- an approach to the problem of differently distributed training and test data." >
-  <meta name="keywords" content="ML, data science, cross-validation, adversarial-validation" >
+  <meta name="description" content="This post talks about building machine learning models in H2O using R." >
+  <meta name="keywords" content="big data, R" >
 
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1839,62 +1839,92 @@ jQuery(document).ready(function($) {
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">An illustrated introduction to adversarial validation part 1</h1>
-      <p class="meta"><time datetime="2017-02-15T08:00:00" pubdate>Feb 15, 2017</time></p>
+      <h1 class="entry-title">Diving into H2O with R</h1>
+      <p class="meta"><time datetime="2017-03-28T07:00:00" pubdate>Mar 28, 2017</time></p>
 </header>
 
-  <div class="entry-content"><p>You'd have heard about cross-validation - a common technique used in data-science process to avoid overfitting and many a times to tune the optimal parameters. Overfitting is when the model does well on training data but fails drastically on test data. The reason could be one of the following:</p>
+  <div class="entry-content"><p>Do you understand the pain when you have to train advanced machine learning algorithms like Random Forest on huge datasets? When there is a factor column that has way too many number of levels? When the time taken to train the model is so huge that you went to your pantry for snacks and came back, you are even done browsing 9gag but your model is still training, the code is still running? We will first try to understand why it takes so much time to train models on huge datasets in R. And then the solution to this - build models using H2O in R.
+<br>
+<br>
+Our laptop has multiple cores in it. Most of the laptops these days come with at least 4 cores. R by default uses only one of the cores of your laptop. Say your laptop has 4 cores, then the remaining 3 cores are unused or may be partially used by other processes that your computer is running. Using just one core would obviously be slower than if R could use multiple cores in parallel.  What if R could use the other cores as well? This would definitely make the R codes run faster. The solution is H2o.
+<br>
+<br></p>
+<h3>What is h2o?</h3>
+<p>H2O is "The Open Source In-Memory, Prediction Engine for Big Data Science". H2o enables R to use the other cores of the laptop as well. R then runs on multiple cores of your laptop. You laptop is now like a standalone cluster. The power of you laptop has just increased by H2o. You know what your laptop is thinking - With great power, comes great responsibility.
+<br>
+<br></p>
+<h3>Do you need to worry about how H2o converts your laptop to a cluster?</h3>
+<p>Not at all. It is as simple as running this - h2o.init(). We will come to this in later part of the post. The whole idea why h2o was built was keeping in mind that most of its users would be Data Scientists and it should be easy for them to build these models using h2o without any hassle of worrying about distributing the code across the cluster. And the developers of h2o have achieved this with flying colors.
+<br>
+<br>
+So we now understand what is the use of h2o and how it can make our life easier. Let us now talk about execution.
+You would first need to install the h2o package using
+<pre style="font-size:60%; padding:3px; margin:0em;">
+<code class="bash">install.packages("h2o")
+</code></pre>
+<br>
+<br>
+Next, we load the installed package and launch h2o from R.</p>
+<div class="highlight"><pre>library<span class="p">(</span>h2o<span class="p">)</span>
+local_h2o <span class="o">&lt;-</span> h2o.init<span class="p">()</span>
+</pre></div>
+
+
+<p><br>
+<br>
+The above will initialize your h2o cluster. Now there are other parameter in <em>h2o.init()</em> but for now let's go with the default settings. Few important parameters to <em>h2o.init()</em> are:</p>
 <ol>
 <li>
-<p>The model is trying to map the exact findings of training data to test data instead of generalizing the patterns.</p>
+<p>'nthreads': Number of cores of the computer you want to use.</p>
 </li>
 <li>
-<p>The train data and test data are significantly different from each other i.e. they have not been derived from the same population.
+<p>'max_mem_size': The total RAM size allocated to the cluster.</p>
+</li>
+</ol>
+<p>If you are interested in the other input parameters that can be passed, you can read for help using <code>r ?h2o.init()*</code></p>
+<p>Once you have initiated the cluster, check if your connection is working using
+h2o.clusterInfo()
+You should see this line- R is connected to the H2O cluster along with other details of your initiated cluster.
+<br>
+<br>
+Some of the machine learning algorithms currently available in h2o
+H2O supports the following models: Deep Learning, Generalized Linear Models (GLM), Gradient Boosted Regression (GBM), K-Means, Naive Bayes, Principal Components Analysis (PCA), Principal Components Regression (PCR), Random Forest (RF) and few others.
+<br>
+<br>
+There are two ways you can work with h2o. Either with the flow or writing the code in R editor. The h2o flow is like an user interface that can be accessed at http://localhost:54321 after you have initiated the h2o instance using h2o.init(). The other way is to write the code in R. I normally use flow just to create the first base model to see how the base model is doing. The serious work gets done by writing the code in R.
+<br>
+<br></p>
+<h3>Interaction of R with the cluster</h3>
+<ol>
+<li>
+<p>The data is not saved in the R workspace. All data munging occurs in the h2o instance. By the look and feel it is easy to believe that all the processing is taking place in R but that is not true.</p>
+</li>
+<li>
+<p>You are now not limited by R's ability to handle the data but by the amount of memory allocated to your h2o instance.</p>
+</li>
+<li>
+<p>When the user makes a request, R queries the server via the REST API, which returns a JSON file with the relevant information that R then displays in the console
 <br>
 <br></p>
 </li>
 </ol>
-<h3>The problem</h3>
-<p>We will try to understand the second issue. What is the problem with the second issue? If you have participated in Kaggle like competitions, then you would know the way these competitions work. You are given a training data set and test dataset. You train your model on training data, predict on the test data and upload the predictions on Kaggle to get your rank.
+<h3>Demonstration on a dataset</h3>
+<p>We will try to understand the working of h2o using a classification problem. The problem is simple. The government of a country wants to understand if its citizens are happy or not. There are various independent features like "WorkStatus", "Residence_Region", "income", "Gender", "Unemployed10", "Alcohol_Consumption" and few others. There is a response column called 'Happy'. Your task is to classify a citizen as happy or not happy.
 <br>
 <br>
-What we typically do is divide the training data into train and validation data set. Validation data is used to get an idea of how your model will work on the test data. Now imagine if your train data and test data are different in terms of the population from where they've been derived. You won't see the same result in validation and test data. You see the problem here?
-<br>
-<br>
-The use of validation data is to understand how the model is expected to perform on test data. But if train and test are not identically distributed, validation and test data would show different results.
-<br>
-<br></p>
-<h3>The solution</h3>
-<p>The solution is <strong>adversarial validation</strong>. I got to know about this recently when I started participating in <a href="https://numer.ai/">Numerai</a> competition and read about this technique on fastml. Here's how it is done.</p>
-<p><br>
-1. <strong>Build a classifier to distinguish between training and test data</strong></p>
-<p>Combine your train and test data into one data. Create a response variable say isTest and assign it as 0 to all the rows in training data and 1 to all the rows in test data. Now your task is to build a classification model that will distinguish between the training and test data. This could be any classification model - logistic or random forest.</p>
-<p><br>
-2. <strong>Sort the predicted probabilities of training data in decreasing order</strong></p>
-<p>Once you have the model built, use this model to predict on the training data. You will get the fitted probabilities. Sort the probabilities in decreasing order i.e. the row having highest probability of being classified as test data comes to the top.</p>
-<p><br>
-3. <strong>Take the starting few rows as your validation set</strong></p>
-<p>The starting few rows are now those rows of training data that resembles the most to test data. Take the starting few rows say 30% as your validation set. And the remaining as your train data to train your model.
-<br>
-<br>
-Now, the accuracy metrics on your validation set should be similar to that on the test data. If your model works well on validation data, it should work well on test data. If you are interested in the implementation of what we just talked, head out to <em><a href="http://manishbarnwal.com/blog/2017/02/16/introduction_to_adversarial_validation/">this post</a></em> for the part 2 where the code is written in R.
-<br>
-<br>
-Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.</p></div>
+I will write a follow up post to show the code for the above problem statement. As always, feedbacks and comments are always welcomed. Share this with people who are interested in learning machine learning and data science. Let us talk more of Data Science.</p></div>
     
     <footer>
 <p class="meta">
   <span class="byline author vcard">
     Posted by <span class="fn">Manish Barnwal</span>
   </span>
-<time datetime="2017-02-15T08:00:00" pubdate>Feb 15, 2017</time>  <span class="categories">
-    <a class="category" href="http://manishbarnwal.github.io/tag/ml.html">ML</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/data-science.html">data science</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/overfitting.html">overfitting</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/adversarial-validation.html">adversarial-validation</a>
+<time datetime="2017-03-28T07:00:00" pubdate>Mar 28, 2017</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/big-data.html">big data</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/r.html">R</a>
   </span>
 </p><div class="sharing">
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2017/03/28/h2o_with_r/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2017/03/28/h2o_with_r/" >Tweet</a>
   <div class="g-plusone" data-size="medium"></div>
     <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
 </div>    </footer>
@@ -1985,9 +2015,9 @@ Did you find the article useful? If you did, share your thoughts in the comments
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
-          var disqus_identifier = '/blog/2017/02/15/introduction_to_adversarial_validation/';
-          var disqus_url = 'http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/';
-          var disqus_title = 'An illustrated introduction to adversarial validation part 1';
+          var disqus_identifier = '/blog/2017/03/28/h2o_with_r/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2017/03/28/h2o_with_r/';
+          var disqus_title = 'Diving into H2O with R';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
