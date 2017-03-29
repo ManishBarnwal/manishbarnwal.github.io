@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-03-28T07:00:00-03:00</updated><entry><title>Diving into H2O with R</title><link href="http://manishbarnwal.github.io/blog/2017/03/28/h2o_with_r/" rel="alternate"></link><updated>2017-03-28T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-03-28:blog/2017/03/28/h2o_with_r/</id><summary type="html">&lt;p&gt;Do you understand the pain when you have to train advanced machine learning algorithms like Random Forest on huge datasets? When there is a factor column that has way too many number of levels? When the time taken to train the model is so huge that you went to your pantry for snacks and came back, you are even done browsing 9gag but your model is still training, the code is still running? We will first try to understand why it takes so much time to train models on huge datasets in R. And then the solution to this - build models using H2O in R.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-03-28T07:00:00-03:00</updated><entry><title>Diving into H2O with R</title><link href="http://manishbarnwal.github.io/blog/2017/03/28/h2o_with_r/" rel="alternate"></link><updated>2017-03-28T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-03-28:blog/2017/03/28/h2o_with_r/</id><summary type="html">&lt;p&gt;Do you understand the pain when you have to train advanced machine learning algorithms like Random Forest on huge datasets? When there is a factor column that has way too many number of levels? When the time taken to train the model is so huge that you went to your pantry for snacks and came back, you are even done browsing 9gag but your model is still training, the code is still running? Fear no more, we will talk about these problems and how we can address them.
 &lt;br&gt;
 &lt;br&gt;
-Our laptop has multiple cores in it. Most of the laptops these days come with at least 4 cores. R by default uses only one of the cores of your laptop. Say your laptop has 4 cores, then the remaining 3 cores are unused or may be partially used by other processes that your computer is running. Using just one core would obviously be slower than if R could use multiple cores in parallel.  What if R could use the other cores as well? This would definitely make the R codes run faster. The solution is H2o.
+We will first try to understand why it takes so much time to train models on huge datasets in R. And then the solution to this - build models using H2O in R.
+&lt;br&gt;
+&lt;br&gt;
+Our laptop has multiple cores in it. Most of the laptops these days come with at least 4 cores. R by default uses only one of the cores of your laptop. Say your laptop has 4 cores, then the remaining 3 cores are unused or may be partially used by other processes that your computer is running. Using just one core would obviously be slower than if R could use multiple cores in parallel.  &lt;/p&gt;
+&lt;p&gt;What if R could use the other cores as well? This would definitely make the R codes run faster. The solution is H2o.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;What is h2o?&lt;/h3&gt;
-&lt;p&gt;H2O is "The Open Source In-Memory, Prediction Engine for Big Data Science". H2o enables R to use the other cores of the laptop as well. R then runs on multiple cores of your laptop. You laptop is now like a standalone cluster. The power of you laptop has just increased by H2o. You know what your laptop is thinking - With great power, comes great responsibility.
+&lt;p&gt;H2O is &lt;em&gt;The Open Source In-Memory, Prediction Engine for Big Data Science&lt;/em&gt;. H2o enables R to use the other cores of the laptop as well. R then runs on multiple cores of your laptop. You laptop is now like a standalone cluster. The power of you laptop has just increased by H2o. You know what your laptop is thinking right now - &lt;em&gt;With great power, comes great responsibility&lt;/em&gt;.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Do you need to worry about how H2o converts your laptop to a cluster?&lt;/h3&gt;
@@ -15,10 +19,9 @@ Our laptop has multiple cores in it. Most of the laptops these days come with at
 &lt;br&gt;
 So we now understand what is the use of h2o and how it can make our life easier. Let us now talk about execution.
 You would first need to install the h2o package using
-&lt;pre style="font-size:60%; padding:3px; margin:0em;"&gt;
-&lt;code class="bash"&gt;install.packages("h2o")
+&lt;pre style=*font-size:60%; padding:3px; margin:0em;*&gt;
+&lt;code class=*bash*&gt;install.packages(&lt;em&gt;h2o&lt;/em&gt;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;br&gt;
 &lt;br&gt;
 Next, we load the installed package and launch h2o from R.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;library&lt;span class="p"&gt;(&lt;/span&gt;h2o&lt;span class="p"&gt;)&lt;/span&gt;
@@ -27,48 +30,48 @@ local_h2o &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; h2o.init&lt;span class="p
 
 
 &lt;p&gt;&lt;br&gt;
-&lt;br&gt;
 The above will initialize your h2o cluster. Now there are other parameter in &lt;em&gt;h2o.init()&lt;/em&gt; but for now let's go with the default settings. Few important parameters to &lt;em&gt;h2o.init()&lt;/em&gt; are:&lt;/p&gt;
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;'nthreads': Number of cores of the computer you want to use.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;nthreads&lt;/em&gt;: Number of cores of the computer you want to use.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;'max_mem_size': The total RAM size allocated to the cluster.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;max_mem_size&lt;/em&gt;: The total RAM size allocated to the cluster.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;If you are interested in the other input parameters that can be passed, you can read for help using &lt;code&gt;r ?h2o.init()*&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Once you have initiated the cluster, check if your connection is working using
-h2o.clusterInfo()
-You should see this line- R is connected to the H2O cluster along with other details of your initiated cluster.
+&lt;/ul&gt;
+&lt;p&gt;&lt;br&gt;
+If you are interested in the other input parameters that can be passed, you can read for help by typing &lt;code&gt;?h2o.init()&lt;/code&gt; in R.
 &lt;br&gt;
 &lt;br&gt;
-Some of the machine learning algorithms currently available in h2o
-H2O supports the following models: Deep Learning, Generalized Linear Models (GLM), Gradient Boosted Regression (GBM), K-Means, Naive Bayes, Principal Components Analysis (PCA), Principal Components Regression (PCR), Random Forest (RF) and few others.
+Once you have initiated the cluster, check if your connection is working using &lt;code&gt;h2o.clusterInfo()&lt;/code&gt;.
+You should see this line- &lt;em&gt;R is connected to the H2O cluster along with other details of your initiated cluster&lt;/em&gt;. Now your cluster is ready and you are good to start your coding workflow in h2o.
 &lt;br&gt;
 &lt;br&gt;
-There are two ways you can work with h2o. Either with the flow or writing the code in R editor. The h2o flow is like an user interface that can be accessed at http://localhost:54321 after you have initiated the h2o instance using h2o.init(). The other way is to write the code in R. I normally use flow just to create the first base model to see how the base model is doing. The serious work gets done by writing the code in R.
+There are two ways you can work with h2o. Either with the flow or writing the code in R editor. The h2o flow is like an user interface that can be accessed at &lt;a href="http://localhost:54321"&gt;http://localhost:54321&lt;/a&gt; after you have initiated the h2o instance using h2o.init(). The other way is to write the code in R. I normally use h2o flow just to create the first base model to see how the base model is doing. H2o flow is easy to get started with. There is no coding involved here. The serious work gets done by writing the code in R.
+&lt;br&gt;
+&lt;br&gt;
+Almost all of the machine learning models are supported in H2o. Some of them being Deep Learning, Generalized Linear Models (GLM), Gradient Boosted Regression (GBM), K-Means, Naive Bayes, Principal Components Analysis (PCA), Principal Components Regression (PCR), Random Forest (RF) and few others.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Interaction of R with the cluster&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;The data is not saved in the R workspace. All data munging occurs in the h2o instance. By the look and feel it is easy to believe that all the processing is taking place in R but that is not true.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The data is not saved in the R workspace&lt;/em&gt;. All data munging occurs in the h2o instance. By the look and feel it is easy to believe that all the processing is taking place in R but that is not true.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;You are now not limited by R's ability to handle the data but by the amount of memory allocated to your h2o instance.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;You are now &lt;strong&gt;not&lt;/strong&gt; limited by R's ability&lt;/em&gt; to handle the data but by the amount of memory allocated to your h2o instance.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;When the user makes a request, R queries the server via the REST API, which returns a JSON file with the relevant information that R then displays in the console
+&lt;p&gt;When the user makes a request, R queries the server via the REST API, which returns a JSON file with the relevant information that R then displays in the console.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;Demonstration on a dataset&lt;/h3&gt;
-&lt;p&gt;We will try to understand the working of h2o using a classification problem. The problem is simple. The government of a country wants to understand if its citizens are happy or not. There are various independent features like "WorkStatus", "Residence_Region", "income", "Gender", "Unemployed10", "Alcohol_Consumption" and few others. There is a response column called 'Happy'. Your task is to classify a citizen as happy or not happy.
+&lt;p&gt;We will try to understand the working of h2o using a classification problem. The problem is simple. The government of a country wants to understand if its citizens are happy or not. There are various independent features like &lt;em&gt;WorkStatus&lt;/em&gt;, &lt;em&gt;Residence_Region&lt;/em&gt;, &lt;em&gt;income&lt;/em&gt;, &lt;em&gt;Gender&lt;/em&gt;, &lt;em&gt;Unemployed10&lt;/em&gt;, &lt;em&gt;Alcohol_Consumption&lt;/em&gt; and few others. There is a response column called &lt;em&gt;Happy&lt;/em&gt;. Your task is to classify a citizen as happy or not happy.
 &lt;br&gt;
 &lt;br&gt;
-I will write a follow up post to show the code for the above problem statement. As always, feedbacks and comments are always welcomed. Share this with people who are interested in learning machine learning and data science. Let us talk more of Data Science.&lt;/p&gt;</summary><category term="big data"></category><category term="R"></category></entry><entry><title>An illustrated introduction to adversarial validation part 2</title><link href="http://manishbarnwal.github.io/blog/2017/02/16/introduction_to_adversarial_validation/" rel="alternate"></link><updated>2017-02-16T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-16:blog/2017/02/16/introduction_to_adversarial_validation/</id><summary type="html">&lt;p&gt;In the last post we talked about the &lt;a href="http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/"&gt;idea of adversarial validation&lt;/a&gt; and how it helps the problem when your validation set result doesn't comply with that of test set result. In this post, I will share the R code to help achieve the idea of adversarial validation. The data used would be from &lt;a href="https://numer.ai/"&gt;Numerai competition&lt;/a&gt;.
+I will write a follow up post that will involve the code for the above problem statement. As always, feedbacks and comments are welcomed. Share this with people who are interested in learning machine learning and data science. Let us talk more of Data Science.&lt;/p&gt;</summary><category term="big data"></category><category term="R"></category></entry><entry><title>An illustrated introduction to adversarial validation part 2</title><link href="http://manishbarnwal.github.io/blog/2017/02/16/introduction_to_adversarial_validation/" rel="alternate"></link><updated>2017-02-16T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-16:blog/2017/02/16/introduction_to_adversarial_validation/</id><summary type="html">&lt;p&gt;In the last post we talked about the &lt;a href="http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/"&gt;idea of adversarial validation&lt;/a&gt; and how it helps the problem when your validation set result doesn't comply with that of test set result. In this post, I will share the R code to help achieve the idea of adversarial validation. The data used would be from &lt;a href="https://numer.ai/"&gt;Numerai competition&lt;/a&gt;.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Loading required packages&lt;/h3&gt;
@@ -919,7 +922,7 @@ With the advent of huge computational power at our disposal, we hardly think for
 &lt;p&gt;&lt;strong&gt;Random forests doesn't train well on smaller datasets&lt;/strong&gt; as it fails to pick on the pattern. To simplify, say we know that 1 pen costs INR 1, 2 pens cost INR 2, 3 pens cost INR 6. In this case linear regression will easily estimate the cost of 4 pens but random forests will fail to come up with a good estimate.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;There is a problem of interpretability with random forest.&lt;/strong&gt; You can't see or understand the relationship between the response and the dependent variables. Understand that RF is a predictive tool and not a descriptive tool. You get variable importance but this may not suffice in many analysis of interests where the objective might be to see the relationship between response and the independent features.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;There is a problem of interpretability with random forest.&lt;/strong&gt; You can't see or understand the relationship between the response and the independent variables. Understand that RF is a predictive tool and not a descriptive tool. You get variable importance but this may not suffice in many analysis of interests where the objective might be to see the relationship between response and the independent features.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;The &lt;strong&gt;time taken to train random forests&lt;/strong&gt; may sometimes be too huge as you train multiple decision trees. Also, in case of categorical variable, the time complexity increases exponentially. For a categorical column with n levels, RF tries split at 2^n -1 points to find the maximal splitting point.&lt;/p&gt;

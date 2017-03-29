@@ -1881,7 +1881,7 @@ With the advent of huge computational power at our disposal, we hardly think for
 <p><strong>Random forests doesn't train well on smaller datasets</strong> as it fails to pick on the pattern. To simplify, say we know that 1 pen costs INR 1, 2 pens cost INR 2, 3 pens cost INR 6. In this case linear regression will easily estimate the cost of 4 pens but random forests will fail to come up with a good estimate.</p>
 </li>
 <li>
-<p><strong>There is a problem of interpretability with random forest.</strong> You can't see or understand the relationship between the response and the dependent variables. Understand that RF is a predictive tool and not a descriptive tool. You get variable importance but this may not suffice in many analysis of interests where the objective might be to see the relationship between response and the independent features.</p>
+<p><strong>There is a problem of interpretability with random forest.</strong> You can't see or understand the relationship between the response and the independent variables. Understand that RF is a predictive tool and not a descriptive tool. You get variable importance but this may not suffice in many analysis of interests where the objective might be to see the relationship between response and the independent features.</p>
 </li>
 <li>
 <p>The <strong>time taken to train random forests</strong> may sometimes be too huge as you train multiple decision trees. Also, in case of categorical variable, the time complexity increases exponentially. For a categorical column with n levels, RF tries split at 2^n -1 points to find the maximal splitting point.</p>
