@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-03-28T07:00:00-03:00</updated><entry><title>Diving into H2O with R</title><link href="http://manishbarnwal.github.io/blog/2017/03/28/h2o_with_r/" rel="alternate"></link><updated>2017-03-28T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-03-28:blog/2017/03/28/h2o_with_r/</id><summary type="html">&lt;p&gt;Do you understand the pain when you have to train advanced machine learning algorithms like Random Forest on huge datasets? When there is a factor column that has way too many number of levels? When the time taken to train the model is so huge that you went to your pantry for snacks and came back, you are even done browsing 9gag but your model is still training, the code is still running? Fear no more, we will talk about these problems and how we can address them.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-04-03T08:00:00-03:00</updated><entry><title>Do you believe in yourself?</title><link href="http://manishbarnwal.github.io/blog/2017/04/03/believe_in_yourself/" rel="alternate"></link><updated>2017-04-03T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-04-03:blog/2017/04/03/believe_in_yourself/</id><summary type="html">&lt;p&gt;Are you a confident person? The mind asked itself. I replied with an excited ‘Yes!’. The mind asked again, ‘are you sure?’. This time I thought for a while but again after a pause, I said ‘yes’.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Why was there a pause the second time?&lt;/strong&gt;
+&lt;br&gt;
+We humans doubt our capabilities a lot. And what makes us doubt our strengths? A single failure sometimes makes you feel cringed. You feel you are worthless. Life before this failure seems all happy and confident. If you have been confident all your life, how can a single failure shake away the temple of your confidence.
+&lt;br&gt;
+&lt;br&gt;
+You know the reason? I will tell you. We humans fear failure. A lot. The thought of failure often surpasses the strength of trying it. We are taught from childhood that if you try something and if it doesn’t see the light of success then it is a bad thing. Why can’t we accept and celebrate failures?Now I am not talking about any failure. I am talking about failure where you gave your best. You tried all your means. You presented the best version of yourself.
+&lt;br&gt;
+&lt;br&gt;
+Recently, I was talking to one of senior colleagues. He has two beautiful daughters. On mundane days, our discussions mostly revolve around deep learning and the new world it is going to present. Today was different. It was a Friday evening.
+&lt;br&gt;
+&lt;br&gt;
+We happen to discuss about life and the lessons it teaches us. How sports shape your character? How teamwork is not to be seen just on the field playing football. Teamwork is everywhere were more than one person is involved. A person having a team game on his resume gets a plus point according to him. I instantly realised the reason behind this. It is not just about playing in a team. If you play sports, the chances of you failing increases manifold. Every match is either a win or a loss (read failure).
+&lt;br&gt;
+&lt;br&gt;
+It is important to embrace failure gracefully. That way, you won’t fear the thought of failure. A fear can haunt you only till you run away from it. The moment you face it, the fear will be gone. The fear doesn’t know what to do once you accept it.
+&lt;br&gt;
+&lt;br&gt;
+Do you feel low when you fail at achieving a goal or fail at delivering a task? Of course! We all do. Imagine you are famished, the first first few swallows of food are divine, right? That’s what success tastes like. It is tantalising. On the contrary, failure is bland. There is always a feeling of something missing.
+&lt;br&gt;
+&lt;br&gt;
+Now, if you are a confident person, you would have developed your confidence from some of your accomplishments in the past. Some examples of such accomplishments could be- you stood first in your class, you presented in front of a large audience despite all the fear of stammering and dry mouth, you learnt something from scratch and you are very proud of it.
+&lt;br&gt;
+&lt;br&gt;
+Now the above examples are personal. Try to remember the tasks and achievements you are proud of. This achievements could be as small as fixing your bathroom door without the help of a carpenter. You fixed it on your own. Know that feeling when you do something uncertain all on your own? If yes, I am talking about such feelings.
+&lt;br&gt;
+&lt;br&gt;
+How does these thoughts make you feel like? You feel happy about it. A sense of pride erupts in your body. The neurons in your brain all fire at once like sky shot fireworks. Remember these accomplishments and make this your fuel to lighten you up. Fight back at failure. Roar back at life. You have all the ingredients for the perfect recipe to success.
+&lt;br&gt;
+&lt;br&gt;
+Treat failure as another chapter of life. And life doesn’t end at just one chapter. It is a long story with indefinite number of pages. Your life can’t be written in one book or 10 books. It is a saga of millions of books. Don’t stop at that chapter. You are the author of the next chapter as well. Decide what you want it to be.
+&lt;br&gt;
+&lt;br&gt;
+So next time, failure knocks at your door and gets in your home. Welcome it. Let is sit in your home for a weekend. Talk to it. Try to understand it. And then one afternoon gather your ingredients to prepare the delicious meal of success. Failure will never eat that lunch and will jump off your balcony. Now that the failure is gone. Begin the new chapter. You already know the title to that chapter—&lt;em&gt;Believe in yourself&lt;/em&gt;.&lt;/p&gt;</summary><category term="life"></category><category term="increase confidence"></category><category term="life lessons"></category></entry><entry><title>Diving into H2O with R</title><link href="http://manishbarnwal.github.io/blog/2017/03/28/h2o_with_r/" rel="alternate"></link><updated>2017-03-28T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-03-28:blog/2017/03/28/h2o_with_r/</id><summary type="html">&lt;p&gt;Do you understand the pain when you have to train advanced machine learning algorithms like Random Forest on huge datasets? When there is a factor column that has way too many number of levels? When the time taken to train the model is so huge that you went to your pantry for snacks and came back, you are even done browsing 9gag but your model is still training, the code is still running? Fear no more, we will talk about these problems and how we can address them.
 &lt;br&gt;
 &lt;br&gt;
 We will first try to understand why it takes so much time to train models on huge datasets in R. And then the solution to this - build models using H2O in R.
@@ -1549,7 +1584,36 @@ Here was a guy who had not given up. He continued doing things he liked and gave
 The auditorium echoed with claps from the audience. The speaker opened up for questions from the audience which he patiently answered. There were many in the audience who had more questions to be answered. Time was running short and he had to leave the stage for the next speaker to come.
 &lt;br&gt;
 &lt;br&gt;
-Did you find the post useful? If you did, share your thoughts in the comments.&lt;/p&gt;</summary><category term="life"></category><category term="career"></category></entry><entry><title>The Big Data Problem</title><link href="http://manishbarnwal.github.io/blog/2016/06/29/big_data_problem/" rel="alternate"></link><updated>2016-06-29T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-06-29:blog/2016/06/29/big_data_problem/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Big data&lt;/strong&gt; has become a sensation these days. Anyone and everyone wants to use this in their discussions. When I was still in my college and preparing for campus placements, I had attended almost all the pre-placement talks that companies gave to its prospective candidates.
+Did you find the post useful? If you did, share your thoughts in the comments.&lt;/p&gt;</summary><category term="life"></category><category term="career"></category></entry><entry><title>Things I have learned (So Far)</title><link href="http://manishbarnwal.github.io/blog/2016/07/15/things_learned_so_far/" rel="alternate"></link><updated>2016-07-15T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-07-15:blog/2016/07/15/things_learned_so_far/</id><summary type="html">&lt;p&gt;Today when I opened my blog on Quora, I saw a draft of this post that I had written some six months post to my first job. The learnings I had moving from college to corporate.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Things I have learned (So Far)&lt;/strong&gt;
+&lt;br&gt;
+&lt;br&gt;
+I graduated from my college almost six months back. The last six months have been exciting in many ways. The transition from being a college student to a full-time corporate employee has been enlightening. In this post I will talk about some of the things which I've learnt... so far.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Travel-On&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Just few days after my college, I traveled for some 20 days and those days were some of the good days I'll always cheer. Uttarakhand is beautiful.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Talk to people&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;People are interesting. Every person has something interesting to share, something that makes you feel happy. Try to live the happiness of others by experiencing how their happiness makes you feel. You would be able to relate something from their reasons for happiness.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Trekkings&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Well, I won’t say I am a hardcore trekker- someone how has got a all his gadgets ready to hop on for next trek. But I’ve trekked around Bangalore a few times. And man! You get to know so much about people. If you want to know about a person, know some of his truest qualities, go on a long trek with him.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Smile and laugh&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Office gets boring sometimes, the work gets bland. You get the feeling right? You don’t hate your job but sometimes you just feel &lt;em&gt;aaj kaam na ho paaega yaar office me&lt;/em&gt; &lt;I don’t feel like working today&gt;, that time, a thought of only a few of your office friends make you come to the office. Those people are mostly who smile and talk to people.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;The&lt;/strong&gt; &lt;em&gt;Guitarest&lt;/em&gt; &lt;strong&gt;oh sorry I meant The Greatest!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Guitar is happiness. Think about your happiness. What makes you happy? There would be some activity in your daily life which you truly adore doing. Know the feeling I’m talking about. Guitar is that feeling to me.
+&lt;br&gt;
+&lt;br&gt;
+More on this soon.&lt;/p&gt;</summary><category term="life"></category><category term="life lessons"></category></entry><entry><title>The Big Data Problem</title><link href="http://manishbarnwal.github.io/blog/2016/06/29/big_data_problem/" rel="alternate"></link><updated>2016-06-29T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-06-29:blog/2016/06/29/big_data_problem/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Big data&lt;/strong&gt; has become a sensation these days. Anyone and everyone wants to use this in their discussions. When I was still in my college and preparing for campus placements, I had attended almost all the pre-placement talks that companies gave to its prospective candidates.
 &lt;br&gt;
 &lt;br&gt;
 American Express was one such company that had talked extensively about big data and hadoop in their presentation. I remember clearly, the blank faces that all of us had. We were not able to follow a single term. &lt;strong&gt;Hadoop&lt;/strong&gt;, &lt;strong&gt;clusters&lt;/strong&gt;, &lt;strong&gt;big data&lt;/strong&gt;, &lt;strong&gt;distributed environment&lt;/strong&gt; and many other terms were just bouncers for me. I did try to google them up later but these terms were still alien to me.
