@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-05-03T08:00:00-03:00</updated><entry><title>A tutorial on time series and forecasting</title><link href="http://manishbarnwal.github.io/blog/2017/05/03/introduction_to_time_series_and_forecasting/" rel="alternate"></link><updated>2017-05-03T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-03:blog/2017/05/03/introduction_to_time_series_and_forecasting/</id><summary type="html">&lt;p&gt;Time series forecasting is a skill that few people claim to know. Machine learning is cool. And there are a lot of people interested in becoming a machine learning expert. But forecasting is something that is a little domain specific.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-05-03T08:00:00-03:00</updated><entry><title>Time series and forecasting using R</title><link href="http://manishbarnwal.github.io/blog/2017/05/03/time_series_and_forecasting_using_R/" rel="alternate"></link><updated>2017-05-03T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-03:blog/2017/05/03/time_series_and_forecasting_using_R/</id><summary type="html">&lt;p&gt;Time series forecasting is a skill that few people claim to know. Machine learning is cool. And there are a lot of people interested in becoming a machine learning expert. But forecasting is something that is a little domain specific.
+&lt;br&gt;
+&lt;br&gt;
+Retailers like Walmart, Target use forecasting systems and tools to replenish their products in the stores. An excellent forecast system helps in winning the other pipelines of the supply chain. If you are good at predicting the sale of items in the store, you can plan your inventory count well. You can plan your assortment well.&lt;br /&gt;
 &lt;br&gt;&lt;/p&gt;
-&lt;p&gt;Retailers like Walmart, Target use forecasting systems and tools to replenish their products in the stores. An excellent forecast system helps in winning the other pipelines of the supply chain. If you are good at predicting the sale of items in the store, you can plan your inventory count well. You can plan your assortment well.  A good forecast leads to a series of wins in the other pipelines in the supply chain.
+&lt;p&gt;A good forecast leads to a series of wins in the other pipelines in the supply chain.
 &lt;br&gt;
 &lt;br&gt;
 &lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;em&gt;The following post is  my notes on forecasting which I have taken while having read several posts from Prof. Hyndman&lt;/em&gt;.
 &lt;br&gt;
 &lt;br&gt;
 Let us get started. First things first.
-&lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;What is time series?&lt;/h3&gt;
 &lt;p&gt;A time series is a sequence of observations collected at some time intervals. Time plays an important role here. The observations collected are dependent on the time at which it is collected.&lt;/p&gt;
@@ -29,42 +31,58 @@ ts() takes a single frequency argument. There are times when there will be multi
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Frequency&lt;/h3&gt;
 &lt;p&gt;When setting the frequency, many people are confused what should be the correct value. This is the simple definition of frequency.
-Frequency is the number of observations per cycle. Now, how you define what a cycle is for a time series?&lt;/p&gt;
-&lt;p&gt;Say, you have electricity consumption of Bangalore at hourly level. The cycle could be a day, a week or even annual. I will cover what frequency would be for all different type of time series.
-&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;Before we proceed I will reiterate this.&lt;/p&gt;
+Frequency is the number of observations per cycle. Now, how you define what a cycle is for a time series?
+&lt;br&gt;
+&lt;br&gt;
+Say, you have electricity consumption of Bangalore at hourly level. The cycle could be a day, a week or even annual. I will cover what frequency would be for all different type of time series.
+&lt;br&gt;
+&lt;br&gt;
+Before we proceed I will reiterate this.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Frequency is the number of observations per cycle.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;br&gt;
-We will see what values frequency takes for different interval time series.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Daily data&lt;/strong&gt; There could be a weekly cycle or annual cycle. So the frequency could be 7 or 365.25. Some of the years have 366 days (leap years). So if your time series data has longer periods, it is better to use frequency = 365.25. This takes care of the leap year as well which may come in your data.
+We will see what values frequency takes for different interval time series.
 &lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Weekly data&lt;/strong&gt;
+&lt;p&gt;&lt;strong&gt;Daily data&lt;/strong&gt; There could be a weekly cycle or annual cycle. So the frequency could be 7 or 365.25. Some of the years have 366 days (leap years). So if your time series data has longer periods, it is better to use frequency = 365.25. This takes care of the leap year as well which may come in your data.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Weekly data&lt;/strong&gt;
 There could be an annual cycle.
 frequency = 52 and if you want to take care of leap years then use frequency = 365.25/7
-&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Monthly data&lt;/strong&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Monthly data&lt;/strong&gt;
 Cycle is of one year. So frequency = 12
-&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Quarterly data&lt;/strong&gt; Again cycle is of one year. So frequency = 4
-&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Yearly data&lt;/strong&gt; Frequency = 1
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Quarterly data&lt;/strong&gt; Again cycle is of one year. So frequency = 4
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Yearly data&lt;/strong&gt; Frequency = 1
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
-&lt;h3&gt;How about frequency for smaller interval time series like hourly, half-hourly, minutes, seconds.&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Hourly&lt;/strong&gt; The cycles could be a day, a week, a year. Corresponding frequencies could be 24, 24&lt;em&gt;7, 24&lt;/em&gt;7*365.25
+&lt;h3&gt;How about frequency for smaller interval time series&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Hourly&lt;/strong&gt; The cycles could be a day, a week, a year. Corresponding frequencies could be 24, 24 X 7, 24 X 7 X 365.25
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Half-hourly&lt;/strong&gt; The cycle could be a day, a week, a year. Corresponding frequencies could be 48, 48 X 7, 48 X 7 X 365.25
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Minutes&lt;/strong&gt;
+The cycle could be hourly, daily, weekly, annual. Corresponding frequencies would be 60, 60 X 24, 60 X 24 X 7, 60 X 24 X 365.25
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Seconds&lt;/strong&gt; The cycle could be a minute, hourly, daily, weekly, annual. Corresponding frequencies would be 60, 60 X 60, 60 X 60 X 24,
+60 X 60 X 24 X 7, 60 X 60 X 24 X 365.25
+&lt;br&gt;
+&lt;br&gt;
+You might have observed, I have not included monthly cycles in any of the time series be it daily or weekly, minutes, etc. The short answer is, it is rare to have monthly seasonality in time series. To read more on this visit &lt;a href="http://robjhyndman.com/hyndsight/monthly-seasonality/"&gt;monthly-seasonality&lt;/a&gt;
+&lt;br&gt;
+&lt;br&gt;
+Now that we understand what is time series and how frequency is associated with it let us look at some practical examples.
+&lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Half-hourly&lt;/strong&gt; The cycle could be a day, a week, a year. Corresponding frequencies could be 48, 48&lt;em&gt;7, 48&lt;/em&gt;7*365.25
-&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Minutes&lt;/strong&gt;
-The cycle could be hourly, daily, weekly, annual. Corresponding frequencies would be 60, 60&lt;em&gt;24, 60&lt;/em&gt;24&lt;em&gt;7, 60&lt;/em&gt;24*365.25
-&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Seconds&lt;/strong&gt; The cycle could be a minute, hourly, daily, weekly, annual. Corresponding frequencies would be 60, 60&lt;em&gt;60, 60&lt;/em&gt;60&lt;em&gt;24, 60&lt;/em&gt;60&lt;em&gt;24&lt;/em&gt;7, 60&lt;em&gt;60&lt;/em&gt;24*365.25
-&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;You might have observed, I have not included monthly cycles in any of the time series be it daily or weekly, minutes, etc. The short answer is, it is rare to have monthly seasonality in time series. To read more on this visit http://robjhyndman.com/hyndsight/monthly-seasonality/.
-&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;Now that we understand what is time series and how frequency is associated with it let us look at some practical examples.&lt;/p&gt;
 &lt;h3&gt;Some useful packages&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -84,10 +102,11 @@ The cycle could be hourly, daily, weekly, annual. Corresponding frequencies woul
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;fpp: For data
-&lt;br&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+We will now look at few examples of forecasting. We will look at three examples. Before that we will need to install and load this R package - &lt;em&gt;fpp&lt;/em&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;We will now look at few examples of forecasting. We will look at three examples. Before that we will need to install and load this R package - fpp&lt;/p&gt;
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="r"&gt;
 install.packages('fpp')
@@ -325,7 +344,7 @@ AIC: Akaike Information criteria
 AIC gives you and idea how well the model fits the data. ets fits all the 19 models, looks at the AIC and give the model with the lowest AIC. The lower the AIC, the better the model fits
 AICc: Corrected Akaike Information criteria
 BIC: Bayesian Information Criteria&lt;/p&gt;
-&lt;h2&gt;ets() function&lt;/h2&gt;
+&lt;h3&gt;ets() function&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Automatically chooses a model by default using the AIC, AICc, BIC&lt;/p&gt;
@@ -343,7 +362,7 @@ BIC: Bayesian Information Criteria&lt;/p&gt;
 &lt;p&gt;Produces an object of class ets&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2&gt;ets objects&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;ets objects&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Methods: coef(), plot(), summary(), residuals(), fitted(), simulate() and forecast()&lt;/p&gt;
@@ -353,11 +372,9 @@ BIC: Bayesian Information Criteria&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;Automatic forecasting&lt;/h3&gt;
-&lt;h1&gt;Why use automatic forecasting?&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Why use automatic forecasting?&lt;/strong&gt;
+1. Most users are not very expert at fitting time series models&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Most users are not very expert at fitting time series models&lt;/p&gt;
-&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Most experts cannot beat the best automatic algorithms. Prof. Hyndman accepted this fact for himself as well. He has been doing forecasting for the last 20 years.&lt;/p&gt;
 &lt;/li&gt;
