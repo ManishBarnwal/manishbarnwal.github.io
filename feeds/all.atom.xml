@@ -4,7 +4,7 @@
 &lt;p&gt;Retailers like Walmart, Target use forecasting systems and tools to replenish their products in the stores. An excellent forecast system helps in winning the other pipelines of the supply chain. If you are good at predicting the sale of items in the store, you can plan your inventory count well. You can plan your assortment well.  A good forecast leads to a series of wins in the other pipelines in the supply chain.
 &lt;br&gt;
 &lt;br&gt;
-&lt;strong&gt;Disclaimer&lt;/strong&gt;: The following post is  my notes on forecasting which I have taken while having read several posts from Prof. Hyndman.
+&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;em&gt;The following post is  my notes on forecasting which I have taken while having read several posts from Prof. Hyndman&lt;/em&gt;.
 &lt;br&gt;
 &lt;br&gt;
 Let us get started. First things first.
@@ -20,7 +20,7 @@ Let us get started. First things first.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;How to define a time series object in R&lt;/h3&gt;
-&lt;p&gt;ts() object is used for equally spaced time series data, it can be at any level. Daily, weekly, monthly, quarterly, yearly or even at minutes level. If you wish to use unequally spaced observations then you will have to use other packages.
+&lt;p&gt;ts() function is used for equally spaced time series data, it can be at any level. Daily, weekly, monthly, quarterly, yearly or even at minutes level. If you wish to use unequally spaced observations then you will have to use other packages.
 &lt;br&gt;
 &lt;br&gt;
 ts() is used for numerical observations and you can set frequency of the data.
@@ -38,39 +38,32 @@ Frequency is the number of observations per cycle. Now, how you define what a cy
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;br&gt;
 We will see what values frequency takes for different interval time series.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Daily data&lt;/strong&gt; There could be a weekly cycle or annual cycle. So the frequency could be 7 or 365.25.&lt;/p&gt;
-&lt;p&gt;Some of the years have 366 days (leap years). So if your time series data has longer periods, it is better to use frequency = 365.25. This takes care of the leap year as well which may come in your data.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Daily data&lt;/strong&gt; There could be a weekly cycle or annual cycle. So the frequency could be 7 or 365.25. Some of the years have 366 days (leap years). So if your time series data has longer periods, it is better to use frequency = 365.25. This takes care of the leap year as well which may come in your data.
+&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Weekly data&lt;/strong&gt;
 There could be an annual cycle.
-frequency = 52 and if you want to take care of leap years then use frequency = 365.25/7&lt;/p&gt;
+frequency = 52 and if you want to take care of leap years then use frequency = 365.25/7
+&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Monthly data&lt;/strong&gt;
-Cycle is of one year. So frequency = 12&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;For quarterly data
-Again cycle is of one year.
-frequency = 4&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;For yearly data
-frequency = 1&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+Cycle is of one year. So frequency = 12
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Quarterly data&lt;/strong&gt; Again cycle is of one year. So frequency = 4
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Yearly data&lt;/strong&gt; Frequency = 1
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;How about frequency for smaller interval time series like hourly, half-hourly, minutes, seconds.&lt;/h3&gt;
-&lt;p&gt;Hourly
-The possible cycles and corresponding frequencies are:
-Cycle  Frequency
-Day   24
-Week  24&lt;em&gt;7
-Year  24&lt;/em&gt;7&lt;em&gt;365.25
-The cycle could be a day, a week, a year. Corresponding frequencies could be 24, 24&lt;/em&gt;7, 24&lt;em&gt;7&lt;/em&gt;365.25&lt;/p&gt;
-&lt;p&gt;Half-hourly
-The cycle could be a day, a week, a year. Corresponding frequencies could be 48, 48&lt;em&gt;7, 48&lt;/em&gt;7*365.25&lt;/p&gt;
-&lt;p&gt;Minutes
-The cycle could be hourly, daily, weekly, annual. Corresponding frequencies would be 60, 60&lt;em&gt;24, 60&lt;/em&gt;24&lt;em&gt;7, 60&lt;/em&gt;24*365.25&lt;/p&gt;
-&lt;p&gt;Seconds
-The cycle could be a minute, hourly, daily, weekly, annual. Corresponding frequencies would be 60, 60&lt;em&gt;60, 60&lt;/em&gt;60&lt;em&gt;24, 60&lt;/em&gt;60&lt;em&gt;24&lt;/em&gt;7, 60&lt;em&gt;60&lt;/em&gt;24*365.25&lt;/p&gt;
-&lt;p&gt;You might have observed, I have not included monthly cycles in any of the time series be it daily or weekly, minutes, etc. The short answer is, it is rare to have monthly seasonality in time series. To read more on this visit http://robjhyndman.com/hyndsight/monthly-seasonality/.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hourly&lt;/strong&gt; The cycles could be a day, a week, a year. Corresponding frequencies could be 24, 24&lt;em&gt;7, 24&lt;/em&gt;7*365.25
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Half-hourly&lt;/strong&gt; The cycle could be a day, a week, a year. Corresponding frequencies could be 48, 48&lt;em&gt;7, 48&lt;/em&gt;7*365.25
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Minutes&lt;/strong&gt;
+The cycle could be hourly, daily, weekly, annual. Corresponding frequencies would be 60, 60&lt;em&gt;24, 60&lt;/em&gt;24&lt;em&gt;7, 60&lt;/em&gt;24*365.25
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Seconds&lt;/strong&gt; The cycle could be a minute, hourly, daily, weekly, annual. Corresponding frequencies would be 60, 60&lt;em&gt;60, 60&lt;/em&gt;60&lt;em&gt;24, 60&lt;/em&gt;60&lt;em&gt;24&lt;/em&gt;7, 60&lt;em&gt;60&lt;/em&gt;24*365.25
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;You might have observed, I have not included monthly cycles in any of the time series be it daily or weekly, minutes, etc. The short answer is, it is rare to have monthly seasonality in time series. To read more on this visit http://robjhyndman.com/hyndsight/monthly-seasonality/.
+&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;Now that we understand what is time series and how frequency is associated with it let us look at some practical examples.&lt;/p&gt;
 &lt;h3&gt;Some useful packages&lt;/h3&gt;
 &lt;ol&gt;
@@ -90,106 +83,145 @@ The cycle could be a minute, hourly, daily, weekly, annual. Corresponding freque
 &lt;p&gt;expsmooth: For data&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;fpp: For data&lt;/p&gt;
+&lt;p&gt;fpp: For data
+&lt;br&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;We will now look at few examples of forecasting. We will look at three examples. Before that we will need to install and load this R package - fpp&lt;/p&gt;
-&lt;p&gt;install.packages('fpp')
-library(fpp)&lt;/p&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;
+install.packages('fpp')
+library(fpp)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Three examples&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Sales of beer in Australia&lt;/strong&gt;
+&lt;p&gt;&lt;strong&gt;Sale of beer in Australia&lt;/strong&gt;&lt;/p&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;
 dev.off() # to open up the plots with default settings.
 ausbeer # is at quarterly level the sale of beer in each quarter.
 plot(ausbeer)
-beer &amp;lt;- aggregate(ausbeer) # Converting to sale of beer at yearly level
-plot(beer)&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Sales of a group of pharmaceuticals&lt;/strong&gt;&lt;/p&gt;
-&lt;h1&gt;a10 is a group of pharmaceuticals&lt;/h1&gt;
-&lt;p&gt;a10 # Sale of pharmaceuticals at monthly level from 1991 to 2008
+beer &lt;- aggregate(ausbeer) # Converting to sale of beer at yearly level
+plot(beer)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Sales of a group of pharmaceuticals&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;a10 is a group of pharmaceuticals&lt;/em&gt;
+&lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
+&lt;code class="r"&gt;
+a10 # Sale of pharmaceuticals at monthly level from 1991 to 2008
 head(a10)
-plot(a10)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;**&lt;/span&gt;Electricity demand &lt;span class="kr"&gt;for&lt;/span&gt; a period of &lt;span class="m"&gt;12&lt;/span&gt; weeks on daily basis&lt;span class="o"&gt;**&lt;/span&gt;
-plot&lt;span class="p"&gt;(&lt;/span&gt;taylor&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Fully automated forecast&lt;/span&gt;
-
-plot&lt;span class="p"&gt;(&lt;/span&gt;forecast&lt;span class="p"&gt;(&lt;/span&gt;beer&lt;span class="p"&gt;))&lt;/span&gt;
-
-The blue line is a point forecast. You can see it has picked the annual trend. The inner shade is a &lt;span class="m"&gt;90&lt;/span&gt;&lt;span class="o"&gt;% prediction interval and the outer shade is a 95%&lt;/span&gt; prediction interval
-
-
-Similar forecast plots &lt;span class="kr"&gt;for&lt;/span&gt; a10 and electricity demand
-plot&lt;span class="p"&gt;(&lt;/span&gt;forecast&lt;span class="p"&gt;(&lt;/span&gt;a10&lt;span class="p"&gt;))&lt;/span&gt;
-plot&lt;span class="p"&gt;(&lt;/span&gt;forecast&lt;span class="p"&gt;(&lt;/span&gt;taylor&lt;span class="p"&gt;))&lt;/span&gt;
+plot(a10)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Electricity demand for a period of 12 weeks on daily basis&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;taylor&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;taylor&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;span class="c1"&gt;### Some simple forecasting methods&lt;/span&gt;
-These are benchmark methods. You shouldn&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="err"&gt;t use them. You will see why. These are naive and basic methods.&lt;/span&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Fully automated forecast&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;forecast&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;beer&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;span class="m"&gt;1&lt;/span&gt;. Mean method&lt;span class="o"&gt;:&lt;/span&gt; Forecast of all future values is equal to mean of historical data
-   Mean&lt;span class="o"&gt;:&lt;/span&gt; meanf&lt;span class="p"&gt;(&lt;/span&gt;x&lt;span class="p"&gt;,&lt;/span&gt; h&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-&lt;span class="m"&gt;2&lt;/span&gt;. Naive method&lt;span class="o"&gt;:&lt;/span&gt; Forecasts equal to last observed value
-   Optimal &lt;span class="kr"&gt;for&lt;/span&gt; efficient stock markets
-   naive&lt;span class="p"&gt;(&lt;/span&gt;x&lt;span class="p"&gt;,&lt;/span&gt; h&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; or rwf&lt;span class="p"&gt;(&lt;/span&gt;x&lt;span class="p"&gt;,&lt;/span&gt; h&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; rwf stands &lt;span class="kr"&gt;for&lt;/span&gt; random walk &lt;span class="kr"&gt;function&lt;/span&gt;
+&lt;p&gt;The blue line is a point forecast. You can see it has picked the annual trend. The inner shade is a 90% prediction interval and the outer shade is a 95% prediction interval&lt;/p&gt;
+&lt;p&gt;Similar forecast plots for a10 and electricity demand&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;forecast&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;forecast&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;taylor&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;span class="m"&gt;3&lt;/span&gt;. Seasonal Naive method&lt;span class="o"&gt;:&lt;/span&gt; Forecast equal to last historical value &lt;span class="kr"&gt;in&lt;/span&gt; the same season
-   snaive&lt;span class="p"&gt;(&lt;/span&gt;x&lt;span class="p"&gt;,&lt;/span&gt; h&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-&lt;span class="m"&gt;4&lt;/span&gt;. Drift method&lt;span class="o"&gt;:&lt;/span&gt; Forecasts equal to last value plus average change
+&lt;h3&gt;Some simple forecasting methods&lt;/h3&gt;
+&lt;p&gt;These are benchmark methods. You shouldn't use them. You will see why. These are naive and basic methods.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Mean method: Forecast of all future values is equal to mean of historical data
+   Mean: meanf(x, h=10)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Naive method: Forecasts equal to last observed value
+   Optimal for efficient stock markets
+   naive(x, h=10) or rwf(x, h=10); rwf stands for random walk function&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Seasonal Naive method: Forecast equal to last historical value in the same season
+   snaive(x, h=10)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Drift method: Forecasts equal to last value plus average change
    Equivalent to extrapolating the line between the first and last observations
-   rwf&lt;span class="p"&gt;(&lt;/span&gt;x&lt;span class="p"&gt;,&lt;/span&gt; drift &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k-Variable"&gt;T&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; h&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-
-&lt;span class="c1"&gt;### Forecast objects in R&lt;/span&gt;
-Functions that output a forecast object are&lt;span class="o"&gt;:&lt;/span&gt;
-
-&lt;span class="m"&gt;1&lt;/span&gt;. meanf&lt;span class="p"&gt;()&lt;/span&gt;
-
-&lt;span class="m"&gt;2&lt;/span&gt;. croston&lt;span class="p"&gt;()&lt;/span&gt; method used &lt;span class="kr"&gt;in&lt;/span&gt; supply chain forecast. For example to forecast the number of spare parts required &lt;span class="kr"&gt;in&lt;/span&gt; weekend
-
-&lt;span class="m"&gt;3&lt;/span&gt;. holt&lt;span class="p"&gt;(),&lt;/span&gt; hw&lt;span class="p"&gt;()&lt;/span&gt;
-
-&lt;span class="m"&gt;4&lt;/span&gt;. stlf&lt;span class="p"&gt;()&lt;/span&gt;
-
-&lt;span class="m"&gt;5&lt;/span&gt;. ses&lt;span class="p"&gt;()&lt;/span&gt; simple exponential smoothing
-
-
-Once you train a forecast model on a time series object&lt;span class="p"&gt;,&lt;/span&gt; the model returns an output of forecast class that contains the following&lt;span class="o"&gt;:&lt;/span&gt;
-
-&lt;span class="m"&gt;1&lt;/span&gt;. Original series
-
-&lt;span class="m"&gt;2&lt;/span&gt;. Point forecasts
-
-&lt;span class="m"&gt;3&lt;/span&gt;. Prediction intervals
-
-&lt;span class="m"&gt;4&lt;/span&gt;. Forecasting method used
-
-&lt;span class="m"&gt;5&lt;/span&gt;. Residuals and &lt;span class="kr"&gt;in&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;sample one&lt;span class="o"&gt;-&lt;/span&gt;step forecasts
-
-&lt;span class="c1"&gt;### A simple example on the beer time series&lt;/span&gt;
-
-plot&lt;span class="p"&gt;(&lt;/span&gt;beer&lt;span class="p"&gt;)&lt;/span&gt;
+   rwf(x, drift = T, h=10)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Forecast objects in R&lt;/h3&gt;
+&lt;p&gt;Functions that output a forecast object are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;meanf()&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;croston() method used in supply chain forecast. For example to forecast the number of spare parts required in weekend&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;holt(), hw()&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;stlf()&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ses() simple exponential smoothing&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Once you train a forecast model on a time series object, the model returns an output of forecast class that contains the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Original series&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Point forecasts&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Prediction intervals&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Forecasting method used&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Residuals and in-sample one-step forecasts&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;A simple example on the beer time series&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;plot&lt;span class="p"&gt;(&lt;/span&gt;beer&lt;span class="p"&gt;)&lt;/span&gt;
 fit &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; ses&lt;span class="p"&gt;(&lt;/span&gt;beer&lt;span class="p"&gt;)&lt;/span&gt;
 attributes&lt;span class="p"&gt;(&lt;/span&gt;fit&lt;span class="p"&gt;)&lt;/span&gt;
 plot&lt;span class="p"&gt;(&lt;/span&gt;fit&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;span class="c1"&gt;### Measures of forecast accuracy&lt;/span&gt;
-
-&lt;span class="m"&gt;1&lt;/span&gt;. MAE&lt;span class="o"&gt;:&lt;/span&gt; Mean Absolute Error
-
-&lt;span class="m"&gt;2&lt;/span&gt;. MSE or RMSE&lt;span class="o"&gt;:&lt;/span&gt; Mean Square Error or Root Mean Square Error
-
-&lt;span class="m"&gt;3&lt;/span&gt;. MAPE&lt;span class="o"&gt;:&lt;/span&gt; Mean Absolute Percentage Error
-
-MAE&lt;span class="p"&gt;,&lt;/span&gt; MSE&lt;span class="p"&gt;,&lt;/span&gt; RMSE are scale dependent
-MAPE is scale independent but is only sensible &lt;span class="kr"&gt;if&lt;/span&gt; the time series values &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="kr"&gt;for&lt;/span&gt; all i and y has a natural zero
-
-&lt;span class="c1"&gt;### Test methods on a test set&lt;/span&gt;
-&lt;span class="sb"&gt;``&lt;/span&gt;`&lt;span class="p"&gt;{&lt;/span&gt;r&lt;span class="p"&gt;}&lt;/span&gt;
-
-ausbeer &lt;span class="c1"&gt;# is at quarterly level the sale of beer in each quarter.&lt;/span&gt;
+&lt;h3&gt;Measures of forecast accuracy&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;MAE: Mean Absolute Error&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;MSE or RMSE: Mean Square Error or Root Mean Square Error&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;MAPE: Mean Absolute Percentage Error&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;MAE, MSE, RMSE are scale dependent
+MAPE is scale independent but is only sensible if the time series values &amp;gt;&amp;gt;0 for all i and y has a natural zero&lt;/p&gt;
+&lt;h3&gt;Test methods on a test set&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ausbeer &lt;span class="c1"&gt;# is at quarterly level the sale of beer in each quarter.&lt;/span&gt;
 plot&lt;span class="p"&gt;(&lt;/span&gt;ausbeer&lt;span class="p"&gt;)&lt;/span&gt;
 beer &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; aggregate&lt;span class="p"&gt;(&lt;/span&gt;ausbeer&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# Converting to sale of beer at yearly level&lt;/span&gt;
 plot&lt;span class="p"&gt;(&lt;/span&gt;beer&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# plot of yearly beer sales from 1956 to 2007&lt;/span&gt;
@@ -218,16 +250,16 @@ plot&lt;span class="p"&gt;(&lt;/span&gt;f3&lt;span class="p"&gt;)&lt;/span&gt;
 
 &lt;h3&gt;In-sample accuracy&lt;/h3&gt;
 &lt;p&gt;This will give you in-sample accuracy but that is not of much use, it just gives you an idea how will the model fit into the data. Chances are that the model may not fit well into the test data. So we should always look at the accuracy from the test data.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;accuracy&lt;span class="p"&gt;(&lt;/span&gt;f1&lt;span class="p"&gt;)&lt;/span&gt;
-accuracy&lt;span class="p"&gt;(&lt;/span&gt;f2&lt;span class="p"&gt;)&lt;/span&gt;
-accuracy&lt;span class="p"&gt;(&lt;/span&gt;f3&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;accuracy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;accuracy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;accuracy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;Out-of-sample accuracy&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;accuracy&lt;span class="p"&gt;(&lt;/span&gt;f1&lt;span class="p"&gt;,&lt;/span&gt; beer_test&lt;span class="p"&gt;)&lt;/span&gt;
-accuracy&lt;span class="p"&gt;(&lt;/span&gt;f2&lt;span class="p"&gt;,&lt;/span&gt; beer_test&lt;span class="p"&gt;)&lt;/span&gt;
-accuracy&lt;span class="p"&gt;(&lt;/span&gt;f3&lt;span class="p"&gt;,&lt;/span&gt; beer_test&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;accuracy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;beer_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;accuracy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;beer_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;accuracy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;beer_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -255,7 +287,7 @@ ETS(ExponenTial Smoothing)&lt;/p&gt;
 'X' stands for whether you add the errors or multiply the errors on point forecasts.&lt;/p&gt;
 &lt;p&gt;'Y' stands for whehter the trend component is additive or multiplicative or multiplicative damped&lt;/p&gt;
 &lt;p&gt;'Z' stands for whether the seasonal component is additive or multiplicative or multiplicative damped&lt;/p&gt;
-&lt;h1&gt;Some examples&lt;/h1&gt;
+&lt;h3&gt;Some examples&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;ETS(A, N, N): Simple exponential smoothing with additive errors
@@ -283,7 +315,7 @@ forecast2 &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; forecast&lt;span class="p
 
 &lt;p&gt;There are many other parameters in the model which I suggest not to touch unless you know what you are doing.&lt;/p&gt;
 &lt;p&gt;If yo want to have a look at the parameters that the method chose. Just type in the name of your model&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;model1
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;model1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -337,14 +369,14 @@ BIC: Bayesian Information Criteria&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;Box-Cox transformations&lt;/h3&gt;
-&lt;h1&gt;Transformations to stabilze the variance&lt;/h1&gt;
-&lt;p&gt;If the data show different variation at different levels of the series, then a transformation can be useful.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;plot&lt;span class="p"&gt;(&lt;/span&gt;a10&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;p&gt;&lt;strong&gt;Transformations to stabilize the variance&lt;/strong&gt;
+If the data show different variation at different levels of the series, then a transformation can be useful.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;As you can see, the variation is increasing with the level of the series and the variation is multiplicative. If we take a log of the series, we will see that the variation becomes a little stable.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;plot&lt;span class="p"&gt;(&lt;/span&gt;log&lt;span class="p"&gt;(&lt;/span&gt;a10&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -363,7 +395,7 @@ BIC: Bayesian Information Criteria&lt;/p&gt;
 &lt;p&gt;lambda = -1; Inverse plus 1&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1&gt;Back-transformation&lt;/h1&gt;
+&lt;h3&gt;Back-transformation&lt;/h3&gt;
 &lt;p&gt;We must reverse the transformation (or back transform) to obtain forecasts on the original scale.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;a10 &lt;span class="c1"&gt;# Sale of pharmaceuticals at monthly level from 1991 to 2008&lt;/span&gt;
 plot&lt;span class="p"&gt;(&lt;/span&gt;a10&lt;span class="p"&gt;)&lt;/span&gt;
@@ -376,8 +408,8 @@ plot&lt;span class="p"&gt;(&lt;/span&gt;forecast&lt;span class="p"&gt;(&lt;/span
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h1&gt;ARIMA forecasting&lt;/h1&gt;
-&lt;h1&gt;R functions&lt;/h1&gt;
+&lt;h3&gt;ARIMA forecasting&lt;/h3&gt;
+&lt;h3&gt;R functions&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;The arima() function in the &lt;a href="stats"&gt;B&lt;/a&gt; package provides seasonal and non-seasonal ARIMA model estimation including covariates&lt;/p&gt;
@@ -397,9 +429,7 @@ plot&lt;span class="p"&gt;(&lt;/span&gt;forecast&lt;span class="p"&gt;(&lt;/span
 &lt;li&gt;
 &lt;p&gt;Or use auto.arima() function in the forecast package and it will find the model for you&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1&gt;Difficult seasonality&lt;/h1&gt;
-&lt;h3&gt;High frequency data&lt;/h3&gt;</summary><category term="ML"></category><category term="data science"></category></entry><entry><title>Do you believe in yourself?</title><link href="http://manishbarnwal.github.io/blog/2017/04/03/believe_in_yourself/" rel="alternate"></link><updated>2017-04-03T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-04-03:blog/2017/04/03/believe_in_yourself/</id><summary type="html">&lt;p&gt;Are you a confident person? The mind asked itself. I replied with an excited &lt;em&gt;Yes!&lt;/em&gt;. The mind asked again, &lt;em&gt;are you sure?&lt;/em&gt;. This time I thought for a while but again after a pause, I said &lt;em&gt;yes&lt;/em&gt;.
+&lt;/ol&gt;</summary><category term="ML"></category><category term="data science"></category></entry><entry><title>Do you believe in yourself?</title><link href="http://manishbarnwal.github.io/blog/2017/04/03/believe_in_yourself/" rel="alternate"></link><updated>2017-04-03T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-04-03:blog/2017/04/03/believe_in_yourself/</id><summary type="html">&lt;p&gt;Are you a confident person? The mind asked itself. I replied with an excited &lt;em&gt;Yes!&lt;/em&gt;. The mind asked again, &lt;em&gt;are you sure?&lt;/em&gt;. This time I thought for a while but again after a pause, I said &lt;em&gt;yes&lt;/em&gt;.
 &lt;br&gt;
 &lt;br&gt;
 &lt;strong&gt;Why was there a pause the second time?&lt;/strong&gt;
