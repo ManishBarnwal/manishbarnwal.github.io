@@ -5,7 +5,7 @@
 <head>
 
   <meta charset="utf-8">
-  <title>A basic introduction to time series and forecasting</title>
+  <title>A tutorial on time series and forecasting</title>
   <meta name="author" content="Manish Barnwal">
   <meta name="description" content="This post talks about time series and forecasting." >
   <meta name="keywords" content="ML, data science, time series, forecasting" >
@@ -1839,14 +1839,16 @@ jQuery(document).ready(function($) {
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">A basic introduction to time series and forecasting</h1>
+      <h1 class="entry-title">A tutorial on time series and forecasting</h1>
       <p class="meta"><time datetime="2017-05-03T08:00:00" pubdate>May 03, 2017</time></p>
 </header>
 
-  <div class="entry-content"><p>Time series forecasting is a skill that few people claim to know. Machine learning is cool. And there are a lot of people interested in becoming a machine learning expert. But forecasting is something that is a little domain specific. Retailers like Walmart, Target use forecasting systems and tools to replenish their products in the stores. An excellent forecast system helps in winning the other pipelines of the supply chain. If you are good at predicting the sale of items in the store, you can plan your inventory count well. You can plan your assortment well.  A good forecast leads to a series of wins in the other pipelines in the supply chain.
+  <div class="entry-content"><p>Time series forecasting is a skill that few people claim to know. Machine learning is cool. And there are a lot of people interested in becoming a machine learning expert. But forecasting is something that is a little domain specific.
+<br></p>
+<p>Retailers like Walmart, Target use forecasting systems and tools to replenish their products in the stores. An excellent forecast system helps in winning the other pipelines of the supply chain. If you are good at predicting the sale of items in the store, you can plan your inventory count well. You can plan your assortment well.  A good forecast leads to a series of wins in the other pipelines in the supply chain.
 <br>
 <br>
-Disclaimer- The following post is  my notes on forecasting which I have taken while having read several posts from Prof. Hyndman.
+<strong>Disclaimer</strong>: The following post is  my notes on forecasting which I have taken while having read several posts from Prof. Hyndman.
 <br>
 <br>
 Let us get started. First things first.
@@ -1871,30 +1873,23 @@ ts() takes a single frequency argument. There are times when there will be multi
 <br></p>
 <h3>Frequency</h3>
 <p>When setting the frequency, many people are confused what should be the correct value. This is the simple definition of frequency.
-Frequency is the number of observations per cycle. Now, how you define what a cycle is for a time series? Say, you have electricity consumption of Bangalore at hourly level. The cycle could be a day, a week or even annual. I will cover what frequency would be for all different type of time series.
+Frequency is the number of observations per cycle. Now, how you define what a cycle is for a time series?</p>
+<p>Say, you have electricity consumption of Bangalore at hourly level. The cycle could be a day, a week or even annual. I will cover what frequency would be for all different type of time series.
 <br></p>
 <p>Before we proceed I will reiterate this.</p>
 <blockquote>
 <p>Frequency is the number of observations per cycle.</p>
 </blockquote>
-<p>We will see what values frequency takes for different interval time series.</p>
-<ol>
-<li>For Daily data
-There could be a weekly cycle or annual cycle.
-So the frequency could be 7 or 365.25.</li>
-</ol>
+<p><br>
+We will see what values frequency takes for different interval time series.</p>
+<p><strong>Daily data</strong> There could be a weekly cycle or annual cycle. So the frequency could be 7 or 365.25.</p>
 <p>Some of the years have 366 days (leap years). So if your time series data has longer periods, it is better to use frequency = 365.25. This takes care of the leap year as well which may come in your data.</p>
-<ol>
-<li>
-<p>For weekly data
+<p><strong>Weekly data</strong>
 There could be an annual cycle.
 frequency = 52 and if you want to take care of leap years then use frequency = 365.25/7</p>
-</li>
-<li>
-<p>For Monthly data
-Cycle is of one year.
-frequency = 12</p>
-</li>
+<p><strong>Monthly data</strong>
+Cycle is of one year. So frequency = 12</p>
+<ol>
 <li>
 <p>For quarterly data
 Again cycle is of one year.
@@ -2276,7 +2271,7 @@ plot<span class="p">(</span>forecast<span class="p">(</span>fit<span class="p">)
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2017/05/03/introduction_to_time_series_and_forecasting/">A basic introduction to time series and forecasting</a>
+          <a href="http://manishbarnwal.github.io/blog/2017/05/03/introduction_to_time_series_and_forecasting/">A tutorial on time series and forecasting</a>
       </li>
       <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2017/04/03/believe_in_yourself/">Do you believe in yourself?</a>
@@ -2353,7 +2348,7 @@ plot<span class="p">(</span>forecast<span class="p">(</span>fit<span class="p">)
 	  var disqus_shortname = 'manishbarnwal';
           var disqus_identifier = '/blog/2017/05/03/introduction_to_time_series_and_forecasting/';
           var disqus_url = 'http://manishbarnwal.com/blog/2017/05/03/introduction_to_time_series_and_forecasting/';
-          var disqus_title = 'A basic introduction to time series and forecasting';
+          var disqus_title = 'A tutorial on time series and forecasting';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
