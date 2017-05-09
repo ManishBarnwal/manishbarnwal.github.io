@@ -44,7 +44,8 @@ Before we proceed I will reiterate this.&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 We will see what values frequency takes for different interval time series.
 &lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Daily data&lt;/strong&gt; There could be a weekly cycle or annual cycle. So the frequency could be 7 or 365.25. Some of the years have 366 days (leap years). So if your time series data has longer periods, it is better to use frequency = 365.25. This takes care of the leap year as well which may come in your data.
+&lt;p&gt;&lt;strong&gt;Daily data&lt;/strong&gt; There could be a weekly cycle or annual cycle. So the frequency could be 7 or 365.25.&lt;/p&gt;
+&lt;p&gt;Some of the years have 366 days (leap years). So if your time series data has longer periods, it is better to use frequency = 365.25. This takes care of the leap year as well which may come in your data.
 &lt;br&gt;
 &lt;br&gt;
 &lt;strong&gt;Weekly data&lt;/strong&gt;
@@ -77,7 +78,7 @@ The cycle could be hourly, daily, weekly, annual. Corresponding frequencies woul
 60 X 60 X 24 X 7, 60 X 60 X 24 X 365.25
 &lt;br&gt;
 &lt;br&gt;
-You might have observed, I have not included monthly cycles in any of the time series be it daily or weekly, minutes, etc. The short answer is, it is rare to have monthly seasonality in time series. To read more on this visit &lt;a href="http://robjhyndman.com/hyndsight/monthly-seasonality/"&gt;monthly-seasonality&lt;/a&gt;
+You might have observed, I have not included monthly cycles in any of the time series be it daily or weekly, minutes, etc. The short answer is, it is rare to have monthly seasonality in time series. To read more on this visit &lt;a href="http://robjhyndman.com/hyndsight/monthly-seasonality/"&gt;monthly-seasonality&lt;/a&gt;.
 &lt;br&gt;
 &lt;br&gt;
 Now that we understand what is time series and how frequency is associated with it let us look at some practical examples.
@@ -113,8 +114,7 @@ install.packages('fpp')
 library(fpp)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;br&gt;
-&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Three examples&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Sale of beer in Australia&lt;/strong&gt;&lt;/p&gt;
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
@@ -123,19 +123,21 @@ dev.off() # to open up the plots with default settings.
 ausbeer # is at quarterly level the sale of beer in each quarter.
 plot(ausbeer)
 beer &lt;- aggregate(ausbeer) # Converting to sale of beer at yearly level
-plot(beer)
+plot(beer, main = 'Sale of beer at yearly level')
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;br&gt;
-&lt;br&gt;
-&lt;strong&gt;Sales of a group of pharmaceuticals&lt;/strong&gt;&lt;/p&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="photo of beer_plot" src="http://manishbarnwal.com/images/time_series_basics/beer_plot.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sales of a group of pharmaceuticals&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;a10 is a group of pharmaceuticals&lt;/em&gt;
 &lt;pre style="font-size:60%; padding:7px; margin:0em;"&gt;
 &lt;code class="r"&gt;
 a10 # Sale of pharmaceuticals at monthly level from 1991 to 2008
 head(a10)
-plot(a10)
-&lt;/code&gt;&lt;/pre&gt;
+plot(a10, main = 'Sale of pharmaceuticals at monthly level')
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="photo of a10_plot.png" src="http://manishbarnwal.com/images/time_series_basics/a10_plot.png" /&gt;
 &lt;br&gt;
 &lt;br&gt;
 &lt;strong&gt;Electricity demand for a period of 12 weeks on daily basis&lt;/strong&gt;&lt;/p&gt;

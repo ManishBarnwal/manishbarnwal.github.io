@@ -1888,7 +1888,8 @@ Before we proceed I will reiterate this.</p>
 <p><br>
 We will see what values frequency takes for different interval time series.
 <br></p>
-<p><strong>Daily data</strong> There could be a weekly cycle or annual cycle. So the frequency could be 7 or 365.25. Some of the years have 366 days (leap years). So if your time series data has longer periods, it is better to use frequency = 365.25. This takes care of the leap year as well which may come in your data.
+<p><strong>Daily data</strong> There could be a weekly cycle or annual cycle. So the frequency could be 7 or 365.25.</p>
+<p>Some of the years have 366 days (leap years). So if your time series data has longer periods, it is better to use frequency = 365.25. This takes care of the leap year as well which may come in your data.
 <br>
 <br>
 <strong>Weekly data</strong>
@@ -1921,7 +1922,7 @@ The cycle could be hourly, daily, weekly, annual. Corresponding frequencies woul
 60 X 60 X 24 X 7, 60 X 60 X 24 X 365.25
 <br>
 <br>
-You might have observed, I have not included monthly cycles in any of the time series be it daily or weekly, minutes, etc. The short answer is, it is rare to have monthly seasonality in time series. To read more on this visit <a href="http://robjhyndman.com/hyndsight/monthly-seasonality/">monthly-seasonality</a>
+You might have observed, I have not included monthly cycles in any of the time series be it daily or weekly, minutes, etc. The short answer is, it is rare to have monthly seasonality in time series. To read more on this visit <a href="http://robjhyndman.com/hyndsight/monthly-seasonality/">monthly-seasonality</a>.
 <br>
 <br>
 Now that we understand what is time series and how frequency is associated with it let us look at some practical examples.
@@ -1957,8 +1958,7 @@ install.packages('fpp')
 library(fpp)
 </code></pre>
 
-<p><br>
-<br></p>
+<p><br></p>
 <h3>Three examples</h3>
 <p><strong>Sale of beer in Australia</strong></p>
 <pre style="font-size:60%; padding:7px; margin:0em;">
@@ -1967,19 +1967,21 @@ dev.off() # to open up the plots with default settings.
 ausbeer # is at quarterly level the sale of beer in each quarter.
 plot(ausbeer)
 beer <- aggregate(ausbeer) # Converting to sale of beer at yearly level
-plot(beer)
+plot(beer, main = 'Sale of beer at yearly level')
 </code></pre>
 
 <p><br>
-<br>
-<strong>Sales of a group of pharmaceuticals</strong></p>
+<br></p>
+<p><img alt="photo of beer_plot" src="http://manishbarnwal.com/images/time_series_basics/beer_plot.png" /></p>
+<p><strong>Sales of a group of pharmaceuticals</strong></p>
 <p><em>a10 is a group of pharmaceuticals</em>
 <pre style="font-size:60%; padding:7px; margin:0em;">
 <code class="r">
 a10 # Sale of pharmaceuticals at monthly level from 1991 to 2008
 head(a10)
-plot(a10)
-</code></pre>
+plot(a10, main = 'Sale of pharmaceuticals at monthly level')
+</code></pre></p>
+<p><img alt="photo of a10_plot.png" src="http://manishbarnwal.com/images/time_series_basics/a10_plot.png" />
 <br>
 <br>
 <strong>Electricity demand for a period of 12 weeks on daily basis</strong></p>
