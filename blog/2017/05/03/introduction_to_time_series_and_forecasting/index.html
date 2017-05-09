@@ -5,10 +5,10 @@
 <head>
 
   <meta charset="utf-8">
-  <title>An illustrated introduction to adversarial validation part 2</title>
+  <title>A basic introduction to time series and forecasting</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="This post talks about adversarial validation- an approach to the problem of differently distributed training and test data." >
-  <meta name="keywords" content="ML, data science, cross-validation, adversarial-validation" >
+  <meta name="description" content="This post talks about time series and forecasting." >
+  <meta name="keywords" content="ML, data science, time series, forecasting" >
 
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1839,160 +1839,428 @@ jQuery(document).ready(function($) {
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">An illustrated introduction to adversarial validation part 2</h1>
-      <p class="meta"><time datetime="2017-02-16T08:00:00" pubdate>Feb 16, 2017</time></p>
+      <h1 class="entry-title">A basic introduction to time series and forecasting</h1>
+      <p class="meta"><time datetime="2017-05-03T08:00:00" pubdate>May 03, 2017</time></p>
 </header>
 
-  <div class="entry-content"><p>In the last post we talked about the <a href="http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/">idea of adversarial validation</a> and how it helps the problem when your validation set result doesn't comply with that of test set result. In this post, I will share the R code to help achieve the idea of adversarial validation. The data used would be from <a href="https://numer.ai/">Numerai competition</a>.
-<br>
-<br></p>
-<h3>Loading required packages</h3>
-<p><pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">
-library(randomForest)
-library(glmnet)
-library(data.table)
-library(MLmetrics)
-getwd()
-dir()
-</code></pre>
-<br>
-<br></p>
-<h3>Reading train and test data set</h3>
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">
-train <- fread("Data/numerai_training_data.csv")
-train <- as.data.frame(train)
-train$target <- as.factor(train$target)
-
-str(train)
-dim(train) # has close to 136000 rows and having no missing values
-head(train)
-
-test <- fread("Data/numerai_tournament_data.csv")
-test <- as.data.frame(test)
-dim(test) # has close to 150000 rows and having no missing values
-head(test)
-</code></pre>
-
-<p><br>
-<br></p>
-<h3>Creating the target variable to distinguish between train and test data</h3>
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">
-train$isTest <- 0 # assigning 0 for train and 1 for test data
-test$isTest <- 1
-</code></pre>
-
-<p><br>
-<br></p>
-<h3>Combining train and test data into a single data frame</h3>
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">
-combi <- rbindlist(list(train[, -51], test[, -1])) # removing 'target' from train data and 't_id' from test data
-combi$isTest <- as.factor(combi$isTest)
-combi <- as.data.frame(combi)
-str(combi)
-</code></pre>
-
-<p><br>
-<br></p>
-<h3>Train a classifier to identify whether data comes from the train or test set</h3>
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">
-logitMod <- glm(formula = isTest~. , data = combi, family = 'binomial')
-summary(logitMod)
-head(logitMod$fitted.values)
-</code></pre>
-
-<p><br>
-<br></p>
-<h3>Predict on the training data to see which rows resembles most to the test data</h3>
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">
-pred <- predict(logitMod, newdata = train, type = 'response')
-head(pred)
-
-trainData <- train
-head(trainData)
-trainData$predictTest <- pred
-</code></pre>
-
-<p><br>
-<br></p>
-<h3>Sort the training data by it’s probability of being in the test set</h3>
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">
-trainData <- trainData[order(trainData$predictTest, decreasing = T), ]
-
-valIndx <- 1:(0.2*nrow(trainData))
-colsToKeep <- names(trainData)[!names(trainData) %in% c('isTest', 'predictTest')]
-
-trainFinal <- trainData[-valIndx, colsToKeep]
-valData <- trainData[valIndx, colsToKeep]
-
-write.csv(trainFinal, 'trainfinal.csv', row.names = F, quote = F)
-</code></pre>
-
-<p><br>
-<br></p>
-<h3>Build a random forest classifier to predict the 'target' variable</h3>
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">
-set.seed(1) # setting seed for reproducibility of the result
-
-matX <- trainFinal[, -grep('target', names(trainFinal))]
-response <- trainFinal[, 'target']
-table(response)
-
-rfMod <- randomForest(x = matX, y = response, ntree = 200, mtry = 7) # training randomForest model
-</code></pre>
-
-<p><br>
-<br></p>
-<h3>Prediction on validation set</h3>
-<p><pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">
-rfValPreds &lt;- predict(rfMod, newdata = valData, type="prob")
-head(valPreds)
-LogLoss(rfLassoValPreds, as.numeric(as.character(valData$target))) # LogLoss function from MLmetrics package
-</code></pre>
+  <div class="entry-content"><p>Time series forecasting is a skill that few people claim to know. Machine learning is cool. And there are a lot of people interested in becoming a machine learning expert. But forecasting is something that is a little domain specific. Retailers like Walmart, Target use forecasting systems and tools to replenish their products in the stores. An excellent forecast system helps in winning the other pipelines of the supply chain. If you are good at predicting the sale of items in the store, you can plan your inventory count well. You can plan your assortment well.  A good forecast leads to a series of wins in the other pipelines in the supply chain.
 <br>
 <br>
-The validation set gives a LogLoss of 0.699. Let us see how does this come out on test data set. For this we will predict on the test data and upload the predictions to the site.
+Disclaimer- The following post is  my notes on forecasting which I have taken while having read several posts from Prof. Hyndman.
+<br>
+<br>
+Let us get started. First things first.
 <br>
 <br></p>
-<h3>Prediction on actual test data</h3>
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">
-testPreds <- predict(rfMod, newdata = test, type = 'prob')
-testPreds <- testPreds[, 2]
+<h3>What is time series?</h3>
+<p>A time series is a sequence of observations collected at some time intervals. Time plays an important role here. The observations collected are dependent on the time at which it is collected.</p>
+<p>The sale of an item say Turkey wings in a retail store like Walmart will be a time series. The sale could be at daily level or weekly level. The number of people flying from Bangalore to Kolkata on daily basis is a time series. Time is important here. During Durga Puja holidays, this number would be humongous compared to the other days. This is know as seasonality.
+<br>
+<br></p>
+<h3>What is the difference between a time series and a normal series?</h3>
+<p>Time component is important here. The time series is dependent on the time. However a normal series say 1, 2, 3...100 has no time component to it. When the value that a series will take depends on the time it was recorded, it is a time series.
+<br>
+<br></p>
+<h3>How to define a time series object in R</h3>
+<p>ts() object is used for equally spaced time series data, it can be at any level. Daily, weekly, monthly, quarterly, yearly or even at minutes level. If you wish to use unequally spaced observations then you will have to use other packages.
+<br>
+<br>
+ts() is used for numerical observations and you can set frequency of the data.
+ts() takes a single frequency argument. There are times when there will be multiple frequencies in a time series. We use msts() multiple seasonality time series in such cases. I will talk about msts() in later part of the post. For now, let us define what is frequency.
+<br>
+<br></p>
+<h3>Frequency</h3>
+<p>When setting the frequency, many people are confused what should be the correct value. This is the simple definition of frequency.
+Frequency is the number of observations per cycle. Now, how you define what a cycle is for a time series? Say, you have electricity consumption of Bangalore at hourly level. The cycle could be a day, a week or even annual. I will cover what frequency would be for all different type of time series.
+<br></p>
+<p>Before we proceed I will reiterate this.</p>
+<blockquote>
+<p>Frequency is the number of observations per cycle.</p>
+</blockquote>
+<p>We will see what values frequency takes for different interval time series.</p>
+<ol>
+<li>For Daily data
+There could be a weekly cycle or annual cycle.
+So the frequency could be 7 or 365.25.</li>
+</ol>
+<p>Some of the years have 366 days (leap years). So if your time series data has longer periods, it is better to use frequency = 365.25. This takes care of the leap year as well which may come in your data.</p>
+<ol>
+<li>
+<p>For weekly data
+There could be an annual cycle.
+frequency = 52 and if you want to take care of leap years then use frequency = 365.25/7</p>
+</li>
+<li>
+<p>For Monthly data
+Cycle is of one year.
+frequency = 12</p>
+</li>
+<li>
+<p>For quarterly data
+Again cycle is of one year.
+frequency = 4</p>
+</li>
+<li>
+<p>For yearly data
+frequency = 1</p>
+</li>
+</ol>
+<h3>How about frequency for smaller interval time series like hourly, half-hourly, minutes, seconds.</h3>
+<p>Hourly
+The possible cycles and corresponding frequencies are:
+Cycle  Frequency
+Day   24
+Week  24<em>7
+Year  24</em>7<em>365.25
+The cycle could be a day, a week, a year. Corresponding frequencies could be 24, 24</em>7, 24<em>7</em>365.25</p>
+<p>Half-hourly
+The cycle could be a day, a week, a year. Corresponding frequencies could be 48, 48<em>7, 48</em>7*365.25</p>
+<p>Minutes
+The cycle could be hourly, daily, weekly, annual. Corresponding frequencies would be 60, 60<em>24, 60</em>24<em>7, 60</em>24*365.25</p>
+<p>Seconds
+The cycle could be a minute, hourly, daily, weekly, annual. Corresponding frequencies would be 60, 60<em>60, 60</em>60<em>24, 60</em>60<em>24</em>7, 60<em>60</em>24*365.25</p>
+<p>You might have observed, I have not included monthly cycles in any of the time series be it daily or weekly, minutes, etc. The short answer is, it is rare to have monthly seasonality in time series. To read more on this visit http://robjhyndman.com/hyndsight/monthly-seasonality/.</p>
+<p>Now that we understand what is time series and how frequency is associated with it let us look at some practical examples.</p>
+<h3>Some useful packages</h3>
+<ol>
+<li>
+<p>forecast: For forecasting functions</p>
+</li>
+<li>
+<p>tseries: For unit root tests and GARC models</p>
+</li>
+<li>
+<p>Mcomp: Time series data from forecasting competitions</p>
+</li>
+<li>
+<p>fma: For data</p>
+</li>
+<li>
+<p>expsmooth: For data</p>
+</li>
+<li>
+<p>fpp: For data</p>
+</li>
+</ol>
+<p>We will now look at few examples of forecasting. We will look at three examples. Before that we will need to install and load this R package - fpp</p>
+<p>install.packages('fpp')
+library(fpp)</p>
+<h3>Three examples</h3>
+<p><strong>Sales of beer in Australia</strong>
+dev.off() # to open up the plots with default settings.
+ausbeer # is at quarterly level the sale of beer in each quarter.
+plot(ausbeer)
+beer &lt;- aggregate(ausbeer) # Converting to sale of beer at yearly level
+plot(beer)</p>
+<p><strong>Sales of a group of pharmaceuticals</strong></p>
+<h1>a10 is a group of pharmaceuticals</h1>
+<p>a10 # Sale of pharmaceuticals at monthly level from 1991 to 2008
+head(a10)
+plot(a10)</p>
+<div class="highlight"><pre><span class="o">**</span>Electricity demand <span class="kr">for</span> a period of <span class="m">12</span> weeks on daily basis<span class="o">**</span>
+plot<span class="p">(</span>taylor<span class="p">)</span>
 
-submission <- data.frame(t_id = test$t_id, probability = testPreds)
-head(submission)
-write.csv(submission, 'submission.csv', row.names = F, quote = F)
-</code></pre>
+<span class="c1"># Fully automated forecast</span>
 
-<p><br>
-<br>
-The predictions on test data shows a LogLoss of 0.694 which is same as that of the validation set. We can now hope to have same result on both validation set and test set.
-<br>
-<br>
-Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.</p></div>
+plot<span class="p">(</span>forecast<span class="p">(</span>beer<span class="p">))</span>
+
+The blue line is a point forecast. You can see it has picked the annual trend. The inner shade is a <span class="m">90</span><span class="o">% prediction interval and the outer shade is a 95%</span> prediction interval
+
+
+Similar forecast plots <span class="kr">for</span> a10 and electricity demand
+plot<span class="p">(</span>forecast<span class="p">(</span>a10<span class="p">))</span>
+plot<span class="p">(</span>forecast<span class="p">(</span>taylor<span class="p">))</span>
+
+
+<span class="c1">### Some simple forecasting methods</span>
+These are benchmark methods. You shouldn<span class="s">&#39;</span><span class="err">t use them. You will see why. These are naive and basic methods.</span>
+
+<span class="m">1</span>. Mean method<span class="o">:</span> Forecast of all future values is equal to mean of historical data
+   Mean<span class="o">:</span> meanf<span class="p">(</span>x<span class="p">,</span> h<span class="o">=</span><span class="m">10</span><span class="p">)</span>
+
+<span class="m">2</span>. Naive method<span class="o">:</span> Forecasts equal to last observed value
+   Optimal <span class="kr">for</span> efficient stock markets
+   naive<span class="p">(</span>x<span class="p">,</span> h<span class="o">=</span><span class="m">10</span><span class="p">)</span> or rwf<span class="p">(</span>x<span class="p">,</span> h<span class="o">=</span><span class="m">10</span><span class="p">);</span> rwf stands <span class="kr">for</span> random walk <span class="kr">function</span>
+
+<span class="m">3</span>. Seasonal Naive method<span class="o">:</span> Forecast equal to last historical value <span class="kr">in</span> the same season
+   snaive<span class="p">(</span>x<span class="p">,</span> h<span class="o">=</span><span class="m">10</span><span class="p">)</span>
+
+<span class="m">4</span>. Drift method<span class="o">:</span> Forecasts equal to last value plus average change
+   Equivalent to extrapolating the line between the first and last observations
+   rwf<span class="p">(</span>x<span class="p">,</span> drift <span class="o">=</span> <span class="k-Variable">T</span><span class="p">,</span> h<span class="o">=</span><span class="m">10</span><span class="p">)</span>
+
+
+<span class="c1">### Forecast objects in R</span>
+Functions that output a forecast object are<span class="o">:</span>
+
+<span class="m">1</span>. meanf<span class="p">()</span>
+
+<span class="m">2</span>. croston<span class="p">()</span> method used <span class="kr">in</span> supply chain forecast. For example to forecast the number of spare parts required <span class="kr">in</span> weekend
+
+<span class="m">3</span>. holt<span class="p">(),</span> hw<span class="p">()</span>
+
+<span class="m">4</span>. stlf<span class="p">()</span>
+
+<span class="m">5</span>. ses<span class="p">()</span> simple exponential smoothing
+
+
+Once you train a forecast model on a time series object<span class="p">,</span> the model returns an output of forecast class that contains the following<span class="o">:</span>
+
+<span class="m">1</span>. Original series
+
+<span class="m">2</span>. Point forecasts
+
+<span class="m">3</span>. Prediction intervals
+
+<span class="m">4</span>. Forecasting method used
+
+<span class="m">5</span>. Residuals and <span class="kr">in</span><span class="o">-</span>sample one<span class="o">-</span>step forecasts
+
+<span class="c1">### A simple example on the beer time series</span>
+
+plot<span class="p">(</span>beer<span class="p">)</span>
+fit <span class="o">&lt;-</span> ses<span class="p">(</span>beer<span class="p">)</span>
+attributes<span class="p">(</span>fit<span class="p">)</span>
+plot<span class="p">(</span>fit<span class="p">)</span>
+
+
+<span class="c1">### Measures of forecast accuracy</span>
+
+<span class="m">1</span>. MAE<span class="o">:</span> Mean Absolute Error
+
+<span class="m">2</span>. MSE or RMSE<span class="o">:</span> Mean Square Error or Root Mean Square Error
+
+<span class="m">3</span>. MAPE<span class="o">:</span> Mean Absolute Percentage Error
+
+MAE<span class="p">,</span> MSE<span class="p">,</span> RMSE are scale dependent
+MAPE is scale independent but is only sensible <span class="kr">if</span> the time series values <span class="o">&gt;&gt;</span><span class="m">0</span> <span class="kr">for</span> all i and y has a natural zero
+
+<span class="c1">### Test methods on a test set</span>
+<span class="sb">``</span>`<span class="p">{</span>r<span class="p">}</span>
+
+ausbeer <span class="c1"># is at quarterly level the sale of beer in each quarter.</span>
+plot<span class="p">(</span>ausbeer<span class="p">)</span>
+beer <span class="o">&lt;-</span> aggregate<span class="p">(</span>ausbeer<span class="p">)</span> <span class="c1"># Converting to sale of beer at yearly level</span>
+plot<span class="p">(</span>beer<span class="p">)</span> <span class="c1"># plot of yearly beer sales from 1956 to 2007</span>
+
+beer_train <span class="o">&lt;-</span> window<span class="p">(</span>beer<span class="p">,</span> end <span class="o">=</span> <span class="m">1994.99</span><span class="p">)</span> <span class="c1"># data from 1956 till 1994</span>
+plot<span class="p">(</span>beer_train<span class="p">)</span>
+
+beer_test <span class="o">&lt;-</span> window<span class="p">(</span>beer<span class="p">,</span> start <span class="o">=</span> <span class="m">1995</span><span class="p">)</span> <span class="c1"># data from 1995 till 2007</span>
+plot<span class="p">(</span>beer_test<span class="p">)</span>
+
+a10Train <span class="o">&lt;-</span> window<span class="p">(</span>a10<span class="p">,</span> end<span class="o">=</span><span class="m">2005.99</span><span class="p">)</span>
+a10Test <span class="o">&lt;-</span> window<span class="p">(</span>a10<span class="p">,</span> start <span class="o">=</span> <span class="m">2006</span><span class="p">)</span>
+</pre></div>
+
+
+<h1>Simple methods for the BEER data</h1>
+<div class="highlight"><pre>f1 <span class="o">&lt;-</span> meanf<span class="p">(</span>beer_train<span class="p">,</span> h<span class="o">=</span><span class="m">8</span><span class="p">)</span>
+f2 <span class="o">&lt;-</span> rwf<span class="p">(</span>beer_train<span class="p">,</span> h<span class="o">=</span><span class="m">8</span><span class="p">)</span>
+f3 <span class="o">&lt;-</span> rwf<span class="p">(</span>beer_train<span class="p">,</span> drift <span class="o">=</span> <span class="k-Variable">T</span><span class="p">,</span> h <span class="o">=</span> <span class="m">8</span><span class="p">)</span>
+
+plot<span class="p">(</span>f1<span class="p">)</span>
+plot<span class="p">(</span>f2<span class="p">)</span>
+plot<span class="p">(</span>f3<span class="p">)</span>
+</pre></div>
+
+
+<h3>In-sample accuracy</h3>
+<p>This will give you in-sample accuracy but that is not of much use, it just gives you an idea how will the model fit into the data. Chances are that the model may not fit well into the test data. So we should always look at the accuracy from the test data.</p>
+<div class="highlight"><pre>accuracy<span class="p">(</span>f1<span class="p">)</span>
+accuracy<span class="p">(</span>f2<span class="p">)</span>
+accuracy<span class="p">(</span>f3<span class="p">)</span>
+</pre></div>
+
+
+<h3>Out-of-sample accuracy</h3>
+<div class="highlight"><pre>accuracy<span class="p">(</span>f1<span class="p">,</span> beer_test<span class="p">)</span>
+accuracy<span class="p">(</span>f2<span class="p">,</span> beer_test<span class="p">)</span>
+accuracy<span class="p">(</span>f3<span class="p">,</span> beer_test<span class="p">)</span>
+</pre></div>
+
+
+<h3>Exponential smoothing</h3>
+<p>This method has been around since 1990s.</p>
+<div class="highlight"><pre>fit1 <span class="o">&lt;-</span> ets<span class="p">(</span>beer_train<span class="p">,</span> model <span class="o">=</span> <span class="s">&quot;ANN&quot;</span><span class="p">,</span> damped <span class="o">=</span> <span class="k-Variable">F</span><span class="p">)</span>
+fit2 <span class="o">&lt;-</span> ets<span class="p">(</span>beer_train<span class="p">)</span>
+
+accuracy<span class="p">(</span>fit1<span class="p">)</span>
+accuracy<span class="p">(</span>fit2<span class="p">)</span>
+
+fcast1 <span class="o">&lt;-</span> forecast<span class="p">(</span>fit1<span class="p">,</span> h<span class="o">=</span><span class="m">8</span><span class="p">)</span>
+fcast2 <span class="o">&lt;-</span> forecast<span class="p">(</span>fit2<span class="p">,</span> h<span class="o">=</span><span class="m">8</span><span class="p">)</span>
+plot<span class="p">(</span>fcast2<span class="p">)</span>
+
+accuracy<span class="p">(</span>fcast1<span class="p">,</span> beer_test<span class="p">)</span>
+accuracy<span class="p">(</span>fcast2<span class="p">,</span> beer_test<span class="p">)</span>
+</pre></div>
+
+
+<h3>General notation</h3>
+<p>ETS(Error, Trend, Seasonal)
+ETS(ExponenTial Smoothing)</p>
+<p>ETS(X, Y, Z):
+'X' stands for whether you add the errors or multiply the errors on point forecasts.</p>
+<p>'Y' stands for whehter the trend component is additive or multiplicative or multiplicative damped</p>
+<p>'Z' stands for whether the seasonal component is additive or multiplicative or multiplicative damped</p>
+<h1>Some examples</h1>
+<ol>
+<li>
+<p>ETS(A, N, N): Simple exponential smoothing with additive errors
+'A'/'M' stands for whether you add the errors on or multiply the errors on the point forecsats</p>
+</li>
+<li>
+<p>ETS(A, A, N): HOlt's linear method with additive errors</p>
+</li>
+<li>
+<p>ETS(A, A, A): Additive Holt-Winter's method with addtitive errors</p>
+</li>
+<li>
+<p>ETS(M, A, M): Multiplicative Holt-Winter's method with multiplicative errors</p>
+</li>
+</ol>
+<p>There are 30 separate models in the ETS framework. However 11 of them are unstable so only 19 ETS models</p>
+<p>So when you don't specify what model to use in 'model' parameter, it fits all the 19 models and comes out with the best model using AIC criteria</p>
+<div class="highlight"><pre>model1 <span class="o">&lt;-</span> ets<span class="p">(</span>a10Train<span class="p">)</span>
+model2 <span class="o">&lt;-</span> ets<span class="p">(</span>a10Train<span class="p">,</span> model <span class="o">=</span> <span class="s">&#39;MMM&#39;</span><span class="p">,</span> damped <span class="o">=</span> <span class="k-Variable">F</span><span class="p">)</span>
+
+forecast1 <span class="o">&lt;-</span> forecast<span class="p">(</span>model1<span class="p">,</span> h<span class="o">=</span><span class="m">30</span><span class="p">)</span>
+forecast2 <span class="o">&lt;-</span> forecast<span class="p">(</span>model2<span class="p">,</span> h<span class="o">=</span><span class="m">30</span><span class="p">)</span>
+</pre></div>
+
+
+<p>There are many other parameters in the model which I suggest not to touch unless you know what you are doing.</p>
+<p>If yo want to have a look at the parameters that the method chose. Just type in the name of your model</p>
+<div class="highlight"><pre>model1
+</pre></div>
+
+
+<p>You will see the values of 'alpha', 'beta', 'gamma'. Also,
+'sigma': the standard deviation of the residuals
+AIC: Akaike Information criteria
+AIC gives you and idea how well the model fits the data. ets fits all the 19 models, looks at the AIC and give the model with the lowest AIC. The lower the AIC, the better the model fits
+AICc: Corrected Akaike Information criteria
+BIC: Bayesian Information Criteria</p>
+<h2>ets() function</h2>
+<ol>
+<li>
+<p>Automatically chooses a model by default using the AIC, AICc, BIC</p>
+</li>
+<li>
+<p>Can handle any combination of trend, seasonality and damping</p>
+</li>
+<li>
+<p>Produces prediction intervals for every model</p>
+</li>
+<li>
+<p>Ensures the parameters are admissible (equivalent to invertible)</p>
+</li>
+<li>
+<p>Produces an object of class ets</p>
+</li>
+</ol>
+<h2>ets objects</h2>
+<ol>
+<li>
+<p>Methods: coef(), plot(), summary(), residuals(), fitted(), simulate() and forecast()</p>
+</li>
+<li>
+<p>plot() function shows the time plots of the original series along with the extracted components (level, growth and seasonal)</p>
+</li>
+</ol>
+<h3>Automatic forecasting</h3>
+<h1>Why use automatic forecasting?</h1>
+<ol>
+<li>
+<p>Most users are not very expert at fitting time series models</p>
+</li>
+<li>
+<p>Most experts cannot beat the best automatic algorithms. Prof. Hyndman accepted this fact for himself as well. He has been doing forecasting for the last 20 years.</p>
+</li>
+<li>
+<p>Most busines need thousands of forecasts every week/month and they need it fast. You have to do it automatically.</p>
+</li>
+<li>
+<p>Some multivariate forecasting methods depend on many univariate forecasts.</p>
+</li>
+</ol>
+<h3>Box-Cox transformations</h3>
+<h1>Transformations to stabilze the variance</h1>
+<p>If the data show different variation at different levels of the series, then a transformation can be useful.</p>
+<div class="highlight"><pre>plot<span class="p">(</span>a10<span class="p">)</span>
+</pre></div>
+
+
+<p>As you can see, the variation is increasing with the level of the series and the variation is multiplicative. If we take a log of the series, we will see that the variation becomes a little stable.</p>
+<div class="highlight"><pre>plot<span class="p">(</span>log<span class="p">(</span>a10<span class="p">))</span>
+</pre></div>
+
+
+<p>Box-Cox transformations gives you value of parameter, lambda. And based on this value you decide if any transformation is needed or not.</p>
+<ol>
+<li>
+<p>lambda = 1 ; No substantive transformation</p>
+</li>
+<li>
+<p>lambda = 1/2 ; Square root plus linear transformation</p>
+</li>
+<li>
+<p>lambda = 0 ; Natural logarithm</p>
+</li>
+<li>
+<p>lambda = -1; Inverse plus 1</p>
+</li>
+</ol>
+<h1>Back-transformation</h1>
+<p>We must reverse the transformation (or back transform) to obtain forecasts on the original scale.</p>
+<div class="highlight"><pre>a10 <span class="c1"># Sale of pharmaceuticals at monthly level from 1991 to 2008</span>
+plot<span class="p">(</span>a10<span class="p">)</span>
+lam <span class="o">&lt;-</span> BoxCox.lambda<span class="p">(</span>a10<span class="p">)</span> <span class="c1"># 0.131</span>
+lam
+fit <span class="o">&lt;-</span> ets<span class="p">(</span>a10<span class="p">,</span> additive <span class="o">=</span> <span class="k-Variable">T</span><span class="p">,</span> lambda <span class="o">=</span> lam<span class="p">)</span>
+<span class="c1"># &#39;additive = T&#39; implies we only want to consider additive models</span>
+plot<span class="p">(</span>forecast<span class="p">(</span>fit<span class="p">))</span>
+plot<span class="p">(</span>forecast<span class="p">(</span>fit<span class="p">),</span> include<span class="o">=</span><span class="m">60</span><span class="p">)</span>
+</pre></div>
+
+
+<h1>ARIMA forecasting</h1>
+<h1>R functions</h1>
+<ol>
+<li>
+<p>The arima() function in the <a href="stats">B</a> package provides seasonal and non-seasonal ARIMA model estimation including covariates</p>
+</li>
+<li>
+<p>However, it does not allow a constant unless the model is stationary</p>
+</li>
+<li>
+<p>It does not return everything required for forecast()</p>
+</li>
+<li>
+<p>It does not allow re-fitting a model to new data</p>
+</li>
+<li>
+<p>Use the Arima() function in the forecast package which acts as a wrapper to arima()</p>
+</li>
+<li>
+<p>Or use auto.arima() function in the forecast package and it will find the model for you</p>
+</li>
+</ol>
+<h1>Difficult seasonality</h1>
+<h3>High frequency data</h3></div>
     
     <footer>
 <p class="meta">
   <span class="byline author vcard">
     Posted by <span class="fn">Manish Barnwal</span>
   </span>
-<time datetime="2017-02-16T08:00:00" pubdate>Feb 16, 2017</time>  <span class="categories">
+<time datetime="2017-05-03T08:00:00" pubdate>May 03, 2017</time>  <span class="categories">
     <a class="category" href="http://manishbarnwal.github.io/tag/ml.html">ML</a>
     <a class="category" href="http://manishbarnwal.github.io/tag/data-science.html">data science</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/overfitting.html">overfitting</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/adversarial-validation.html">adversarial-validation</a>
   </span>
 </p><div class="sharing">
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2017/02/16/introduction_to_adversarial_validation/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2017/02/16/introduction_to_adversarial_validation/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2017/05/03/introduction_to_time_series_and_forecasting/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2017/05/03/introduction_to_time_series_and_forecasting/" >Tweet</a>
   <div class="g-plusone" data-size="medium"></div>
     <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
 </div>    </footer>
@@ -2083,9 +2351,9 @@ Did you find the article useful? If you did, share your thoughts in the comments
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
-          var disqus_identifier = '/blog/2017/02/16/introduction_to_adversarial_validation/';
-          var disqus_url = 'http://manishbarnwal.com/blog/2017/02/16/introduction_to_adversarial_validation/';
-          var disqus_title = 'An illustrated introduction to adversarial validation part 2';
+          var disqus_identifier = '/blog/2017/05/03/introduction_to_time_series_and_forecasting/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2017/05/03/introduction_to_time_series_and_forecasting/';
+          var disqus_title = 'A basic introduction to time series and forecasting';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
