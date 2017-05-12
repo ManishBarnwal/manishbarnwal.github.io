@@ -1990,7 +1990,6 @@ plot(a10, main = 'Sale of pharmaceuticals at monthly level')
 </pre></div>
 
 
-<p><br></p>
 <h3>Fully automated forecast</h3>
 <div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">forecast</span><span class="p">(</span><span class="n">beer</span><span class="p">))</span>
 </pre></div>
@@ -2025,7 +2024,9 @@ Similar forecast plots for a10 and electricity demand can be plotted using</p>
 <li>
 <p><strong>Drift method</strong>: Forecasts equal to last value plus average change
    Equivalent to extrapolating the line between the first and last observations
-   rwf(x, drift = T, h=10)</p>
+   rwf(x, drift = T, h=10)
+<br>
+<br></p>
 </li>
 </ol>
 <h3>Forecast objects in R</h3>
@@ -2178,7 +2179,9 @@ ETS(ExponenTial Smoothing)</p>
 <p>ETS(M, A, M): Multiplicative Holt-Winter's method with multiplicative errors
 <br>
 <br>
-There are 30 separate models in the ETS framework. However 11 of them are unstable so only 19 ETS models. So when you don't specify what model to use in <em>model</em> parameter, it fits all the 19 models and comes out with the best model using AIC criteria.</p>
+There are 30 separate models in the ETS framework. However 11 of them are unstable so only 19 ETS models. So when you don't specify what model to use in <em>model</em> parameter, it fits all the 19 models and comes out with the best model using AIC criteria.
+<br>
+<br></p>
 </li>
 </ol>
 <div class="highlight"><pre>model1 <span class="o">&lt;-</span> ets<span class="p">(</span>a10Train<span class="p">)</span>
@@ -2189,7 +2192,8 @@ forecast2 <span class="o">&lt;-</span> forecast<span class="p">(</span>model2<sp
 </pre></div>
 
 
-<p><em>There are many other parameters in the model which I suggest not to touch unless you know what you are doing</em>. - Prof Hyndman</p>
+<p><br>
+<em>There are many other parameters in the model which I suggest not to touch unless you know what you are doing</em>. - Prof Hyndman</p>
 <p>If you want to have a look at the parameters that the method chose. Just type in the name of your model.</p>
 <div class="highlight"><pre><span class="n">model1</span>
 </pre></div>
@@ -2197,8 +2201,10 @@ forecast2 <span class="o">&lt;-</span> forecast<span class="p">(</span>model2<sp
 
 <p>You will see the values of <em>alpha</em>, <em>beta</em>, <em>gamma</em>. Also,</p>
 <p><em>sigma</em>: the standard deviation of the residuals</p>
-<p><em>AIC</em>: Akaike Information criteria. AIC gives you and idea how well the model fits the data. ets fits all the 19 models, looks at the AIC and give the model with the lowest AIC. The lower the AIC, the better the model fits.</p>
-<p><em>AICc</em>: Corrected Akaike Information criteria</p>
+<p><em>AIC</em>: Akaike Information criteria. AIC gives you and idea how well the model fits the data. ets fits all the 19 models, looks at the AIC and give the model with the lowest AIC. The lower the AIC, the better the model fits.
+<br></p>
+<p><em>AICc</em>: Corrected Akaike Information criteria
+<br></p>
 <p><em>BIC</em>: Bayesian Information Criteria
 <br>
 <br></p>
@@ -2223,10 +2229,10 @@ forecast2 <span class="o">&lt;-</span> forecast<span class="p">(</span>model2<sp
 <strong>ets objects</strong></p>
 </li>
 <li>
-<p>Methods: coef(), plot(), summary(), residuals(), fitted(), simulate() and forecast()</p>
+<p><strong>Methods</strong>: coef(), plot(), summary(), residuals(), fitted(), simulate() and forecast()</p>
 </li>
 <li>
-<p>plot() function shows the time plots of the original series along with the extracted components (level, growth and seasonal)
+<p><em>plot()</em> function shows the time plots of the original series along with the extracted components (level, growth and seasonal)
 <br>
 <br></p>
 </li>
@@ -2257,13 +2263,17 @@ If the data show different variation at different levels of the series, then a t
 
 
 <p><img alt="photo of a10_plot.png" src="http://manishbarnwal.com/images/time_series_basics/a10_plot.png" /></p>
-<p>As you can see, the variation is increasing with the level of the series and the variation is multiplicative. If we take a log of the series, we will see that the variation becomes a little stable.</p>
+<p>As you can see, the variation is increasing with the level of the series and the variation is multiplicative. If we take a log of the series, we will see that the variation becomes a little stable.
+<br>
+<br></p>
 <div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">a10</span><span class="p">),</span> <span class="n">xlab</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">Time</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">Log</span> <span class="n">of</span> <span class="n">a10</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">log</span> <span class="n">of</span> <span class="n">a10</span><span class="err">&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="photo of a10_log_plot.png" src="http://manishbarnwal.com/images/time_series_basics/a10_log_plot.png" /></p>
-<p>Box-Cox transformations gives you value of parameter, <em>lambda</em>. And based on this value you decide if any transformation is needed or not.</p>
+<p><img alt="photo of a10_log_plot.png" src="http://manishbarnwal.com/images/time_series_basics/a10_log_plot.png" />
+<br>
+<br>
+Box-Cox transformations gives you value of parameter, <em>lambda</em>. And based on this value you decide if any transformation is needed or not.</p>
 <ol>
 <li>
 <p>lambda = 1 ; No substantive transformation</p>
@@ -2292,7 +2302,6 @@ plot<span class="p">(</span>forecast<span class="p">(</span>fit<span class="p">)
 </pre></div>
 
 
-<p><br></p>
 <h3>ARIMA forecasting</h3>
 <p><strong>R functions</strong></p>
 <ol>
@@ -2315,7 +2324,7 @@ plot<span class="p">(</span>forecast<span class="p">(</span>fit<span class="p">)
 <p>Or use <em>auto.arima()</em> function in the forecast package and it will find the model for you
 <br>
 <br>
-This post was just a starter to time series. I will talk more about time series and forecasting in future posts. I plan to cover each of the methods - ses(), ets(), and Arima() in detail in future posts.
+This post was just a starter to time series. I will talk more about time series and forecasting in future posts. I plan to cover each of these methods - ses(), ets(), and Arima() in detail in future posts.
 <br>
 <br>
 Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.</p>
@@ -2348,6 +2357,9 @@ Did you find the article useful? If you did, share your thoughts in the comments
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/05/12/machine_learning_function_estimation/">The essence of machine learning is function estimation</a>
+      </li>
+      <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2017/05/03/time_series_and_forecasting_using_R/">Time series and forecasting using R</a>
       </li>
       <li class="post">
@@ -2358,9 +2370,6 @@ Did you find the article useful? If you did, share your thoughts in the comments
       </li>
       <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2017/02/16/introduction_to_adversarial_validation/">An illustrated introduction to adversarial validation part 2</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2017/02/15/git_and_github/">How to use Git and Github [draft]</a>
       </li>
     </ul>
   </section>

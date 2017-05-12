@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-05-03T08:00:00-03:00</updated><entry><title>Time series and forecasting using R</title><link href="http://manishbarnwal.github.io/blog/2017/05/03/time_series_and_forecasting_using_R/" rel="alternate"></link><updated>2017-05-03T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-03:blog/2017/05/03/time_series_and_forecasting_using_R/</id><summary type="html">&lt;p&gt;Time series forecasting is a skill that few people claim to know. Machine learning is cool. And there are a lot of people interested in becoming a machine learning expert. But forecasting is something that is a little domain specific.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-05-12T08:00:00-03:00</updated><entry><title>The essence of machine learning is function estimation</title><link href="http://manishbarnwal.github.io/blog/2017/05/12/machine_learning_function_estimation/" rel="alternate"></link><updated>2017-05-12T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-12:blog/2017/05/12/machine_learning_function_estimation/</id><summary type="html">&lt;p&gt;Machine learning is cool. There is no denying in that. In this post we will try to make it a little uncool, well it will still be cool but you may start looking at it differently. Machine learning is not a black box and this post is just to convey that.
+&lt;br&gt;
+&lt;br&gt;
+If I give you this function &lt;code&gt;f(x) = x^2 + log(x)&lt;/code&gt; and ask to you tell me what will be &lt;code&gt;f(2)&lt;/code&gt;, you will first laugh at me and then run away to do something important. This is trivial for you right? If a function is there that maps inputs to outputs then it is very easy to get the output for any new input.
+&lt;br&gt;
+&lt;br&gt;
+Let us try to understand the same using a problem that can be solved using machine learning. You are a technical recruiter. You have been running a recruitment firm for the last 3 years. Now you being tech savvy, you follow the latest trends in technology and you came to know about machine learning. You understand that machine learning can be used to predict the future given you have data from the past.
+&lt;br&gt;
+&lt;br&gt;
+You thought, how can I use it to predict the expected salary of an individual given other factors. The first thing comes to your mind- do you have the data? And you hear out a pleasant yes!
+&lt;br&gt;
+&lt;br&gt;
+You have the following data collected at individual level:
+&lt;br&gt;
+&lt;br&gt;
+- Age of the candidate
+- Gender of the candidate
+- Number of years of experience
+- Highest level education degree
+- College - Top notch, Average, normal
+- Current salary
+- Sector - IT, Finance, Electronics
+- Salary
+&lt;br&gt;
+&lt;br&gt;
+And a few others. For now let us assume we have just these features and we want to predict the expected salary using the other features. We have 3 years of data that has approximately 10,000 rows. So your dataset looks something like the below data:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="photo of salary_data.png" src="http://manishbarnwal.com/images/ml_function_estimation/salary_data.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;
+So essentially we have seven independent features (Xs) - age,  gender, years of experience, highest level of education, college, current salary, sector and corresponding Salary (Y). There would be some function say f that would take these Xs to the Y values. What we have is a training data with us and we want to get the function that maps these Xs to the Y.
+&lt;br&gt;
+&lt;br&gt;
+We won't be able to find the actual, the true function, f because we don't have all of the data in the world. You can't collect the entire dataset available. What we get is a sample of data from the population. Often there are other factors that can't be captured. Say in our example of salary prediction, some of the factors like exclusive and exceptional knowledge on some rare topics may land you an exorbitant offers from few of the companies. It is difficult to capture factors like these. So there are always some factors that is not captured in the data.
+&lt;br&gt;
+&lt;br&gt;
+Now we understand why we can't have the true f. So we will try to get an estimate of f, say f-cap. We want this f-cap to be as close to the true f i.e. a proxy for the true function. How do we go about getting this f-cap, an estimate of the true function, f?
+&lt;br&gt;
+&lt;br&gt;
+We have the data, remember the 3 years of historical data which contains the Xs and the corresponding Ys. This is called the training data and there is a reason why it is called training data. Because we use this data to train the underlying algorithms to get the estimated function f-cap.
+&lt;br&gt;
+&lt;br&gt;
+You get that we use training data to get the estimated function, f-cap. But how do we do it? We try to minimize the error between the true Y and the predicted Y from the model. For now understand that there is a way to minimize this error and get the estimated function.
+&lt;br&gt;
+&lt;br&gt;
+Now these functions could be a simple one like having a linear relationship between the salary and the features or many a times a complex relationship which is not linear. There are various algorithms say linear regression or say decision trees that helps you get the simple estimate or even a complex one respectively.
+&lt;br&gt;
+&lt;br&gt;
+Once you have this estimate of function,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;f&lt;/strong&gt;(age,  gender, years of experience, highest level of education, college, current salary, sector) ---&amp;gt;  Salary&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;you just fill in the Xs and you should get your Y. There, you have a machine learning model. And you know what you have done - you have just come up with a nice estimate of the true function that maps the relationship between the Xs and the Y. Hence, the essence of machine learning is function estimation.
+&lt;br&gt;
+&lt;br&gt;
+Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category><category term="overfitting"></category><category term="adversarial-validation"></category></entry><entry><title>Time series and forecasting using R</title><link href="http://manishbarnwal.github.io/blog/2017/05/03/time_series_and_forecasting_using_R/" rel="alternate"></link><updated>2017-05-03T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-03:blog/2017/05/03/time_series_and_forecasting_using_R/</id><summary type="html">&lt;p&gt;Time series forecasting is a skill that few people claim to know. Machine learning is cool. And there are a lot of people interested in becoming a machine learning expert. But forecasting is something that is a little domain specific.
 &lt;br&gt;
 &lt;br&gt;
 Retailers like Walmart, Target use forecasting systems and tools to replenish their products in the stores. An excellent forecast system helps in winning the other pipelines of the supply chain. If you are good at predicting the sale of items in the store, you can plan your inventory count well. You can plan your assortment well.&lt;br /&gt;
@@ -146,7 +200,6 @@ plot(a10, main = 'Sale of pharmaceuticals at monthly level')
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Fully automated forecast&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;forecast&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;beer&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -181,7 +234,9 @@ Similar forecast plots for a10 and electricity demand can be plotted using&lt;/p
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Drift method&lt;/strong&gt;: Forecasts equal to last value plus average change
    Equivalent to extrapolating the line between the first and last observations
-   rwf(x, drift = T, h=10)&lt;/p&gt;
+   rwf(x, drift = T, h=10)
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;Forecast objects in R&lt;/h3&gt;
@@ -334,7 +389,9 @@ ETS(ExponenTial Smoothing)&lt;/p&gt;
 &lt;p&gt;ETS(M, A, M): Multiplicative Holt-Winter's method with multiplicative errors
 &lt;br&gt;
 &lt;br&gt;
-There are 30 separate models in the ETS framework. However 11 of them are unstable so only 19 ETS models. So when you don't specify what model to use in &lt;em&gt;model&lt;/em&gt; parameter, it fits all the 19 models and comes out with the best model using AIC criteria.&lt;/p&gt;
+There are 30 separate models in the ETS framework. However 11 of them are unstable so only 19 ETS models. So when you don't specify what model to use in &lt;em&gt;model&lt;/em&gt; parameter, it fits all the 19 models and comes out with the best model using AIC criteria.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;model1 &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; ets&lt;span class="p"&gt;(&lt;/span&gt;a10Train&lt;span class="p"&gt;)&lt;/span&gt;
@@ -345,7 +402,8 @@ forecast2 &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; forecast&lt;span class="p
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;em&gt;There are many other parameters in the model which I suggest not to touch unless you know what you are doing&lt;/em&gt;. - Prof Hyndman&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;em&gt;There are many other parameters in the model which I suggest not to touch unless you know what you are doing&lt;/em&gt;. - Prof Hyndman&lt;/p&gt;
 &lt;p&gt;If you want to have a look at the parameters that the method chose. Just type in the name of your model.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;model1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -353,8 +411,10 @@ forecast2 &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; forecast&lt;span class="p
 
 &lt;p&gt;You will see the values of &lt;em&gt;alpha&lt;/em&gt;, &lt;em&gt;beta&lt;/em&gt;, &lt;em&gt;gamma&lt;/em&gt;. Also,&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;sigma&lt;/em&gt;: the standard deviation of the residuals&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;AIC&lt;/em&gt;: Akaike Information criteria. AIC gives you and idea how well the model fits the data. ets fits all the 19 models, looks at the AIC and give the model with the lowest AIC. The lower the AIC, the better the model fits.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;AICc&lt;/em&gt;: Corrected Akaike Information criteria&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;AIC&lt;/em&gt;: Akaike Information criteria. AIC gives you and idea how well the model fits the data. ets fits all the 19 models, looks at the AIC and give the model with the lowest AIC. The lower the AIC, the better the model fits.
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;AICc&lt;/em&gt;: Corrected Akaike Information criteria
+&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;BIC&lt;/em&gt;: Bayesian Information Criteria
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
@@ -379,10 +439,10 @@ forecast2 &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; forecast&lt;span class="p
 &lt;strong&gt;ets objects&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Methods: coef(), plot(), summary(), residuals(), fitted(), simulate() and forecast()&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Methods&lt;/strong&gt;: coef(), plot(), summary(), residuals(), fitted(), simulate() and forecast()&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;plot() function shows the time plots of the original series along with the extracted components (level, growth and seasonal)
+&lt;p&gt;&lt;em&gt;plot()&lt;/em&gt; function shows the time plots of the original series along with the extracted components (level, growth and seasonal)
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -413,13 +473,17 @@ If the data show different variation at different levels of the series, then a t
 
 
 &lt;p&gt;&lt;img alt="photo of a10_plot.png" src="http://manishbarnwal.com/images/time_series_basics/a10_plot.png" /&gt;&lt;/p&gt;
-&lt;p&gt;As you can see, the variation is increasing with the level of the series and the variation is multiplicative. If we take a log of the series, we will see that the variation becomes a little stable.&lt;/p&gt;
+&lt;p&gt;As you can see, the variation is increasing with the level of the series and the variation is multiplicative. If we take a log of the series, we will see that the variation becomes a little stable.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a10&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;xlab&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Time&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ylab&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;a10&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;a10&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="photo of a10_log_plot.png" src="http://manishbarnwal.com/images/time_series_basics/a10_log_plot.png" /&gt;&lt;/p&gt;
-&lt;p&gt;Box-Cox transformations gives you value of parameter, &lt;em&gt;lambda&lt;/em&gt;. And based on this value you decide if any transformation is needed or not.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="photo of a10_log_plot.png" src="http://manishbarnwal.com/images/time_series_basics/a10_log_plot.png" /&gt;
+&lt;br&gt;
+&lt;br&gt;
+Box-Cox transformations gives you value of parameter, &lt;em&gt;lambda&lt;/em&gt;. And based on this value you decide if any transformation is needed or not.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;lambda = 1 ; No substantive transformation&lt;/p&gt;
@@ -448,7 +512,6 @@ plot&lt;span class="p"&gt;(&lt;/span&gt;forecast&lt;span class="p"&gt;(&lt;/span
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;ARIMA forecasting&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;R functions&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -471,7 +534,7 @@ plot&lt;span class="p"&gt;(&lt;/span&gt;forecast&lt;span class="p"&gt;(&lt;/span
 &lt;p&gt;Or use &lt;em&gt;auto.arima()&lt;/em&gt; function in the forecast package and it will find the model for you
 &lt;br&gt;
 &lt;br&gt;
-This post was just a starter to time series. I will talk more about time series and forecasting in future posts. I plan to cover each of the methods - ses(), ets(), and Arima() in detail in future posts.
+This post was just a starter to time series. I will talk more about time series and forecasting in future posts. I plan to cover each of these methods - ses(), ets(), and Arima() in detail in future posts.
 &lt;br&gt;
 &lt;br&gt;
 Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;
