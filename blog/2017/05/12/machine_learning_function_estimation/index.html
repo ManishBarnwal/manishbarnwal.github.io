@@ -1857,34 +1857,52 @@ You thought, how can I use it to predict the expected salary of an individual gi
 <br>
 You have the following data collected at individual level:
 <br>
+<br></p>
+<ul>
+<li>
+<p>Age of the candidate</p>
+</li>
+<li>
+<p>Gender of the candidate</p>
+</li>
+<li>
+<p>Number of years of experience</p>
+</li>
+<li>
+<p>Highest level education degree</p>
+</li>
+<li>
+<p>College - Top notch, Average, normal</p>
+</li>
+<li>
+<p>Current salary</p>
+</li>
+<li>
+<p>Sector - IT, Finance, Electronics</p>
+</li>
+<li>
+<p>Salary
 <br>
-- Age of the candidate
-- Gender of the candidate
-- Number of years of experience
-- Highest level education degree
-- College - Top notch, Average, normal
-- Current salary
-- Sector - IT, Finance, Electronics
-- Salary
 <br>
-<br>
-And a few others. For now let us assume we have just these features and we want to predict the expected salary using the other features. We have 3 years of data that has approximately 10,000 rows. So your dataset looks something like the below data:</p>
+And a few others. For now let us assume we have just these features and we want to predict the expected salary using the other features. We have 3 years of data that has approximately 10,000 rows. So your dataset looks something like the below data:
+<br></p>
+</li>
+</ul>
 <p><img alt="photo of salary_data.png" src="http://manishbarnwal.com/images/ml_function_estimation/salary_data.png" /></p>
 <p><br>
-<br>
-So essentially we have seven independent features (Xs) - age,  gender, years of experience, highest level of education, college, current salary, sector and corresponding Salary (Y). There would be some function say f that would take these Xs to the Y values. What we have is a training data with us and we want to get the function that maps these Xs to the Y.
-<br>
-<br>
-We won't be able to find the actual, the true function, f because we don't have all of the data in the world. You can't collect the entire dataset available. What we get is a sample of data from the population. Often there are other factors that can't be captured. Say in our example of salary prediction, some of the factors like exclusive and exceptional knowledge on some rare topics may land you an exorbitant offers from few of the companies. It is difficult to capture factors like these. So there are always some factors that is not captured in the data.
+So essentially we have seven independent features, <strong>X</strong> - <em>age</em>,  <em>gender</em>, <em>years of experience</em>, <em>highest level of education</em>, <em>college</em>, <em>current salary</em>, <em>sector</em> and corresponding <em>salary</em>, <strong>Y</strong>. There would be some function say f that would take these Xs to the Y values. What we have is a training data with us and we want to get the function that maps these Xs to the Y.
 <br>
 <br>
-Now we understand why we can't have the true f. So we will try to get an estimate of f, say f-cap. We want this f-cap to be as close to the true f i.e. a proxy for the true function. How do we go about getting this f-cap, an estimate of the true function, f?
+We won't be able to find the actual, the true function, <strong>f</strong> because we don't have all of the data in the world. You can't collect the entire dataset available. What we get is a sample of data from the population. Often there are other factors that can't be captured. Say in our example of salary prediction, some of the factors like exclusive and exceptional knowledge on some rare topics may land you an exorbitant offers from few of the companies. It is difficult to capture factors like these. So there are always some factors that is not captured in the data.
 <br>
 <br>
-We have the data, remember the 3 years of historical data which contains the Xs and the corresponding Ys. This is called the training data and there is a reason why it is called training data. Because we use this data to train the underlying algorithms to get the estimated function f-cap.
+Now we understand why we can't have the true f. So we will try to get an estimate of <strong>f</strong>, say <strong>f^</strong>. We want this <strong>f^</strong> to be as close to the true <strong>f</strong> i.e. a proxy for the true function. How do we go about getting this <strong>f^</strong>, an estimate of the true function, <strong>f</strong>?
 <br>
 <br>
-You get that we use training data to get the estimated function, f-cap. But how do we do it? We try to minimize the error between the true Y and the predicted Y from the model. For now understand that there is a way to minimize this error and get the estimated function.
+We have the data, remember the 3 years of historical data which contains the <strong>X</strong> features and the corresponding <strong>Y</strong> values. This is called the training data and there is a reason why it is called training data. Because we use this data to train the underlying algorithms to get the estimated function <strong>f^</strong>.
+<br>
+<br>
+You get that we use training data to get the estimated function, <strong>f^</strong>. But how do we do it? We try to minimize the error between the true Y and the predicted Y from the model. For now understand that there is a way to minimize this error and get the estimated function.
 <br>
 <br>
 Now these functions could be a simple one like having a linear relationship between the salary and the features or many a times a complex relationship which is not linear. There are various algorithms say linear regression or say decision trees that helps you get the simple estimate or even a complex one respectively.
@@ -1892,9 +1910,10 @@ Now these functions could be a simple one like having a linear relationship betw
 <br>
 Once you have this estimate of function,</p>
 <blockquote>
-<p><strong>f</strong>(age,  gender, years of experience, highest level of education, college, current salary, sector) ---&gt;  Salary</p>
+<p><strong>f</strong>(age,  gender, years of experience, highest level of education, college, current salary, sector) ---&gt;  salary</p>
 </blockquote>
-<p>you just fill in the Xs and you should get your Y. There, you have a machine learning model. And you know what you have done - you have just come up with a nice estimate of the true function that maps the relationship between the Xs and the Y. Hence, the essence of machine learning is function estimation.
+<p><br></p>
+<p>you just fill in the <strong>X</strong> and you should get your <strong>Y</strong>. There, you have a machine learning model. And you know what you have done - you have just come up with a nice estimate of the true function that maps the relationship between the <strong>X</strong> and the <strong>Y</strong>. And hence, the essence of machine learning is function estimation.
 <br>
 <br>
 Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.</p></div>

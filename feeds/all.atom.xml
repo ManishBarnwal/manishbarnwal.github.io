@@ -13,34 +13,52 @@ You thought, how can I use it to predict the expected salary of an individual gi
 &lt;br&gt;
 You have the following data collected at individual level:
 &lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Age of the candidate&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Gender of the candidate&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Number of years of experience&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Highest level education degree&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;College - Top notch, Average, normal&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Current salary&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sector - IT, Finance, Electronics&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Salary
 &lt;br&gt;
-- Age of the candidate
-- Gender of the candidate
-- Number of years of experience
-- Highest level education degree
-- College - Top notch, Average, normal
-- Current salary
-- Sector - IT, Finance, Electronics
-- Salary
 &lt;br&gt;
-&lt;br&gt;
-And a few others. For now let us assume we have just these features and we want to predict the expected salary using the other features. We have 3 years of data that has approximately 10,000 rows. So your dataset looks something like the below data:&lt;/p&gt;
+And a few others. For now let us assume we have just these features and we want to predict the expected salary using the other features. We have 3 years of data that has approximately 10,000 rows. So your dataset looks something like the below data:
+&lt;br&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;img alt="photo of salary_data.png" src="http://manishbarnwal.com/images/ml_function_estimation/salary_data.png" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
-&lt;br&gt;
-So essentially we have seven independent features (Xs) - age,  gender, years of experience, highest level of education, college, current salary, sector and corresponding Salary (Y). There would be some function say f that would take these Xs to the Y values. What we have is a training data with us and we want to get the function that maps these Xs to the Y.
-&lt;br&gt;
-&lt;br&gt;
-We won't be able to find the actual, the true function, f because we don't have all of the data in the world. You can't collect the entire dataset available. What we get is a sample of data from the population. Often there are other factors that can't be captured. Say in our example of salary prediction, some of the factors like exclusive and exceptional knowledge on some rare topics may land you an exorbitant offers from few of the companies. It is difficult to capture factors like these. So there are always some factors that is not captured in the data.
+So essentially we have seven independent features, &lt;strong&gt;X&lt;/strong&gt; - &lt;em&gt;age&lt;/em&gt;,  &lt;em&gt;gender&lt;/em&gt;, &lt;em&gt;years of experience&lt;/em&gt;, &lt;em&gt;highest level of education&lt;/em&gt;, &lt;em&gt;college&lt;/em&gt;, &lt;em&gt;current salary&lt;/em&gt;, &lt;em&gt;sector&lt;/em&gt; and corresponding &lt;em&gt;salary&lt;/em&gt;, &lt;strong&gt;Y&lt;/strong&gt;. There would be some function say f that would take these Xs to the Y values. What we have is a training data with us and we want to get the function that maps these Xs to the Y.
 &lt;br&gt;
 &lt;br&gt;
-Now we understand why we can't have the true f. So we will try to get an estimate of f, say f-cap. We want this f-cap to be as close to the true f i.e. a proxy for the true function. How do we go about getting this f-cap, an estimate of the true function, f?
+We won't be able to find the actual, the true function, &lt;strong&gt;f&lt;/strong&gt; because we don't have all of the data in the world. You can't collect the entire dataset available. What we get is a sample of data from the population. Often there are other factors that can't be captured. Say in our example of salary prediction, some of the factors like exclusive and exceptional knowledge on some rare topics may land you an exorbitant offers from few of the companies. It is difficult to capture factors like these. So there are always some factors that is not captured in the data.
 &lt;br&gt;
 &lt;br&gt;
-We have the data, remember the 3 years of historical data which contains the Xs and the corresponding Ys. This is called the training data and there is a reason why it is called training data. Because we use this data to train the underlying algorithms to get the estimated function f-cap.
+Now we understand why we can't have the true f. So we will try to get an estimate of &lt;strong&gt;f&lt;/strong&gt;, say &lt;strong&gt;f^&lt;/strong&gt;. We want this &lt;strong&gt;f^&lt;/strong&gt; to be as close to the true &lt;strong&gt;f&lt;/strong&gt; i.e. a proxy for the true function. How do we go about getting this &lt;strong&gt;f^&lt;/strong&gt;, an estimate of the true function, &lt;strong&gt;f&lt;/strong&gt;?
 &lt;br&gt;
 &lt;br&gt;
-You get that we use training data to get the estimated function, f-cap. But how do we do it? We try to minimize the error between the true Y and the predicted Y from the model. For now understand that there is a way to minimize this error and get the estimated function.
+We have the data, remember the 3 years of historical data which contains the &lt;strong&gt;X&lt;/strong&gt; features and the corresponding &lt;strong&gt;Y&lt;/strong&gt; values. This is called the training data and there is a reason why it is called training data. Because we use this data to train the underlying algorithms to get the estimated function &lt;strong&gt;f^&lt;/strong&gt;.
+&lt;br&gt;
+&lt;br&gt;
+You get that we use training data to get the estimated function, &lt;strong&gt;f^&lt;/strong&gt;. But how do we do it? We try to minimize the error between the true Y and the predicted Y from the model. For now understand that there is a way to minimize this error and get the estimated function.
 &lt;br&gt;
 &lt;br&gt;
 Now these functions could be a simple one like having a linear relationship between the salary and the features or many a times a complex relationship which is not linear. There are various algorithms say linear regression or say decision trees that helps you get the simple estimate or even a complex one respectively.
@@ -48,9 +66,10 @@ Now these functions could be a simple one like having a linear relationship betw
 &lt;br&gt;
 Once you have this estimate of function,&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;f&lt;/strong&gt;(age,  gender, years of experience, highest level of education, college, current salary, sector) ---&amp;gt;  Salary&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;f&lt;/strong&gt;(age,  gender, years of experience, highest level of education, college, current salary, sector) ---&amp;gt;  salary&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;you just fill in the Xs and you should get your Y. There, you have a machine learning model. And you know what you have done - you have just come up with a nice estimate of the true function that maps the relationship between the Xs and the Y. Hence, the essence of machine learning is function estimation.
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;you just fill in the &lt;strong&gt;X&lt;/strong&gt; and you should get your &lt;strong&gt;Y&lt;/strong&gt;. There, you have a machine learning model. And you know what you have done - you have just come up with a nice estimate of the true function that maps the relationship between the &lt;strong&gt;X&lt;/strong&gt; and the &lt;strong&gt;Y&lt;/strong&gt;. And hence, the essence of machine learning is function estimation.
 &lt;br&gt;
 &lt;br&gt;
 Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category><category term="overfitting"></category><category term="adversarial-validation"></category></entry><entry><title>Time series and forecasting using R</title><link href="http://manishbarnwal.github.io/blog/2017/05/03/time_series_and_forecasting_using_R/" rel="alternate"></link><updated>2017-05-03T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-03:blog/2017/05/03/time_series_and_forecasting_using_R/</id><summary type="html">&lt;p&gt;Time series forecasting is a skill that few people claim to know. Machine learning is cool. And there are a lot of people interested in becoming a machine learning expert. But forecasting is something that is a little domain specific.
