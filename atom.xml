@@ -242,27 +242,27 @@ Example: For each day of the year, count the total number of flights and sort in
 &lt;h3&gt;SQL Joins&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;inner_join(x, y)
-  Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;inner_join(x, y)&lt;/strong&gt;
+Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;left_join(x, y)&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;left_join(x, y)&lt;/strong&gt;
 Return all rows from x, and all columns from x and y. Rows in x with no match in y will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;right_join
+&lt;p&gt;&lt;strong&gt;right_join(x, y)&lt;/strong&gt;
 Return all rows from y, and all columns from x and y. Rows in y with no match in x will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;semi_join(x, y)&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;semi_join(x, y)&lt;/strong&gt;
 Return all rows from x where there are matching values in y, keeping just columns from x. A semi join differs from an inner join because an inner join will return one row of x for each matching row of y, where a semi join will never duplicate rows of x.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;anti_join(x, y)&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;anti_join(x, y)&lt;/strong&gt;
 Return all rows from x where there are not matching values in y, keeping just columns from x.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;full_join
+&lt;p&gt;&lt;strong&gt;full_join(x, y)&lt;/strong&gt;
 Return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing.
 &lt;br&gt;
 &lt;br&gt;

@@ -2086,27 +2086,27 @@ Example: For each day of the year, count the total number of flights and sort in
 <h3>SQL Joins</h3>
 <ul>
 <li>
-<p>inner_join(x, y)
-  Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned.</p>
+<p><strong>inner_join(x, y)</strong>
+Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned.</p>
 </li>
 <li>
-<p>left_join(x, y)<br />
+<p><strong>left_join(x, y)</strong>
 Return all rows from x, and all columns from x and y. Rows in x with no match in y will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.</p>
 </li>
 <li>
-<p>right_join
+<p><strong>right_join(x, y)</strong>
 Return all rows from y, and all columns from x and y. Rows in y with no match in x will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.</p>
 </li>
 <li>
-<p>semi_join(x, y)<br />
+<p><strong>semi_join(x, y)</strong>
 Return all rows from x where there are matching values in y, keeping just columns from x. A semi join differs from an inner join because an inner join will return one row of x for each matching row of y, where a semi join will never duplicate rows of x.</p>
 </li>
 <li>
-<p>anti_join(x, y)<br />
+<p><strong>anti_join(x, y)</strong>
 Return all rows from x where there are not matching values in y, keeping just columns from x.</p>
 </li>
 <li>
-<p>full_join
+<p><strong>full_join(x, y)</strong>
 Return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing.
 <br>
 <br>
