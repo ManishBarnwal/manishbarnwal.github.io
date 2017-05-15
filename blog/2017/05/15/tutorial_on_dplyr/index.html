@@ -1888,6 +1888,7 @@ Load the installed packages and data using:</p>
 <p>Let me introduce to <em>tbl_df</em>. Look at the code below.</p>
 <div class="highlight"><pre><span class="n">flights</span> <span class="o">=</span> <span class="n">tbl_df</span><span class="p">(</span><span class="n">hflights</span><span class="p">)</span>
 <span class="n">flights</span> <span class="err">#</span> <span class="n">prints</span> <span class="n">only</span> <span class="mi">10</span> <span class="n">rows</span> <span class="n">and</span> <span class="n">only</span> <span class="n">those</span> <span class="n">many</span> <span class="n">columns</span> <span class="n">that</span> <span class="n">fits</span> <span class="n">the</span> <span class="n">screen</span> <span class="k">for</span> <span class="n">easy</span> <span class="n">view</span>
+
 <span class="n">print</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="err">#</span> <span class="n">you</span> <span class="n">can</span> <span class="n">also</span> <span class="n">specify</span> <span class="n">how</span> <span class="n">many</span> <span class="n">rows</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">display</span>
 </pre></div>
 
@@ -1944,8 +1945,8 @@ Let us try to understand this operator using an example. Say we want to select <
 <br>
 Normal approach</p>
 <div class="highlight"><pre><span class="n">filter</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">UniqueCarrier</span><span class="p">,</span> <span class="n">DepDelay</span><span class="p">),</span> <span class="n">DepDelay</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">)</span>
-<span class="cp"># nesting method to select UniqueCarrier and DepDelay columns</span>
-<span class="cp"># and filter for delays over 60 minutes</span>
+
+<span class="cp"># nesting method to select UniqueCarrier and DepDelay columns and filter for delays over 60 minutes</span>
 </pre></div>
 
 
@@ -2024,8 +2025,12 @@ Example: Add new variable named <em>Speed</em></p>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="n">flightsWith</span> <span class="o">=</span> <span class="n">with</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">rm</span><span class="p">(</span><span class="n">Year</span><span class="p">))</span> <span class="err">#</span> <span class="n">note</span> <span class="n">that</span> <span class="n">expr</span> <span class="n">in</span> <span class="n">with</span> <span class="n">takes</span> <span class="n">place</span> <span class="n">only</span> <span class="n">in</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">constructed</span>
+<div class="highlight"><pre><span class="n">flightsWith</span> <span class="o">=</span> <span class="n">with</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">rm</span><span class="p">(</span><span class="n">Year</span><span class="p">))</span>
+
+<span class="cp"># note that expr in with takes place only in the environment constructed</span>
+
 <span class="cp"># Using &#39;with&#39; you cannot assign the output value to any variable</span>
+
 <span class="n">names</span><span class="p">(</span><span class="n">flightsWith</span><span class="p">)</span> <span class="err">#</span> <span class="n">flights</span> <span class="n">will</span> <span class="n">still</span> <span class="n">have</span> <span class="err">&#39;</span><span class="n">Year</span><span class="err">&#39;</span> <span class="n">column</span>
 </pre></div>
 
