@@ -241,37 +241,35 @@ Example: For each day of the year, count the total number of flights and sort in
 
 &lt;h3&gt;SQL Joins&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;inner_join(x, y)&lt;/strong&gt;
-Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;left_join(x, y)&lt;/strong&gt;
-Return all rows from x, and all columns from x and y. Rows in x with no match in y will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;right_join(x, y)&lt;/strong&gt;
-Return all rows from y, and all columns from x and y. Rows in y with no match in x will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;semi_join(x, y)&lt;/strong&gt;
-Return all rows from x where there are matching values in y, keeping just columns from x. A semi join differs from an inner join because an inner join will return one row of x for each matching row of y, where a semi join will never duplicate rows of x.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;anti_join(x, y)&lt;/strong&gt;
-Return all rows from x where there are not matching values in y, keeping just columns from x.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;full_join(x, y)&lt;/strong&gt;
-Return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing.
+&lt;li&gt;&lt;strong&gt;inner_join(x, y)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;left_join(x, y)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Return all rows from x, and all columns from x and y. Rows in x with no match in y will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;right_join(x, y)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Return all rows from y, and all columns from x and y. Rows in y with no match in x will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;semi_join(x, y)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Return all rows from x where there are matching values in y, keeping just columns from x. A semi join differs from an inner join because an inner join will return one row of x for each matching row of y, where a semi join will never duplicate rows of x.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;anti_join(x, y)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Return all rows from x where there are not matching values in y, keeping just columns from x.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;full_join(x, y)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing.
 &lt;br&gt;
 &lt;br&gt;
 There are many other functions in dplyr. For now, I have listed down a few of these. I will update this post soon.
 &lt;br&gt;
 &lt;br&gt;
-Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="ML"></category><category term="data science"></category></entry><entry><title>The essence of machine learning is function estimation</title><link href="http://manishbarnwal.github.io/blog/2017/05/12/machine_learning_function_estimation/" rel="alternate"></link><updated>2017-05-12T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-12:blog/2017/05/12/machine_learning_function_estimation/</id><summary type="html">&lt;p&gt;Machine learning is cool. There is no denying in that. In this post we will try to make it a little uncool, well it will still be cool but you may start looking at it differently. Machine learning is not a black box and this post is just to convey that.
+Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category></entry><entry><title>The essence of machine learning is function estimation</title><link href="http://manishbarnwal.github.io/blog/2017/05/12/machine_learning_function_estimation/" rel="alternate"></link><updated>2017-05-12T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-12:blog/2017/05/12/machine_learning_function_estimation/</id><summary type="html">&lt;p&gt;Machine learning is cool. There is no denying in that. In this post we will try to make it a little uncool, well it will still be cool but you may start looking at it differently. Machine learning is not a black box and this post is just to convey that.
 &lt;br&gt;
 &lt;br&gt;
 If I give you this function &lt;code&gt;f(x) = x^2 + log(x)&lt;/code&gt; and ask to you tell me what will be &lt;code&gt;f(2)&lt;/code&gt;, you will first laugh at me and then run away to do something important. This is trivial for you right? If a function is there that maps inputs to outputs then it is very easy to get the output for any new input.

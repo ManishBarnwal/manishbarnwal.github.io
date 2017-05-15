@@ -2085,37 +2085,35 @@ Example: For each day of the year, count the total number of flights and sort in
 
 <h3>SQL Joins</h3>
 <ul>
-<li>
-<p><strong>inner_join(x, y)</strong>
-Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned.</p>
-</li>
-<li>
-<p><strong>left_join(x, y)</strong>
-Return all rows from x, and all columns from x and y. Rows in x with no match in y will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.</p>
-</li>
-<li>
-<p><strong>right_join(x, y)</strong>
-Return all rows from y, and all columns from x and y. Rows in y with no match in x will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.</p>
-</li>
-<li>
-<p><strong>semi_join(x, y)</strong>
-Return all rows from x where there are matching values in y, keeping just columns from x. A semi join differs from an inner join because an inner join will return one row of x for each matching row of y, where a semi join will never duplicate rows of x.</p>
-</li>
-<li>
-<p><strong>anti_join(x, y)</strong>
-Return all rows from x where there are not matching values in y, keeping just columns from x.</p>
-</li>
-<li>
-<p><strong>full_join(x, y)</strong>
-Return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing.
+<li><strong>inner_join(x, y)</strong></li>
+</ul>
+<p>Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned.</p>
+<ul>
+<li><strong>left_join(x, y)</strong></li>
+</ul>
+<p>Return all rows from x, and all columns from x and y. Rows in x with no match in y will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.</p>
+<ul>
+<li><strong>right_join(x, y)</strong></li>
+</ul>
+<p>Return all rows from y, and all columns from x and y. Rows in y with no match in x will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.</p>
+<ul>
+<li><strong>semi_join(x, y)</strong></li>
+</ul>
+<p>Return all rows from x where there are matching values in y, keeping just columns from x. A semi join differs from an inner join because an inner join will return one row of x for each matching row of y, where a semi join will never duplicate rows of x.</p>
+<ul>
+<li><strong>anti_join(x, y)</strong></li>
+</ul>
+<p>Return all rows from x where there are not matching values in y, keeping just columns from x.</p>
+<ul>
+<li><strong>full_join(x, y)</strong></li>
+</ul>
+<p>Return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing.
 <br>
 <br>
 There are many other functions in dplyr. For now, I have listed down a few of these. I will update this post soon.
 <br>
 <br>
-Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.</p>
-</li>
-</ul></div>
+Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.</p></div>
     
     <footer>
 <p class="meta">
