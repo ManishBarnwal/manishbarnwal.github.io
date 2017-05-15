@@ -5,10 +5,10 @@
 <head>
 
   <meta charset="utf-8">
-  <title>The Placement Season</title>
+  <title>Tutorial on dplyr- a package for data manipulation in R</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="This post talks about the materials and resources one can refer to for college placements." >
-  <meta name="keywords" content="interview, placement, college" >
+  <meta name="description" content="This post is a tutorial on dplyr - a package for data manipulation in R." >
+  <meta name="keywords" content="ML, data science, R, data-manipulation" >
 
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1839,97 +1839,265 @@ jQuery(document).ready(function($) {
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">The Placement Season</h1>
-      <p class="meta"><time datetime="2014-07-31T08:00:00" pubdate>Jul 31, 2014</time></p>
+      <h1 class="entry-title">Tutorial on dplyr- a package for data manipulation in R</h1>
+      <p class="meta"><time datetime="2017-05-15T08:00:00" pubdate>May 15, 2017</time></p>
 </header>
 
-  <div class="entry-content"><p>The placement season is back. Nothing new, it comes every year but may be...this is new for you and I'm talking to those who're about to witness probably the most important phase of their college life.
+  <div class="entry-content"><p>R is the most used tool in data science. It has no dearth of packages for specific use cases. There are three packages that I feel is to get most of the work done in R.
 <br>
 <br>
-First things first. I'll start with a disclaimer - "Everything written on this space is my personal experience which is definitely not a statistically significant sample size"
-<br>
-<br>
-The very first question that comes to a typical final year student- What should I start my preparation with? You've got to do a lot, you know that but you don't know what to start with?
-<br>
-<br>
-I'll help you out here. I'd started with the <strong>TnPedia</strong> (this is specific to just students from IIT Kharagpur; others please ignore this).
-<br>
-<br>
-Heard of TnPedia? I'm sure you'd have. If not, just download it from dc++. Ohh yes! dc is used for useful stuff as well apart from the 'general daily stuff'. Download the last three years TnPedia and read through the companies you're targeting. This'll give you an overview of what is expected in an interview, what procedures are followed in different companies, you may also gain some insight to what kind of preparation is needed for a particular company.
-<br>
-<br>
-Now that you have given a thorough read to your target companies. Start preparing accordingly. I'll try to give a brief introduction as to what preparation is needed for different profiles.
+1. ggplot2- Used for visualization. Also known as grammar of graphics. This package is used to plot graphs. The syntax is intuitive and easy to learn.</p>
+<ol>
+<li>
+<p>dplyr- Used for data manipulation. Also known as grammar of data manipulation. Most of the data munging processes and methods gets done easily using this package.</p>
+</li>
+<li>
+<p>data.table- Used for large files. You can read huge files within seconds. The data manipulation library for larger datasets.</p>
+</li>
+</ol>
+<p>In this post we will focus on learning dplyr package. Dplyr is a fast tool for data manipulation for data frame like object both in memory and out of memory. Let us get started. We will use hflights dataset to demonstrate the functions and syntax of dplyr. We need to first install dplyr and hflights if you don't have it already in your R environment. You can install these using:
 <br>
 <br></p>
-<h3>CONSULTING</h3>
-<p>Victor Cheng is your friend. Super-smart guy. Download his video lectures(again dc++)  to get an understanding of what solving a case-study looks like. I'd suggest you to subscribe to his email newsletters as well. Those will help you in slowly gaining the overall idea of consulting.
+<div class="highlight"><pre><span class="n">install</span><span class="p">.</span><span class="n">packages</span><span class="p">(</span><span class="s">&quot;dplyr&quot;</span><span class="p">,</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="n">T</span><span class="p">)</span>
+<span class="n">install</span><span class="p">.</span><span class="n">packages</span><span class="p">(</span><span class="s">&quot;hflights&quot;</span><span class="p">,</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="n">T</span><span class="p">)</span>
+</pre></div>
+
+
+<p>dplyr is a package which is referred to as a grammar of data manipulation. hflights is a package which has the dataframe hflights which consists of details about all the flight that fly in and out of Houston area in the year 2011
 <br>
 <br>
-Preparing for this takes time and you'll have to be persistent. Practise with your wingies, your department friends, anyone...but practise!
+Load the installed libraries using:</p>
+<div class="highlight"><pre><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">hflights</span><span class="p">)</span>
+<span class="n">data</span><span class="p">(</span><span class="s">&quot;hflights&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Get an idea of the data we will be working on by looking at its structure and printing the first few rows of the data.</p>
+<div class="highlight"><pre><span class="n">str</span><span class="p">(</span><span class="n">hflights</span><span class="p">)</span>
+<span class="n">head</span><span class="p">(</span><span class="n">hflights</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Let me introduce to tbl_df. Look at the code below.</p>
+<div class="highlight"><pre>flights <span class="o">&lt;-</span> tbl_df<span class="p">(</span>hflights<span class="p">)</span>
+flights <span class="c1"># prints only 10 rows and only those many columns that fits the screen for easy view</span>
+print<span class="p">(</span>flights<span class="p">,</span> n<span class="o">=</span><span class="m">20</span><span class="p">)</span> <span class="c1"># you can also specify how many rows you want to display</span>
+</pre></div>
+
+
+<p>tbl_df creates a local data frame. It creates a wrapper around the original data frame that prints nicely. tbl_df introduces a new data frame like structure called tbl. A tbl is of class data frame just that data manipulation is easy with this. This means that any function that we use with a data frame can be used by tbl type objects.
 <br>
 <br>
-Do the role play.
-Some of you become the interviewer and one of you could be the interviewee. I know it sounds weird. But trust me you'll learn a lot. You'll overcome your anxiety of facing the interviewers. At first the role-play thing won't go that fine but with time it'll be smooth and everyone involved will come out beneficial.
+We will not use tbl type objects. I rarely use it. I am comfortable with data frame class and we will focus on data frames for the rest of the tutorial as well.</p>
+<div class="highlight"><pre><span class="n">data</span><span class="p">.</span><span class="n">frame</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">flights</span><span class="p">))</span> <span class="err">#</span> <span class="n">convert</span> <span class="n">back</span> <span class="n">to</span> <span class="n">data</span><span class="p">.</span><span class="n">frame</span> <span class="n">to</span> <span class="n">see</span> <span class="n">all</span> <span class="n">the</span> <span class="n">columns</span>
+</pre></div>
+
+
+<h3>filter: Keep rows matching criteria</h3>
+<p>Base approach to view all flights on January 1</p>
+<p>```flights[flights<span class="math">\(Month==1 &amp; flights\)</span>DayofMonth==1, ]</p>
+<div class="highlight"><pre><span class="c">### dplyr approach</span>
+</pre></div>
+
+
+<p>filter(flights, Month==1 &amp; DayofMonth==1) # Return rows with matching conditions.</p>
+<div class="highlight"><pre>
+</pre></div>
+
+
+<p>unique(flights$UniqueCarrier)
+filter(flights, UniqueCarrier=="AA" | UniqueCarrier=="AS") # use pipe for OR condition</p>
+<div class="highlight"><pre><span class="c">### select: Pick columns by name</span>
+</pre></div>
+
+
+<p>names(flights)</p>
+<div class="highlight"><pre><span class="n">Say</span> <span class="n">we</span> <span class="n">want</span> <span class="n">to</span> <span class="n">select</span> <span class="n">data</span> <span class="k">for</span> <span class="n">only</span> <span class="n">UniqueCarrier</span><span class="p">,</span> <span class="n">Distance</span><span class="p">,</span> <span class="n">AirTime</span> <span class="n">columns</span>
+
+<span class="n">Base</span> <span class="n">R</span> <span class="n">approach</span>
+</pre></div>
+
+
+<p>flights[, c("UniqueCarrier", "Distance", "AirTime")]</p>
+<div class="highlight"><pre><span class="n">dplyr</span> <span class="n">approach</span>
+</pre></div>
+
+
+<p>select(flights, UniqueCarrier, Distance, AirTime) # select() keeps only the variables you mention</p>
+<div class="highlight"><pre><span class="n">To</span> <span class="n">get</span> <span class="n">contiguous</span> <span class="n">columns</span><span class="p">,</span> <span class="n">use</span> <span class="n">starts_with</span><span class="p">(),</span> <span class="n">ends_with</span><span class="p">,</span> <span class="n">contains</span>
+</pre></div>
+
+
+<p>select(flights, Year:DayOfWeek, starts_with("Taxi"), ends_with("Time"))</p>
+<div class="highlight"><pre><span class="err">###</span> <span class="o">*</span><span class="nx">Chaining</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="nx">Pipelining</span><span class="o">*</span>
+
+<span class="o">%&gt;%</span> <span class="nx">operator</span> <span class="nx">helps</span> <span class="nx">you</span> <span class="nb">write</span> <span class="nb">multiple</span> <span class="n">operations</span> <span class="k">in</span> <span class="nx">a</span> <span class="nx">chain.</span> <span class="nx">The</span> <span class="nb">output</span> <span class="nx">of</span> <span class="nb">first</span> <span class="nx">operation</span> <span class="nx">becomes</span> <span class="nx">an</span> <span class="nb">input</span> <span class="k">to</span> <span class="nx">the</span> <span class="nb">next</span> <span class="nx">command.</span>
+<span class="k">Let</span> <span class="n">us</span> <span class="nx">try</span> <span class="k">to</span> <span class="nx">understand</span> <span class="nx">this</span> <span class="nx">operator</span> <span class="nx">using</span> <span class="nx">an</span> <span class="nx">example.</span> <span class="nx">Say</span> <span class="nx">we</span> <span class="nx">want</span> <span class="k">to</span> <span class="k">select</span> <span class="nx">UniqueCarrier</span> <span class="ow">and</span> <span class="nx">DepDelay</span> <span class="nx">columns</span> <span class="ow">and</span> <span class="nx">filter</span> <span class="nx">only</span> <span class="k">rows</span> <span class="nx">having</span> <span class="nx">delays</span> <span class="nx">over</span> <span class="mi">60</span> <span class="nx">minutes.</span>
+<span class="o">&lt;</span><span class="nx">br</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">br</span><span class="o">&gt;</span>
+<span class="nx">Normal</span> <span class="nx">approach</span>
+</pre></div>
+
+
+<p>filter(select(flights, UniqueCarrier, DepDelay), DepDelay &gt; 60)</p>
+<h1>nesting method to select UniqueCarrier and DepDelay columns</h1>
+<h1>and filter for delays over 60 minutes</h1>
+<div class="highlight"><pre><span class="n">Chain</span> <span class="n">operator</span>
+</pre></div>
+
+
+<p>flights %&gt;%
+        select(UniqueCarrier, DepDelay) %&gt;%
+        filter(DepDelay &gt; 60)</p>
+<div class="highlight"><pre><span class="cp">### arrange: Reorder rows</span>
+<span class="n">Base</span> <span class="n">R</span> <span class="n">approach</span> <span class="n">to</span> <span class="n">select</span> <span class="n">UniqueCarrier</span> <span class="n">and</span> <span class="n">DepDelay</span> <span class="n">columns</span> <span class="n">and</span> <span class="n">sort</span> <span class="n">by</span> <span class="n">DepDelay</span>
+</pre></div>
+
+
+<p>flights[order(flights$DepDelay), c("UniqueCarrier", "DepDelay")] # default is increasing</p>
+<div class="highlight"><pre><span class="n">dplyr</span> <span class="n">approach</span>
+</pre></div>
+
+
+<p>flights %&gt;%
+        select(UniqueCarrier, DepDelay) %&gt;%
+        arrange(DepDelay)  # default is increasing/ascending</p>
+<h1>use <code>desc</code> for descending</h1>
+<p>flights %&gt;%
+        select(UniqueCarrier, DepDelay) %&gt;%
+        arrange(desc(DepDelay))</p>
+<div class="highlight"><pre><span class="err">###</span> <span class="nx">mutate</span><span class="p">:</span> <span class="nb">Add</span> <span class="nb">new</span> <span class="nb">variables</span>
+
+<span class="o">-</span> <span class="nx">Mutate</span> <span class="nx">adds</span> <span class="nb">new</span> <span class="nb">variables</span> <span class="ow">and</span> <span class="nx">preserves</span> <span class="nx">existing</span>
+
+<span class="o">-</span> <span class="nb">Create</span> <span class="nb">new</span> <span class="nb">variables</span> <span class="nx">that</span> <span class="nx">are</span> <span class="nx">functions</span> <span class="nx">of</span> <span class="nx">existing</span> <span class="nb">variables</span>
+<span class="o">&lt;</span><span class="nx">br</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">br</span><span class="o">&gt;</span>
+<span class="nx">Base</span> <span class="nb">R</span> <span class="nx">approach</span> <span class="k">to</span> <span class="nb">add</span> <span class="nb">new</span> <span class="kd">variable</span> <span class="nb">named</span> <span class="s1">&#39;Speed&#39;</span>
+</pre></div>
+
+
+<p>flights<span class="math">\(Speed &lt;- flights\)</span>Distance/flights$AirTime * 60
+flights[, c("Distance", "AirTime", "Speed")]</p>
+<div class="highlight"><pre><span class="n">dplyr</span> <span class="n">approach</span>
+</pre></div>
+
+
+<p>flights %&gt;%
+        select(Distance, AirTime) %&gt;%
+        mutate(Speed = Distance/AirTime * 60)</p>
+<div class="highlight"><pre><span class="n">The</span> <span class="n">above</span> <span class="n">code</span> <span class="n">doesn</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">add</span> <span class="n">the</span> <span class="n">Speed</span> <span class="n">variable</span> <span class="n">to</span> <span class="n">filghts</span> <span class="n">data</span> <span class="n">frame</span><span class="p">.</span> <span class="n">To</span> <span class="n">explicitly</span> <span class="n">add</span> <span class="n">variable</span> <span class="n">to</span> <span class="n">the</span> <span class="n">table</span> <span class="n">you</span> <span class="n">need</span> <span class="n">to</span> <span class="n">assign</span> <span class="n">this</span> <span class="n">to</span> <span class="n">a</span> <span class="n">flights</span> <span class="n">table</span><span class="p">.</span> <span class="n">The</span> <span class="n">below</span> <span class="n">code</span> <span class="n">does</span> <span class="n">this</span><span class="p">.</span>
+</pre></div>
+
+
+<h1>Adding 'Speed' variable to the table</h1>
+<p>flights &lt;- flights %&gt;% mutate(Speed = Distance/AirTime * 60)</p>
+<div class="highlight"><pre><span class="err">###</span> <span class="s1">&#39;with&#39;</span> <span class="nx">and</span> <span class="s1">&#39;within&#39;</span>
+<span class="o">-</span> <span class="nx">Perform</span> <span class="nx">R</span> <span class="nx">expressions</span> <span class="nx">using</span> <span class="nx">the</span> <span class="nx">items</span> <span class="p">(</span><span class="nx">variables</span><span class="p">)</span> <span class="nx">contained</span> <span class="k">in</span> <span class="nx">a</span> <span class="nx">list</span> <span class="nx">or</span> <span class="nx">data</span> <span class="nx">frame</span>
+
+<span class="o">-</span> <span class="nx">The</span> <span class="nx">within</span> <span class="kd">function</span> <span class="nx">will</span> <span class="nx">even</span> <span class="nx">keep</span> <span class="nx">track</span> <span class="nx">of</span> <span class="nx">changes</span> <span class="nx">made</span><span class="p">,</span> <span class="nx">including</span> <span class="nx">adding</span> <span class="nx">or</span> <span class="nx">deleting</span> <span class="nx">elements</span><span class="p">,</span> <span class="nx">and</span> <span class="k">return</span> <span class="nx">a</span> <span class="k">new</span> <span class="nx">object</span> <span class="kd">with</span> <span class="nx">these</span> <span class="nx">revised</span> <span class="nx">contents</span><span class="p">.</span>
+
+<span class="o">*</span><span class="kd">with</span><span class="o">*</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">generic</span> <span class="kd">function</span> <span class="nx">that</span> <span class="nx">evaluates</span> <span class="nx">expr</span> <span class="k">in</span> <span class="nx">a</span> <span class="nx">local</span> <span class="nx">environment</span> <span class="nx">constructed</span> <span class="nx">from</span> <span class="nx">data</span><span class="p">.</span>
+</pre></div>
+
+
+<p>with(flights, mean(ArrDelay, na.rm = T))
+with(flights, plot(AirTime, Year))</p>
+<div class="highlight"><pre>
+</pre></div>
+
+
+<p>flightsWith &lt;- with(flights, rm(Year)) # note that expr in with takes place only in the environment constructed</p>
+<h1>Using 'with' you cannot assign the output value to any variable</h1>
+<p>names(flightsWith) # flights will still have 'Year' column</p>
+<div class="highlight"><pre><span class="o">*</span><span class="n">within</span><span class="o">*</span> <span class="n">is</span> <span class="n">similar</span><span class="p">,</span> <span class="n">except</span> <span class="n">that</span> <span class="n">it</span> <span class="n">examines</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">after</span> <span class="n">the</span> <span class="n">evaluation</span> <span class="n">of</span> <span class="n">expr</span> <span class="n">and</span> <span class="n">makes</span> <span class="n">the</span> <span class="n">corresponding</span> <span class="n">modifications</span> <span class="n">to</span> <span class="n">a</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">data</span> <span class="p">(</span><span class="n">this</span> <span class="n">may</span> <span class="n">fail</span> <span class="n">in</span> <span class="n">the</span> <span class="n">data</span> <span class="n">frame</span> <span class="k">case</span> <span class="k">if</span> <span class="n">objects</span> <span class="n">are</span> <span class="n">created</span> <span class="n">which</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">stored</span> <span class="n">in</span> <span class="n">a</span> <span class="n">data</span> <span class="n">frame</span><span class="p">)</span> <span class="n">and</span> <span class="n">returns</span> <span class="n">it</span><span class="p">.</span>
+</pre></div>
+
+
+<p>flightsTemp &lt;- flights
+flightsTemp1 &lt;- within(flightsTemp, rm(Year))
+names(flightsTemp1)</p>
+<div class="highlight"><pre><span class="cp">### summarise: Reduce variables to values</span>
+<span class="n">dplyr</span> <span class="n">approach</span><span class="o">:</span> <span class="n">create</span> <span class="n">a</span> <span class="n">table</span> <span class="n">grouped</span> <span class="n">by</span> <span class="n">Dest</span><span class="p">,</span> <span class="n">and</span> <span class="n">then</span> <span class="n">summarise</span> <span class="n">each</span> <span class="n">group</span> <span class="n">by</span> <span class="n">taking</span> <span class="n">the</span> <span class="n">mean</span> <span class="n">of</span> <span class="n">ArrDelay</span>
+</pre></div>
+
+
+<p>flights %&gt;%
+        group_by(Dest) %&gt;%
+        summarise(avg_delay = mean(ArrDelay, na.rm = T))</p>
+<div class="highlight"><pre><span class="n">For</span> <span class="n">each</span> <span class="n">carrier</span><span class="p">,</span> <span class="n">calculate</span> <span class="n">the</span> <span class="n">percentage</span> <span class="n">of</span> <span class="n">flights</span> <span class="n">cancelled</span> <span class="n">or</span> <span class="n">diverted</span>
+</pre></div>
+
+
+<p>flights %&gt;%
+        group_by(UniqueCarrier) %&gt;%
+        summarise_each(funs(mean), Cancelled, Diverted)</p>
+<div class="highlight"><pre><span class="n">For</span> <span class="n">each</span> <span class="n">carrier</span><span class="p">,</span> <span class="n">calculate</span> <span class="n">the</span> <span class="n">minimum</span> <span class="n">and</span> <span class="n">maximum</span> <span class="n">arrival</span> <span class="n">and</span> <span class="n">departure</span> <span class="n">delays</span>
+</pre></div>
+
+
+<p>flights %&gt;%
+        group_by(UniqueCarrier) %&gt;%
+        summarise_each(funs(min(., na.rm=T), max(., na.rm=T)), ArrDelay, DepDelay)</p>
+<div class="highlight"><pre><span class="o">-</span> <span class="nx">Helper</span> <span class="kd">function</span> <span class="nx">n</span><span class="p">()</span> <span class="nx">counts</span> <span class="nx">the</span> <span class="nx">number</span> <span class="nx">of</span> <span class="nx">rows</span> <span class="k">in</span> <span class="nx">a</span> <span class="nx">group</span>
+
+<span class="o">-</span> <span class="nx">Helper</span> <span class="kd">function</span> <span class="nx">n_distinct</span><span class="p">(</span><span class="nx">vector</span><span class="p">)</span> <span class="nx">counts</span> <span class="nx">the</span> <span class="nx">number</span> <span class="nx">of</span> <span class="nx">unique</span> <span class="nx">items</span> <span class="k">in</span> <span class="nx">that</span> <span class="nx">vector</span>
+
+<span class="nx">For</span> <span class="nx">each</span> <span class="nx">day</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">year</span><span class="p">,</span> <span class="nx">count</span> <span class="nx">the</span> <span class="nx">total</span> <span class="nx">number</span> <span class="nx">of</span> <span class="nx">flights</span> <span class="nx">and</span> <span class="nx">sort</span> <span class="k">in</span> <span class="nx">descending</span> <span class="nx">order</span>
+</pre></div>
+
+
+<p>flights %&gt;%
+        group_by(Month, DayofMonth) %&gt;%
+        summarise(flight_count = n()) %&gt;%
+        arrange(desc(flight_count))
+```
+There are many other functions in dplyr. For now, I have listed down a few of these. I will update this post soon.
 <br>
 <br>
-Share your feedback about each other. I remember I used to get a lot aggressive while participating in mock group discussions with my friends. You sure will get to know about your weaknesses. Work on these weaknesses before it's too late. By doing this, you get a chance to commit all your mistakes before the real interview and that's a good thing.
-Enough words. It's time to execute.</p>
-<blockquote>
-<p>"Being pro-active is the key."</p>
-</blockquote>
-<h1></h1>
-<p><strong>Resources for preparation</strong>:</p>
-<ul>
-<li>Download the video lectures from dc++. Some 10 videos are there</li>
-<li>Subscribe to <a href="http://www.caseinterview.com/homepage-new?utm_expid=6333140-12.n1MK6GEfT5qHocwp2COITg.1&amp;utm_referrer=https%3A%2F%2Fstuffedtomato.quora.com%2FThe-placement-season">case interview emails</a></li>
-<li>Case in point. The pdf is easily available on dc++ or online as well</li>
-<li>Practise your basic math skills. You can't afford to make calculation mistakes in interview. <a href="https://www.caseinterview.com/math/home.php">CaseInterview</a> will improve your calculation speed and accuracy
-<br>
-<br>
-Case-interview is all about practise. After going through some frameworks you'll feel like you've earned the mastery over this but I guarantee you'll find this wrong once you actually solve a case-study problem in a real interview set-up. So practise, practise and practise.
-<br>
-<br>
-That's all for now. I'll add about other job profiles soon as time permits. No more a free bird like I used to be in Kgp. Next update would be on Coding.
-<br>
-<br></li>
-</ul>
-<h3>CODING</h3>
-<p>Let's talk about coding preparation. Coding was one thing which I'd started learning and practicing only during my placement preparation. Prior to that I never really liked it. Actually I'd never really put much effort into it. And let me tell you this - Coding is interesting stuff to say the least.</p>
-<p>Some of the resources that I'd found helpful.</p>
-<ul>
-<li><a href="http://www.geeksforgeeks.org/">GeeksForGeeks</a><ul>
-<li><a href="http://www.geeksforgeeks.org/category/c-arrays/">Arrays Archives</a></li>
-<li><a href="http://www.geeksforgeeks.org/category/c-strings/">Strings Archives</a></li>
-<li><a href="http://www.geeksforgeeks.org/category/linked-list/">Linked Lists Archives</a></li>
-<li><a href="http://www.geeksforgeeks.org/category/tree/">Trees Archives</a></li>
-<li><a href="http://www.geeksforgeeks.org/category/bit-magic/">Bit Magic Archives</a></li>
-<li><a href="http://www.geeksforgeeks.org/category/program-output/">Output Archives</a></li>
-</ul>
-</li>
-<li><a href="http://quiz.geeksforgeeks.org/">GeeksQuiz</a></li>
-<li><a href="http://www.amazon.in/Cracking-Coding-Interview-Laakmann-McDowell/dp/0984782869/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1468958412&amp;sr=1-1&amp;keywords=cracking+the+coding+interview">Cracking the Coding interview</a></li>
-<li><a href="http://www.amazon.in/Data-Structures-Algorithms-Made-Easy/dp/145654988X/ref=sr_1_5?s=books&amp;ie=UTF8&amp;qid=1468958573&amp;sr=1-5&amp;keywords=Data+Structures+And+Algorithms+Made+Easy">Data Structures And Algorithms Made Easy</a>. You get this book in Java, C and C++ version. Get the one in which you're comfortable with. For a starter like me, I'd read the C version.
-<br>
-<br>
-The above should suffice for a normal coding preparation. I'll add more soon. I'll ask some of my coder friends.</li>
-</ul>
-<p>That's all for now. Next update would be on puzzles and brainteasers.</p>
-<p>All the best for the placements. Prepare well.
-Any help needed? Drop me an email or comment down and I will get back to you as soon as possible.</p></div>
+Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processClass: 'mathjax', " +
+        "        ignoreClass: 'no-mathjax', " +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div>
     
     <footer>
 <p class="meta">
   <span class="byline author vcard">
     Posted by <span class="fn">Manish Barnwal</span>
   </span>
-<time datetime="2014-07-31T08:00:00" pubdate>Jul 31, 2014</time>  <span class="categories">
-    <a class="category" href="http://manishbarnwal.github.io/tag/interview.html">interview</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/placement.html">placement</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/preparation.html">preparation</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/college.html">college</a>
+<time datetime="2017-05-15T08:00:00" pubdate>May 15, 2017</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/ml.html">ML</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/data-science.html">data science</a>
   </span>
 </p><div class="sharing">
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2014/07/31/the_placement_season/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2014/07/31/the_placement_season/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2017/05/15/tutorial_on_dplyr/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2017/05/15/tutorial_on_dplyr/" >Tweet</a>
   <div class="g-plusone" data-size="medium"></div>
     <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
 </div>    </footer>
@@ -2020,9 +2188,9 @@ Any help needed? Drop me an email or comment down and I will get back to you as 
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
-          var disqus_identifier = '/blog/2014/07/31/the_placement_season/';
-          var disqus_url = 'http://manishbarnwal.com/blog/2014/07/31/the_placement_season/';
-          var disqus_title = 'The Placement Season';
+          var disqus_identifier = '/blog/2017/05/15/tutorial_on_dplyr/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2017/05/15/tutorial_on_dplyr/';
+          var disqus_title = 'Tutorial on dplyr- a package for data manipulation in R';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
