@@ -1843,7 +1843,7 @@ jQuery(document).ready(function($) {
       <p class="meta"><time datetime="2017-05-15T08:00:00" pubdate>May 15, 2017</time></p>
 </header>
 
-  <div class="entry-content"><p>R is the most used tool in data science. It has no dearth of packages for specific use cases. There are three packages that I feel is to get most of the work done in R.
+  <div class="entry-content"><p>R is the most used tool in data science. It has no dearth of packages for specific use cases. There are three packages that I feel can get your most of the work done - <em>ggplot2, dplyr, data.table</em>.
 <br>
 <br></p>
 <ul>
@@ -1857,11 +1857,13 @@ jQuery(document).ready(function($) {
 <p><strong>data.table</strong>- Used for large files. You can read huge files within seconds. The data manipulation library for larger datasets.
 <br>
 <br>
-In this post we will focus on learning dplyr package. Dplyr is a fast tool for data manipulation for data frame like object both in memory and out of memory. Let us get started. We will use hflights dataset to demonstrate the functions and syntax of dplyr.</p>
+In this post we will focus on learning dplyr package. Dplyr is a fast tool for data manipulation for data frame like object both in memory and out of memory. Let us get started. We will use hflights dataset to demonstrate the functions and syntax of dplyr.
+<br>
+<br>
+We need to first install dplyr and hflights if you don't have it already in your R environment. You can install these using:
+<br></p>
 </li>
 </ul>
-<p>We need to first install dplyr and hflights if you don't have it already in your R environment. You can install these using:
-<br></p>
 <div class="highlight"><pre><span class="n">install</span><span class="p">.</span><span class="n">packages</span><span class="p">(</span><span class="s">&quot;dplyr&quot;</span><span class="p">,</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="n">T</span><span class="p">)</span>
 <span class="n">install</span><span class="p">.</span><span class="n">packages</span><span class="p">(</span><span class="s">&quot;hflights&quot;</span><span class="p">,</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="n">T</span><span class="p">)</span>
 </pre></div>
@@ -1883,14 +1885,15 @@ Load the installed packages and data using:</p>
 </pre></div>
 
 
-<p>Let me introduce to tbl_df. Look at the code below.</p>
+<p>Let me introduce to <em>tbl_df</em>. Look at the code below.</p>
 <div class="highlight"><pre><span class="n">flights</span> <span class="o">=</span> <span class="n">tbl_df</span><span class="p">(</span><span class="n">hflights</span><span class="p">)</span>
 <span class="n">flights</span> <span class="err">#</span> <span class="n">prints</span> <span class="n">only</span> <span class="mi">10</span> <span class="n">rows</span> <span class="n">and</span> <span class="n">only</span> <span class="n">those</span> <span class="n">many</span> <span class="n">columns</span> <span class="n">that</span> <span class="n">fits</span> <span class="n">the</span> <span class="n">screen</span> <span class="k">for</span> <span class="n">easy</span> <span class="n">view</span>
 <span class="n">print</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="err">#</span> <span class="n">you</span> <span class="n">can</span> <span class="n">also</span> <span class="n">specify</span> <span class="n">how</span> <span class="n">many</span> <span class="n">rows</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">display</span>
 </pre></div>
 
 
-<p><em>tbl_df</em> creates a local data frame. It creates a wrapper around the original data frame that prints nicely. <em>tbl_df</em> introduces a new data frame like structure called <em>tbl</em>. A <em>tbl</em> is of class data frame just that data manipulation is easy with this. This means that any function that we use with a data frame can be used by tbl type objects.
+<p><em>tbl_df</em> creates a local data frame. It creates a wrapper around the original data frame that prints nicely. <em>tbl_df</em> introduces a new data frame like structure called <em>tbl</em>.</p>
+<p>A <em>tbl</em> is of class data frame just that data manipulation is easy with this. This means that any function that we use with a data frame can be used by tbl type objects.
 <br>
 <br>
 We will not use <em>tbl</em> objects. I rarely use it. I am comfortable with data frame class and we will focus on data frames for the rest of the tutorial as well. Below are the list of some of the important functions of dplyr.</p>
@@ -1899,7 +1902,8 @@ We will not use <em>tbl</em> objects. I rarely use it. I am comfortable with dat
 
 
 <h3>filter: Keep rows matching criteria</h3>
-<p>Base approach to view all flights on January 1</p>
+<p>Example: View all flights on January 1</p>
+<p>Base approach</p>
 <div class="highlight"><pre><span class="n">flights</span><span class="p">[</span><span class="n">flights</span><span class="err">$</span><span class="n">Month</span><span class="o">==</span><span class="mi">1</span> <span class="o">&amp;</span> <span class="n">flights</span><span class="err">$</span><span class="n">DayofMonth</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="p">]</span>
 </pre></div>
 
@@ -1915,8 +1919,8 @@ We will not use <em>tbl</em> objects. I rarely use it. I am comfortable with dat
 
 
 <h3>select: Pick columns by name</h3>
-<p>Say we want to select data for only <em>UniqueCarrier, Distance, AirTime</em> columns</p>
-<p>Base R approach</p>
+<p>Example: Select data for only <em>UniqueCarrier, Distance, AirTime</em> columns</p>
+<p>Base approach</p>
 <div class="highlight"><pre><span class="n">flights</span><span class="p">[,</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;UniqueCarrier&quot;</span><span class="p">,</span> <span class="s">&quot;Distance&quot;</span><span class="p">,</span> <span class="s">&quot;AirTime&quot;</span><span class="p">)]</span>
 </pre></div>
 
@@ -1954,7 +1958,7 @@ Normal approach</p>
 
 <h3>arrange: Reorder rows</h3>
 <p>Example: Select <em>UniqueCarrier</em> and <em>DepDelay</em> columns and sort by <em>DepDelay</em></p>
-<p>Base R approach</p>
+<p>Base approach</p>
 <div class="highlight"><pre><span class="n">flights</span><span class="p">[</span><span class="n">order</span><span class="p">(</span><span class="n">flights</span><span class="err">$</span><span class="n">DepDelay</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;UniqueCarrier&quot;</span><span class="p">,</span> <span class="s">&quot;DepDelay&quot;</span><span class="p">)]</span> <span class="err">#</span> <span class="k">default</span> <span class="n">is</span> <span class="n">increasing</span>
 </pre></div>
 
@@ -1984,7 +1988,7 @@ Normal approach</p>
 Example: Add new variable named <em>Speed</em></p>
 </li>
 </ul>
-<p>Base R approach</p>
+<p>Base approach</p>
 <div class="highlight"><pre><span class="n">flights</span><span class="err">$</span><span class="n">Speed</span> <span class="o">=</span> <span class="n">flights</span><span class="err">$</span><span class="n">Distance</span><span class="o">/</span><span class="n">flights</span><span class="err">$</span><span class="n">AirTime</span> <span class="o">*</span> <span class="mi">60</span>
 <span class="n">flights</span><span class="p">[,</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Distance&quot;</span><span class="p">,</span> <span class="s">&quot;AirTime&quot;</span><span class="p">,</span> <span class="s">&quot;Speed&quot;</span><span class="p">)]</span>
 </pre></div>

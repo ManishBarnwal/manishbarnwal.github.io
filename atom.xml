@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-05-15T08:00:00-03:00</updated><entry><title>Tutorial on dplyr- a package for data manipulation in R</title><link href="http://manishbarnwal.github.io/blog/2017/05/15/tutorial_on_dplyr/" rel="alternate"></link><updated>2017-05-15T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-15:blog/2017/05/15/tutorial_on_dplyr/</id><summary type="html">&lt;p&gt;R is the most used tool in data science. It has no dearth of packages for specific use cases. There are three packages that I feel is to get most of the work done in R.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-05-15T08:00:00-03:00</updated><entry><title>Tutorial on dplyr- a package for data manipulation in R</title><link href="http://manishbarnwal.github.io/blog/2017/05/15/tutorial_on_dplyr/" rel="alternate"></link><updated>2017-05-15T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-15:blog/2017/05/15/tutorial_on_dplyr/</id><summary type="html">&lt;p&gt;R is the most used tool in data science. It has no dearth of packages for specific use cases. There are three packages that I feel can get your most of the work done - &lt;em&gt;ggplot2, dplyr, data.table&lt;/em&gt;.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -13,11 +13,13 @@
 &lt;p&gt;&lt;strong&gt;data.table&lt;/strong&gt;- Used for large files. You can read huge files within seconds. The data manipulation library for larger datasets.
 &lt;br&gt;
 &lt;br&gt;
-In this post we will focus on learning dplyr package. Dplyr is a fast tool for data manipulation for data frame like object both in memory and out of memory. Let us get started. We will use hflights dataset to demonstrate the functions and syntax of dplyr.&lt;/p&gt;
+In this post we will focus on learning dplyr package. Dplyr is a fast tool for data manipulation for data frame like object both in memory and out of memory. Let us get started. We will use hflights dataset to demonstrate the functions and syntax of dplyr.
+&lt;br&gt;
+&lt;br&gt;
+We need to first install dplyr and hflights if you don't have it already in your R environment. You can install these using:
+&lt;br&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;We need to first install dplyr and hflights if you don't have it already in your R environment. You can install these using:
-&lt;br&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;dplyr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dependencies&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;hflights&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dependencies&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -39,14 +41,15 @@ Load the installed packages and data using:&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Let me introduce to tbl_df. Look at the code below.&lt;/p&gt;
+&lt;p&gt;Let me introduce to &lt;em&gt;tbl_df&lt;/em&gt;. Look at the code below.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flights&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tbl_df&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hflights&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;flights&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;prints&lt;/span&gt; &lt;span class="n"&gt;only&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;only&lt;/span&gt; &lt;span class="n"&gt;those&lt;/span&gt; &lt;span class="n"&gt;many&lt;/span&gt; &lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;fits&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;screen&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;easy&lt;/span&gt; &lt;span class="n"&gt;view&lt;/span&gt;
 &lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;also&lt;/span&gt; &lt;span class="n"&gt;specify&lt;/span&gt; &lt;span class="n"&gt;how&lt;/span&gt; &lt;span class="n"&gt;many&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;display&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;em&gt;tbl_df&lt;/em&gt; creates a local data frame. It creates a wrapper around the original data frame that prints nicely. &lt;em&gt;tbl_df&lt;/em&gt; introduces a new data frame like structure called &lt;em&gt;tbl&lt;/em&gt;. A &lt;em&gt;tbl&lt;/em&gt; is of class data frame just that data manipulation is easy with this. This means that any function that we use with a data frame can be used by tbl type objects.
+&lt;p&gt;&lt;em&gt;tbl_df&lt;/em&gt; creates a local data frame. It creates a wrapper around the original data frame that prints nicely. &lt;em&gt;tbl_df&lt;/em&gt; introduces a new data frame like structure called &lt;em&gt;tbl&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;tbl&lt;/em&gt; is of class data frame just that data manipulation is easy with this. This means that any function that we use with a data frame can be used by tbl type objects.
 &lt;br&gt;
 &lt;br&gt;
 We will not use &lt;em&gt;tbl&lt;/em&gt; objects. I rarely use it. I am comfortable with data frame class and we will focus on data frames for the rest of the tutorial as well. Below are the list of some of the important functions of dplyr.&lt;/p&gt;
@@ -55,7 +58,8 @@ We will not use &lt;em&gt;tbl&lt;/em&gt; objects. I rarely use it. I am comforta
 
 
 &lt;h3&gt;filter: Keep rows matching criteria&lt;/h3&gt;
-&lt;p&gt;Base approach to view all flights on January 1&lt;/p&gt;
+&lt;p&gt;Example: View all flights on January 1&lt;/p&gt;
+&lt;p&gt;Base approach&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Month&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;DayofMonth&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -71,8 +75,8 @@ We will not use &lt;em&gt;tbl&lt;/em&gt; objects. I rarely use it. I am comforta
 
 
 &lt;h3&gt;select: Pick columns by name&lt;/h3&gt;
-&lt;p&gt;Say we want to select data for only &lt;em&gt;UniqueCarrier, Distance, AirTime&lt;/em&gt; columns&lt;/p&gt;
-&lt;p&gt;Base R approach&lt;/p&gt;
+&lt;p&gt;Example: Select data for only &lt;em&gt;UniqueCarrier, Distance, AirTime&lt;/em&gt; columns&lt;/p&gt;
+&lt;p&gt;Base approach&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;UniqueCarrier&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Distance&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;AirTime&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -110,7 +114,7 @@ Normal approach&lt;/p&gt;
 
 &lt;h3&gt;arrange: Reorder rows&lt;/h3&gt;
 &lt;p&gt;Example: Select &lt;em&gt;UniqueCarrier&lt;/em&gt; and &lt;em&gt;DepDelay&lt;/em&gt; columns and sort by &lt;em&gt;DepDelay&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Base R approach&lt;/p&gt;
+&lt;p&gt;Base approach&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;order&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;DepDelay&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;UniqueCarrier&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;DepDelay&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;increasing&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -140,7 +144,7 @@ Normal approach&lt;/p&gt;
 Example: Add new variable named &lt;em&gt;Speed&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Base R approach&lt;/p&gt;
+&lt;p&gt;Base approach&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Speed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Distance&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;AirTime&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;
 &lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Distance&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;AirTime&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Speed&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
