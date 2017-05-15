@@ -1848,19 +1848,19 @@ jQuery(document).ready(function($) {
 <br></p>
 <ul>
 <li>
-<p>ggplot2- Used for visualization. Also known as grammar of graphics. This package is used to plot graphs. The syntax is intuitive and easy to learn.</p>
+<p><strong>ggplot2</strong>- Used for visualization. Also known as grammar of graphics. This package is used to plot graphs. The syntax is intuitive and easy to learn.</p>
 </li>
 <li>
-<p>dplyr- Used for data manipulation. Also known as grammar of data manipulation. Most of the data munging processes and methods gets done easily using this package.</p>
+<p><strong>dplyr</strong>- Used for data manipulation. Also known as grammar of data manipulation. Most of the data munging processes and methods gets done easily using this package.</p>
 </li>
 <li>
-<p>data.table- Used for large files. You can read huge files within seconds. The data manipulation library for larger datasets.
+<p><strong>data.table</strong>- Used for large files. You can read huge files within seconds. The data manipulation library for larger datasets.
 <br>
 <br>
-In this post we will focus on learning dplyr package. Dplyr is a fast tool for data manipulation for data frame like object both in memory and out of memory. Let us get started. We will use hflights dataset to demonstrate the functions and syntax of dplyr. We need to first install dplyr and hflights if you don't have it already in your R environment.</p>
+In this post we will focus on learning dplyr package. Dplyr is a fast tool for data manipulation for data frame like object both in memory and out of memory. Let us get started. We will use hflights dataset to demonstrate the functions and syntax of dplyr.</p>
 </li>
 </ul>
-<p>You can install these using:
+<p>We need to first install dplyr and hflights if you don't have it already in your R environment. You can install these using:
 <br></p>
 <div class="highlight"><pre><span class="n">install</span><span class="p">.</span><span class="n">packages</span><span class="p">(</span><span class="s">&quot;dplyr&quot;</span><span class="p">,</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="n">T</span><span class="p">)</span>
 <span class="n">install</span><span class="p">.</span><span class="n">packages</span><span class="p">(</span><span class="s">&quot;hflights&quot;</span><span class="p">,</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="n">T</span><span class="p">)</span>
@@ -1884,9 +1884,9 @@ Load the installed packages and data using:</p>
 
 
 <p>Let me introduce to tbl_df. Look at the code below.</p>
-<div class="highlight"><pre>flights <span class="o">&lt;-</span> tbl_df<span class="p">(</span>hflights<span class="p">)</span>
-flights <span class="c1"># prints only 10 rows and only those many columns that fits the screen for easy view</span>
-print<span class="p">(</span>flights<span class="p">,</span> n<span class="o">=</span><span class="m">20</span><span class="p">)</span> <span class="c1"># you can also specify how many rows you want to display</span>
+<div class="highlight"><pre><span class="n">flights</span> <span class="o">=</span> <span class="n">tbl_df</span><span class="p">(</span><span class="n">hflights</span><span class="p">)</span>
+<span class="n">flights</span> <span class="err">#</span> <span class="n">prints</span> <span class="n">only</span> <span class="mi">10</span> <span class="n">rows</span> <span class="n">and</span> <span class="n">only</span> <span class="n">those</span> <span class="n">many</span> <span class="n">columns</span> <span class="n">that</span> <span class="n">fits</span> <span class="n">the</span> <span class="n">screen</span> <span class="k">for</span> <span class="n">easy</span> <span class="n">view</span>
+<span class="n">print</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="err">#</span> <span class="n">you</span> <span class="n">can</span> <span class="n">also</span> <span class="n">specify</span> <span class="n">how</span> <span class="n">many</span> <span class="n">rows</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">display</span>
 </pre></div>
 
 
@@ -1915,11 +1915,7 @@ We will not use <em>tbl</em> objects. I rarely use it. I am comfortable with dat
 
 
 <h3>select: Pick columns by name</h3>
-<div class="highlight"><pre><span class="n">names</span><span class="p">(</span><span class="n">flights</span><span class="p">)</span>
-</pre></div>
-
-
-<p>Say we want to select data for only UniqueCarrier, Distance, AirTime columns</p>
+<p>Say we want to select data for only <em>UniqueCarrier, Distance, AirTime</em> columns</p>
 <p>Base R approach</p>
 <div class="highlight"><pre><span class="n">flights</span><span class="p">[,</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;UniqueCarrier&quot;</span><span class="p">,</span> <span class="s">&quot;Distance&quot;</span><span class="p">,</span> <span class="s">&quot;AirTime&quot;</span><span class="p">)]</span>
 </pre></div>
@@ -1930,14 +1926,16 @@ We will not use <em>tbl</em> objects. I rarely use it. I am comfortable with dat
 </pre></div>
 
 
-<p>To get contiguous columns, use starts_with(), ends_with, contains</p>
+<p>To get contiguous columns, use <em>starts_with(), ends_with, contains</em></p>
 <div class="highlight"><pre><span class="n">select</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">Year</span><span class="o">:</span><span class="n">DayOfWeek</span><span class="p">,</span> <span class="n">starts_with</span><span class="p">(</span><span class="s">&quot;Taxi&quot;</span><span class="p">),</span> <span class="n">ends_with</span><span class="p">(</span><span class="s">&quot;Time&quot;</span><span class="p">))</span>
 </pre></div>
 
 
 <h3><em>Chaining</em> or <em>Pipelining</em></h3>
-<p>%&gt;% operator helps you write multiple operations in a chain. The output of first operation becomes an input to the next command.
-Let us try to understand this operator using an example. Say we want to select UniqueCarrier and DepDelay columns and filter only rows having delays over 60 minutes.
+<p><strong>%&gt;%</strong> operator helps you write multiple operations in a chain. The output of first operation becomes an input to the next command.
+<br>
+<br>
+Let us try to understand this operator using an example. Say we want to select <em>UniqueCarrier</em> and <em>DepDelay</em> columns and filter only rows having delays over 60 minutes.
 <br>
 <br>
 Normal approach</p>
@@ -1947,7 +1945,7 @@ Normal approach</p>
 </pre></div>
 
 
-<p>Chain operator</p>
+<p>Chain operator approach</p>
 <div class="highlight"><pre><span class="n">flights</span> <span class="o">%&gt;%</span>
         <span class="n">select</span><span class="p">(</span><span class="n">UniqueCarrier</span><span class="p">,</span> <span class="n">DepDelay</span><span class="p">)</span> <span class="o">%&gt;%</span>
         <span class="n">filter</span><span class="p">(</span><span class="n">DepDelay</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">)</span>
@@ -1955,7 +1953,8 @@ Normal approach</p>
 
 
 <h3>arrange: Reorder rows</h3>
-<p>Base R approach to select UniqueCarrier and DepDelay columns and sort by DepDelay</p>
+<p>Example: Select <em>UniqueCarrier</em> and <em>DepDelay</em> columns and sort by <em>DepDelay</em></p>
+<p>Base R approach</p>
 <div class="highlight"><pre><span class="n">flights</span><span class="p">[</span><span class="n">order</span><span class="p">(</span><span class="n">flights</span><span class="err">$</span><span class="n">DepDelay</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;UniqueCarrier&quot;</span><span class="p">,</span> <span class="s">&quot;DepDelay&quot;</span><span class="p">)]</span> <span class="err">#</span> <span class="k">default</span> <span class="n">is</span> <span class="n">increasing</span>
 </pre></div>
 
@@ -1982,11 +1981,12 @@ Normal approach</p>
 <p>Create new variables that are functions of existing variables
 <br>
 <br>
-Base R approach to add new variable named 'Speed'</p>
+Example: Add new variable named <em>Speed</em></p>
 </li>
 </ul>
-<div class="highlight"><pre>flights<span class="o">$</span>Speed <span class="o">&lt;-</span> flights<span class="o">$</span>Distance<span class="o">/</span>flights<span class="o">$</span>AirTime <span class="o">*</span> <span class="m">60</span>
-flights<span class="p">[,</span> c<span class="p">(</span><span class="s">&quot;Distance&quot;</span><span class="p">,</span> <span class="s">&quot;AirTime&quot;</span><span class="p">,</span> <span class="s">&quot;Speed&quot;</span><span class="p">)]</span>
+<p>Base R approach</p>
+<div class="highlight"><pre><span class="n">flights</span><span class="err">$</span><span class="n">Speed</span> <span class="o">=</span> <span class="n">flights</span><span class="err">$</span><span class="n">Distance</span><span class="o">/</span><span class="n">flights</span><span class="err">$</span><span class="n">AirTime</span> <span class="o">*</span> <span class="mi">60</span>
+<span class="n">flights</span><span class="p">[,</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;Distance&quot;</span><span class="p">,</span> <span class="s">&quot;AirTime&quot;</span><span class="p">,</span> <span class="s">&quot;Speed&quot;</span><span class="p">)]</span>
 </pre></div>
 
 
@@ -1997,13 +1997,13 @@ flights<span class="p">[,</span> c<span class="p">(</span><span class="s">&quot;
 </pre></div>
 
 
-<p>The above code doesn't add the Speed variable to filghts data frame. To explicitly add variable to the table you need to assign this to a flights table. The below code does this.</p>
-<div class="highlight"><pre><span class="c1"># Adding &#39;Speed&#39; variable to the table</span>
-flights <span class="o">&lt;-</span> flights <span class="o">%&gt;%</span> mutate<span class="p">(</span>Speed <span class="o">=</span> Distance<span class="o">/</span>AirTime <span class="o">*</span> <span class="m">60</span><span class="p">)</span>
+<p>The above code doesn't add the <em>Speed</em> variable to flights data frame. To explicitly add variable to the table you need to assign this to a flights table. The below code does this.</p>
+<div class="highlight"><pre><span class="cp"># Adding &#39;Speed&#39; variable to the table</span>
+<span class="n">flights</span> <span class="o">=</span> <span class="n">flights</span> <span class="o">%&gt;%</span> <span class="n">mutate</span><span class="p">(</span><span class="n">Speed</span> <span class="o">=</span> <span class="n">Distance</span><span class="o">/</span><span class="n">AirTime</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 </pre></div>
 
 
-<h3>'with' and 'within'</h3>
+<h3><strong>with</strong> and <strong>within</strong></h3>
 <ul>
 <li>
 <p>Perform R expressions using the items (variables) contained in a list or data frame</p>
@@ -2012,41 +2012,44 @@ flights <span class="o">&lt;-</span> flights <span class="o">%&gt;%</span> mutat
 <p>The within function will even keep track of changes made, including adding or deleting elements, and return a new object with these revised contents.</p>
 </li>
 </ul>
-<p><em>with</em> is a generic function that evaluates expr in a local environment constructed from data.</p>
+<p><em>with</em> is a generic function that evaluates expr in a local environment constructed from data.
+<br>
+<br></p>
 <div class="highlight"><pre><span class="n">with</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">mean</span><span class="p">(</span><span class="n">ArrDelay</span><span class="p">,</span> <span class="n">na</span><span class="p">.</span><span class="n">rm</span> <span class="o">=</span> <span class="n">T</span><span class="p">))</span>
 <span class="n">with</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">plot</span><span class="p">(</span><span class="n">AirTime</span><span class="p">,</span> <span class="n">Year</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre>flightsWith <span class="o">&lt;-</span> with<span class="p">(</span>flights<span class="p">,</span> rm<span class="p">(</span>Year<span class="p">))</span> <span class="c1"># note that expr in with takes place only in the environment constructed</span>
-<span class="c1"># Using &#39;with&#39; you cannot assign the output value to any variable</span>
-names<span class="p">(</span>flightsWith<span class="p">)</span> <span class="c1"># flights will still have &#39;Year&#39; column</span>
+<div class="highlight"><pre><span class="n">flightsWith</span> <span class="o">=</span> <span class="n">with</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">rm</span><span class="p">(</span><span class="n">Year</span><span class="p">))</span> <span class="err">#</span> <span class="n">note</span> <span class="n">that</span> <span class="n">expr</span> <span class="n">in</span> <span class="n">with</span> <span class="n">takes</span> <span class="n">place</span> <span class="n">only</span> <span class="n">in</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">constructed</span>
+<span class="cp"># Using &#39;with&#39; you cannot assign the output value to any variable</span>
+<span class="n">names</span><span class="p">(</span><span class="n">flightsWith</span><span class="p">)</span> <span class="err">#</span> <span class="n">flights</span> <span class="n">will</span> <span class="n">still</span> <span class="n">have</span> <span class="err">&#39;</span><span class="n">Year</span><span class="err">&#39;</span> <span class="n">column</span>
 </pre></div>
 
 
 <p><em>within</em> is similar, except that it examines the environment after the evaluation of expr and makes the corresponding modifications to a copy of data (this may fail in the data frame case if objects are created which cannot be stored in a data frame) and returns it.</p>
-<div class="highlight"><pre>flightsTemp <span class="o">&lt;-</span> flights
-flightsTemp1 <span class="o">&lt;-</span> within<span class="p">(</span>flightsTemp<span class="p">,</span> rm<span class="p">(</span>Year<span class="p">))</span>
-names<span class="p">(</span>flightsTemp1<span class="p">)</span>
+<div class="highlight"><pre><span class="n">flightsTemp</span> <span class="o">=</span> <span class="n">flights</span>
+<span class="n">flightsTemp1</span> <span class="o">=</span> <span class="n">within</span><span class="p">(</span><span class="n">flightsTemp</span><span class="p">,</span> <span class="n">rm</span><span class="p">(</span><span class="n">Year</span><span class="p">))</span>
+<span class="n">names</span><span class="p">(</span><span class="n">flightsTemp1</span><span class="p">)</span>
 </pre></div>
 
 
 <h3>summarise: Reduce variables to values</h3>
-<p>dplyr approach: create a table grouped by Dest, and then summarise each group by taking the mean of ArrDelay</p>
+<p>Example: Create a table grouped by <em>Dest</em>, and then <em>summarise</em> each group by taking the mean of <em>ArrDelay</em></p>
+<p>dplyr approach</p>
 <div class="highlight"><pre><span class="n">flights</span> <span class="o">%&gt;%</span>
         <span class="n">group_by</span><span class="p">(</span><span class="n">Dest</span><span class="p">)</span> <span class="o">%&gt;%</span>
         <span class="n">summarise</span><span class="p">(</span><span class="n">avg_delay</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">ArrDelay</span><span class="p">,</span> <span class="n">na</span><span class="p">.</span><span class="n">rm</span> <span class="o">=</span> <span class="n">T</span><span class="p">))</span>
 </pre></div>
 
 
-<p>For each carrier, calculate the percentage of flights cancelled or diverted</p>
+<p>Another example: For each carrier, calculate the percentage of flights cancelled or diverted</p>
 <div class="highlight"><pre><span class="n">flights</span> <span class="o">%&gt;%</span>
         <span class="n">group_by</span><span class="p">(</span><span class="n">UniqueCarrier</span><span class="p">)</span> <span class="o">%&gt;%</span>
         <span class="n">summarise_each</span><span class="p">(</span><span class="n">funs</span><span class="p">(</span><span class="n">mean</span><span class="p">),</span> <span class="n">Cancelled</span><span class="p">,</span> <span class="n">Diverted</span><span class="p">)</span>
 </pre></div>
 
 
-<p>For each carrier, calculate the minimum and maximum arrival and departure delays</p>
+<p>One more example: For each carrier, calculate the minimum and maximum arrival and departure delays</p>
 <div class="highlight"><pre><span class="n">flights</span> <span class="o">%&gt;%</span>
         <span class="n">group_by</span><span class="p">(</span><span class="n">UniqueCarrier</span><span class="p">)</span> <span class="o">%&gt;%</span>
         <span class="n">summarise_each</span><span class="p">(</span><span class="n">funs</span><span class="p">(</span><span class="n">min</span><span class="p">(.,</span> <span class="n">na</span><span class="p">.</span><span class="n">rm</span><span class="o">=</span><span class="n">T</span><span class="p">),</span> <span class="n">max</span><span class="p">(.,</span> <span class="n">na</span><span class="p">.</span><span class="n">rm</span><span class="o">=</span><span class="n">T</span><span class="p">)),</span> <span class="n">ArrDelay</span><span class="p">,</span> <span class="n">DepDelay</span><span class="p">)</span>
@@ -2058,10 +2061,12 @@ names<span class="p">(</span>flightsTemp1<span class="p">)</span>
 <p>Helper function n() counts the number of rows in a group</p>
 </li>
 <li>
-<p>Helper function n_distinct(vector) counts the number of unique items in that vector</p>
+<p>Helper function n_distinct(vector) counts the number of unique items in that vector
+<br>
+<br>
+Example: For each day of the year, count the total number of flights and sort in descending order</p>
 </li>
 </ul>
-<p>For each day of the year, count the total number of flights and sort in descending order</p>
 <div class="highlight"><pre><span class="n">flights</span> <span class="o">%&gt;%</span>
         <span class="n">group_by</span><span class="p">(</span><span class="n">Month</span><span class="p">,</span> <span class="n">DayofMonth</span><span class="p">)</span> <span class="o">%&gt;%</span>
         <span class="n">summarise</span><span class="p">(</span><span class="n">flight_count</span> <span class="o">=</span> <span class="n">n</span><span class="p">())</span> <span class="o">%&gt;%</span>

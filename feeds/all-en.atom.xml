@@ -4,19 +4,19 @@
 &lt;br&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;ggplot2- Used for visualization. Also known as grammar of graphics. This package is used to plot graphs. The syntax is intuitive and easy to learn.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ggplot2&lt;/strong&gt;- Used for visualization. Also known as grammar of graphics. This package is used to plot graphs. The syntax is intuitive and easy to learn.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;dplyr- Used for data manipulation. Also known as grammar of data manipulation. Most of the data munging processes and methods gets done easily using this package.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;dplyr&lt;/strong&gt;- Used for data manipulation. Also known as grammar of data manipulation. Most of the data munging processes and methods gets done easily using this package.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;data.table- Used for large files. You can read huge files within seconds. The data manipulation library for larger datasets.
+&lt;p&gt;&lt;strong&gt;data.table&lt;/strong&gt;- Used for large files. You can read huge files within seconds. The data manipulation library for larger datasets.
 &lt;br&gt;
 &lt;br&gt;
-In this post we will focus on learning dplyr package. Dplyr is a fast tool for data manipulation for data frame like object both in memory and out of memory. Let us get started. We will use hflights dataset to demonstrate the functions and syntax of dplyr. We need to first install dplyr and hflights if you don't have it already in your R environment.&lt;/p&gt;
+In this post we will focus on learning dplyr package. Dplyr is a fast tool for data manipulation for data frame like object both in memory and out of memory. Let us get started. We will use hflights dataset to demonstrate the functions and syntax of dplyr.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;You can install these using:
+&lt;p&gt;We need to first install dplyr and hflights if you don't have it already in your R environment. You can install these using:
 &lt;br&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;dplyr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dependencies&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;hflights&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dependencies&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -40,9 +40,9 @@ Load the installed packages and data using:&lt;/p&gt;
 
 
 &lt;p&gt;Let me introduce to tbl_df. Look at the code below.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;flights &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; tbl_df&lt;span class="p"&gt;(&lt;/span&gt;hflights&lt;span class="p"&gt;)&lt;/span&gt;
-flights &lt;span class="c1"&gt;# prints only 10 rows and only those many columns that fits the screen for easy view&lt;/span&gt;
-print&lt;span class="p"&gt;(&lt;/span&gt;flights&lt;span class="p"&gt;,&lt;/span&gt; n&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;20&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# you can also specify how many rows you want to display&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flights&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tbl_df&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hflights&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;flights&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;prints&lt;/span&gt; &lt;span class="n"&gt;only&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;only&lt;/span&gt; &lt;span class="n"&gt;those&lt;/span&gt; &lt;span class="n"&gt;many&lt;/span&gt; &lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;fits&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;screen&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;easy&lt;/span&gt; &lt;span class="n"&gt;view&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;also&lt;/span&gt; &lt;span class="n"&gt;specify&lt;/span&gt; &lt;span class="n"&gt;how&lt;/span&gt; &lt;span class="n"&gt;many&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;display&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -71,11 +71,7 @@ We will not use &lt;em&gt;tbl&lt;/em&gt; objects. I rarely use it. I am comforta
 
 
 &lt;h3&gt;select: Pick columns by name&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Say we want to select data for only UniqueCarrier, Distance, AirTime columns&lt;/p&gt;
+&lt;p&gt;Say we want to select data for only &lt;em&gt;UniqueCarrier, Distance, AirTime&lt;/em&gt; columns&lt;/p&gt;
 &lt;p&gt;Base R approach&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;UniqueCarrier&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Distance&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;AirTime&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -86,14 +82,16 @@ We will not use &lt;em&gt;tbl&lt;/em&gt; objects. I rarely use it. I am comforta
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;To get contiguous columns, use starts_with(), ends_with, contains&lt;/p&gt;
+&lt;p&gt;To get contiguous columns, use &lt;em&gt;starts_with(), ends_with, contains&lt;/em&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;select&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Year&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;DayOfWeek&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;starts_with&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Taxi&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;ends_with&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;&lt;em&gt;Chaining&lt;/em&gt; or &lt;em&gt;Pipelining&lt;/em&gt;&lt;/h3&gt;
-&lt;p&gt;%&amp;gt;% operator helps you write multiple operations in a chain. The output of first operation becomes an input to the next command.
-Let us try to understand this operator using an example. Say we want to select UniqueCarrier and DepDelay columns and filter only rows having delays over 60 minutes.
+&lt;p&gt;&lt;strong&gt;%&amp;gt;%&lt;/strong&gt; operator helps you write multiple operations in a chain. The output of first operation becomes an input to the next command.
+&lt;br&gt;
+&lt;br&gt;
+Let us try to understand this operator using an example. Say we want to select &lt;em&gt;UniqueCarrier&lt;/em&gt; and &lt;em&gt;DepDelay&lt;/em&gt; columns and filter only rows having delays over 60 minutes.
 &lt;br&gt;
 &lt;br&gt;
 Normal approach&lt;/p&gt;
@@ -103,7 +101,7 @@ Normal approach&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Chain operator&lt;/p&gt;
+&lt;p&gt;Chain operator approach&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flights&lt;/span&gt; &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt;
         &lt;span class="n"&gt;select&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;UniqueCarrier&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;DepDelay&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt;
         &lt;span class="n"&gt;filter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;DepDelay&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -111,7 +109,8 @@ Normal approach&lt;/p&gt;
 
 
 &lt;h3&gt;arrange: Reorder rows&lt;/h3&gt;
-&lt;p&gt;Base R approach to select UniqueCarrier and DepDelay columns and sort by DepDelay&lt;/p&gt;
+&lt;p&gt;Example: Select &lt;em&gt;UniqueCarrier&lt;/em&gt; and &lt;em&gt;DepDelay&lt;/em&gt; columns and sort by &lt;em&gt;DepDelay&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Base R approach&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;order&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;DepDelay&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;UniqueCarrier&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;DepDelay&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;increasing&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -138,11 +137,12 @@ Normal approach&lt;/p&gt;
 &lt;p&gt;Create new variables that are functions of existing variables
 &lt;br&gt;
 &lt;br&gt;
-Base R approach to add new variable named 'Speed'&lt;/p&gt;
+Example: Add new variable named &lt;em&gt;Speed&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;flights&lt;span class="o"&gt;$&lt;/span&gt;Speed &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; flights&lt;span class="o"&gt;$&lt;/span&gt;Distance&lt;span class="o"&gt;/&lt;/span&gt;flights&lt;span class="o"&gt;$&lt;/span&gt;AirTime &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="m"&gt;60&lt;/span&gt;
-flights&lt;span class="p"&gt;[,&lt;/span&gt; c&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Distance&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;AirTime&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Speed&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;p&gt;Base R approach&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Speed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Distance&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;AirTime&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;
+&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Distance&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;AirTime&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Speed&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -153,13 +153,13 @@ flights&lt;span class="p"&gt;[,&lt;/span&gt; c&lt;span class="p"&gt;(&lt;/span&g
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;The above code doesn't add the Speed variable to filghts data frame. To explicitly add variable to the table you need to assign this to a flights table. The below code does this.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# Adding &amp;#39;Speed&amp;#39; variable to the table&lt;/span&gt;
-flights &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; flights &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt; mutate&lt;span class="p"&gt;(&lt;/span&gt;Speed &lt;span class="o"&gt;=&lt;/span&gt; Distance&lt;span class="o"&gt;/&lt;/span&gt;AirTime &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="m"&gt;60&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;p&gt;The above code doesn't add the &lt;em&gt;Speed&lt;/em&gt; variable to flights data frame. To explicitly add variable to the table you need to assign this to a flights table. The below code does this.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Adding &amp;#39;Speed&amp;#39; variable to the table&lt;/span&gt;
+&lt;span class="n"&gt;flights&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;flights&lt;/span&gt; &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt; &lt;span class="n"&gt;mutate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Speed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Distance&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;AirTime&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;'with' and 'within'&lt;/h3&gt;
+&lt;h3&gt;&lt;strong&gt;with&lt;/strong&gt; and &lt;strong&gt;within&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Perform R expressions using the items (variables) contained in a list or data frame&lt;/p&gt;
@@ -168,41 +168,44 @@ flights &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; flights &lt;span class="o"&
 &lt;p&gt;The within function will even keep track of changes made, including adding or deleting elements, and return a new object with these revised contents.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;with&lt;/em&gt; is a generic function that evaluates expr in a local environment constructed from data.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;with&lt;/em&gt; is a generic function that evaluates expr in a local environment constructed from data.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;with&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ArrDelay&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="n"&gt;with&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;AirTime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Year&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class="highlight"&gt;&lt;pre&gt;flightsWith &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; with&lt;span class="p"&gt;(&lt;/span&gt;flights&lt;span class="p"&gt;,&lt;/span&gt; rm&lt;span class="p"&gt;(&lt;/span&gt;Year&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="c1"&gt;# note that expr in with takes place only in the environment constructed&lt;/span&gt;
-&lt;span class="c1"&gt;# Using &amp;#39;with&amp;#39; you cannot assign the output value to any variable&lt;/span&gt;
-names&lt;span class="p"&gt;(&lt;/span&gt;flightsWith&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# flights will still have &amp;#39;Year&amp;#39; column&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flightsWith&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flights&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Year&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;note&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;expr&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;takes&lt;/span&gt; &lt;span class="n"&gt;place&lt;/span&gt; &lt;span class="n"&gt;only&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;environment&lt;/span&gt; &lt;span class="n"&gt;constructed&lt;/span&gt;
+&lt;span class="cp"&gt;# Using &amp;#39;with&amp;#39; you cannot assign the output value to any variable&lt;/span&gt;
+&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flightsWith&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;flights&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;still&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Year&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;column&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;em&gt;within&lt;/em&gt; is similar, except that it examines the environment after the evaluation of expr and makes the corresponding modifications to a copy of data (this may fail in the data frame case if objects are created which cannot be stored in a data frame) and returns it.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;flightsTemp &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; flights
-flightsTemp1 &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; within&lt;span class="p"&gt;(&lt;/span&gt;flightsTemp&lt;span class="p"&gt;,&lt;/span&gt; rm&lt;span class="p"&gt;(&lt;/span&gt;Year&lt;span class="p"&gt;))&lt;/span&gt;
-names&lt;span class="p"&gt;(&lt;/span&gt;flightsTemp1&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flightsTemp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;flights&lt;/span&gt;
+&lt;span class="n"&gt;flightsTemp1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;within&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flightsTemp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Year&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flightsTemp1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;summarise: Reduce variables to values&lt;/h3&gt;
-&lt;p&gt;dplyr approach: create a table grouped by Dest, and then summarise each group by taking the mean of ArrDelay&lt;/p&gt;
+&lt;p&gt;Example: Create a table grouped by &lt;em&gt;Dest&lt;/em&gt;, and then &lt;em&gt;summarise&lt;/em&gt; each group by taking the mean of &lt;em&gt;ArrDelay&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;dplyr approach&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flights&lt;/span&gt; &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt;
         &lt;span class="n"&gt;group_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Dest&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt;
         &lt;span class="n"&gt;summarise&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;avg_delay&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ArrDelay&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;For each carrier, calculate the percentage of flights cancelled or diverted&lt;/p&gt;
+&lt;p&gt;Another example: For each carrier, calculate the percentage of flights cancelled or diverted&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flights&lt;/span&gt; &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt;
         &lt;span class="n"&gt;group_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;UniqueCarrier&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt;
         &lt;span class="n"&gt;summarise_each&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;funs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;Cancelled&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Diverted&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;For each carrier, calculate the minimum and maximum arrival and departure delays&lt;/p&gt;
+&lt;p&gt;One more example: For each carrier, calculate the minimum and maximum arrival and departure delays&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flights&lt;/span&gt; &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt;
         &lt;span class="n"&gt;group_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;UniqueCarrier&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt;
         &lt;span class="n"&gt;summarise_each&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;funs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(.,&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rm&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(.,&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rm&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="n"&gt;ArrDelay&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;DepDelay&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -214,10 +217,12 @@ names&lt;span class="p"&gt;(&lt;/span&gt;flightsTemp1&lt;span class="p"&gt;)&lt;
 &lt;p&gt;Helper function n() counts the number of rows in a group&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Helper function n_distinct(vector) counts the number of unique items in that vector&lt;/p&gt;
+&lt;p&gt;Helper function n_distinct(vector) counts the number of unique items in that vector
+&lt;br&gt;
+&lt;br&gt;
+Example: For each day of the year, count the total number of flights and sort in descending order&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;For each day of the year, count the total number of flights and sort in descending order&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;flights&lt;/span&gt; &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt;
         &lt;span class="n"&gt;group_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Month&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;DayofMonth&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt;
         &lt;span class="n"&gt;summarise&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flight_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="o"&gt;%&amp;gt;%&lt;/span&gt;
