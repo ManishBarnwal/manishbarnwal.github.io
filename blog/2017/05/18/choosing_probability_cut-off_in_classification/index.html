@@ -5,10 +5,10 @@
 <head>
 
   <meta charset="utf-8">
-  <title>When R package is not available across the cluster</title>
+  <title>How to choose the probability cut-off in classification problem</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="This post talks about a hack which is useful if a particular R package is unavailable across the cluster" >
-  <meta name="keywords" content="big data, R" >
+  <meta name="description" content="This post describes how to choose the probability cut-off in classification problem." >
+  <meta name="keywords" content="ML, data science, R, classification, probability, cut-off" >
 
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1839,72 +1839,64 @@ jQuery(document).ready(function($) {
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">When R package is not available across the cluster</h1>
-      <p class="meta"><time datetime="2016-08-02T07:00:00" pubdate>Aug 02, 2016</time></p>
+      <h1 class="entry-title">How to choose the probability cut-off in classification problem</h1>
+      <p class="meta"><time datetime="2017-05-18T08:00:00" pubdate>May 18, 2017</time></p>
 </header>
 
-  <div class="entry-content"><p>When deploying R codes across the cluster, many a times the reason for the failure of the task is unavailability of a particular package across all nodes of the cluster. We wait for someone to get the package installed across all the nodes. This may take some days. Do we wait for them? <em>Naah!</em>
+  <div class="entry-content"><p>Yesterday, I was taking a session on Data Science for few of my colleagues. The aim was to give a brief overview of machine learning. There were two of us taking the session. We had a rough idea what all we wanted to cover in the two hours session.
 <br>
 <br>
-Presenting a temporary solution that one of my colleague came up with. I have used this technique and this works smoothly.
+I started the session starting with what machine learning is. The types of learning - supervised and unsupervised and the examples that fall into each of these.
+<br>
+<br></p>
+<h3>What is machine learning?</h3>
+<p>Machine learning helps the machine learn from the data. Understand the pattern in the data and use it to predict the future values. There is a true function that maps the inputs to the output values. Machine learning is the process that helps to estimate that function. We try to find the proxy function that is as close as possible to the true function.</p>
+<blockquote>
+<p>The essence of machine learning is function estimation.</p>
+</blockquote>
+<p>If you are interested to read more on this, click on this post. <a href="http://manishbarnwal.com/blog/2017/05/12/machine_learning_function_estimation/">The essence of machine learning is function estimation</a>.
 <br>
 <br>
-The following are the steps:</p>
-<ol>
-<li>Install the package you require on one of the edge nodes into a local directory<ul>
-<li>Create a local directory. Let's say our directory name is <em>rPackages</em><br />
-    <pre style="font-size:60%; padding:7px; margin:0em;">
-    <code class="bash">mkdir rPackages
-    </code></pre></li>
-<li>Install the required package, say 'randomForest' in the directory just created
-    <pre style="font-size:60%; padding:7px; margin:0em;">
-    <code class="r">install.packages('randomForest', repos=’repo_name', lib='rPackages/')
-    Note that you need to choose the appropriate repo_name. The one that your company allows.
-    </code></pre></li>
-</ul>
-</li>
-</ol>
+We then moved to explaining the simplest technique in machine learning - linear regression. We then moved to cover classification problems - where you have to classify an observation into one of the pre-defined classes. Talked about logistic regression, explained how in regression we try to regress the response variable with respect to the independent variables and how in logistic regression we regress the probability that the response variable will belong to class one.
+<br>
+<br>
+In binary classification problem, logistic regression gives you the probability to belong to class 1. And if you want the probability for class 0, you just subtract this probability from 1. So what you have right now is the probability to fall in class 1.
+<br>
+<br>
+What you want is the class to which the observations would fall? How do you convert this probabilities to get the classes? I posed this question to my colleagues. One of them said, this should come from business knowledge. How strict or lenient you want your model to become? Some said they would take any value greater than 0.5 as belonging to class 1 or else class 0. And few others were still contemplating.
+<br>
+<br>
+I am assuming you understand what TPR and FPR means. If not, you may want to visit this post. <a href="http://manishbarnwal.com/blog/2016/09/26/three_letter_acronym_roc_and_auc/">TPR, FPR, ROC, and AUC</a>
+<br>
+<br>
+By this time, I had already explained them ROC curve and confusion matrix. We went back to ROC curve and explained how the ROC curve gives you the true positive rate, false positive rate corresponding to a probability cut-off. The graph looks something like below.</p>
 <p><br>
-2. Check if you can load the package from this local directory
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">library(randomForest, lib.loc='rPackages/')
-</code></pre></p>
+<br></p>
+<h3>How do you generate the above graph?</h3>
+<p>There are functions in R that can give you this plot in a single line. However, for the sake of doing it, I have written the below code that generated the above plot.</p>
 <p><br>
-3. Create zip file of “dir_location” using command
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">zip -r rPackages.zip rPackages/
-</code></pre></p>
-<p><br>
-4. Add this zip file in your HIVE hql (or anything else)
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">add file rPackages.zip;
-Don’t forget the semicolon
-</code></pre></p>
-<p><br>
-5. Unzip the file inside R script i.e. each reducer will have <em>rPackages</em> directory now
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">unzip('rPackages.zip', overwrite=TRUE)
-</code></pre></p>
-<p><br>
-6. Load the package now
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">library(randomForest, lib.loc='rPackages/')
-</code></pre></p>
-<p><br></p>
-<p>And you’re done! Remember, you have to build the package where you want to use, because built packages are OS dependent.</p>
-<p>Did you find the article useful? If you did, share your thoughts in the comments.</p></div>
+<br></p>
+<h3>Choosing the probability cut-off</h3>
+<p>Once you have an understanding of ROC curve, we will proceed further to understand how we can use this plot to get the probability cut-off.
+You choose some probability cut-offs say from 0.5 till 0.9 with some increment say 0.05 and calculate the TPR and FPR corresponding to each probability value.
+<br>
+<br>
+You have to decide how much TPR and FPR you want. There is a trade-off between the tpr and fpr. If you want to increase TPR, your FPR will also increase. So depending on whether you want to detect all the positives (higher TPR) and willing to incur some error in terms of FPR, you decide the probability cut-off.
+<br>
+<br>
+Many a times you may want to choose probability that gives you the maximum accuracy. However, care should be taken when you have a case where the response column is skewed. For instance, a bank wants to predict the loan defaulters.</p></div>
     
     <footer>
 <p class="meta">
   <span class="byline author vcard">
     Posted by <span class="fn">Manish Barnwal</span>
   </span>
-<time datetime="2016-08-02T07:00:00" pubdate>Aug 02, 2016</time>  <span class="categories">
-    <a class="category" href="http://manishbarnwal.github.io/tag/big-data.html">big data</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/r.html">R</a>
+<time datetime="2017-05-18T08:00:00" pubdate>May 18, 2017</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/ml.html">ML</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/data-science.html">data science</a>
   </span>
 </p><div class="sharing">
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2016/08/02/r_packages_not_in_cluster/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2016/08/02/r_packages_not_in_cluster/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2017/05/18/choosing_probability_cut-off_in_classification/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2017/05/18/choosing_probability_cut-off_in_classification/" >Tweet</a>
   <div class="g-plusone" data-size="medium"></div>
     <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
 </div>    </footer>
@@ -1995,9 +1987,9 @@ Don’t forget the semicolon
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
-          var disqus_identifier = '/blog/2016/08/02/r_packages_not_in_cluster/';
-          var disqus_url = 'http://manishbarnwal.com/blog/2016/08/02/r_packages_not_in_cluster/';
-          var disqus_title = 'When R package is not available across the cluster';
+          var disqus_identifier = '/blog/2017/05/18/choosing_probability_cut-off_in_classification/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2017/05/18/choosing_probability_cut-off_in_classification/';
+          var disqus_title = 'How to choose the probability cut-off in classification problem';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/ml-data-science.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-05-15T08:00:00-03:00</updated><entry><title>Tutorial on dplyr- a package for data manipulation in R</title><link href="http://manishbarnwal.github.io/blog/2017/05/15/tutorial_on_dplyr/" rel="alternate"></link><updated>2017-05-15T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-15:blog/2017/05/15/tutorial_on_dplyr/</id><summary type="html">&lt;p&gt;R is the most used tool in data science. It has no dearth of packages for specific use cases. There are three packages that I feel can get your most of the work done - &lt;em&gt;ggplot2, dplyr, data.table&lt;/em&gt;.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/ml-data-science.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-05-18T08:00:00-03:00</updated><entry><title>How to choose the probability cut-off in classification problem</title><link href="http://manishbarnwal.github.io/blog/2017/05/18/choosing_probability_cut-off_in_classification/" rel="alternate"></link><updated>2017-05-18T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-18:blog/2017/05/18/choosing_probability_cut-off_in_classification/</id><summary type="html">&lt;p&gt;Yesterday, I was taking a session on Data Science for few of my colleagues. The aim was to give a brief overview of machine learning. There were two of us taking the session. We had a rough idea what all we wanted to cover in the two hours session.
+&lt;br&gt;
+&lt;br&gt;
+I started the session starting with what machine learning is. The types of learning - supervised and unsupervised and the examples that fall into each of these.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;What is machine learning?&lt;/h3&gt;
+&lt;p&gt;Machine learning helps the machine learn from the data. Understand the pattern in the data and use it to predict the future values. There is a true function that maps the inputs to the output values. Machine learning is the process that helps to estimate that function. We try to find the proxy function that is as close as possible to the true function.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The essence of machine learning is function estimation.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you are interested to read more on this, click on this post. &lt;a href="http://manishbarnwal.com/blog/2017/05/12/machine_learning_function_estimation/"&gt;The essence of machine learning is function estimation&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;
+We then moved to explaining the simplest technique in machine learning - linear regression. We then moved to cover classification problems - where you have to classify an observation into one of the pre-defined classes. Talked about logistic regression, explained how in regression we try to regress the response variable with respect to the independent variables and how in logistic regression we regress the probability that the response variable will belong to class one.
+&lt;br&gt;
+&lt;br&gt;
+In binary classification problem, logistic regression gives you the probability to belong to class 1. And if you want the probability for class 0, you just subtract this probability from 1. So what you have right now is the probability to fall in class 1.
+&lt;br&gt;
+&lt;br&gt;
+What you want is the class to which the observations would fall? How do you convert this probabilities to get the classes? I posed this question to my colleagues. One of them said, this should come from business knowledge. How strict or lenient you want your model to become? Some said they would take any value greater than 0.5 as belonging to class 1 or else class 0. And few others were still contemplating.
+&lt;br&gt;
+&lt;br&gt;
+I am assuming you understand what TPR and FPR means. If not, you may want to visit this post. &lt;a href="http://manishbarnwal.com/blog/2016/09/26/three_letter_acronym_roc_and_auc/"&gt;TPR, FPR, ROC, and AUC&lt;/a&gt;
+&lt;br&gt;
+&lt;br&gt;
+By this time, I had already explained them ROC curve and confusion matrix. We went back to ROC curve and explained how the ROC curve gives you the true positive rate, false positive rate corresponding to a probability cut-off. The graph looks something like below.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;How do you generate the above graph?&lt;/h3&gt;
+&lt;p&gt;There are functions in R that can give you this plot in a single line. However, for the sake of doing it, I have written the below code that generated the above plot.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Choosing the probability cut-off&lt;/h3&gt;
+&lt;p&gt;Once you have an understanding of ROC curve, we will proceed further to understand how we can use this plot to get the probability cut-off.
+You choose some probability cut-offs say from 0.5 till 0.9 with some increment say 0.05 and calculate the TPR and FPR corresponding to each probability value.
+&lt;br&gt;
+&lt;br&gt;
+You have to decide how much TPR and FPR you want. There is a trade-off between the tpr and fpr. If you want to increase TPR, your FPR will also increase. So depending on whether you want to detect all the positives (higher TPR) and willing to incur some error in terms of FPR, you decide the probability cut-off.
+&lt;br&gt;
+&lt;br&gt;
+Many a times you may want to choose probability that gives you the maximum accuracy. However, care should be taken when you have a case where the response column is skewed. For instance, a bank wants to predict the loan defaulters.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category></entry><entry><title>Tutorial on dplyr- a package for data manipulation in R</title><link href="http://manishbarnwal.github.io/blog/2017/05/15/tutorial_on_dplyr/" rel="alternate"></link><updated>2017-05-15T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-15:blog/2017/05/15/tutorial_on_dplyr/</id><summary type="html">&lt;p&gt;R is the most used tool in data science. It has no dearth of packages for specific use cases. There are three packages that I feel can get your most of the work done - &lt;em&gt;ggplot2, dplyr, data.table&lt;/em&gt;.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;ul&gt;

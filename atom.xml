@@ -1,5 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-05-15T08:00:00-03:00</updated><entry><title>Tutorial on dplyr- a package for data manipulation in R</title><link href="http://manishbarnwal.github.io/blog/2017/05/15/tutorial_on_dplyr/" rel="alternate"></link><updated>2017-05-15T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-15:blog/2017/05/15/tutorial_on_dplyr/</id><summary type="html">&lt;p&gt;R is the most used tool in data science. It has no dearth of packages for specific use cases. There are three packages that I feel can get your most of the work done - &lt;em&gt;ggplot2, dplyr, data.table&lt;/em&gt;.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-05-30T08:00:00-03:00</updated><entry><title>The essence of music in my life</title><link href="http://manishbarnwal.github.io/blog/2017/05/30/music_in_my_life/" rel="alternate"></link><updated>2017-05-30T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-30:blog/2017/05/30/music_in_my_life/</id><summary type="html">&lt;p&gt;Guitar is cool. I reckon from my childhood when seeing someone play guitar in movies inspired a sense of great appreciation for the character playing it. Remember &lt;em&gt;Hrithik&lt;/em&gt; from the movie &lt;em&gt;Kaho na pyaar hai&lt;/em&gt;. I always wondered how does one play this instrument. I loved listening to songs. &lt;em&gt;Sonu Nigam&lt;/em&gt;, &lt;em&gt;KK&lt;/em&gt;, &lt;em&gt;Kunal Ganjawala&lt;/em&gt;, and &lt;em&gt;Neeraj Sridhar&lt;/em&gt; (&lt;em&gt;Wo chali wo chali&lt;/em&gt;, remember this song?) were a few singers who kept me hooked to my CD player. I used to even remember the tough lyrics of a few Punjabi songs - &lt;em&gt;Kunal Ganjawala's Channa ve ghar aa jaa ve&lt;/em&gt;. And then, the next day sing the song with classmates during the recess.
+&lt;br&gt;
+&lt;br&gt;
+My mother had this talent of identifying a singer by just listening to the singer's voice. And at that point of time, this was a huge talent for me. I was in awe of this talent of my mother's. I would play a song in the TV room and run to mother in the kitchen and ask her who was the singer. I don't remember even a single time when she flunked my tests. So, today when I look back I realize music was something I really enjoyed. Sadly, I was not aware of this then. The idea of music was alien to me. I had never looked at it the way I look at it today.
+&lt;br&gt;
+&lt;br&gt;
+The closest I could get to music was singing while taking the shower. And that too when father was not around. Singing in front of elders was considered rude. I don't know the reason. Even today, I don't sing in front of my father. Mum is cool. I used to listen and enjoy songs a lot. Many a times while solving the Mathematics problems on simultaneous equations or finding the area of hexagon. Music soothed me. Solving Mathematical problems while listening to music was heaven for the child in me. The best time of the day.
+&lt;br&gt;
+&lt;br&gt;
+Days passed and the adolescent me got involved in other important responsibilities like attending classes, solving Irodov, DPPs (Daily Practice Problems), preparing for JEE. I was not at home now. I had shifted to Kota far far away from home. Now I was a fan of Atif songs. &lt;em&gt;Dooorie&lt;/em&gt;, &lt;em&gt;Pehli nazar mein&lt;/em&gt; were few of the songs to whose tune I used to solve DPPs - finding the maximum range of a projectile or identifying the equation of a plane satisfying a few constraints, or finding the entropy of a system.
+&lt;br&gt;
+&lt;br&gt;
+Life used to start with breakfast at &lt;em&gt;TTS&lt;/em&gt; (Tina Tea Stall) in &lt;em&gt;Vigyan Nagar&lt;/em&gt;, attend the classes at &lt;em&gt;Gaurav Tower&lt;/em&gt;, have a &lt;em&gt;masala pattiz&lt;/em&gt; (a type of quick snacks) while returning from the class and end with solving the DPPs for that day. This was the routine. Kota has been the learning years of my life. I have learnt so much about life, responsibilities, and people from my stay at Kota. Life had only one aim - Crack the IIT JEE exam.
+&lt;br&gt;
+&lt;br&gt;
+In the year of 2009 I got admitted to IIT Kharagpur, Maths and Computing. Mathematics was always with me. Place changed, people changed. The world here was different. People were different. The first year passed in getting acquainted to the place. We were masters of our world. Proxy, &lt;em&gt;bhaat&lt;/em&gt; (talk to your friends on the least important topics for hours), mid-sem exams, and most importantly &lt;em&gt;peace&lt;/em&gt; had become part of my life. In the second year, there was an audition happening for the music club in the hostel. I was naive to think that I sing pretty decent. So, I too went for audition. I failed miserably. There were candidates far better than me. I came back from the audition, talked to my friends, headed to the canteen for tea and the audition chapter was closed.
+&lt;br&gt;
+&lt;br&gt;
+It was in the winter of year 2013 when my brother, Mukesh had a winter break and he had asked me to recommend what he could do for a month? Without much thought, I suggested him to get a guitar. And he did. My parents tried to intervene saying his studies would get affected. Parents, I tell you, they care a lot about your future. I convinced my mother to get him the guitar or I will buy him one from my stipend. And they agreed.
+&lt;br&gt;
+&lt;br&gt;
+Mukesh tried his hands on learning guitar for a month. Joined a tutor. But he didn't enjoy it much. Guitar is not everyone's cup of tea. He was more into photography. So later, I got him a DSLR. He has got his repository of clicked photos on Flickr. You can check out his photos at &lt;a href="https://www.flickr.com/photos/133478356@N02/"&gt;Mukesh Barnwal Flickr&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;
+My other brother, Mitesh had a knack for music. He used to hum songs a lot. The best one I reckon him singing is the song - &lt;em&gt;Kaho na pyaar hai&lt;/em&gt;. Now, the guitar belonged to Mitesh. He took it to his college in Jalpaiguri. He joined a teacher there. And slowly he picked up the tabs, the chords. He even auditioned for the music club in his college and got selected. Within no time he started singing song while playing guitar. I still remember how amazed I was when I had first listened to his recorded audio on Whatsapp. I was proud of my brother. I was elated that he had learnt something that a lot of people would love to but failed to invest the time it needs to learn the guitar. You can listen to some of his songs at &lt;a href="https://www.youtube.com/channel/UCd0LdTnijWUa31TAfpxjnHg"&gt;Mitesh Barnwal Youtube&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;
+In June 2014, after completing my 20 days trip in Uttarakhand and Chandigarh, I was at home for another 20 days waiting to join Walmart Labs, my first job. I had no idea what to do for these 20 days. It was one fine morning, Mitesh was practicing on his guitar that I sat next to him and saw him playing the guitar. I asked him, if I could try my hands on the instrument. He agreed. I asked him to teach me something. He smiled. Nevertheless, he explained me a few things- what the strings are named, what each part of the guitar is called and a few other details.
+&lt;br&gt;
+&lt;br&gt;
+I further enquired about the effective way to learn the guitar. He had a few downloaded tutorials on learning to play guitar. During those few days, I did a few of those tutorials. My guitar sounded pathetic. The sound was not something one would call music. My brother explained, it takes time before you create something soothing. I used to listen to whatever he would say. I have a huge respect for a person who has learnt something from scratch. It shows that the person really enjoys it and has taken the pain to go through the learning curve.
+&lt;br&gt;
+&lt;br&gt;
+I continued practicing the guitar for those 20 days. Sometimes my mother would enter the room and would ask with a smirk on her face - 'You too want to learn the guitar, son? Ohh then we would have two guitars!' My mother hates anything that takes up space in the room. She always had a dislike for guitar as well, because of the space issue. Not so much though, once she got impressed by my brother's performance on guitar.
+&lt;br&gt;
+&lt;br&gt;
+Post those 20 days, I landed in Bangalore to join the corporate world. Here too, I had a friend who used to play the guitar. I started using his guitar. After a month, I got the first salary credited in my account. The next day me and my friend, Dipu headed to Furtados, a music shop in Koramangala to get the guitar. I got an Epiphone brand guitar. I started taking classes at &lt;a href="justinguitar.com"&gt;justinguitar.com&lt;/a&gt;. This site is the best online resource available for a beginner. After a few months, I realized I needed a tutor for better learning curve. And it has been since then that I have been playing guitar.
+&lt;br&gt;
+&lt;br&gt;
+The one thing I used to crave for after work in office was to sit down and practice the tabs and chords on the guitar. I have been playing this instrument for the last 2.5 years now. I am in love with guitar. When I am happy I like to play guitar, when I am tensed I like to play the scales, when I am stressed I like to play something rock. If not never, it is very rare when I don't feel like playing guitar. I hope I continue playing with the same rigor in the coming years and the love for this beauty never abates.
+&lt;br&gt;
+&lt;br&gt;
+I hope you enjoyed reading this. I will write more on guitar and music in the coming few days.  &lt;/p&gt;</summary><category term="Life"></category></entry><entry><title>How to choose the probability cut-off in classification problem</title><link href="http://manishbarnwal.github.io/blog/2017/05/18/choosing_probability_cut-off_in_classification/" rel="alternate"></link><updated>2017-05-18T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-18:blog/2017/05/18/choosing_probability_cut-off_in_classification/</id><summary type="html">&lt;p&gt;Yesterday, I was taking a session on Data Science for few of my colleagues. The aim was to give a brief overview of machine learning. There were two of us taking the session. We had a rough idea what all we wanted to cover in the two hours session.
+&lt;br&gt;
+&lt;br&gt;
+I started the session starting with what machine learning is. The types of learning - supervised and unsupervised and the examples that fall into each of these.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;What is machine learning?&lt;/h3&gt;
+&lt;p&gt;Machine learning helps the machine learn from the data. Understand the pattern in the data and use it to predict the future values. There is a true function that maps the inputs to the output values. Machine learning is the process that helps to estimate that function. We try to find the proxy function that is as close as possible to the true function.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The essence of machine learning is function estimation.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you are interested to read more on this, click on this post. &lt;a href="http://manishbarnwal.com/blog/2017/05/12/machine_learning_function_estimation/"&gt;The essence of machine learning is function estimation&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;
+We then moved to explaining the simplest technique in machine learning - linear regression. We then moved to cover classification problems - where you have to classify an observation into one of the pre-defined classes. Talked about logistic regression, explained how in regression we try to regress the response variable with respect to the independent variables and how in logistic regression we regress the probability that the response variable will belong to class one.
+&lt;br&gt;
+&lt;br&gt;
+In binary classification problem, logistic regression gives you the probability to belong to class 1. And if you want the probability for class 0, you just subtract this probability from 1. So what you have right now is the probability to fall in class 1.
+&lt;br&gt;
+&lt;br&gt;
+What you want is the class to which the observations would fall? How do you convert this probabilities to get the classes? I posed this question to my colleagues. One of them said, this should come from business knowledge. How strict or lenient you want your model to become? Some said they would take any value greater than 0.5 as belonging to class 1 or else class 0. And few others were still contemplating.
+&lt;br&gt;
+&lt;br&gt;
+I am assuming you understand what TPR and FPR means. If not, you may want to visit this post. &lt;a href="http://manishbarnwal.com/blog/2016/09/26/three_letter_acronym_roc_and_auc/"&gt;TPR, FPR, ROC, and AUC&lt;/a&gt;
+&lt;br&gt;
+&lt;br&gt;
+By this time, I had already explained them ROC curve and confusion matrix. We went back to ROC curve and explained how the ROC curve gives you the true positive rate, false positive rate corresponding to a probability cut-off. The graph looks something like below.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;How do you generate the above graph?&lt;/h3&gt;
+&lt;p&gt;There are functions in R that can give you this plot in a single line. However, for the sake of doing it, I have written the below code that generated the above plot.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Choosing the probability cut-off&lt;/h3&gt;
+&lt;p&gt;Once you have an understanding of ROC curve, we will proceed further to understand how we can use this plot to get the probability cut-off.
+You choose some probability cut-offs say from 0.5 till 0.9 with some increment say 0.05 and calculate the TPR and FPR corresponding to each probability value.
+&lt;br&gt;
+&lt;br&gt;
+You have to decide how much TPR and FPR you want. There is a trade-off between the tpr and fpr. If you want to increase TPR, your FPR will also increase. So depending on whether you want to detect all the positives (higher TPR) and willing to incur some error in terms of FPR, you decide the probability cut-off.
+&lt;br&gt;
+&lt;br&gt;
+Many a times you may want to choose probability that gives you the maximum accuracy. However, care should be taken when you have a case where the response column is skewed. For instance, a bank wants to predict the loan defaulters.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category></entry><entry><title>Tutorial on dplyr- a package for data manipulation in R</title><link href="http://manishbarnwal.github.io/blog/2017/05/15/tutorial_on_dplyr/" rel="alternate"></link><updated>2017-05-15T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-15:blog/2017/05/15/tutorial_on_dplyr/</id><summary type="html">&lt;p&gt;R is the most used tool in data science. It has no dearth of packages for specific use cases. There are three packages that I feel can get your most of the work done - &lt;em&gt;ggplot2, dplyr, data.table&lt;/em&gt;.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;ul&gt;
