@@ -5,10 +5,10 @@
 <head>
 
   <meta charset="utf-8">
-  <title>Manish Barnwal - life lessons</title>
+  <title>Markdown commands I use frequently</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="" >
-  <meta name="keywords" content="" >
+  <meta name="description" content="This post is a tutorial on dplyr - a package for data manipulation in R." >
+  <meta name="keywords" content="ML, data science, R, data-manipulation" >
 
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1848,57 +1848,79 @@ jQuery(document).ready(function($) {
 
   <div id="main">
     <div id="content">
-<div class="blog-index">
-  		<article>
+
+<div>
+  <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">
-        <a href="http://manishbarnwal.github.io/blog/2017/04/03/believe_in_yourself/">Do you believe in yourself?</a>
-      </h1>
-      <p class="meta"><time datetime="2017-04-03T08:00:00" pubdate>Apr 03, 2017</time></p>
+      <h1 class="entry-title">Markdown commands I use frequently</h1>
+      <p class="meta"><time datetime="2017-05-15T08:00:00" pubdate>May 15, 2017</time></p>
 </header>
 
-  <div class="entry-content"><p>Are you a confident person? The mind asked itself. I replied with an excited <em>Yes!</em>. The mind asked again, <em>are you sure?</em>. This time I thought for a while but again after a pause, I said <em>yes</em>.
-<br>
-<br>
-<strong>Why was there a pause the second time?</strong>
-<br>
-We humans doubt our capabilities ...</p></div>
-  <footer>
-    <a rel="full-article" href="http://manishbarnwal.github.io/blog/2017/04/03/believe_in_yourself/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://manishbarnwal.github.io/blog/2016/07/15/things_learned_so_far/">Things I have learned (So Far)</a>
-      </h1>
-      <p class="meta"><time datetime="2016-07-15T08:00:00" pubdate>Jul 15, 2016</time></p>
-</header>
+  <div class="entry-content"><p>This post is aimed to capture the list of commands I use frequently while writing a post for this site in Markdown. You can write a post both in Markdown format and in HTML format. Markdown is preferred when you want to have a free-flow writing style. HTML is used when you want to have more to do with the publishing of the post.</p>
+<p>I normally write in Markdown format because I have to write a lot of content. There is not much to do with image placement or ordering of the content. However, many a times I have to resort to HTML form of writing as well. For instance, the image that I have embedded in the 'About' tab is written in HTML format because I want to have an image floating to the right of the text. And it is easy to do this using HTML's image tag. Let us get started.</p>
+<h3>Inserting an image of appropriate size</h3>
+<div class="highlight"><pre><span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s">&quot;url&quot;</span> <span class="n">alt</span><span class="o">=</span><span class="s">&quot;some_text&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s">&quot;width:width;height:height;&quot;</span><span class="o">&gt;</span>
+</pre></div>
 
-  <div class="entry-content"><p>Today when I opened my blog on Quora, I saw a draft of this post that I had written some six months post to my first job. The learnings I had moving from college to corporate.
-<br>
-<br>
-<strong>Things I have learned (So Far)</strong>
-<br>
-<br>
-I graduated from my college almost six months ...</p></div>
-  <footer>
-    <a rel="full-article" href="http://manishbarnwal.github.io/blog/2016/07/15/things_learned_so_far/">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
 
-  <br />
-</div></div>
+<ul>
+<li>The src attribute specifies the URL (web address) of the image</li>
+<li>
+<h2>The alt attribute contains the text you want to display in case the image is not loaded properly</h2>
+</li>
+</ul>
+<div class="highlight"><pre><span class="nt">&lt;p&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;http://manishbarnwal.com/images/author/high.jpeg&quot;</span> <span class="na">alt=</span><span class="s">&quot;Photo of author&quot;</span> <span class="na">style=</span><span class="s">&quot;float:right;width:128px;height:128px;&quot;</span><span class="nt">&gt;</span>
+I am a Senior Statistical Analyst at <span class="nt">&lt;b&gt;</span>@WalmartLabs<span class="nt">&lt;/b&gt;</span>. In am a graduate from IIT Kharagpur with a Masters in Mathematics and Computing. I joined @WalmartLabs in July 2014 where I have been working mostly on supply chain projects and have been deploying machine learning models across Hadoop cluster.
+<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+
+
+<p>Use the HTML <img> element to define an image
+Use the HTML src attribute to define the URL of the image
+Use the HTML alt attribute to define an alternate text for an image, if it cannot be displayed
+Use the HTML width and height attributes to define the size of the image
+Use the CSS width and height properties to define the size of the image (alternatively)
+Use the CSS float property to let the image float</p></div>
+    
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Manish Barnwal</span>
+  </span>
+<time datetime="2017-05-15T08:00:00" pubdate>May 15, 2017</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/miscellaneous.html">Miscellaneous</a>
+  </span>
+</p><div class="sharing">
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2017/05/15/markdown_commands_I_use_frequently/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2017/05/15/markdown_commands_I_use_frequently/" >Tweet</a>
+  <div class="g-plusone" data-size="medium"></div>
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2017/04/03/believe_in_yourself/">Do you believe in yourself?</a>
+          <a href="http://manishbarnwal.github.io/blog/2017/05/30/music_in_my_life/">The essence of music in my life</a>
       </li>
       <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2016/07/15/things_learned_so_far/">Things I have learned (So Far)</a>
+          <a href="http://manishbarnwal.github.io/blog/2017/05/18/choosing_probability_cut-off_in_classification/">How to choose the probability cut-off in classification problem</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/05/15/markdown_commands_I_use_frequently/">Markdown commands I use frequently</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/05/15/tutorial_on_dplyr/">Tutorial on dplyr- a package for data manipulation in R</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/05/12/machine_learning_function_estimation/">The essence of machine learning is function estimation</a>
       </li>
     </ul>
   </section>
@@ -1939,7 +1961,7 @@ I graduated from my college almost six months ...</p></div>
 <!-- widget amazon ads end -->
 
   <footer role="contentinfo"><p>
-    Copyright &copy;  2016-2017  - Manish Barnwal -
+    Copyright &copy;  2014-2017  - Manish Barnwal -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">
@@ -1963,6 +1985,9 @@ I graduated from my college almost six months ...</p></div>
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
+          var disqus_identifier = '/blog/2017/05/15/markdown_commands_I_use_frequently/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2017/05/15/markdown_commands_I_use_frequently/';
+          var disqus_title = 'Markdown commands I use frequently';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

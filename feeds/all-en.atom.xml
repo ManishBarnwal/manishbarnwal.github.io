@@ -103,7 +103,32 @@ You choose some probability cut-offs say from 0.5 till 0.9 with some increment s
 You have to decide how much TPR and FPR you want. There is a trade-off between the tpr and fpr. If you want to increase TPR, your FPR will also increase. So depending on whether you want to detect all the positives (higher TPR) and willing to incur some error in terms of FPR, you decide the probability cut-off.
 &lt;br&gt;
 &lt;br&gt;
-Many a times you may want to choose probability that gives you the maximum accuracy. However, care should be taken when you have a case where the response column is skewed. For instance, a bank wants to predict the loan defaulters.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category></entry><entry><title>Tutorial on dplyr- a package for data manipulation in R</title><link href="http://manishbarnwal.github.io/blog/2017/05/15/tutorial_on_dplyr/" rel="alternate"></link><updated>2017-05-15T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-15:blog/2017/05/15/tutorial_on_dplyr/</id><summary type="html">&lt;p&gt;R is the most used tool in data science. It has no dearth of packages for specific use cases. There are three packages that I feel can get your most of the work done - &lt;em&gt;ggplot2, dplyr, data.table&lt;/em&gt;.
+Many a times you may want to choose probability that gives you the maximum accuracy. However, care should be taken when you have a case where the response column is skewed. For instance, a bank wants to predict the loan defaulters.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category></entry><entry><title>Markdown commands I use frequently</title><link href="http://manishbarnwal.github.io/blog/2017/05/15/markdown_commands_I_use_frequently/" rel="alternate"></link><updated>2017-05-15T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-15:blog/2017/05/15/markdown_commands_I_use_frequently/</id><summary type="html">&lt;p&gt;This post is aimed to capture the list of commands I use frequently while writing a post for this site in Markdown. You can write a post both in Markdown format and in HTML format. Markdown is preferred when you want to have a free-flow writing style. HTML is used when you want to have more to do with the publishing of the post.&lt;/p&gt;
+&lt;p&gt;I normally write in Markdown format because I have to write a lot of content. There is not much to do with image placement or ordering of the content. However, many a times I have to resort to HTML form of writing as well. For instance, the image that I have embedded in the 'About' tab is written in HTML format because I want to have an image floating to the right of the text. And it is easy to do this using HTML's image tag. Let us get started.&lt;/p&gt;
+&lt;h3&gt;Inserting an image of appropriate size&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;img&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;url&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;alt&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;some_text&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;width:width;height:height;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;The src attribute specifies the URL (web address) of the image&lt;/li&gt;
+&lt;li&gt;
+&lt;h2&gt;The alt attribute contains the text you want to display in case the image is not loaded properly&lt;/h2&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://manishbarnwal.com/images/author/high.jpeg&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;alt=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Photo of author&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;float:right;width:128px;height:128px;&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+I am a Senior Statistical Analyst at &lt;span class="nt"&gt;&amp;lt;b&amp;gt;&lt;/span&gt;@WalmartLabs&lt;span class="nt"&gt;&amp;lt;/b&amp;gt;&lt;/span&gt;. In am a graduate from IIT Kharagpur with a Masters in Mathematics and Computing. I joined @WalmartLabs in July 2014 where I have been working mostly on supply chain projects and have been deploying machine learning models across Hadoop cluster.
+&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Use the HTML &lt;img&gt; element to define an image
+Use the HTML src attribute to define the URL of the image
+Use the HTML alt attribute to define an alternate text for an image, if it cannot be displayed
+Use the HTML width and height attributes to define the size of the image
+Use the CSS width and height properties to define the size of the image (alternatively)
+Use the CSS float property to let the image float&lt;/p&gt;</summary><category term="Miscellaneous"></category></entry><entry><title>Tutorial on dplyr- a package for data manipulation in R</title><link href="http://manishbarnwal.github.io/blog/2017/05/15/tutorial_on_dplyr/" rel="alternate"></link><updated>2017-05-15T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-15:blog/2017/05/15/tutorial_on_dplyr/</id><summary type="html">&lt;p&gt;R is the most used tool in data science. It has no dearth of packages for specific use cases. There are three packages that I feel can get your most of the work done - &lt;em&gt;ggplot2, dplyr, data.table&lt;/em&gt;.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;ul&gt;
