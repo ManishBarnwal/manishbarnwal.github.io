@@ -1841,18 +1841,24 @@ jQuery(document).ready(function($) {
       <p class="meta"><time datetime="2017-05-15T08:00:00" pubdate>May 15, 2017</time></p>
 </header>
 
-  <div class="entry-content"><p>This post is aimed to capture the list of commands I use frequently while writing a post for this site in Markdown. You can write a post both in Markdown format and in HTML format. Markdown is preferred when you want to have a free-flow writing style. HTML is used when you want to have more to do with the publishing of the post.</p>
-<p>I normally write in Markdown format because I have to write a lot of content. There is not much to do with image placement or ordering of the content. However, many a times I have to resort to HTML form of writing as well. For instance, the image that I have embedded in the 'About' tab is written in HTML format because I want to have an image floating to the right of the text. And it is easy to do this using HTML's image tag. Let us get started.</p>
+  <div class="entry-content"><p>This post is aimed to capture the list of commands I use frequently while writing a post for this site in Markdown. You can write a post both in Markdown format and in HTML format. Markdown is preferred when you want to have a free-flow writing style. HTML is used when you want to have more to do with the publishing of the post.
+<br>
+<br>
+I normally write in Markdown format because I have to write a lot of content. There is not much to do with image placement or ordering of the content. However, many a times I have to resort to HTML form of writing as well. For instance, the image that I have embedded in the 'About' tab is written in HTML format because I want to have an image floating to the right of the text. And it is easy to do this using HTML's image tag. Let us get started.
+<br>
+<br></p>
 <h3>Inserting an image of appropriate size</h3>
 <div class="highlight"><pre><span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s">&quot;url&quot;</span> <span class="n">alt</span><span class="o">=</span><span class="s">&quot;some_text&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s">&quot;width:width;height:height;&quot;</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <ul>
-<li>The src attribute specifies the URL (web address) of the image</li>
-<li>
-<h2>The alt attribute contains the text you want to display in case the image is not loaded properly</h2>
-</li>
+<li>Use the HTML <img> element to define an image</li>
+<li>Use the HTML src attribute to define the URL of the image</li>
+<li>Use the HTML alt attribute to define an alternate text for an image, if it cannot be displayed properly</li>
+<li>Use the HTML width and height attributes to define the size of the image</li>
+<li>Use the CSS width and height properties to define the size of the image (alternatively)</li>
+<li>Use the CSS float property to let the image float</li>
 </ul>
 <div class="highlight"><pre><span class="nt">&lt;p&gt;</span>
 <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;http://manishbarnwal.com/images/author/high.jpeg&quot;</span> <span class="na">alt=</span><span class="s">&quot;Photo of author&quot;</span> <span class="na">style=</span><span class="s">&quot;float:right;width:128px;height:128px;&quot;</span><span class="nt">&gt;</span>
@@ -1861,13 +1867,23 @@ I am a Senior Statistical Analyst at <span class="nt">&lt;b&gt;</span>@WalmartLa
 </pre></div>
 
 
-<p>Use the HTML <img> element to define an image
-Use the HTML src attribute to define the URL of the image
-Use the HTML alt attribute to define an alternate text for an image, if it cannot be displayed
-Use the HTML width and height attributes to define the size of the image
-Use the CSS width and height properties to define the size of the image (alternatively)
-Use the CSS float property to let the image float</p></div>
-    
+<p>For instance, the above code would produce the below result.</p>
+<p>
+<img src="http://manishbarnwal.com/images/author/high.jpeg" alt="Photo of author" style="float:right;width:128px;height:128px;">
+I am a Senior Statistical Analyst at <b>@WalmartLabs</b>. In am a graduate from IIT Kharagpur with a Masters in Mathematics and Computing. I joined @WalmartLabs in July 2014 where I have been working mostly on supply chain projects and have been deploying machine learning models across Hadoop cluster.
+</p>
+
+<p><br>
+<br></p>
+<h3>Inserting an image without much change in layout</h3></div>
+<script type="text/javascript" language="javascript">
+      var aax_size='728x90';
+      var aax_pubname = 'manishbarnwal-21';
+      var aax_src='302';
+    </script>
+    <script type="text/javascript" language="javascript" src="http://c.amazon-adsystem.com/aax2/assoc.js"></script>
+
+
     <footer>
 <p class="meta">
   <span class="byline author vcard">
