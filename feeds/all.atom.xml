@@ -1895,13 +1895,19 @@ Without much thought, I picked up my notebook and started scribbling few lines. 
 &lt;p&gt;&lt;em&gt;Kal fir aayega&lt;/em&gt;
 &lt;br&gt;
 &lt;br&gt;
-Here is how the song sounds. Give it a listen &lt;a href="https://www.youtube.com/watch?v=8NDH2L5R27w"&gt;here&lt;/a&gt;.&lt;/p&gt;</summary><category term="Coldplay"></category></entry><entry><title>Random Forest explained intuitively</title><link href="http://manishbarnwal.github.io/blog/2016/10/18/random_forest_explained_intuitively/" rel="alternate"></link><updated>2016-10-18T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-18:blog/2016/10/18/random_forest_explained_intuitively/</id><summary type="html">&lt;p&gt;Random Forests algorithm has always fascinated me. I like how this algorithm can be easily explained to anyone without much hassle. One quick example, I use very frequently to explain the working of random forests is the way a company has multiple rounds of interview to hire a candidate. Let me elaborate.
+Here is how the song sounds. Give it a listen &lt;a href="https://www.youtube.com/watch?v=8NDH2L5R27w"&gt;here&lt;/a&gt;.&lt;/p&gt;</summary><category term="Coldplay"></category></entry><entry><title>Random Forests explained intuitively</title><link href="http://manishbarnwal.github.io/blog/2016/10/18/random_forests_explained_intuitively/" rel="alternate"></link><updated>2016-10-18T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-18:blog/2016/10/18/random_forests_explained_intuitively/</id><summary type="html">&lt;p&gt;Random Forests algorithm has always fascinated me. I like how this algorithm can be easily explained to anyone without much hassle. One quick example, I use very frequently to explain the working of random forests is the way a company has multiple rounds of interview to hire a candidate. Let me elaborate.
 &lt;br&gt;
 &lt;br&gt;
-Say, you appeared for the position of Statistical analyst at WalmartLabs. Now like most of the companies, you don't just have one round of interview. You have multiple rounds of interviews. Each of these interviews is chaired by independent panels. Each panel assess the candidate separately and independently. Generally, even the questions asked in these interviews differ from each other. Randomness is important here.
+Say, you appeared for the position of Statistical analyst at WalmartLabs. Now like most of the companies, you don't just have one round of interview. You have multiple rounds of interviews. Each one of these interviews is chaired by independent panels. Each panel assess the candidate separately and independently. Generally, even the questions asked in these interviews differ from each other. Randomness is important here.
 &lt;br&gt;
 &lt;br&gt;
-If you have heard about decision tree, then you are not very far from understanding what random forests are. Random forests is a forest of many decision trees. So you now understand why is it called forest.
+The other thing of utmost importance is diversity. The reason we have a panel of interviews is that we assume a committee of people generally takes better decision than a single individual. Now this committee is not any collection of people. We make sure that the interview panel is a little diversified in terms of topics to be covered in each interview, the type of questions asked, and many other details. You don't go about asking same question in each round of interviews.
+&lt;br&gt;
+&lt;br&gt;
+After having all the rounds of interviews, the final call whether to select or reject the candidate is based on the majority of the decision from each panel. If out of 5 panel of interviewers, 3 recommends a hire and two against a hire, we tend to go ahead with selecting the candidate. I hope you get the gist.
+&lt;br&gt;
+&lt;br&gt;
+If you have heard about decision tree, then you are not very far from understanding what random forests are. There are two keywords here - random and forests. Let us first understand what forest means. Random forests is a collection of many decision trees. Instead of relying on single decision tree, you build many decision trees say 100 of them. And you know what a collection of trees is called - a forest. So you now understand why is it called forest.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Why is it called random then?&lt;/h3&gt;
@@ -1909,7 +1915,7 @@ If you have heard about decision tree, then you are not very far from understand
 &lt;p&gt;There are two levels of randomness in this algorithm:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;At row level&lt;/strong&gt;: Each of these decision trees gets a random sample of the training data (say 10%) i.e. each of these trees will be trained independently on 100 randomly chosen rows out of 1,000 rows of data&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;At row level&lt;/strong&gt;: Each of these decision trees gets a random sample of the training data (say 10%) i.e. each of these trees will be trained independently on 100 randomly chosen rows out of 1,000 rows of data. Keep in mind that each of these decision trees is getting trained on 100 randomly chosen rows from the dataset i.e they are different from each other in terms of predictions.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;At column level&lt;/strong&gt;: The second level of randomness is introduced at the column level. Not all the columns are passed into training each of the decision trees. Say we want only 10% of columns to be sent to each tree. This means a randomly selected 3 column will be sent to each tree. So for first decision tree, may be column C1, C2 and C4 were chosen. The next DT will have C4, C5, C10 as chosen columns and so on.
@@ -1933,13 +1939,13 @@ With the advent of huge computational power at our disposal, we hardly think for
 &lt;p&gt;&lt;strong&gt;Random forests doesn't train well on smaller datasets&lt;/strong&gt; as it fails to pick on the pattern. To simplify, say we know that 1 pen costs INR 1, 2 pens cost INR 2, 3 pens cost INR 6. In this case linear regression will easily estimate the cost of 4 pens but random forests will fail to come up with a good estimate.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;There is a problem of interpretability with random forest.&lt;/strong&gt; You can't see or understand the relationship between the response and the independent variables. Understand that RF is a predictive tool and not a descriptive tool. You get variable importance but this may not suffice in many analysis of interests where the objective might be to see the relationship between response and the independent features.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;There is a problem of interpretability with random forest.&lt;/strong&gt; You can't see or understand the relationship between the response and the independent variables. Understand that random forest is a predictive tool and not a descriptive tool. You get variable importance but this may not suffice in many analysis of interests where the objective might be to see the relationship between response and the independent features.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;The &lt;strong&gt;time taken to train random forests&lt;/strong&gt; may sometimes be too huge as you train multiple decision trees. Also, in case of categorical variable, the time complexity increases exponentially. For a categorical column with n levels, RF tries split at 2^n -1 points to find the maximal splitting point.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;time taken to train random forests&lt;/strong&gt; may sometimes be too huge as you train multiple decision trees. Also, in case of categorical variable, the time complexity increases exponentially. For a categorical column with n levels, RF tries split at 2^n -1 points to find the maximal splitting point. However, with the power of H2O we can now train random forests pretty fast. You may want to read about H2O at &lt;a href="http://manishbarnwal.com/blog/2017/03/28/h2o_with_r/"&gt;H2O in R explained&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;In case of regression problem, &lt;strong&gt;the range of values response variable can take&lt;/strong&gt; is determine by the values already available in the training dataset. Unlike linear regression, RF can't take on value outside the training data.
+&lt;p&gt;In case of regression problem, &lt;strong&gt;the range of values response variable can take&lt;/strong&gt; is determine by the values already available in the training dataset. Unlike linear regression, decision trees and hence random forest can't take values outside the training data.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -1947,16 +1953,17 @@ With the advent of huge computational power at our disposal, we hardly think for
 &lt;h3&gt;What are the advantages of using random forest?&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Since we are using multiple decision trees, &lt;strong&gt;the bias remains same as that of a single decision tree&lt;/strong&gt;. However, the variance decreases and thus we decrease the chances of overfitting.&lt;/p&gt;
+&lt;p&gt;Since we are using multiple decision trees, &lt;strong&gt;the bias remains same as that of a single decision tree&lt;/strong&gt;. However, the variance decreases and thus we decrease the chances of overfitting. I have explained bias and variance intuitively at &lt;a href="http://manishbarnwal.com/blog/2017/02/08/the_curse_of_bias_and_variance/"&gt;The curse of bias and variance&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;When all you care about is the predictions and &lt;strong&gt;want a quick and dirty way-out&lt;/strong&gt;, random forest comes to the rescue.
+&lt;p&gt;When all you care about is the predictions and &lt;strong&gt;want a quick and dirty way-out&lt;/strong&gt;, random forest comes to the rescue. You don't have to worry much about the assumptions of the model or linearity in the dataset.
 &lt;br&gt;
 &lt;br&gt;
 I will add in the R code snippets as well to get an idea of how this is executed soon.
 &lt;br&gt;
 &lt;br&gt;
-Did you find the article useful? If you did, share your thoughts on the topic in the comments.&lt;/p&gt;
+Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.
+&lt;br&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;</summary><category term="random forest"></category><category term="ml"></category><category term="data-science"></category></entry><entry><title>Improve runtime of Random Forest in R</title><link href="http://manishbarnwal.github.io/blog/2016/10/13/improve_runtime_random_forest_r/" rel="alternate"></link><updated>2016-10-13T10:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-13:blog/2016/10/13/improve_runtime_random_forest_r/</id><summary type="html">&lt;p&gt;There are two ways one can write the code to train a random forest model in R.
 Both the ways are listed below.
