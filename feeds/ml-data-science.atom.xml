@@ -366,8 +366,13 @@ So essentially we have seven independent features, &lt;strong&gt;X&lt;/strong&gt
 There would be some function, say &lt;strong&gt;f&lt;/strong&gt; that would map these &lt;strong&gt;X&lt;/strong&gt; to the &lt;strong&gt;Y&lt;/strong&gt; values. How do we find this function? We will use the 3 years of data we have - the training data.
 &lt;br&gt;
 &lt;br&gt;
-We won't be able to find the actual function, the true function, &lt;strong&gt;f&lt;/strong&gt; because we don't have all of the data in the world. You can't collect the entire dataset available. It is impossible. What we use is a sample of data from the population. And, we use this sample as our training data.&lt;/p&gt;
-&lt;p&gt;Many a times, there are some factors that can't be captured. The set of independent features that we have captured is not an exhaustive list. There would obviously be other features that will have an impact on the salary. Say in our example of salary prediction, some of the factors like exclusive and exceptional knowledge on some rare topics may land a candidate exorbitant offers from few of the companies. It is difficult to capture factors like these.
+We won't be able to find the actual function, the true function, &lt;strong&gt;f&lt;/strong&gt; because we don't have all of the data in the world. You can't collect the entire dataset available. It is impossible. What we use is a sample of data from the population. And, we use this sample as our training data.
+&lt;br&gt;
+&lt;br&gt;
+Many a times, there are some factors that can't be captured. The set of independent features that we have captured is not an exhaustive list. There would obviously be other features that will have an impact on the salary.
+&lt;br&gt;
+&lt;br&gt;
+Say in our example of salary prediction, some of the factors like exclusive and exceptional knowledge on some rare topics may land a candidate exorbitant offers from few of the companies. It is difficult to capture factors like these.
 &lt;br&gt;
 &lt;br&gt;
 Now we understand why we can't have the true f. So we will try to get an estimate of &lt;strong&gt;f&lt;/strong&gt;, say &lt;strong&gt;f^&lt;/strong&gt;. We want this &lt;strong&gt;f^&lt;/strong&gt; to be as close to the true &lt;strong&gt;f&lt;/strong&gt; i.e. a proxy for the true function. There would obviously be error in estimating this true function and w want to minimize this error to as low as possible. How do we go about getting this &lt;strong&gt;f^&lt;/strong&gt;, an estimate of the true function, &lt;strong&gt;f&lt;/strong&gt;?

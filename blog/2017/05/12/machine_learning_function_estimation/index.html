@@ -1882,8 +1882,13 @@ So essentially we have seven independent features, <strong>X</strong> - <em>age<
 There would be some function, say <strong>f</strong> that would map these <strong>X</strong> to the <strong>Y</strong> values. How do we find this function? We will use the 3 years of data we have - the training data.
 <br>
 <br>
-We won't be able to find the actual function, the true function, <strong>f</strong> because we don't have all of the data in the world. You can't collect the entire dataset available. It is impossible. What we use is a sample of data from the population. And, we use this sample as our training data.</p>
-<p>Many a times, there are some factors that can't be captured. The set of independent features that we have captured is not an exhaustive list. There would obviously be other features that will have an impact on the salary. Say in our example of salary prediction, some of the factors like exclusive and exceptional knowledge on some rare topics may land a candidate exorbitant offers from few of the companies. It is difficult to capture factors like these.
+We won't be able to find the actual function, the true function, <strong>f</strong> because we don't have all of the data in the world. You can't collect the entire dataset available. It is impossible. What we use is a sample of data from the population. And, we use this sample as our training data.
+<br>
+<br>
+Many a times, there are some factors that can't be captured. The set of independent features that we have captured is not an exhaustive list. There would obviously be other features that will have an impact on the salary.
+<br>
+<br>
+Say in our example of salary prediction, some of the factors like exclusive and exceptional knowledge on some rare topics may land a candidate exorbitant offers from few of the companies. It is difficult to capture factors like these.
 <br>
 <br>
 Now we understand why we can't have the true f. So we will try to get an estimate of <strong>f</strong>, say <strong>f^</strong>. We want this <strong>f^</strong> to be as close to the true <strong>f</strong> i.e. a proxy for the true function. There would obviously be error in estimating this true function and w want to minimize this error to as low as possible. How do we go about getting this <strong>f^</strong>, an estimate of the true function, <strong>f</strong>?
