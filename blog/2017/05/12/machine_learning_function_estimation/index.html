@@ -1826,16 +1826,19 @@ jQuery(document).ready(function($) {
       <p class="meta"><time datetime="2017-05-12T08:00:00" pubdate>May 12, 2017</time></p>
 </header>
 
-  <div class="entry-content"><p>Machine learning is cool. There is no denying in that. In this post we will try to make it a little uncool, well it will still be cool but you may start looking at it differently. Machine learning is not a black box and this post is just to convey that.
+  <div class="entry-content"><p>Machine learning is cool. There is no denying in that. In this post we will try to make it a little uncool, well it will still be cool but you may start looking at it differently. Machine learning is not a black box. It is intuitive and this post is just to convey that.
 <br>
 <br>
-If I give you this function <code>f(x) = x^2 + log(x)</code> and ask to you tell me what will be <code>f(2)</code>, you will first laugh at me and then run away to do something important. This is trivial for you right? If a function is there that maps inputs to outputs then it is very easy to get the output for any new input.
+If I give you this function <code>f(x) = x^2 + log(x)</code> and ask to you tell me what will be <code>f(2)</code>, you will first laugh at me and then run away to do something important. This is trivial for you, right? If a function is there that maps inputs to outputs then it is very easy to get the output for any new input.
 <br>
 <br>
-Let us try to understand the same using a problem that can be solved using machine learning. You are a technical recruiter. You have been running a recruitment firm for the last 3 years. Now you being tech savvy, you follow the latest trends in technology and you came to know about machine learning. You understand that machine learning can be used to predict the future given you have data from the past.
+Machine learning helps you get a function that can map the input to the output. How does it do it? What is this function? We will try to answer such questions in the paragraphs below.
 <br>
 <br>
-You thought, how can I use it to predict the expected salary of an individual given other factors. The first thing comes to your mind- do you have the data? And you hear out a pleasant yes!
+Let us try to answer the above questions using a problem that can be solved using machine learning. Assume, you are a technical recruiter. You have been running a recruitment firm for the last 3 years. Now you being tech savvy, you follow the latest trends in technology and you came to know about machine learning. You understand that machine learning can be used to predict the future given you have data from the past.
+<br>
+<br>
+You thought, how can I use it to predict the expected salary of a candidate given other factors. The first thing that comes to your mind- do you have the data? And you hear out a pleasant yes!
 <br>
 <br>
 You have the following data collected at individual level:
@@ -1867,28 +1870,32 @@ You have the following data collected at individual level:
 <p>Salary
 <br>
 <br>
-And a few others. For now let us assume we have just these features and we want to predict the expected salary using the other features. We have 3 years of data that has approximately 10,000 rows. So your dataset looks something like the below data:
+And a few others. For now let us assume we have just these features and we want to predict the expected salary using these features. We have 3 years of data that has approximately 10,000 rows. So your dataset looks something like the below data:
 <br></p>
 </li>
 </ul>
 <p><img alt="photo of salary_data.png" src="http://manishbarnwal.com/images/ml_function_estimation/salary_data.png" /></p>
 <p><br>
-So essentially we have seven independent features, <strong>X</strong> - <em>age</em>,  <em>gender</em>, <em>years of experience</em>, <em>highest level of education</em>, <em>college</em>, <em>current salary</em>, <em>sector</em> and corresponding <em>salary</em>, <strong>Y</strong>. There would be some function say f that would take these Xs to the Y values. What we have is a training data with us and we want to get the function that maps these Xs to the Y.
+So essentially we have seven independent features, <strong>X</strong> - <em>age</em>,  <em>gender</em>, <em>years of experience</em>, <em>highest level of education</em>, <em>college</em>, <em>current salary</em>, <em>sector</em> and corresponding <em>salary</em>, <strong>Y</strong>. What we want is next time when we have a candidate, we would obviously have his <em>age</em>,  <em>gender</em>, <em>years of experience</em>, and other features. What we won't have is his salary. And, we want to estimate this value.
 <br>
 <br>
-We won't be able to find the actual, the true function, <strong>f</strong> because we don't have all of the data in the world. You can't collect the entire dataset available. What we get is a sample of data from the population. Often there are other factors that can't be captured. Say in our example of salary prediction, some of the factors like exclusive and exceptional knowledge on some rare topics may land you an exorbitant offers from few of the companies. It is difficult to capture factors like these. So there are always some factors that is not captured in the data.
+There would be some function, say <strong>f</strong> that would map these <strong>X</strong> to the <strong>Y</strong> values. How do we find this function? We will use the 3 years of data we have - the training data.
 <br>
 <br>
-Now we understand why we can't have the true f. So we will try to get an estimate of <strong>f</strong>, say <strong>f^</strong>. We want this <strong>f^</strong> to be as close to the true <strong>f</strong> i.e. a proxy for the true function. How do we go about getting this <strong>f^</strong>, an estimate of the true function, <strong>f</strong>?
+We won't be able to find the actual function, the true function, <strong>f</strong> because we don't have all of the data in the world. You can't collect the entire dataset available. It is impossible. What we use is a sample of data from the population. And, we use this sample as our training data.</p>
+<p>Many a times, there are some factors that can't be captured. The set of independent features that we have captured is not an exhaustive list. There would obviously be other features that will have an impact on the salary. Say in our example of salary prediction, some of the factors like exclusive and exceptional knowledge on some rare topics may land a candidate exorbitant offers from few of the companies. It is difficult to capture factors like these.
 <br>
 <br>
-We have the data, remember the 3 years of historical data which contains the <strong>X</strong> features and the corresponding <strong>Y</strong> values. This is called the training data and there is a reason why it is called training data. Because we use this data to train the underlying algorithms to get the estimated function <strong>f^</strong>.
+Now we understand why we can't have the true f. So we will try to get an estimate of <strong>f</strong>, say <strong>f^</strong>. We want this <strong>f^</strong> to be as close to the true <strong>f</strong> i.e. a proxy for the true function. There would obviously be error in estimating this true function and w want to minimize this error to as low as possible. How do we go about getting this <strong>f^</strong>, an estimate of the true function, <strong>f</strong>?
 <br>
 <br>
-You get that we use training data to get the estimated function, <strong>f^</strong>. But how do we do it? We try to minimize the error between the true Y and the predicted Y from the model. For now understand that there is a way to minimize this error and get the estimated function.
+We have the data, remember the 3 years of historical data which contained the <strong>X</strong> features and the corresponding <strong>Y</strong> values. This is called the training data and there is a reason why it is called training data. Because we use this data to train the underlying algorithms to get the estimated function <strong>f^</strong>.
 <br>
 <br>
-Now these functions could be a simple one like having a linear relationship between the salary and the features or many a times a complex relationship which is not linear. There are various algorithms say linear regression or say decision trees that helps you get the simple estimate or even a complex one respectively.
+You get that we use training data to get the estimated function, <strong>f^</strong>. But how do we do it? We try to minimize the error between the true salary, <strong>Y</strong> and the predicted salary, <strong>Y^</strong> from the model. For now, understand that there is a way to minimize this error and get the estimated function.
+<br>
+<br>
+Now these functions could be a simple one like having a linear relationship between the salary and the features or many a times a complex relationship which is not linear. There are techniques say linear regression or say decision trees that help you get the simple estimate or even a complex one respectively.
 <br>
 <br>
 Once you have this estimate of function,</p>
@@ -1896,7 +1903,10 @@ Once you have this estimate of function,</p>
 <p><strong>f</strong>(age,  gender, years of experience, highest level of education, college, current salary, sector) ---&gt;  salary</p>
 </blockquote>
 <p><br></p>
-<p>you just fill in the <strong>X</strong> and you should get your <strong>Y</strong>. There, you have a machine learning model. And you know what you have done - you have just come up with a nice estimate of the true function that maps the relationship between the <strong>X</strong> and the <strong>Y</strong>. And hence, the essence of machine learning is function estimation.
+<p>you just pass in the <strong>X</strong> and you should get your <strong>Y</strong>. There, you have a machine learning model. And you know what you have done - you have just come up with a nice estimate of the true function.
+<br>
+<br>
+Once you have this estimate, there are other questions that you might want to think over. How good an estimate is this function to the true function? What all assumptions you made to estimate this function? When would this estimate not be a good choice?. I will try to answer these questions in future posts. For now, I hope you get the gist that the essence of machine learning is function estimation.
 <br>
 <br>
 Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.</p></div>
