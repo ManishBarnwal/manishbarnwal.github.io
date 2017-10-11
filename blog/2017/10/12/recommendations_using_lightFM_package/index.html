@@ -5,10 +5,10 @@
 <head>
 
   <meta charset="utf-8">
-  <title>Manish Barnwal - auc</title>
+  <title>Recommendations using lightFM package(draft)</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="" >
-  <meta name="keywords" content="" >
+  <meta name="description" content="This post is about lightFM package-  an implementation of hybrid recommendations" >
+  <meta name="keywords" content="corporate lessons, walmart, job, learnings" >
 
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1818,30 +1818,79 @@ jQuery(document).ready(function($) {
 
   <div id="main">
     <div id="content">
-<div class="blog-index">
-  		<article>
+
+<div>
+  <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">
-        <a href="http://manishbarnwal.github.io/blog/2016/09/26/three_letter_acronym_roc_and_auc/">ROC and AUC - The three lettered acronyms</a>
-      </h1>
-      <p class="meta"><time datetime="2016-09-26T08:00:00" pubdate>Sep 26, 2016</time></p>
+      <h1 class="entry-title">Recommendations using lightFM package(draft)</h1>
+      <p class="meta"><time datetime="2017-10-12T00:00:00" pubdate>Oct 12, 2017</time></p>
 </header>
 
-  <div class="entry-content"><p>I don't feel bad to confess this that <em>ROC curve</em>, <em>AUC</em>, <em>True-positive</em> and related terms took quite some time for me to understand. If today I contemplate on the reasons why I found this topic confusing. The first would be there are not many resources that explains intuitively what ...</p></div>
-  <footer>
-    <a rel="full-article" href="http://manishbarnwal.github.io/blog/2016/09/26/three_letter_acronym_roc_and_auc/">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
+  <div class="entry-content"><p>LightFM is a Python implementation of a hybrid recommendation algorithm. The LightFM model incorporates both item and user metadata into the traditional matrix factorization algorithm. It represents each user and item as the sum of the latent representations of their features, thus allowing recommendations to generalise to new items (via item features) and to new users (via user features).
+<br>
+<br>
+Essentially, what the LightFM algorithm does is instead of just learning latent vector representations for each user/item (as is the case in traditional MF-based collaborative filtering), LightFM learns latent vector representations for user/item metadata (i.e. features/tags). (You can include unique IDs in the metadata as well if you want to still have some unique component for each user/item.) Then, you get the total representation for a user/item by summing over each of its features' latent vectors. That way, you can augment the core collaborative filtering component with some content-based learning via the user/item feature vectors, making this a hybrid recommendation model. 
+<br>
+<br>
+For example, if you wanted to get a representation for a user, Manish Barnwal, you'd first learn the latent vectors for "Age: 27", "School: IIT Kharagpur", "Gender: Male", "Name: Manish Barnwal", and then add those up. 
+The reason why this is called hybrid approach is because it is a mix of both CF based and content based approach. You can use jus the core collborative filtering method wherein you just have the user-item matrix of implicit feedback. Or if you'd prefer you can pass the content-based learning component - user, item side-information along with the user-item matrix.
+<br>
+<br>
+LightFM: Weights are optimized using stochastic gradient descent. It only looks at a single training example and does not work in full-batch or mini-batch mode.</p></div>
+<script type="text/javascript" language="javascript">
+      var aax_size='728x90';
+      var aax_pubname = 'manishbarnwal-21';
+      var aax_src='302';
+    </script>
+    <script type="text/javascript" language="javascript" src="http://c.amazon-adsystem.com/aax2/assoc.js"></script>
+<p class="meta">
+  <span class="affiliate disclosure" style="color:green;font-size:10pt">
+    Advertiser Disclosure: This post contains affiliate links, which means I receive a commission if you make a purchase using this link. Your purchase helps support my work.
+  </span>
 
-  <br />
-</div></div>
+</p>
+
+
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Manish Barnwal</span>
+  </span>
+<time datetime="2017-10-12T00:00:00" pubdate>Oct 12, 2017</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/recommendations.html">recommendations</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/lightfm.html">lightFM</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/hybrid-model.html">hybrid-model</a>
+  </span>
+</p><div class="sharing">
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2017/10/12/recommendations_using_lightFM_package/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2017/10/12/recommendations_using_lightFM_package/" >Tweet</a>
+  <div class="g-plusone" data-size="medium"></div>
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2016/09/26/three_letter_acronym_roc_and_auc/">ROC and AUC - The three lettered acronyms</a>
+          <a href="http://manishbarnwal.github.io/blog/2017/10/12/recommendations_using_lightFM_package/">Recommendations using lightFM package(draft)</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/07/12/yaadon_ki_chuskiya/">Yaadon ki chuskiya</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/07/05/lessons_learnt_from_3_years_of_job_at_walmart/">Top lessons I learned from 3 years at Walmart</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/05/30/music_in_my_life/">The essence of music in my life</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/05/18/choosing_probability_cut-off_in_classification/">How to choose the probability cut-off in classification problem</a>
       </li>
     </ul>
   </section>
@@ -1888,7 +1937,7 @@ jQuery(document).ready(function($) {
 
 
   <footer role="contentinfo"><p>
-    Copyright &copy;  2016  - Manish Barnwal -
+    Copyright &copy;  2014-2017  - Manish Barnwal -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">
@@ -1912,6 +1961,9 @@ jQuery(document).ready(function($) {
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
+          var disqus_identifier = '/blog/2017/10/12/recommendations_using_lightFM_package/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2017/10/12/recommendations_using_lightFM_package/';
+          var disqus_title = 'Recommendations using lightFM package(draft)';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
