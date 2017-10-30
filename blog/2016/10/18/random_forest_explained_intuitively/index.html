@@ -1778,6 +1778,7 @@ jQuery(document).ready(function($) {
   <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
         rel="stylesheet" type="text/css">
 </head>
+
 <!-- For Google adsense-->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -1787,23 +1788,7 @@ jQuery(document).ready(function($) {
   });
 </script>
 
-<!-- For amazon.in affiliate widgets-->
-<!-- Commenting this for now.
 
-<SCRIPT charset="utf-8" type="text/javascript" src="http://ws-in.amazon-adsystem.com/widgets/q?rt=tf_ssw&ServiceVersion=20070822&MarketPlace=IN&ID=V20070822%2FIN%2Fmanishbarnwal-21%2F8003%2Fd5bc2180-6a05-4c5c-ad02-7780462fff62&Operation=GetScriptTemplate"> </SCRIPT> <NOSCRIPT><A rel="nofollow" HREF="http://ws-in.amazon-adsystem.com/widgets/q?rt=tf_ssw&ServiceVersion=20070822&MarketPlace=IN&ID=V20070822%2FIN%2Fmanishbarnwal-21%2F8003%2Fd5bc2180-6a05-4c5c-ad02-7780462fff62&Operation=NoScript">Amazon.in Widgets</A></NOSCRIPT>
-
--->
-
-<!-- For amazon.in affiliate banner-->
-<!-- Commenting for now
-<script type="text/javascript" language="javascript">
-      var aax_size='728x90';
-      var aax_pubname = 'manishbarnwal-21';
-      var aax_src='302';
-    </script>
-    <script type="text/javascript" language="javascript" src="http://c.amazon-adsystem.com/aax2/assoc.js"></script>
-
--->
 
 <body>
   <header role="banner"><hgroup>
@@ -1841,13 +1826,23 @@ jQuery(document).ready(function($) {
       <p class="meta"><time datetime="2016-10-18T08:00:00" pubdate>Oct 18, 2016</time></p>
 </header>
 
-  <div class="entry-content"><p>Random Forests algorithm has always fascinated me. I like how this algorithm can be easily explained to anyone without much hassle. One quick example, I use very frequently to explain the working of random forests is the way a company has multiple rounds of interview to hire a candidate. Let me elaborate.
+  <div class="entry-content"><p><img src="http://manishbarnwal.com/images/random_forest_explained/rf_pic.jpg" alt="Photo of a forest"
+width="1150" height="20">
 <br>
 <br>
-Say, you appeared for the position of Statistical analyst at WalmartLabs. Now like most of the companies, you don't just have one round of interview. You have multiple rounds of interviews. Each of these interviews is chaired by independent panels. Each panel assess the candidate separately and independently. Generally, even the questions asked in these interviews differ from each other. Randomness is important here.
+Random Forests algorithm has always fascinated me. I like how this algorithm can be easily explained to anyone without much hassle. One quick example, I use very frequently to explain the working of random forests is the way a company has multiple rounds of interview to hire a candidate. Let me elaborate.
 <br>
 <br>
-If you have heard about decision tree, then you are not very far from understanding what random forests are. Random forests is a forest of many decision trees. So you now understand why is it called forest.
+Say, you appeared for the position of Statistical analyst at WalmartLabs. Now like most of the companies, you don't just have one round of interview. You have multiple rounds of interviews. Each one of these interviews is chaired by independent panels. Each panel assesses the candidate separately and independently. Generally, even the questions asked in these interviews differ from each other. <strong>Randomness</strong> is important here.
+<br>
+<br>
+The other thing of utmost importance is <strong>diversity</strong>. The reason we have a panel of interviews is that we assume a committee of people generally takes better decision than a single individual. Now this committee is not any collection of people. We make sure that the interview panel is a little diversified in terms of topics to be covered in each interview, the type of questions asked, and many other details. You don't go about asking same question in each round of interviews.
+<br>
+<br>
+After having all the rounds of interviews, the final call whether to select or reject the candidate is based on the majority of the decision from each panel. If out of 5 panel of interviewers, 3 recommends a hire and two against a hire, we tend to go ahead with selecting the candidate. I hope you get the gist.
+<br>
+<br>
+If you have heard about decision tree, then you are not very far from understanding what random forests are. There are two keywords here - random and forests. Let us first understand what forest means. Random forests is a collection of many decision trees. Instead of relying on single decision tree, you build many decision trees say 100 of them. And you know what a collection of trees is called - a forest. So you now understand why is it called forest.
 <br>
 <br></p>
 <h3>Why is it called random then?</h3>
@@ -1855,7 +1850,7 @@ If you have heard about decision tree, then you are not very far from understand
 <p>There are two levels of randomness in this algorithm:</p>
 <ul>
 <li>
-<p><strong>At row level</strong>: Each of these decision trees gets a random sample of the training data (say 10%) i.e. each of these trees will be trained independently on 100 randomly chosen rows out of 1,000 rows of data</p>
+<p><strong>At row level</strong>: Each of these decision trees gets a random sample of the training data (say 10%) i.e. each of these trees will be trained independently on 100 randomly chosen rows out of 1,000 rows of data. Keep in mind that each of these decision trees is getting trained on 100 randomly chosen rows from the dataset i.e they are different from each other in terms of predictions.</p>
 </li>
 <li>
 <p><strong>At column level</strong>: The second level of randomness is introduced at the column level. Not all the columns are passed into training each of the decision trees. Say we want only 10% of columns to be sent to each tree. This means a randomly selected 3 column will be sent to each tree. So for first decision tree, may be column C1, C2 and C4 were chosen. The next DT will have C4, C5, C10 as chosen columns and so on.
@@ -1879,13 +1874,13 @@ With the advent of huge computational power at our disposal, we hardly think for
 <p><strong>Random forests doesn't train well on smaller datasets</strong> as it fails to pick on the pattern. To simplify, say we know that 1 pen costs INR 1, 2 pens cost INR 2, 3 pens cost INR 6. In this case linear regression will easily estimate the cost of 4 pens but random forests will fail to come up with a good estimate.</p>
 </li>
 <li>
-<p><strong>There is a problem of interpretability with random forest.</strong> You can't see or understand the relationship between the response and the independent variables. Understand that RF is a predictive tool and not a descriptive tool. You get variable importance but this may not suffice in many analysis of interests where the objective might be to see the relationship between response and the independent features.</p>
+<p><strong>There is a problem of interpretability with random forest.</strong> You can't see or understand the relationship between the response and the independent variables. Understand that random forest is a predictive tool and not a descriptive tool. You get variable importance but this may not suffice in many analysis of interests where the objective might be to see the relationship between response and the independent features.</p>
 </li>
 <li>
-<p>The <strong>time taken to train random forests</strong> may sometimes be too huge as you train multiple decision trees. Also, in case of categorical variable, the time complexity increases exponentially. For a categorical column with n levels, RF tries split at 2^n -1 points to find the maximal splitting point.</p>
+<p>The <strong>time taken to train random forests</strong> may sometimes be too huge as you train multiple decision trees. Also, in case of categorical variable, the time complexity increases exponentially. For a categorical column with n levels, RF tries split at 2^n -1 points to find the maximal splitting point. However, with the power of H2O we can now train random forests pretty fast. You may want to read about H2O at <strong><a href="http://manishbarnwal.com/blog/2017/03/28/h2o_with_r/">H2O in R explained</a></strong>.</p>
 </li>
 <li>
-<p>In case of regression problem, <strong>the range of values response variable can take</strong> is determine by the values already available in the training dataset. Unlike linear regression, RF can't take on value outside the training data.
+<p>In case of regression problem, <strong>the range of values response variable can take</strong> is determine by the values already available in the training dataset. Unlike linear regression, decision trees and hence random forest can't take values outside the training data.
 <br>
 <br></p>
 </li>
@@ -1893,16 +1888,17 @@ With the advent of huge computational power at our disposal, we hardly think for
 <h3>What are the advantages of using random forest?</h3>
 <ol>
 <li>
-<p>Since we are using multiple decision trees, <strong>the bias remains same as that of a single decision tree</strong>. However, the variance decreases and thus we decrease the chances of overfitting.</p>
+<p>Since we are using multiple decision trees, <strong>the bias remains same as that of a single decision tree</strong>. However, the variance decreases and thus we decrease the chances of overfitting. I have explained bias and variance intuitively at <strong><a href="http://manishbarnwal.com/blog/2017/02/08/the_curse_of_bias_and_variance/">The curse of bias and variance</a></strong>.</p>
 </li>
 <li>
-<p>When all you care about is the predictions and <strong>want a quick and dirty way-out</strong>, random forest comes to the rescue.
+<p>When all you care about is the predictions and <strong>want a quick and dirty way-out</strong>, random forest comes to the rescue. You don't have to worry much about the assumptions of the model or linearity in the dataset.
 <br>
 <br>
 I will add in the R code snippets as well to get an idea of how this is executed soon.
 <br>
 <br>
-Did you find the article useful? If you did, share your thoughts on the topic in the comments.</p>
+Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.
+<br></p>
 </li>
 </ol></div>
 <script type="text/javascript" language="javascript">
@@ -1946,6 +1942,12 @@ Did you find the article useful? If you did, share your thoughts on the topic in
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/07/12/yaadon_ki_chuskiya/">Yaadon ki chuskiya</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/06/05/lessons_learnt_from_3_years_of_job_at_walmart/">Top lessons I learned from 3 years at Walmart</a>
+      </li>
+      <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2017/05/30/music_in_my_life/">The essence of music in my life</a>
       </li>
       <li class="post">
@@ -1953,12 +1955,6 @@ Did you find the article useful? If you did, share your thoughts on the topic in
       </li>
       <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2017/05/15/markdown_commands_I_use_frequently/">Markdown commands I use frequently</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2017/05/15/tutorial_on_dplyr/">Tutorial on dplyr- a package for data manipulation in R</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2017/05/12/machine_learning_function_estimation/">The essence of machine learning is function estimation</a>
       </li>
     </ul>
   </section>
@@ -1976,7 +1972,7 @@ Did you find the article useful? If you did, share your thoughts on the topic in
 <!-- Commenting the tags section to remove the Tags part in the sidebar.
   <section>
   <h1>Tags</h1>
-    <a href="http://manishbarnwal.github.io/tag/data-science.html">data science</a>,    <a href="http://manishbarnwal.github.io/tag/office.html">office</a>,    <a href="http://manishbarnwal.github.io/tag/shell-commands.html">shell-commands</a>,    <a href="http://manishbarnwal.github.io/tag/increase-confidence.html">increase confidence</a>,    <a href="http://manishbarnwal.github.io/tag/big-data.html">big data</a>,    <a href="http://manishbarnwal.github.io/tag/hadoop.html">hadoop</a>,    <a href="http://manishbarnwal.github.io/tag/analytics.html">analytics</a>,    <a href="http://manishbarnwal.github.io/tag/bias.html">bias</a>,    <a href="http://manishbarnwal.github.io/tag/college.html">college</a>,    <a href="http://manishbarnwal.github.io/tag/hive.html">Hive</a>,    <a href="http://manishbarnwal.github.io/tag/learnings.html">learnings</a>,    <a href="http://manishbarnwal.github.io/tag/preparation.html">preparation</a>,    <a href="http://manishbarnwal.github.io/tag/auc.html">auc</a>,    <a href="http://manishbarnwal.github.io/tag/git.html">git</a>,    <a href="http://manishbarnwal.github.io/tag/vivim.html">vi/vim</a>,    <a href="http://manishbarnwal.github.io/tag/nostalgia.html">nostalgia</a>,    <a href="http://manishbarnwal.github.io/tag/coldplay.html">Coldplay</a>,    <a href="http://manishbarnwal.github.io/tag/interview.html">interview</a>,    <a href="http://manishbarnwal.github.io/tag/music.html">Music</a>,    <a href="http://manishbarnwal.github.io/tag/christmas.html">Christmas</a>,    <a href="http://manishbarnwal.github.io/tag/happy.html">happy</a>,    <a href="http://manishbarnwal.github.io/tag/overfitting.html">overfitting</a>,    <a href="http://manishbarnwal.github.io/tag/life.html">life</a>,    <a href="http://manishbarnwal.github.io/tag/roc.html">roc</a>,    <a href="http://manishbarnwal.github.io/tag/walmart.html">walmart</a>,    <a href="http://manishbarnwal.github.io/tag/miscellaneous.html">Miscellaneous</a>,    <a href="http://manishbarnwal.github.io/tag/statistics.html">statistics</a>,    <a href="http://manishbarnwal.github.io/tag/spark.html">spark</a>,    <a href="http://manishbarnwal.github.io/tag/thoughts.html">thoughts</a>,    <a href="http://manishbarnwal.github.io/tag/adversarial-validation.html">adversarial-validation</a>,    <a href="http://manishbarnwal.github.io/tag/github.html">github</a>,    <a href="http://manishbarnwal.github.io/tag/placement.html">placement</a>,    <a href="http://manishbarnwal.github.io/tag/career.html">career</a>,    <a href="http://manishbarnwal.github.io/tag/ml.html">ML</a>,    <a href="http://manishbarnwal.github.io/tag/womens-day.html">women's day</a>,    <a href="http://manishbarnwal.github.io/tag/random-forest.html">random forest</a>,    <a href="http://manishbarnwal.github.io/tag/r.html">R</a>,    <a href="http://manishbarnwal.github.io/tag/life-lessons.html">life lessons</a>,    <a href="http://manishbarnwal.github.io/tag/variance.html">variance</a>  </section>
+    <a href="http://manishbarnwal.github.io/tag/data-science.html">data science</a>,    <a href="http://manishbarnwal.github.io/tag/office.html">office</a>,    <a href="http://manishbarnwal.github.io/tag/shell-commands.html">shell-commands</a>,    <a href="http://manishbarnwal.github.io/tag/corporate-lessons.html">corporate lessons</a>,    <a href="http://manishbarnwal.github.io/tag/increase-confidence.html">increase confidence</a>,    <a href="http://manishbarnwal.github.io/tag/big-data.html">big data</a>,    <a href="http://manishbarnwal.github.io/tag/hadoop.html">hadoop</a>,    <a href="http://manishbarnwal.github.io/tag/analytics.html">analytics</a>,    <a href="http://manishbarnwal.github.io/tag/bias.html">bias</a>,    <a href="http://manishbarnwal.github.io/tag/college.html">college</a>,    <a href="http://manishbarnwal.github.io/tag/hive.html">Hive</a>,    <a href="http://manishbarnwal.github.io/tag/learnings.html">learnings</a>,    <a href="http://manishbarnwal.github.io/tag/preparation.html">preparation</a>,    <a href="http://manishbarnwal.github.io/tag/auc.html">auc</a>,    <a href="http://manishbarnwal.github.io/tag/git.html">git</a>,    <a href="http://manishbarnwal.github.io/tag/vivim.html">vi/vim</a>,    <a href="http://manishbarnwal.github.io/tag/nostalgia.html">nostalgia</a>,    <a href="http://manishbarnwal.github.io/tag/coldplay.html">Coldplay</a>,    <a href="http://manishbarnwal.github.io/tag/interview.html">interview</a>,    <a href="http://manishbarnwal.github.io/tag/music.html">Music</a>,    <a href="http://manishbarnwal.github.io/tag/bored.html">bored</a>,    <a href="http://manishbarnwal.github.io/tag/christmas.html">Christmas</a>,    <a href="http://manishbarnwal.github.io/tag/happy.html">happy</a>,    <a href="http://manishbarnwal.github.io/tag/overfitting.html">overfitting</a>,    <a href="http://manishbarnwal.github.io/tag/life.html">life</a>,    <a href="http://manishbarnwal.github.io/tag/roc.html">roc</a>,    <a href="http://manishbarnwal.github.io/tag/get-together.html">get-together</a>,    <a href="http://manishbarnwal.github.io/tag/miscellaneous.html">Miscellaneous</a>,    <a href="http://manishbarnwal.github.io/tag/job.html">job</a>,    <a href="http://manishbarnwal.github.io/tag/walmart.html">walmart</a>,    <a href="http://manishbarnwal.github.io/tag/statistics.html">statistics</a>,    <a href="http://manishbarnwal.github.io/tag/spark.html">spark</a>,    <a href="http://manishbarnwal.github.io/tag/thoughts.html">thoughts</a>,    <a href="http://manishbarnwal.github.io/tag/adversarial-validation.html">adversarial-validation</a>,    <a href="http://manishbarnwal.github.io/tag/github.html">github</a>,    <a href="http://manishbarnwal.github.io/tag/placement.html">placement</a>,    <a href="http://manishbarnwal.github.io/tag/career.html">career</a>,    <a href="http://manishbarnwal.github.io/tag/ml.html">ML</a>,    <a href="http://manishbarnwal.github.io/tag/womens-day.html">women's day</a>,    <a href="http://manishbarnwal.github.io/tag/random-forest.html">random forest</a>,    <a href="http://manishbarnwal.github.io/tag/r.html">R</a>,    <a href="http://manishbarnwal.github.io/tag/life-lessons.html">life lessons</a>,    <a href="http://manishbarnwal.github.io/tag/variance.html">variance</a>,    <a href="http://manishbarnwal.github.io/tag/friendship.html">friendship</a>  </section>
 -->
 
     <section>
@@ -2003,7 +1999,7 @@ Did you find the article useful? If you did, share your thoughts on the topic in
 
   </div>
 
-  
+
   <footer role="contentinfo"><p>
     Copyright &copy;  2014-2017  - Manish Barnwal -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
