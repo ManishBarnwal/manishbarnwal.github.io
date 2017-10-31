@@ -1827,7 +1827,7 @@ jQuery(document).ready(function($) {
 </header>
 
   <div class="entry-content"><p><img src="http://manishbarnwal.com/images/random_forest_explained/rf_pic.jpg" alt="Photo of a forest"
-style="width:1250px;height:200px;border:thin solid black;">
+style="width:1250px;height:250px;border:thin solid black;">
 <br>
 <br>
 Random Forests algorithm has always fascinated me. I like how this algorithm can be easily explained to anyone without much hassle. One quick example, I use very frequently to explain the working of random forests is the way a company has multiple rounds of interview to hire a candidate. Let me elaborate.
@@ -1877,7 +1877,7 @@ With the advent of huge computational power at our disposal, we hardly think for
 <p><strong>There is a problem of interpretability with random forest.</strong> You can't see or understand the relationship between the response and the independent variables. Understand that random forest is a predictive tool and not a descriptive tool. You get variable importance but this may not suffice in many analysis of interests where the objective might be to see the relationship between response and the independent features.</p>
 </li>
 <li>
-<p>The <strong>time taken to train random forests</strong> may sometimes be too huge as you train multiple decision trees. Also, in case of categorical variable, the time complexity increases exponentially. For a categorical column with n levels, RF tries split at 2^n -1 points to find the maximal splitting point. However, with the power of H2O we can now train random forests pretty fast. You may want to read about H2O at <strong><a href="http://manishbarnwal.com/blog/2017/03/28/h2o_with_r/">H2O in R explained</a></strong>.</p>
+<p>The <strong>time taken to train random forests</strong> may sometimes be too huge as you train multiple decision trees. Also, in case of categorical variable, the time complexity increases exponentially. For a categorical column with n levels, RF tries split at 2^n -1 points to find the maximal splitting point. However, with the power of H2O we can now train random forests pretty fast. You may want to read about H2O at <strong><a href="http://manishbarnwal.com/blog/2017/03/28/h2o_with_r/" target="_blank">H2O in R explained</a></strong>.</p>
 </li>
 <li>
 <p>In case of regression problem, <strong>the range of values response variable can take</strong> is determine by the values already available in the training dataset. Unlike linear regression, decision trees and hence random forest can't take values outside the training data.
@@ -1888,7 +1888,7 @@ With the advent of huge computational power at our disposal, we hardly think for
 <h3>What are the advantages of using random forest?</h3>
 <ol>
 <li>
-<p>Since we are using multiple decision trees, <strong>the bias remains same as that of a single decision tree</strong>. However, the variance decreases and thus we decrease the chances of overfitting. I have explained bias and variance intuitively at <strong><a href="http://manishbarnwal.com/blog/2017/02/08/the_curse_of_bias_and_variance/">The curse of bias and variance</a></strong>.</p>
+<p>Since we are using multiple decision trees, <strong>the bias remains same as that of a single decision tree</strong>. However, the variance decreases and thus we decrease the chances of overfitting. I have explained bias and variance intuitively at <strong><a href="http://manishbarnwal.com/blog/2017/02/08/the_curse_of_bias_and_variance/" target="_blank">The curse of bias and variance</a></strong>.</p>
 </li>
 <li>
 <p>When all you care about is the predictions and <strong>want a quick and dirty way-out</strong>, random forest comes to the rescue. You don't have to worry much about the assumptions of the model or linearity in the dataset.

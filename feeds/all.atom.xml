@@ -11,7 +11,7 @@ So, we first decided what should be the theme of the song. Without much discussi
 The song is in key of C but the song starts with G chord which gives a different sound to the song. You will see most of the songs in Bollywood, that are in C scale, starts with C-major chord or its relative minor - A-minor. And this sounds repetitive. So I thought of starting with G-major.
 &lt;br&gt;
 &lt;br&gt;
-This is what we came up with in four hours. Here is the recording of the song - &lt;a href="https://www.youtube.com/watch?v=6YfoCfvhpko" target="_blank"&gt;Yaadon Ki Chuskiya&lt;/a&gt;.
+This is what we came up with in four hours. Here is the recording of the song - &lt;strong&gt;&lt;a href="https://www.youtube.com/watch?v=6YfoCfvhpko" target="_blank"&gt;Yaadon Ki Chuskiya&lt;/a&gt;&lt;/strong&gt;.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Verse 1&lt;/strong&gt;&lt;/p&gt;
@@ -206,7 +206,7 @@ I started the session starting with what machine learning is. The types of learn
 &lt;blockquote&gt;
 &lt;p&gt;The essence of machine learning is function estimation.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;If you are interested to read more on this, click on this post. &lt;a href="http://manishbarnwal.com/blog/2017/05/12/machine_learning_function_estimation/" target="_blank"&gt;The essence of machine learning is function estimation&lt;/a&gt;.
+&lt;p&gt;If you are interested to read more on this, click on this post. &lt;strong&gt;&lt;a href="http://manishbarnwal.com/blog/2017/05/12/machine_learning_function_estimation/" target="_blank"&gt;The essence of machine learning is function estimation&lt;/a&gt;&lt;/strong&gt;.
 &lt;br&gt;
 &lt;br&gt;
 We then moved to explaining the simplest technique in machine learning - linear regression. We then moved to cover classification problems - where you have to classify an observation into one of the pre-defined classes. Talked about logistic regression, explained how in regression we try to regress the response variable with respect to the independent variables and how in logistic regression we regress the probability that the response variable will belong to class one.
@@ -218,7 +218,7 @@ In binary classification problem, logistic regression gives you the probability 
 What you want is the class to which the observations would fall? How do you convert this probabilities to get the classes? I posed this question to my colleagues. One of them said, this should come from business knowledge. How strict or lenient you want your model to become? Some said they would take any value greater than 0.5 as belonging to class 1 or else class 0. And few others were still contemplating.
 &lt;br&gt;
 &lt;br&gt;
-I am assuming you understand what TPR and FPR means. If not, you may want to visit this post. &lt;a href="http://manishbarnwal.com/blog/2016/09/26/three_letter_acronym_roc_and_auc/"&gt;TPR, FPR, ROC, and AUC&lt;/a&gt;
+I am assuming you understand what TPR and FPR means. If not, you may want to visit this post - &lt;strong&gt;&lt;a href="http://manishbarnwal.com/blog/2016/09/26/three_letter_acronym_roc_and_auc/" target="_blank"&gt;TPR, FPR, ROC, and AUC&lt;/a&gt;&lt;/strong&gt;.
 &lt;br&gt;
 &lt;br&gt;
 By this time, I had already explained them ROC curve and confusion matrix. We went back to ROC curve and explained how the ROC curve gives you the true positive rate, false positive rate corresponding to a probability cut-off. The graph looks something like below.&lt;/p&gt;
@@ -1198,7 +1198,7 @@ You should see this line- &lt;em&gt;R is connected to the H2O cluster along with
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Working with H2O&lt;/h3&gt;
-&lt;p&gt;There are two ways you can work with h2o. Either with the flow or writing the code in R editor. The h2o flow is like an user interface that can be accessed at &lt;a href="http://localhost:54321" target="_blank"&gt;http://localhost:54321&lt;/a&gt; after you have initiated the h2o instance using &lt;code&gt;h2o.init()&lt;/code&gt;. The other way is to write the code in R. The serious work gets done by writing the code in R.
+&lt;p&gt;There are two ways you can work with h2o. Either with the flow or writing the code in R editor. The h2o flow is like an user interface that can be accessed at &lt;strong&gt;&lt;a href="http://localhost:54321" target="_blank"&gt;http://localhost:54321&lt;/a&gt;&lt;/strong&gt; after you have initiated the h2o instance using &lt;code&gt;h2o.init()&lt;/code&gt;. The other way is to write the code in R. The serious work gets done by writing the code in R.
 &lt;br&gt;
 &lt;br&gt;
 I normally use h2o flow just to create the first base model to see how the base model is doing. H2o flow is easy to get started with. There is no coding involved here. The image below shows the look of h2o flow. You parse in your datasets using the &lt;strong&gt;Data&lt;/strong&gt; tab in the top right. The &lt;strong&gt;Model&lt;/strong&gt; tab gives you a list of models you can train on your parsed dataset. The flow is pretty easy to go through.
@@ -1229,7 +1229,7 @@ Almost all of the machine learning models are supported in H2o. Some of them bei
 &lt;p&gt;There are various independent features like &lt;em&gt;WorkStatus&lt;/em&gt;, &lt;em&gt;Residence_Region&lt;/em&gt;, &lt;em&gt;income&lt;/em&gt;, &lt;em&gt;Gender&lt;/em&gt;, &lt;em&gt;Unemployed10&lt;/em&gt;, &lt;em&gt;Alcohol_Consumption&lt;/em&gt; and a few others. There is a response column called &lt;em&gt;Happy&lt;/em&gt;. Your task is to classify a citizen as happy or not happy. I will write a follow up post that will involve the code for the above problem statement.
 &lt;br&gt;
 &lt;br&gt;
-As always, feedbacks and comments are welcomed. Share this with people who are interested in learning machine learning and data science. Let us talk more of Data Science.&lt;/p&gt;</summary><category term="big data"></category><category term="R"></category></entry><entry><title>An illustrated introduction to adversarial validation part 2</title><link href="http://manishbarnwal.github.io/blog/2017/02/16/introduction_to_adversarial_validation/" rel="alternate"></link><updated>2017-02-16T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-16:blog/2017/02/16/introduction_to_adversarial_validation/</id><summary type="html">&lt;p&gt;In the last post we talked about the &lt;a href="http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/" target="_blank"&gt;idea of adversarial validation&lt;/a&gt; and how it helps the problem when your validation set result doesn't comply with that of test set result. In this post, I will share the R code to help achieve the idea of adversarial validation. The data used would be from &lt;a href="https://numer.ai/" target="_blank"&gt;Numerai competition&lt;/a&gt;.
+As always, feedbacks and comments are welcomed. Share this with people who are interested in learning machine learning and data science. Let us talk more of Data Science.&lt;/p&gt;</summary><category term="big data"></category><category term="R"></category></entry><entry><title>An illustrated introduction to adversarial validation part 2</title><link href="http://manishbarnwal.github.io/blog/2017/02/16/introduction_to_adversarial_validation/" rel="alternate"></link><updated>2017-02-16T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-16:blog/2017/02/16/introduction_to_adversarial_validation/</id><summary type="html">&lt;p&gt;In the last post we talked about the &lt;strong&gt;&lt;a href="http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/" target="_blank"&gt;idea of adversarial validation&lt;/a&gt;&lt;/strong&gt; and how it helps the problem when your validation set result doesn't comply with that of test set result. In this post, I will share the R code to help achieve the idea of adversarial validation. The data used would be from &lt;strong&gt;&lt;a href="https://numer.ai/" target="_blank"&gt;Numerai competition&lt;/a&gt;&lt;/strong&gt;.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Loading required packages&lt;/h3&gt;
@@ -1364,7 +1364,7 @@ write.csv(submission, 'submission.csv', row.names = F, quote = F)
 The predictions on test data shows a LogLoss of 0.694 which is same as that of the validation set. We can now hope to have same result on both validation set and test set.
 &lt;br&gt;
 &lt;br&gt;
-Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category><category term="overfitting"></category><category term="adversarial-validation"></category></entry><entry><title>An illustrated introduction to adversarial validation part 2</title><link href="http://manishbarnwal.github.io/blog/2017/02/16/introduction_to_adversarial_validation/" rel="alternate"></link><updated>2017-02-16T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-16:blog/2017/02/16/introduction_to_adversarial_validation/</id><summary type="html">&lt;p&gt;In the last post we talked about the &lt;a href="http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/" target="_blank"&gt;idea of adversarial validation&lt;/a&gt; and how it helps the problem when your validation set result doesn't comply with that of test set result. In this post, I will share the R code to help achieve the idea of adversarial validation. The data used would be from &lt;a href="https://numer.ai/" target="_blank"&gt;Numerai competition&lt;/a&gt;.
+Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category><category term="overfitting"></category><category term="adversarial-validation"></category></entry><entry><title>An illustrated introduction to adversarial validation part 2</title><link href="http://manishbarnwal.github.io/blog/2017/02/16/introduction_to_adversarial_validation/" rel="alternate"></link><updated>2017-02-16T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-16:blog/2017/02/16/introduction_to_adversarial_validation/</id><summary type="html">&lt;p&gt;In the last post we talked about the &lt;strong&gt;&lt;a href="http://manishbarnwal.com/blog/2017/02/15/introduction_to_adversarial_validation/" target="_blank"&gt;idea of adversarial validation&lt;/a&gt;&lt;/strong&gt; and how it helps the problem when your validation set result doesn't comply with that of test set result. In this post, I will share the R code to help achieve the idea of adversarial validation. The data used would be from &lt;strong&gt;&lt;a href="https://numer.ai/" target="_blank"&gt;Numerai competition&lt;/a&gt;&lt;/strong&gt;.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Loading required packages&lt;/h3&gt;
@@ -1731,7 +1731,7 @@ The use of validation data is to understand how the model is expected to perform
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;The solution&lt;/h3&gt;
-&lt;p&gt;The solution is &lt;strong&gt;adversarial validation&lt;/strong&gt;. I got to know about this recently when I started participating in &lt;a href="https://numer.ai/" target="_blank"&gt;Numerai&lt;/a&gt; competition and read about this technique on &lt;a href="www.fastml.com" target="_blank"&gt;fastml&lt;/a&gt;. Here's how it is done.&lt;/p&gt;
+&lt;p&gt;The solution is &lt;strong&gt;adversarial validation&lt;/strong&gt;. I got to know about this recently when I started participating in &lt;em&gt;&lt;a href="https://numer.ai/" target="_blank"&gt;Numerai&lt;/a&gt;&lt;/em&gt; competition and read about this technique on &lt;em&gt;&lt;a href="www.fastml.com" target="_blank"&gt;fastml&lt;/a&gt;&lt;/em&gt;. Here's how it is done.&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 1. &lt;strong&gt;Build a classifier to distinguish between training and test data&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Combine your train and test data into one data. Create a response variable say isTest and assign it as 0 to all the rows in training data and 1 to all the rows in test data. Now your task is to build a classification model that will distinguish between the training and test data. This could be any classification model - logistic or random forest.&lt;/p&gt;
@@ -1743,7 +1743,7 @@ The use of validation data is to understand how the model is expected to perform
 &lt;p&gt;The starting few rows are now those rows of training data that resembles the most to test data. Take the starting few rows say 30% as your validation set. And the remaining as your train data to train your model.
 &lt;br&gt;
 &lt;br&gt;
-Now, the accuracy metrics on your validation set should be similar to that on the test data. If your model works well on validation data, it should work well on test data. If you are interested in the implementation of what we just talked, head out to &lt;em&gt;&lt;a href="http://manishbarnwal.com/blog/2017/02/16/introduction_to_adversarial_validation/"&gt;this post&lt;/a&gt;&lt;/em&gt; for the part 2 where the code is written in R.
+Now, the accuracy metrics on your validation set should be similar to that on the test data. If your model works well on validation data, it should work well on test data. If you are interested in the implementation of what we just talked, head out to &lt;strong&gt;&lt;a href="http://manishbarnwal.com/blog/2017/02/16/introduction_to_adversarial_validation/" target="_blank"&gt;this post&lt;/a&gt;&lt;/strong&gt; for the part 2 where the code is written in R.
 &lt;br&gt;
 &lt;br&gt;
 Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category><category term="overfitting"></category><category term="adversarial-validation"></category></entry><entry><title>An illustrated introduction to adversarial validation part 1</title><link href="http://manishbarnwal.github.io/blog/2017/02/15/introduction_to_adversarial_validation/" rel="alternate"></link><updated>2017-02-15T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-15:blog/2017/02/15/introduction_to_adversarial_validation/</id><summary type="html">&lt;p&gt;You'd have heard about cross-validation - a common technique used in data-science process to avoid overfitting and many a times to tune the optimal parameters. Overfitting is when the model does well on training data but fails drastically on test data. The reason could be one of the following:&lt;/p&gt;
@@ -1768,7 +1768,7 @@ The use of validation data is to understand how the model is expected to perform
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;The solution&lt;/h3&gt;
-&lt;p&gt;The solution is &lt;strong&gt;adversarial validation&lt;/strong&gt;. I got to know about this recently when I started participating in &lt;a href="https://numer.ai/" target="_blank"&gt;Numerai&lt;/a&gt; competition and read about this technique on &lt;a href="www.fastml.com" target="_blank"&gt;fastml&lt;/a&gt;. Here's how it is done.&lt;/p&gt;
+&lt;p&gt;The solution is &lt;strong&gt;adversarial validation&lt;/strong&gt;. I got to know about this recently when I started participating in &lt;em&gt;&lt;a href="https://numer.ai/" target="_blank"&gt;Numerai&lt;/a&gt;&lt;/em&gt; competition and read about this technique on &lt;em&gt;&lt;a href="www.fastml.com" target="_blank"&gt;fastml&lt;/a&gt;&lt;/em&gt;. Here's how it is done.&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 1. &lt;strong&gt;Build a classifier to distinguish between training and test data&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Combine your train and test data into one data. Create a response variable say isTest and assign it as 0 to all the rows in training data and 1 to all the rows in test data. Now your task is to build a classification model that will distinguish between the training and test data. This could be any classification model - logistic or random forest.&lt;/p&gt;
@@ -1780,7 +1780,7 @@ The use of validation data is to understand how the model is expected to perform
 &lt;p&gt;The starting few rows are now those rows of training data that resembles the most to test data. Take the starting few rows say 30% as your validation set. And the remaining as your train data to train your model.
 &lt;br&gt;
 &lt;br&gt;
-Now, the accuracy metrics on your validation set should be similar to that on the test data. If your model works well on validation data, it should work well on test data. If you are interested in the implementation of what we just talked, head out to &lt;em&gt;&lt;a href="http://manishbarnwal.com/blog/2017/02/16/introduction_to_adversarial_validation/"&gt;this post&lt;/a&gt;&lt;/em&gt; for the part 2 where the code is written in R.
+Now, the accuracy metrics on your validation set should be similar to that on the test data. If your model works well on validation data, it should work well on test data. If you are interested in the implementation of what we just talked, head out to &lt;strong&gt;&lt;a href="http://manishbarnwal.com/blog/2017/02/16/introduction_to_adversarial_validation/" target="_blank"&gt;this post&lt;/a&gt;&lt;/strong&gt; for the part 2 where the code is written in R.
 &lt;br&gt;
 &lt;br&gt;
 Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;</summary><category term="ML"></category><category term="data science"></category><category term="overfitting"></category><category term="adversarial-validation"></category></entry><entry><title>The curse of bias and variance [draft]</title><link href="http://manishbarnwal.github.io/blog/2017/02/08/the_curse_of_bias_and_variance/" rel="alternate"></link><updated>2017-02-08T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-08:blog/2017/02/08/the_curse_of_bias_and_variance/</id><summary type="html">&lt;p&gt;Statistics is the field of study where we try to draw conclusions about the population from a sample. Why do we talk about sample? Why can't we get the conclusions about the population directly from the population? Let me illustrate this by an example.
@@ -2043,7 +2043,7 @@ Without much thought, I picked up my notebook and started scribbling few lines. 
 &lt;br&gt;
 &lt;br&gt;
 Here is how the song sounds. Give it a listen &lt;strong&gt;&lt;a href="https://www.youtube.com/watch?v=8NDH2L5R27w" target="_blank"&gt;here&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;</summary><category term="Coldplay"></category></entry><entry><title>Random Forest explained intuitively</title><link href="http://manishbarnwal.github.io/blog/2016/10/18/random_forest_explained_intuitively/" rel="alternate"></link><updated>2016-10-18T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-18:blog/2016/10/18/random_forest_explained_intuitively/</id><summary type="html">&lt;p&gt;&lt;img src="http://manishbarnwal.com/images/random_forest_explained/rf_pic.jpg" alt="Photo of a forest"
-style="width:1250px;height:200px;border:thin solid black;"&gt;
+style="width:1250px;height:250px;border:thin solid black;"&gt;
 &lt;br&gt;
 &lt;br&gt;
 Random Forests algorithm has always fascinated me. I like how this algorithm can be easily explained to anyone without much hassle. One quick example, I use very frequently to explain the working of random forests is the way a company has multiple rounds of interview to hire a candidate. Let me elaborate.
@@ -2093,7 +2093,7 @@ With the advent of huge computational power at our disposal, we hardly think for
 &lt;p&gt;&lt;strong&gt;There is a problem of interpretability with random forest.&lt;/strong&gt; You can't see or understand the relationship between the response and the independent variables. Understand that random forest is a predictive tool and not a descriptive tool. You get variable importance but this may not suffice in many analysis of interests where the objective might be to see the relationship between response and the independent features.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;The &lt;strong&gt;time taken to train random forests&lt;/strong&gt; may sometimes be too huge as you train multiple decision trees. Also, in case of categorical variable, the time complexity increases exponentially. For a categorical column with n levels, RF tries split at 2^n -1 points to find the maximal splitting point. However, with the power of H2O we can now train random forests pretty fast. You may want to read about H2O at &lt;strong&gt;&lt;a href="http://manishbarnwal.com/blog/2017/03/28/h2o_with_r/"&gt;H2O in R explained&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;time taken to train random forests&lt;/strong&gt; may sometimes be too huge as you train multiple decision trees. Also, in case of categorical variable, the time complexity increases exponentially. For a categorical column with n levels, RF tries split at 2^n -1 points to find the maximal splitting point. However, with the power of H2O we can now train random forests pretty fast. You may want to read about H2O at &lt;strong&gt;&lt;a href="http://manishbarnwal.com/blog/2017/03/28/h2o_with_r/" target="_blank"&gt;H2O in R explained&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;In case of regression problem, &lt;strong&gt;the range of values response variable can take&lt;/strong&gt; is determine by the values already available in the training dataset. Unlike linear regression, decision trees and hence random forest can't take values outside the training data.
@@ -2104,7 +2104,7 @@ With the advent of huge computational power at our disposal, we hardly think for
 &lt;h3&gt;What are the advantages of using random forest?&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Since we are using multiple decision trees, &lt;strong&gt;the bias remains same as that of a single decision tree&lt;/strong&gt;. However, the variance decreases and thus we decrease the chances of overfitting. I have explained bias and variance intuitively at &lt;strong&gt;&lt;a href="http://manishbarnwal.com/blog/2017/02/08/the_curse_of_bias_and_variance/"&gt;The curse of bias and variance&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Since we are using multiple decision trees, &lt;strong&gt;the bias remains same as that of a single decision tree&lt;/strong&gt;. However, the variance decreases and thus we decrease the chances of overfitting. I have explained bias and variance intuitively at &lt;strong&gt;&lt;a href="http://manishbarnwal.com/blog/2017/02/08/the_curse_of_bias_and_variance/" target="_blank"&gt;The curse of bias and variance&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;When all you care about is the predictions and &lt;strong&gt;want a quick and dirty way-out&lt;/strong&gt;, random forest comes to the rescue. You don't have to worry much about the assumptions of the model or linearity in the dataset.
@@ -2554,7 +2554,7 @@ I will make an attempt of the same soon and will share it on this space. Keep le
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Ctrl + a&lt;/strong&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;   Brings to the beginning of the line&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Ctrl + e&lt;/strong&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;   Brings to the end of the line&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="vi/vim"></category></entry><entry><title>Hadoop Streaming</title><link href="http://manishbarnwal.github.io/blog/2016/08/29/hadoop_streaming/" rel="alternate"></link><updated>2016-08-29T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-08-29:blog/2016/08/29/hadoop_streaming/</id><summary type="html">&lt;p&gt;A few days ago, I had written a post on &lt;strong&gt;&lt;a href="http://manishbarnwal.com/blog/2016/06/29/big_data_problem/" target="_blank"&gt;The Big Data Problem&lt;/a&gt;&lt;/strong&gt; which attempted to understand why we need big data and what the fuss is all about. You may want to read it &lt;a href="http://manishbarnwal.com/blog/2016/06/29/big_data_problem/" target="_blank"&gt;here&lt;/a&gt;.
+&lt;/ul&gt;</summary><category term="vi/vim"></category></entry><entry><title>Hadoop Streaming</title><link href="http://manishbarnwal.github.io/blog/2016/08/29/hadoop_streaming/" rel="alternate"></link><updated>2016-08-29T07:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-08-29:blog/2016/08/29/hadoop_streaming/</id><summary type="html">&lt;p&gt;A few days ago, I had written a post on &lt;strong&gt;&lt;a href="http://manishbarnwal.com/blog/2016/06/29/big_data_problem/" target="_blank"&gt;The Big Data Problem&lt;/a&gt;&lt;/strong&gt; which attempted to understand why we need big data and what the fuss is all about. You may want to read it &lt;strong&gt;&lt;a href="http://manishbarnwal.com/blog/2016/06/29/big_data_problem/" target="_blank"&gt;here&lt;/a&gt;&lt;/strong&gt;.
 &lt;br&gt;
 &lt;br&gt;
 Having understood why we need big data, let’s understand how we can go about analyzing the same. What is the way out to do analysis on big data? The solution is Streaming…Hadoop Streaming. &lt;em&gt;James Bond style&lt;/em&gt;
@@ -2607,7 +2607,7 @@ Assume we have 100 machines in our cluster. What we do next is pretty intuitive.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Example where Hadoop Streaming won’t work&lt;/h3&gt;
-&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/K-means_clustering" target="_blank"&gt;Clustering&lt;/a&gt;. In clustering we need to find the hidden patterns that are there in the complete dataset. A smaller portion of the dataset can’t be sent to a machine to do the analysis because the purpose will not be served.
+&lt;p&gt;&lt;em&gt;&lt;a href="https://en.wikipedia.org/wiki/K-means_clustering" target="_blank"&gt;Clustering&lt;/a&gt;&lt;/em&gt;. In clustering we need to find the hidden patterns that are there in the complete dataset. A smaller portion of the dataset can’t be sent to a machine to do the analysis because the purpose will not be served.
 &lt;br&gt;
 &lt;br&gt;
 I think this is worth mentioning.&lt;/p&gt;
