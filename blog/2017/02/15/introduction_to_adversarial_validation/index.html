@@ -1848,7 +1848,7 @@ The use of validation data is to understand how the model is expected to perform
 <br>
 <br></p>
 <h3>The solution</h3>
-<p>The solution is <strong>adversarial validation</strong>. I got to know about this recently when I started participating in <a href="https://numer.ai/">Numerai</a> competition and read about this technique on fastml. Here's how it is done.</p>
+<p>The solution is <strong>adversarial validation</strong>. I got to know about this recently when I started participating in <a href="https://numer.ai/" target="_blank">Numerai</a> competition and read about this technique on <a href="www.fastml.com" target="_blank">fastml</a>. Here's how it is done.</p>
 <p><br>
 1. <strong>Build a classifier to distinguish between training and test data</strong></p>
 <p>Combine your train and test data into one data. Create a response variable say isTest and assign it as 0 to all the rows in training data and 1 to all the rows in test data. Now your task is to build a classification model that will distinguish between the training and test data. This could be any classification model - logistic or random forest.</p>
