@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/life.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-06-05T00:00:00-03:00</updated><entry><title>Top lessons I learned from 3 years at Walmart</title><link href="http://manishbarnwal.github.io/blog/2017/06/05/lessons_learnt_from_3_years_of_job_at_walmart/" rel="alternate"></link><updated>2017-06-05T00:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-06-05:blog/2017/06/05/lessons_learnt_from_3_years_of_job_at_walmart/</id><summary type="html">&lt;p&gt;&lt;img src="http://manishbarnwal.com/images/life/top_lessons_walmart/life_lessons1.jpg" alt="Photo of life lessons"
-style="width:1150px;height:200px;"&gt;
+style="width:1200px;height:200px;border:thin solid black;"&gt;
 &lt;br&gt;
 &lt;br&gt;
 Having graduated from college, I joined WalmartLabs as Statistical analyst in the year 2014. We were a batch of four freshers, all from different colleges — one from IISc. Bangalore, two from ISI Kolkata, and I from IIT Kharagpur. We were the first batch of freshers to join the data science team. There were three seniors to guide us through the on-boarding formalities and getting to know the Walmart systems.
