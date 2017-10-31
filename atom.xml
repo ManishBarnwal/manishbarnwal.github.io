@@ -2,16 +2,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-07-12T00:00:00-03:00</updated><entry><title>Yaadon ki chuskiya</title><link href="http://manishbarnwal.github.io/blog/2017/07/12/yaadon_ki_chuskiya/" rel="alternate"></link><updated>2017-07-12T00:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-07-12:blog/2017/07/12/yaadon_ki_chuskiya/</id><summary type="html">&lt;p&gt;Recently, my friend, Tushar had come to Bangalore to visit me and Rahul before he left for the US for his Masters. He was here for a weekend. We intended to visit places around Bangalore. And we ended up visiting Lal Bagh. I know you are judging me right now. Who goes to Lal Bagh with friends! I had the same thought until I visited this place. Lal Bagh is beautiful and serene. This place is so under-rated. Go there in morning and you will love the place.
 &lt;br&gt;
 &lt;br&gt;
-Without digressing further, let us talk about how we managed to write a song, play guitar to it, record it on phone and upload it on Youtube. On a Saturday evening, four of us were getting bored. We had just come enjoying our tea from the tea-stall outside my apartment. Tea is important here. See, we were already bored. We didn't have any plans for the night as well. All of us were seated in the room when we thought of writing a song. Ahh, it may sound a little weird but I have done this before. I like writing lyrics of a song at random times. 
+Without digressing further, let us talk about how we managed to write a song, play guitar to it, record it on phone and upload it on Youtube. On a Saturday evening, four of us were getting bored. We had just come enjoying our tea from the tea-stall outside my apartment. Tea is important here. See, we were already bored. We didn't have any plans for the night as well. All of us were seated in the room when we thought of writing a song. Ahh, it may sound a little weird but I have done this before. I like writing lyrics of a song at random times.
 &lt;br&gt;
 &lt;br&gt;
-So, we first decided what should be the theme of the song. Without much discussion, we all agreed on friendship. Since Tushar was leaving for the US, all our thoughts started moving towards that direction. How would he feel after a year when he is seated in a room far from his country. Rahul was the one mostly coming up with the important lines. Dipu and I were mostly into the guitar deciding the music and the lead. Tushar was mostly confused amongst all this. Fidgeting with his mobile. He ended up playing the egg-shaker. 
+So, we first decided what should be the theme of the song. Without much discussion, we all agreed on friendship. Since Tushar was leaving for the US, all our thoughts started moving towards that direction. How would he feel after a year when he is seated in a room far from his country. Rahul was the one mostly coming up with the important lines. Dipu and I were mostly into the guitar deciding the music and the lead. Tushar was mostly confused amongst all this. Fidgeting with his mobile. He ended up playing the egg-shaker.
 &lt;br&gt;
 &lt;br&gt;
 The song is in key of C but the song starts with G chord which gives a different sound to the song. You will see most of the songs in Bollywood, that are in C scale, starts with C-major chord or its relative minor - A-minor. And this sounds repetitive. So I thought of starting with G-major.
 &lt;br&gt;
 &lt;br&gt;
-This is what we came up with in four hours. Here is the recording of the song - &lt;a href="https://www.youtube.com/watch?v=6YfoCfvhpko"&gt;Yaadon Ki Chuskiya&lt;/a&gt;.
+This is what we came up with in four hours. Here is the recording of the song - &lt;a href="https://www.youtube.com/watch?v=6YfoCfvhpko" target="_blank"&gt;Yaadon Ki Chuskiya&lt;/a&gt;.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Verse 1&lt;/strong&gt;&lt;/p&gt;
@@ -26,7 +26,7 @@ Humm once... &lt;br&gt;
 Yaad aati hai...bas yaad aati hai... &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
-&lt;strong&gt;Humming&lt;/strong&gt; &lt;/p&gt;
+&lt;strong&gt;Humming&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Hmmm...la la la la la... &lt;br&gt;
 Hmmm...la la la... &lt;br&gt;
 &lt;br&gt;
@@ -45,7 +45,7 @@ Pura... phir q adhura &lt;br&gt;&lt;/p&gt;
 Pura... phir kyu adhura &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
-&lt;strong&gt;Humming&lt;/strong&gt; &lt;/p&gt;
+&lt;strong&gt;Humming&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Hmmm...la la la la la... &lt;br&gt;
 Hmmm...la la la... &lt;br&gt;
 &lt;br&gt;
@@ -59,7 +59,7 @@ Hmmm...la la la... &lt;br&gt;
 Yaad...aati hai...bas yaad aati hai... &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
-&lt;strong&gt;Humming&lt;/strong&gt; &lt;/p&gt;
+&lt;strong&gt;Humming&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Hmmm...la la la... &lt;br&gt;
 Hmmm...la la la... &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
@@ -206,7 +206,7 @@ I started the session starting with what machine learning is. The types of learn
 &lt;blockquote&gt;
 &lt;p&gt;The essence of machine learning is function estimation.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;If you are interested to read more on this, click on this post. &lt;a href="http://manishbarnwal.com/blog/2017/05/12/machine_learning_function_estimation/"&gt;The essence of machine learning is function estimation&lt;/a&gt;.
+&lt;p&gt;If you are interested to read more on this, click on this post. &lt;a href="http://manishbarnwal.com/blog/2017/05/12/machine_learning_function_estimation/" target="_blank"&gt;The essence of machine learning is function estimation&lt;/a&gt;.
 &lt;br&gt;
 &lt;br&gt;
 We then moved to explaining the simplest technique in machine learning - linear regression. We then moved to cover classification problems - where you have to classify an observation into one of the pre-defined classes. Talked about logistic regression, explained how in regression we try to regress the response variable with respect to the independent variables and how in logistic regression we regress the probability that the response variable will belong to class one.
@@ -1198,7 +1198,7 @@ You should see this line- &lt;em&gt;R is connected to the H2O cluster along with
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Working with H2O&lt;/h3&gt;
-&lt;p&gt;There are two ways you can work with h2o. Either with the flow or writing the code in R editor. The h2o flow is like an user interface that can be accessed at &lt;a href="http://localhost:54321"&gt;http://localhost:54321&lt;/a&gt; after you have initiated the h2o instance using &lt;code&gt;h2o.init()&lt;/code&gt;. The other way is to write the code in R. The serious work gets done by writing the code in R.
+&lt;p&gt;There are two ways you can work with h2o. Either with the flow or writing the code in R editor. The h2o flow is like an user interface that can be accessed at &lt;a href="http://localhost:54321" target="_blank"&gt;http://localhost:54321&lt;/a&gt; after you have initiated the h2o instance using &lt;code&gt;h2o.init()&lt;/code&gt;. The other way is to write the code in R. The serious work gets done by writing the code in R.
 &lt;br&gt;
 &lt;br&gt;
 I normally use h2o flow just to create the first base model to see how the base model is doing. H2o flow is easy to get started with. There is no coding involved here. The image below shows the look of h2o flow. You parse in your datasets using the &lt;strong&gt;Data&lt;/strong&gt; tab in the top right. The &lt;strong&gt;Model&lt;/strong&gt; tab gives you a list of models you can train on your parsed dataset. The flow is pretty easy to go through.
@@ -1871,7 +1871,7 @@ Without much thought, I picked up my notebook and started scribbling few lines. 
 &lt;br&gt;
 &lt;br&gt;
 Here is how the song sounds. Give it a listen &lt;a href="https://www.youtube.com/watch?v=8NDH2L5R27w"&gt;here&lt;/a&gt;.&lt;/p&gt;</summary><category term="Coldplay"></category></entry><entry><title>Random Forest explained intuitively</title><link href="http://manishbarnwal.github.io/blog/2016/10/18/random_forest_explained_intuitively/" rel="alternate"></link><updated>2016-10-18T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2016-10-18:blog/2016/10/18/random_forest_explained_intuitively/</id><summary type="html">&lt;p&gt;&lt;img src="http://manishbarnwal.com/images/random_forest_explained/rf_pic.jpg" alt="Photo of a forest"
-width="1150" height="20"&gt;
+style="width:1250px;height:200px;border:thin solid black;"&gt;
 &lt;br&gt;
 &lt;br&gt;
 Random Forests algorithm has always fascinated me. I like how this algorithm can be easily explained to anyone without much hassle. One quick example, I use very frequently to explain the working of random forests is the way a company has multiple rounds of interview to hire a candidate. Let me elaborate.
