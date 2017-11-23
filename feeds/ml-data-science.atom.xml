@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/ml-data-science.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-11-23T08:00:00-02:00</updated><entry><title>Common docker commands</title><link href="http://manishbarnwal.github.io/blog/2017/11/23/common_docker_commands/" rel="alternate"></link><updated>2017-11-23T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-11-23:blog/2017/11/23/common_docker_commands/</id><summary type="html">&lt;p&gt;I recently got to know about dockers. And I love it. For those who don't know what dockers are. Here it is. Dockers help in software development in isolated frameworks. Say, you are building an application named &lt;em&gt;epsilon-X&lt;/em&gt;. &lt;em&gt;epsilon-X&lt;/em&gt; relies on packages like numpy, scipy, pandas, other services, and software. Either you install each of these packages on your machine or you create an environment that has all these required packages along with the suitable versions. Docker helps you create that environment so that you don't face the issues that it works in dev environment but fails in the production environment.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/ml-data-science.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-11-23T08:00:00-02:00</updated><entry><title>Common docker commands</title><link href="http://manishbarnwal.github.io/blog/2017/11/23/common_docker_commands/" rel="alternate"></link><updated>2017-11-23T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-11-23:blog/2017/11/23/common_docker_commands/</id><summary type="html">&lt;p&gt;&lt;img src="http://manishbarnwal.com/images/ml-data-science/docker/docker.png" alt="Photo of docker"
+style="width:1200px;height:200px;border:thin solid black;"&gt;
 &lt;br&gt;
 &lt;br&gt;
-Docker ensures that you don't have to worry about the versions of the packages needed for software development. Many times we face issues like &lt;em&gt;it works on my machine, not sure why it is not working on your machine&lt;/em&gt;. And reasons for that could be the difference in versions of packages in the machines. Docker helps you abate such issues. Docker automates the repetitive tasks of setting up and configuring development environments so that developers can focus on their core task of building software.
+I recently got to know about dockers. And I love it. For those who don't know what dockers are. Here it is. Dockers help in software development in isolated frameworks.
+&lt;br&gt;
+&lt;br&gt;
+Say, you are building an application named &lt;em&gt;epsilon-X&lt;/em&gt;. &lt;em&gt;epsilon-X&lt;/em&gt; relies on packages like numpy, scipy, pandas, other services, and software. Either you install each of these packages on your machine or you create an environment that has all these required packages along with the suitable versions. Docker helps you create that environment so that you don't face the issues like it works in dev environment but fails in the production environment.
+&lt;br&gt;
+&lt;br&gt;
+Docker ensures that you don't have to worry about the versions of the packages needed for software development. Many times we face issues like &lt;em&gt;it works on my machine, not sure why it is not working on your machine&lt;/em&gt;. And reasons for that could be the difference in versions of packages in the machines. Docker helps you abate such issues.
+&lt;br&gt;
+&lt;br&gt;
+Docker automates the repetitive tasks of setting up and configuring development environments so that developers can focus on their core task of building software.
 &lt;br&gt;
 &lt;br&gt;
 So basically docker is like an isolated machine (read environment) that has all the required packages and services for your software to run.
@@ -10,85 +20,97 @@ So basically docker is like an isolated machine (read environment) that has all 
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Some docker associated terms&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Docker file
-Docker file is a few lines of code that keeps information about packages and softwares to install. This docker file creates the docker image which sits on top of the virtual machine. There are many containers that run in isolation. Think of each container as a bundle of the packages and softwares required to run the application you want to run.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Containers
-Containers are like a group of packages bundled together. Each container has its own space and does not delve into the outside of its space. A docker can have many containers- each container having a different bundle of packages.&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Docker file&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;I have already talked about the use cases of docker but if you still want to know more about docker, there are a plethora of resources available online. Let us now talk about some of the important docker commands.
+&lt;p&gt;Docker file is a few lines of code that keeps information about packages and softwares to install. This docker file creates the docker image which sits on top of the virtual machine. There are many containers that run in isolation. Think of each container as a bundle of the packages and softwares required to run the application you want to run.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Containers&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Containers are like a group of packages bundled together. Each container has its own space and does not delve into the outside of its space. A docker can have many containers- each container having a different bundle of packages.
+&lt;br&gt;
+&lt;br&gt;
+I have already talked about the use cases of docker but if you still want to know more about docker, there are a plethora of resources available online. Let us now talk about some of the important docker commands.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Common docker commands&lt;/h3&gt;
-&lt;p&gt;I am assuming you have your docker set up properly and it is running as expected.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;docker-compose up&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;docker-compose up&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Once you have the docker-file base, you can build the docker and up the containers by typing&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;docker&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;compose&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;build&lt;/span&gt;
+&lt;span class="cp"&gt;# Make sure you run the above command from the folder that has the Docker file&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Make sure you run the above command from the folder that has the Docker file.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;docker images&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;docker images&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Lists all the docker images running; it also lists all the containers running.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;docker&lt;/span&gt; &lt;span class="n"&gt;images&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Lists all the docker images running; it also lists all the containers running.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;docker ps&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;docker ps&lt;/strong&gt;
+Lists all the containers running for the docker image.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;docker&lt;/span&gt; &lt;span class="n"&gt;ps&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Lists all the containers running for the docker image. The list may look something like this:
-I don't have it with me now. I will have to create an instance on AWS and I am being lazy. I will update this soon.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;docker-compose down&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;docker-compose down&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This will shut down the containers&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;docker&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;compose&lt;/span&gt; &lt;span class="n"&gt;down&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This will shut down the containers&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;docker restart&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;docker restart&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This will restart the containers of the docker image&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;docker&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This will restart the containers of the docker image&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;docker logs&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;docker&lt;/span&gt; &lt;span class="n"&gt;logs&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;docker logs&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;If you want to get the logs of processes running on the worker or master, you can do so by using&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;docker&lt;/span&gt; &lt;span class="n"&gt;logs&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;docker_worker_1&lt;/span&gt;
 &lt;span class="n"&gt;docker&lt;/span&gt; &lt;span class="n"&gt;logs&lt;/span&gt; &lt;span class="n"&gt;docker_master&lt;/span&gt;
+&lt;span class="cp"&gt;# This will only give you the tail of the logs.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;The above will only give you the tail of the logs. If you want the complete logs, you can do so by passing additional flag. Something like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;docker&lt;/span&gt; &lt;span class="n"&gt;logs&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;docker_workder_1&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;since&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;gives&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;logs&lt;/span&gt; &lt;span class="n"&gt;since&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt; &lt;span class="n"&gt;minutes&lt;/span&gt;
+&lt;p&gt;If you want the complete logs, you can do so by passing additional flag. Something like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;docker&lt;/span&gt; &lt;span class="n"&gt;logs&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;docker_workder_1&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;since&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;
+&lt;span class="cp"&gt;# gives you the logs since 60 minutes&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;docker exec&lt;/strong&gt;
-If you want to talk to of one of the machines, say you want to go to the bash of docker_master you do so by typing&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;docker exec&lt;/strong&gt;
+If you want to talk to of one of the machines, say you want to go to the bash of docker_master you do so by typing&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;docker&lt;/span&gt; &lt;span class="n"&gt;exec&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;docker_master&lt;/span&gt; &lt;span class="n"&gt;bash&lt;/span&gt;
+&lt;span class="cp"&gt;# This will take you to the bash of the master&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This will take you to the bash of the master&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;docker cp&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;docker cp&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;If you want to copy files from docker machines say docker_worker1 to the host, you can do so using &lt;em&gt;docker cp&lt;/em&gt;, something like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;docker&lt;/span&gt; &lt;span class="n"&gt;cp&lt;/span&gt; &lt;span class="n"&gt;docker_worker_1&lt;/span&gt;&lt;span class="o"&gt;:&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;folder&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
 &lt;span class="nl"&gt;example:&lt;/span&gt; &lt;span class="n"&gt;docker&lt;/span&gt; &lt;span class="n"&gt;cp&lt;/span&gt; &lt;span class="n"&gt;docker_worker_1&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;some&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;folder&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;some&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;br&gt;
-&lt;br&gt;
-Obviously, the above list is not exhaustive. There are many but these are a few that I have used most so far. Let me know in comments what other commands you use.&lt;/p&gt;</summary><category term="docker"></category><category term="docker-commands"></category><category term="docker tutorial"></category><category term="manish barnwal"></category></entry><entry><title>How to choose the probability cut-off in classification problem</title><link href="http://manishbarnwal.github.io/blog/2017/05/18/choosing_probability_cut-off_in_classification/" rel="alternate"></link><updated>2017-05-18T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-18:blog/2017/05/18/choosing_probability_cut-off_in_classification/</id><summary type="html">&lt;p&gt;Yesterday, I was taking a session on Data Science for few of my colleagues. The aim was to give a brief overview of machine learning. There were two of us taking the session. We had a rough idea what all we wanted to cover in the two hours session.
+Obviously, the above list is not exhaustive. There are many but these are a few that I have used most so far. Let me know in comments what other commands you use.&lt;/p&gt;</summary><category term="ML"></category><category term="Data Science"></category><category term="manish barnwal"></category></entry><entry><title>How to choose the probability cut-off in classification problem</title><link href="http://manishbarnwal.github.io/blog/2017/05/18/choosing_probability_cut-off_in_classification/" rel="alternate"></link><updated>2017-05-18T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-05-18:blog/2017/05/18/choosing_probability_cut-off_in_classification/</id><summary type="html">&lt;p&gt;Yesterday, I was taking a session on Data Science for few of my colleagues. The aim was to give a brief overview of machine learning. There were two of us taking the session. We had a rough idea what all we wanted to cover in the two hours session.
 &lt;br&gt;
 &lt;br&gt;
 I started the session starting with what machine learning is. The types of learning - supervised and unsupervised and the examples that fall into each of these.

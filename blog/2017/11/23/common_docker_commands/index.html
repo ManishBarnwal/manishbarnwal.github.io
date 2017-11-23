@@ -1826,10 +1826,20 @@ jQuery(document).ready(function($) {
       <p class="meta"><time datetime="2017-11-23T08:00:00" pubdate>Nov 23, 2017</time></p>
 </header>
 
-  <div class="entry-content"><p>I recently got to know about dockers. And I love it. For those who don't know what dockers are. Here it is. Dockers help in software development in isolated frameworks. Say, you are building an application named <em>epsilon-X</em>. <em>epsilon-X</em> relies on packages like numpy, scipy, pandas, other services, and software. Either you install each of these packages on your machine or you create an environment that has all these required packages along with the suitable versions. Docker helps you create that environment so that you don't face the issues that it works in dev environment but fails in the production environment.
+  <div class="entry-content"><p><img src="http://manishbarnwal.com/images/ml-data-science/docker/docker.png" alt="Photo of docker"
+style="width:1200px;height:200px;border:thin solid black;">
 <br>
 <br>
-Docker ensures that you don't have to worry about the versions of the packages needed for software development. Many times we face issues like <em>it works on my machine, not sure why it is not working on your machine</em>. And reasons for that could be the difference in versions of packages in the machines. Docker helps you abate such issues. Docker automates the repetitive tasks of setting up and configuring development environments so that developers can focus on their core task of building software.
+I recently got to know about dockers. And I love it. For those who don't know what dockers are. Here it is. Dockers help in software development in isolated frameworks.
+<br>
+<br>
+Say, you are building an application named <em>epsilon-X</em>. <em>epsilon-X</em> relies on packages like numpy, scipy, pandas, other services, and software. Either you install each of these packages on your machine or you create an environment that has all these required packages along with the suitable versions. Docker helps you create that environment so that you don't face the issues like it works in dev environment but fails in the production environment.
+<br>
+<br>
+Docker ensures that you don't have to worry about the versions of the packages needed for software development. Many times we face issues like <em>it works on my machine, not sure why it is not working on your machine</em>. And reasons for that could be the difference in versions of packages in the machines. Docker helps you abate such issues.
+<br>
+<br>
+Docker automates the repetitive tasks of setting up and configuring development environments so that developers can focus on their core task of building software.
 <br>
 <br>
 So basically docker is like an isolated machine (read environment) that has all the required packages and services for your software to run.
@@ -1837,84 +1847,96 @@ So basically docker is like an isolated machine (read environment) that has all 
 <br></p>
 <h3>Some docker associated terms</h3>
 <ol>
-<li>
-<p>Docker file
-Docker file is a few lines of code that keeps information about packages and softwares to install. This docker file creates the docker image which sits on top of the virtual machine. There are many containers that run in isolation. Think of each container as a bundle of the packages and softwares required to run the application you want to run.</p>
-</li>
-<li>
-<p>Containers
-Containers are like a group of packages bundled together. Each container has its own space and does not delve into the outside of its space. A docker can have many containers- each container having a different bundle of packages.</p>
-</li>
+<li><strong>Docker file</strong></li>
 </ol>
-<p>I have already talked about the use cases of docker but if you still want to know more about docker, there are a plethora of resources available online. Let us now talk about some of the important docker commands.
+<p>Docker file is a few lines of code that keeps information about packages and softwares to install. This docker file creates the docker image which sits on top of the virtual machine. There are many containers that run in isolation. Think of each container as a bundle of the packages and softwares required to run the application you want to run.</p>
+<ol>
+<li><strong>Containers</strong></li>
+</ol>
+<p>Containers are like a group of packages bundled together. Each container has its own space and does not delve into the outside of its space. A docker can have many containers- each container having a different bundle of packages.
+<br>
+<br>
+I have already talked about the use cases of docker but if you still want to know more about docker, there are a plethora of resources available online. Let us now talk about some of the important docker commands.
 <br>
 <br></p>
 <h3>Common docker commands</h3>
-<p>I am assuming you have your docker set up properly and it is running as expected.</p>
-<p><strong>docker-compose up</strong></p>
+<ul>
+<li><strong>docker-compose up</strong></li>
+</ul>
 <p>Once you have the docker-file base, you can build the docker and up the containers by typing</p>
 <div class="highlight"><pre><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span> <span class="o">--</span><span class="n">build</span>
+<span class="cp"># Make sure you run the above command from the folder that has the Docker file</span>
 </pre></div>
 
 
-<p>Make sure you run the above command from the folder that has the Docker file.</p>
-<p><strong>docker images</strong></p>
+<ul>
+<li><strong>docker images</strong></li>
+</ul>
+<p>Lists all the docker images running; it also lists all the containers running.</p>
 <div class="highlight"><pre><span class="n">docker</span> <span class="n">images</span>
 </pre></div>
 
 
-<p>Lists all the docker images running; it also lists all the containers running.</p>
-<p><strong>docker ps</strong></p>
+<ul>
+<li><strong>docker ps</strong>
+Lists all the containers running for the docker image.</li>
+</ul>
 <div class="highlight"><pre><span class="n">docker</span> <span class="n">ps</span>
 </pre></div>
 
 
-<p>Lists all the containers running for the docker image. The list may look something like this:
-I don't have it with me now. I will have to create an instance on AWS and I am being lazy. I will update this soon.</p>
-<p><strong>docker-compose down</strong></p>
+<ul>
+<li><strong>docker-compose down</strong></li>
+</ul>
+<p>This will shut down the containers</p>
 <div class="highlight"><pre><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">down</span>
 </pre></div>
 
 
-<p>This will shut down the containers</p>
-<p><strong>docker restart</strong></p>
+<ul>
+<li><strong>docker restart</strong></li>
+</ul>
+<p>This will restart the containers of the docker image</p>
 <div class="highlight"><pre><span class="n">docker</span> <span class="n">restart</span>
 </pre></div>
 
 
-<p>This will restart the containers of the docker image</p>
-<p><strong>docker logs</strong></p>
-<div class="highlight"><pre><span class="n">docker</span> <span class="n">logs</span>
-</pre></div>
-
-
+<ul>
+<li><strong>docker logs</strong></li>
+</ul>
 <p>If you want to get the logs of processes running on the worker or master, you can do so by using</p>
 <div class="highlight"><pre><span class="n">docker</span> <span class="n">logs</span> <span class="o">-</span><span class="n">f</span> <span class="n">docker_worker_1</span>
 <span class="n">docker</span> <span class="n">logs</span> <span class="n">docker_master</span>
+<span class="cp"># This will only give you the tail of the logs.</span>
 </pre></div>
 
 
-<p>The above will only give you the tail of the logs. If you want the complete logs, you can do so by passing additional flag. Something like:</p>
-<div class="highlight"><pre><span class="n">docker</span> <span class="n">logs</span> <span class="o">-</span><span class="n">f</span> <span class="n">docker_workder_1</span> <span class="o">--</span><span class="n">since</span> <span class="mi">60</span><span class="n">m</span> <span class="err">#</span> <span class="n">gives</span> <span class="n">you</span> <span class="n">the</span> <span class="n">logs</span> <span class="n">since</span> <span class="mi">60</span> <span class="n">minutes</span>
+<p>If you want the complete logs, you can do so by passing additional flag. Something like:</p>
+<div class="highlight"><pre><span class="n">docker</span> <span class="n">logs</span> <span class="o">-</span><span class="n">f</span> <span class="n">docker_workder_1</span> <span class="o">--</span><span class="n">since</span> <span class="mi">60</span><span class="n">m</span>
+<span class="cp"># gives you the logs since 60 minutes</span>
 </pre></div>
 
 
-<p><strong>docker exec</strong>
-If you want to talk to of one of the machines, say you want to go to the bash of docker_master you do so by typing</p>
+<ul>
+<li><strong>docker exec</strong>
+If you want to talk to of one of the machines, say you want to go to the bash of docker_master you do so by typing</li>
+</ul>
 <div class="highlight"><pre><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">docker_master</span> <span class="n">bash</span>
+<span class="cp"># This will take you to the bash of the master</span>
 </pre></div>
 
 
-<p>This will take you to the bash of the master</p>
-<p><strong>docker cp</strong></p>
+<ul>
+<li><strong>docker cp</strong></li>
+</ul>
 <p>If you want to copy files from docker machines say docker_worker1 to the host, you can do so using <em>docker cp</em>, something like this:</p>
 <div class="highlight"><pre><span class="n">docker</span> <span class="n">cp</span> <span class="n">docker_worker_1</span><span class="o">:&lt;</span><span class="n">file</span><span class="o">-</span><span class="n">path</span> <span class="n">of</span> <span class="n">source</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">folder</span><span class="o">-</span><span class="n">path</span> <span class="n">of</span> <span class="n">destination</span><span class="o">&gt;</span>
+
 <span class="nl">example:</span> <span class="n">docker</span> <span class="n">cp</span> <span class="n">docker_worker_1</span><span class="o">:/</span><span class="n">tmp</span><span class="o">/</span><span class="n">some</span><span class="o">-</span><span class="n">folder</span><span class="o">/</span><span class="n">some</span><span class="o">-</span><span class="n">file</span><span class="p">.</span><span class="n">txt</span> <span class="p">.</span>
 </pre></div>
 
 
 <p><br>
-<br>
 Obviously, the above list is not exhaustive. There are many but these are a few that I have used most so far. Let me know in comments what other commands you use.</p></div>
 <script type="text/javascript" language="javascript">
       var aax_size='728x90';
@@ -1936,9 +1958,8 @@ Obviously, the above list is not exhaustive. There are many but these are a few 
     Posted by <span class="fn">Manish Barnwal</span>
   </span>
 <time datetime="2017-11-23T08:00:00" pubdate>Nov 23, 2017</time>  <span class="categories">
-    <a class="category" href="http://manishbarnwal.github.io/tag/docker.html">docker</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/docker-commands.html">docker-commands</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/docker-tutorial.html">docker tutorial</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/ml.html">ML</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/data-science.html">Data Science</a>
     <a class="category" href="http://manishbarnwal.github.io/tag/manish-barnwal.html">manish barnwal</a>
   </span>
 </p><div class="sharing">
@@ -1988,7 +2009,7 @@ Obviously, the above list is not exhaustive. There are many but these are a few 
 <!-- Commenting the tags section to remove the Tags part in the sidebar.
   <section>
   <h1>Tags</h1>
-    <a href="http://manishbarnwal.github.io/tag/friendship.html">friendship</a>,    <a href="http://manishbarnwal.github.io/tag/markdown.html">markdown</a>,    <a href="http://manishbarnwal.github.io/tag/dplyr.html">dplyr</a>,    <a href="http://manishbarnwal.github.io/tag/data-science.html">data science</a>,    <a href="http://manishbarnwal.github.io/tag/probability.html">probability</a>,    <a href="http://manishbarnwal.github.io/tag/shell-commands.html">shell-commands</a>,    <a href="http://manishbarnwal.github.io/tag/original-composition.html">original composition</a>,    <a href="http://manishbarnwal.github.io/tag/increase-confidence.html">increase confidence</a>,    <a href="http://manishbarnwal.github.io/tag/big-data.html">big data</a>,    <a href="http://manishbarnwal.github.io/tag/hadoop.html">hadoop</a>,    <a href="http://manishbarnwal.github.io/tag/roc.html">roc</a>,    <a href="http://manishbarnwal.github.io/tag/analytics.html">analytics</a>,    <a href="http://manishbarnwal.github.io/tag/bias.html">bias</a>,    <a href="http://manishbarnwal.github.io/tag/college.html">college</a>,    <a href="http://manishbarnwal.github.io/tag/random-forest-tutorial.html">random forest tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/preparation.html">preparation</a>,    <a href="http://manishbarnwal.github.io/tag/h2o-tutorial.html">h2o tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/learnings.html">learnings</a>,    <a href="http://manishbarnwal.github.io/tag/random-forest.html">random forest</a>,    <a href="http://manishbarnwal.github.io/tag/auc.html">auc</a>,    <a href="http://manishbarnwal.github.io/tag/git.html">git</a>,    <a href="http://manishbarnwal.github.io/tag/classification.html">classification</a>,    <a href="http://manishbarnwal.github.io/tag/music.html">music</a>,    <a href="http://manishbarnwal.github.io/tag/dplyr-package.html">dplyr package</a>,    <a href="http://manishbarnwal.github.io/tag/vivim.html">vi/vim</a>,    <a href="http://manishbarnwal.github.io/tag/nostalgia.html">nostalgia</a>,    <a href="http://manishbarnwal.github.io/tag/corporate-lessons.html">corporate lessons</a>,    <a href="http://manishbarnwal.github.io/tag/secret-santa.html">secret santa</a>,    <a href="http://manishbarnwal.github.io/tag/machine-learning.html">machine learning</a>,    <a href="http://manishbarnwal.github.io/tag/interview.html">interview</a>,    <a href="http://manishbarnwal.github.io/tag/coldplay.html">Coldplay</a>,    <a href="http://manishbarnwal.github.io/tag/get-together.html">get-together</a>,    <a href="http://manishbarnwal.github.io/tag/christmas.html">Christmas</a>,    <a href="http://manishbarnwal.github.io/tag/happy.html">happy</a>,    <a href="http://manishbarnwal.github.io/tag/overfitting.html">overfitting</a>,    <a href="http://manishbarnwal.github.io/tag/life.html">life</a>,    <a href="http://manishbarnwal.github.io/tag/markdown-tutorial.html">markdown tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/visualization.html">visualization</a>,    <a href="http://manishbarnwal.github.io/tag/office.html">office</a>,    <a href="http://manishbarnwal.github.io/tag/dplyr-tutorial.html">dplyr tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/machine-learning-explained.html">machine learning explained</a>,    <a href="http://manishbarnwal.github.io/tag/hive.html">Hive</a>,    <a href="http://manishbarnwal.github.io/tag/job.html">job</a>,    <a href="http://manishbarnwal.github.io/tag/walmart.html">walmart</a>,    <a href="http://manishbarnwal.github.io/tag/docker-commands.html">docker-commands</a>,    <a href="http://manishbarnwal.github.io/tag/placement.html">placement</a>,    <a href="http://manishbarnwal.github.io/tag/spark.html">spark</a>,    <a href="http://manishbarnwal.github.io/tag/cut-off.html">cut-off</a>,    <a href="http://manishbarnwal.github.io/tag/thoughts.html">thoughts</a>,    <a href="http://manishbarnwal.github.io/tag/data-manipulation.html">data manipulation</a>,    <a href="http://manishbarnwal.github.io/tag/adversarial-validation.html">adversarial-validation</a>,    <a href="http://manishbarnwal.github.io/tag/github.html">github</a>,    <a href="http://manishbarnwal.github.io/tag/manish-barnwal.html">manish barnwal</a>,    <a href="http://manishbarnwal.github.io/tag/time-series-tutorial.html">time series tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/package.html">package</a>,    <a href="http://manishbarnwal.github.io/tag/career.html">career</a>,    <a href="http://manishbarnwal.github.io/tag/ml.html">ML</a>,    <a href="http://manishbarnwal.github.io/tag/vim-tutorial.html">vim tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/vim-shortcuts.html">vim shortcuts</a>,    <a href="http://manishbarnwal.github.io/tag/package-version.html">package version</a>,    <a href="http://manishbarnwal.github.io/tag/womens-day.html">women's day</a>,    <a href="http://manishbarnwal.github.io/tag/docker-tutorial.html">docker tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/r.html">R</a>,    <a href="http://manishbarnwal.github.io/tag/life-lessons.html">life lessons</a>,    <a href="http://manishbarnwal.github.io/tag/time-series-explained.html">time series explained</a>,    <a href="http://manishbarnwal.github.io/tag/time-series.html">time series</a>,    <a href="http://manishbarnwal.github.io/tag/variance.html">variance</a>,    <a href="http://manishbarnwal.github.io/tag/docker.html">docker</a>,    <a href="http://manishbarnwal.github.io/tag/runtime.html">runtime</a>,    <a href="http://manishbarnwal.github.io/tag/parallel-processing.html">parallel processing</a>,    <a href="http://manishbarnwal.github.io/tag/statistics.html">statistics</a>  </section>
+    <a href="http://manishbarnwal.github.io/tag/friendship.html">friendship</a>,    <a href="http://manishbarnwal.github.io/tag/markdown.html">markdown</a>,    <a href="http://manishbarnwal.github.io/tag/dplyr.html">dplyr</a>,    <a href="http://manishbarnwal.github.io/tag/data-science.html">Data Science</a>,    <a href="http://manishbarnwal.github.io/tag/probability.html">probability</a>,    <a href="http://manishbarnwal.github.io/tag/shell-commands.html">shell-commands</a>,    <a href="http://manishbarnwal.github.io/tag/original-composition.html">original composition</a>,    <a href="http://manishbarnwal.github.io/tag/increase-confidence.html">increase confidence</a>,    <a href="http://manishbarnwal.github.io/tag/big-data.html">big data</a>,    <a href="http://manishbarnwal.github.io/tag/hadoop.html">hadoop</a>,    <a href="http://manishbarnwal.github.io/tag/roc.html">roc</a>,    <a href="http://manishbarnwal.github.io/tag/analytics.html">analytics</a>,    <a href="http://manishbarnwal.github.io/tag/bias.html">bias</a>,    <a href="http://manishbarnwal.github.io/tag/college.html">college</a>,    <a href="http://manishbarnwal.github.io/tag/random-forest-tutorial.html">random forest tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/get-together.html">get-together</a>,    <a href="http://manishbarnwal.github.io/tag/h2o-tutorial.html">h2o tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/learnings.html">learnings</a>,    <a href="http://manishbarnwal.github.io/tag/preparation.html">preparation</a>,    <a href="http://manishbarnwal.github.io/tag/auc.html">auc</a>,    <a href="http://manishbarnwal.github.io/tag/git.html">git</a>,    <a href="http://manishbarnwal.github.io/tag/classification.html">classification</a>,    <a href="http://manishbarnwal.github.io/tag/music.html">music</a>,    <a href="http://manishbarnwal.github.io/tag/dplyr-package.html">dplyr package</a>,    <a href="http://manishbarnwal.github.io/tag/vivim.html">vi/vim</a>,    <a href="http://manishbarnwal.github.io/tag/nostalgia.html">nostalgia</a>,    <a href="http://manishbarnwal.github.io/tag/corporate-lessons.html">corporate lessons</a>,    <a href="http://manishbarnwal.github.io/tag/coldplay.html">Coldplay</a>,    <a href="http://manishbarnwal.github.io/tag/machine-learning.html">machine learning</a>,    <a href="http://manishbarnwal.github.io/tag/interview.html">interview</a>,    <a href="http://manishbarnwal.github.io/tag/secret-santa.html">secret santa</a>,    <a href="http://manishbarnwal.github.io/tag/christmas.html">Christmas</a>,    <a href="http://manishbarnwal.github.io/tag/happy.html">happy</a>,    <a href="http://manishbarnwal.github.io/tag/overfitting.html">overfitting</a>,    <a href="http://manishbarnwal.github.io/tag/life.html">life</a>,    <a href="http://manishbarnwal.github.io/tag/markdown-tutorial.html">markdown tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/visualization.html">visualization</a>,    <a href="http://manishbarnwal.github.io/tag/office.html">office</a>,    <a href="http://manishbarnwal.github.io/tag/dplyr-tutorial.html">dplyr tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/machine-learning-explained.html">machine learning explained</a>,    <a href="http://manishbarnwal.github.io/tag/hive.html">Hive</a>,    <a href="http://manishbarnwal.github.io/tag/job.html">job</a>,    <a href="http://manishbarnwal.github.io/tag/walmart.html">walmart</a>,    <a href="http://manishbarnwal.github.io/tag/placement.html">placement</a>,    <a href="http://manishbarnwal.github.io/tag/spark.html">spark</a>,    <a href="http://manishbarnwal.github.io/tag/cut-off.html">cut-off</a>,    <a href="http://manishbarnwal.github.io/tag/thoughts.html">thoughts</a>,    <a href="http://manishbarnwal.github.io/tag/data-manipulation.html">data manipulation</a>,    <a href="http://manishbarnwal.github.io/tag/adversarial-validation.html">adversarial-validation</a>,    <a href="http://manishbarnwal.github.io/tag/github.html">github</a>,    <a href="http://manishbarnwal.github.io/tag/manish-barnwal.html">manish barnwal</a>,    <a href="http://manishbarnwal.github.io/tag/time-series-tutorial.html">time series tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/package.html">package</a>,    <a href="http://manishbarnwal.github.io/tag/career.html">career</a>,    <a href="http://manishbarnwal.github.io/tag/ml.html">ML</a>,    <a href="http://manishbarnwal.github.io/tag/vim-tutorial.html">vim tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/vim-shortcuts.html">vim shortcuts</a>,    <a href="http://manishbarnwal.github.io/tag/package-version.html">package version</a>,    <a href="http://manishbarnwal.github.io/tag/womens-day.html">women's day</a>,    <a href="http://manishbarnwal.github.io/tag/random-forest.html">random forest</a>,    <a href="http://manishbarnwal.github.io/tag/r.html">R</a>,    <a href="http://manishbarnwal.github.io/tag/life-lessons.html">life lessons</a>,    <a href="http://manishbarnwal.github.io/tag/time-series.html">time series</a>,    <a href="http://manishbarnwal.github.io/tag/variance.html">variance</a>,    <a href="http://manishbarnwal.github.io/tag/time-series-explained.html">time series explained</a>,    <a href="http://manishbarnwal.github.io/tag/runtime.html">runtime</a>,    <a href="http://manishbarnwal.github.io/tag/parallel-processing.html">parallel processing</a>,    <a href="http://manishbarnwal.github.io/tag/statistics.html">statistics</a>  </section>
 -->
 
     <section>
