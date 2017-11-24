@@ -1,5 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/music.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-07-12T00:00:00-03:00</updated><entry><title>Yaadon ki chuskiya</title><link href="http://manishbarnwal.github.io/blog/2017/07/12/yaadon_ki_chuskiya/" rel="alternate"></link><updated>2017-07-12T00:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-07-12:blog/2017/07/12/yaadon_ki_chuskiya/</id><summary type="html">&lt;p&gt;Recently, my friend, Tushar had come to Bangalore to visit me and Rahul before he left for the US for his Masters. He was here for a weekend. We intended to visit places around Bangalore. And we ended up visiting Lal Bagh. I know you are judging me right now. Who goes to Lal Bagh with friends! I had the same thought until I visited this place. Lal Bagh is beautiful and serene. This place is so under-rated. Go there in morning and you will love the place.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/music.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2017-11-24T00:00:00-02:00</updated><entry><title>An easy starter to music theory</title><link href="http://manishbarnwal.github.io/blog/2017/11/24/starter_music_theory/" rel="alternate"></link><updated>2017-11-24T00:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-11-24:blog/2017/11/24/starter_music_theory/</id><summary type="html">&lt;p&gt;&lt;img src="http://manishbarnwal.com/images/music/starter_music_theory/scale-notes.jpg" alt="Photo of twelve notes"
+style="width:1200px;height:200px;border:thin solid black;"&gt;
+&lt;br&gt;
+&lt;br&gt;
+I started playing guitar almost three years back and at that time I had wished it would have been better if I had picked this lovely instrument during my college days. Well, we always repent things we don't do. The guitar was one of such things. But then I read this quote in one of the answers on Quora.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The best time to plant a tree was twenty years back and the second best time is NOW.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I strongly believe in the power of NOW. So without thinking much, I started learning guitar in the month of June 2014.
+&lt;br&gt;
+&lt;br&gt;
+While I have been playing guitar for almost three years, I have also enjoyed learning about the music theory alongside. So I thought it will be a worthy attempt at explaining the music theory I understand. I may not have the answer to all of the questions but I can cover the basics.
+&lt;br&gt;
+&lt;br&gt;
+In a series of posts, we will talk about:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;the basic theory of scales&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;how chords are derived from scales&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;what it means when we say that the song is in the key of C&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;and many more related questions&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We will become a pro. We will talk music. Let us begin.
+&lt;br&gt;
+&lt;br&gt;
+There are seven pure notes in music. They are Sa, Re, Ga, Ma, Pa, Dha, Ni, Sa (same as the first note but higher pitch) in Indian Classical music. The same holds true for Western music as well. Here they are known as Do, Re, Mi, Fa, So, La, Ti, Do. Notes are the key ingredients of music. Notes are what alphabets are in the English language. They are the building blocks.
+&lt;br&gt;
+&lt;br&gt;
+In this post, I will talk about Western music and to make the concepts relatable I will use the guitar to explain the theory. There are seven pure notes also called as &lt;em&gt;normal notes&lt;/em&gt;. They are C, D, E, F, G, A, B, C. Then there are five &lt;em&gt;accidental notes&lt;/em&gt;. They are named &lt;em&gt;accidental&lt;/em&gt; because they have been derived from the pure notes. The accidental notes are denoted by &lt;strong&gt;#&lt;/strong&gt; (read as sharp) or superscript b (read as flat). For instance, C# is pronounced as C-sharp or D-flat. We will cover this in next few paragraphs.
+&lt;br&gt;
+&lt;br&gt;
+Not all of the pure notes have an associated accidental note. Only five of the seven normal notes have an associated accidental note. &lt;strong&gt;Notes B and E have no accidental notes i.e B and E have no sharps&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;So the accidental notes are:&lt;/p&gt;
+&lt;p&gt;C#, D#, F#, G#, A# or they can also be called as D-flat, E-flat, G-flat, A-flat, and B-flat respectively. So all the notes - C, D, E, F, G, and A have sharps except for B and E notes.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;BE has no sharps.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So in total, we have twelve notes in music.&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://manishbarnwal.com/images/music/starter_music_theory/scale-notes.jpg" alt="Photo of twelve notes"
+style="width:1200px;height:200px;border:thin solid black;"&gt;&lt;/p&gt;
+&lt;p&gt;You would agree with me when I say music is all about ears. But there needs to be some form of measurement that can tell us this note is this far from this note. To elucidate, how do we measure the distance between two cities say A and B? We use Kilometers. Similarly, we have &lt;em&gt;semi-tone&lt;/em&gt; and &lt;em&gt;tone&lt;/em&gt; to measure the distance between two notes.
+&lt;br&gt;
+&lt;br&gt;
+So what is a tone? A tone is one full-step from one note to another. As the name suggests, a semi-tone is half of a tone i.e. a semi-tone is half-step from one note to the other. C to D is a full-step and is a tone whereas C to C# is a half-step and is a semi-tone. B to C is also a half-step (remember B has no sharp) so it is a semi-tone.&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://manishbarnwal.com/images/music/starter_music_theory/tone-semi-tone.jpg" alt="Photo of tone and semi-tone"
+style="width:1200px;height:200px;border:thin solid black;"&gt;&lt;/p&gt;
+&lt;p&gt;So far, we have covered notes, tone, and semi-tones.
+&lt;br&gt;
+&lt;br&gt;
+Let us talk about scales. Have you heard of them? A lot of my friends shut down their brain the moment they hear about this word - scales. I try explaining to them that it is not as complicated as people assume. It is simple to understand. Once you have grasped the concept, you need to keep using it in your vocabulary so that you don't forget it. I do the same.
+&lt;br&gt;
+&lt;br&gt;
+I love explaining to people what scales are or any music theory, hence this post. Another reason for writing this post is I want to use this as a reference for whatever music theory I have understood so far.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Scales - the basic building blocks of chords&lt;/h3&gt;
+&lt;p&gt;Scale is a combination of notes arranged in patterns that provides a template to compose or improvise depending on mood or feel. The notes are arranged in a particular pattern - not any random pattern. We will talk about what these patterns are in next few paragraphs.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;So, why are scales important?&lt;/h3&gt;
+&lt;p&gt;Scales are important because chords are derived from scales. Scales are building blocks of chords. I will explain how to get chords from a scale in a later post. Coming back to scales, they help you get familiarity with the different notes and help you understand how each note sounds. It is important to understand how each note of guitar sounds. Well, you don't start with hearing each note and remembering how each note sounds. But this should be your long-term goal.  You can't play any combination of notes - they won't sound nice to the ears. Scales are a group of notes which when played together sound like music.
+&lt;br&gt;
+&lt;br&gt;
+ Ever seen someone listening to a tune and instantly playing that tune on the guitar? How do they achieve this skill? They have practiced the scales for quite some time. They have spent time transcribing notes on their instrument. Transcribing is the process of finding the note on the guitar that you have in your mind. Well, this takes time and comes with practice. Scales help you achieve this with ease.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;What are different types of scales?&lt;/h3&gt;
+&lt;p&gt;There are broadly two types of scales - major and minor. Well, there are others as well, like pentatonic scales. For starters, we will just focus on major and minor scales.
+&lt;br&gt;
+&lt;br&gt;
+Remember that there is a pattern in the combination of notes for a scale. Both major and minor scales have a certain pattern in which the notes are arranged and it is this pattern that differentiates their sound and feel. Let us have a look at the major scale.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Major scale&lt;/strong&gt; - R T T S T T T S
+ There you have the major scale. All you need is now to understand what these alphabets mean.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;R stands for root&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;T for tone, and&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;S for semi-tone&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What does a root mean? Root is the main note of the scale. The root and the pattern decide what other notes will be there in the scale. Let us take an example of the simplest scale - C-major scale. So the root here is C note. C-major scale starts with a C, has intermediate notes according to the pattern and then ends with C.
+ &lt;br&gt;
+ &lt;br&gt;
+ Try writing the notes for some other scale, say D-major scale. And check if you have the correct answer.&lt;/p&gt;
+&lt;p&gt;Moving on, next is minor scale.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Minor scale&lt;/strong&gt; - R T S T T S T T
+ Let us take an example of A-minor scale to see what are the notes of this scale. Below image shows the notes of both C-major scale and A-minor scale.&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://manishbarnwal.com/images/music/starter_music_theory/major-minor-scale.jpg" alt="Photo of major and minor scale"
+ style="width:1200px;height:200px;border:thin solid black;"&gt;&lt;/p&gt;
+&lt;h3&gt;The moods of major and minor scale&lt;/h3&gt;
+&lt;p&gt;Major and minor scales are often described in terms of the contrasting feel or mood they set. Major scale in general sets a happy and positive mood. Play a C-major scale and you will realise the mood is happy. The minor scale gives a feeling of sadness and melancholy. Play A-minor scale to see if it sets a little sad mood.
+&lt;br&gt;
+&lt;br&gt;
+We know there are 12 notes in music (seven pure notes and five accidental). Each of these twelve notes has a corresponding major and a minor scale. So we have 12 major scales and 12 minor scales. Get familiar with scales. This is how my notes on scales look like.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="photo of other scales" src="http://manishbarnwal.com/images/music/starter_music_theory/scales-examples.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;Try getting the notes of few of the major and minor scales, say G-major scale, D-minor scale or any scale you want. Do the same and I promise this will help you understand scales much better.
+&lt;br&gt;
+&lt;br&gt;
+Now that we know what scales are, we will talk about chords in the next post. And in a few later posts, I will write more on music explaining the basic concepts. Share this post with people you think are interested in music. Comment if you would like to discuss more on this or have any questions.&lt;/p&gt;</summary><category term="music"></category><category term="tutorial"></category><category term="manish barnwal"></category></entry><entry><title>Yaadon ki chuskiya</title><link href="http://manishbarnwal.github.io/blog/2017/07/12/yaadon_ki_chuskiya/" rel="alternate"></link><updated>2017-07-12T00:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-07-12:blog/2017/07/12/yaadon_ki_chuskiya/</id><summary type="html">&lt;p&gt;Recently, my friend, Tushar had come to Bangalore to visit me and Rahul before he left for the US for his Masters. He was here for a weekend. We intended to visit places around Bangalore. And we ended up visiting Lal Bagh. I know you are judging me right now. Who goes to Lal Bagh with friends! I had the same thought until I visited this place. Lal Bagh is beautiful and serene. This place is so under-rated. Go there in morning and you will love the place.
 &lt;br&gt;
 &lt;br&gt;
 Without digressing further, let us talk about how we managed to write a song, play guitar to it, record it on phone and upload it on Youtube. On a Saturday evening, four of us were getting bored. We had just come enjoying our tea from the tea-stall outside my apartment. Tea is important here. See, we were already bored. We didn't have any plans for the night as well. All of us were seated in the room when we thought of writing a song. Ahh, it may sound a little weird but I have done this before. I like writing lyrics of a song at random times.
