@@ -13,19 +13,20 @@ Virtual environment makes it easier to work on more than one project at a time w
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Python 2 or 3 or may be both&lt;/h3&gt;
 &lt;p&gt;With Python making a change to Python 3, we always have this question - which version should I use. I started learning Python recently and one of my seniors recommended learning Python 3. You decide what you want to learn. My recommendation is Python 3. Having said that, you can easily have both the versions in your system. Comes to the rescue &lt;code&gt;pyenv&lt;/code&gt;. &lt;em&gt;Pyenv&lt;/em&gt; is a python version management tool. It lets you to switch from one version to other with just a single command.&lt;/p&gt;
-&lt;p&gt;To install this package
-```pip install pyenv&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;### Create a virtual env on python3&lt;/span&gt;
-&lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="n"&gt;need&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;virtualenvwrapper&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="n"&gt;package&lt;/span&gt; &lt;span class="n"&gt;using&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+&lt;p&gt;To install this package&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;pip install virtualenvwrapper&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;virtualenvwrapper&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;helps&lt;/span&gt; &lt;span class="n"&gt;creating&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;deleting&lt;/span&gt; &lt;span class="n"&gt;virtual&lt;/span&gt; &lt;span class="n"&gt;environments&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;I&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;already&lt;/span&gt; &lt;span class="n"&gt;explained&lt;/span&gt; &lt;span class="n"&gt;why&lt;/span&gt; &lt;span class="n"&gt;we&lt;/span&gt; &lt;span class="n"&gt;need&lt;/span&gt; &lt;span class="n"&gt;virtual&lt;/span&gt; &lt;span class="n"&gt;environments&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;h3&gt;Create a virtual env on python3&lt;/h3&gt;
+&lt;p&gt;You need to install &lt;code&gt;virtualenvwrapper&lt;/code&gt; package using:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;virtualenvwrapper&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;span class="n"&gt;Once&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;installed&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;easily&lt;/span&gt; &lt;span class="n"&gt;create&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;environment&lt;/span&gt; &lt;span class="n"&gt;say&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;ml_learn_env&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="n"&gt;typing&lt;/span&gt;
 
-&lt;span class="err"&gt;```&lt;/span&gt;&lt;span class="n"&gt;mkvirtualenv&lt;/span&gt; &lt;span class="n"&gt;ml_learn&lt;/span&gt;
+&lt;p&gt;&lt;em&gt;virtualenvwrapper&lt;/em&gt; helps creating and deleting virtual environments and I have already explained why we need virtual environments.&lt;/p&gt;
+&lt;p&gt;Once you have it installed, you can easily create an environment say &lt;em&gt;ml_learn_env&lt;/em&gt; by typing&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;mkvirtualenv&lt;/span&gt; &lt;span class="n"&gt;ml_learn&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -34,21 +35,21 @@ Virtual environment makes it easier to work on more than one project at a time w
 &lt;br&gt;
 Many times, you may have to pass the path of the python version along with mkvirtualenv to ensure the virtual env is created over that python particular version.&lt;/p&gt;
 &lt;p&gt;If I do &lt;code&gt;pyenv versions&lt;/code&gt; on my terminal, this is what I get.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;system&lt;/span&gt;
-&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mf"&gt;3.4.3&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="k"&gt;by&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;Users&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;manishb&lt;/span&gt;&lt;span class="na"&gt;-imac&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;.python&lt;/span&gt;&lt;span class="na"&gt;-version&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;system&lt;/span&gt;
+&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mf"&gt;3.4.3&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Users&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;manishb&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;imac&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="mf"&gt;3.5.2&lt;/span&gt;
- &lt;span class="sb"&gt;``&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;
-
-&lt;span class="nx"&gt;There&lt;/span&gt; &lt;span class="nx"&gt;are&lt;/span&gt; &lt;span class="nx"&gt;three&lt;/span&gt; &lt;span class="nx"&gt;versions&lt;/span&gt; &lt;span class="nx"&gt;of&lt;/span&gt; &lt;span class="nx"&gt;Python&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="nx"&gt;my&lt;/span&gt; &lt;span class="nx"&gt;machine&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;system&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;the&lt;/span&gt; &lt;span class="nb"&gt;default&lt;/span&gt; &lt;span class="nx"&gt;Python&lt;/span&gt; &lt;span class="nx"&gt;provided&lt;/span&gt; &lt;span class="k"&gt;by&lt;/span&gt; &lt;span class="nx"&gt;Mac&lt;/span&gt; &lt;span class="nx"&gt;which&lt;/span&gt; &lt;span class="nx"&gt;is&lt;/span&gt; &lt;span class="nx"&gt;Python&lt;/span&gt; &lt;span class="mf"&gt;2.7&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt; &lt;span class="ow"&gt;And&lt;/span&gt; &lt;span class="nx"&gt;then&lt;/span&gt; &lt;span class="nx"&gt;I&lt;/span&gt; &lt;span class="nx"&gt;have&lt;/span&gt; &lt;span class="nx"&gt;Python&lt;/span&gt; &lt;span class="mf"&gt;3.4.3&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;marked&lt;/span&gt; &lt;span class="k"&gt;by&lt;/span&gt; &lt;span class="nx"&gt;asterisk&lt;/span&gt; &lt;span class="nx"&gt;meaning&lt;/span&gt; &lt;span class="nx"&gt;the&lt;/span&gt; &lt;span class="nx"&gt;current&lt;/span&gt; &lt;span class="nx"&gt;active&lt;/span&gt; &lt;span class="nb"&gt;version&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="nx"&gt;Python&lt;/span&gt; &lt;span class="mf"&gt;3.5.2&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt;
-&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;br&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;br&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="k"&gt;If&lt;/span&gt; &lt;span class="nx"&gt;I&lt;/span&gt; &lt;span class="nx"&gt;want&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="nx"&gt;make&lt;/span&gt; &lt;span class="nx"&gt;a&lt;/span&gt; &lt;span class="nx"&gt;virtual&lt;/span&gt; &lt;span class="nb"&gt;env&lt;/span&gt; &lt;span class="nx"&gt;corresponding&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="nx"&gt;a&lt;/span&gt; &lt;span class="nx"&gt;particular&lt;/span&gt; &lt;span class="nx"&gt;python&lt;/span&gt; &lt;span class="nb"&gt;version&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;say&lt;/span&gt; &lt;span class="mf"&gt;3.4.3&lt;/span&gt; &lt;span class="nx"&gt;I&lt;/span&gt; &lt;span class="nx"&gt;can&lt;/span&gt; &lt;span class="nb"&gt;pass&lt;/span&gt; &lt;span class="nx"&gt;the&lt;/span&gt; &lt;span class="nb"&gt;path&lt;/span&gt; &lt;span class="nx"&gt;explicitly&lt;/span&gt; &lt;span class="nx"&gt;like&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;mkvirtualenv -p /Users/Manish/.pyenv/versions/3.4.3/bin/python ml_learn_env
-```
-This will definitely have 3.4.3 as the python version on your virtual env - ml_learn_env.
+&lt;p&gt;There are three versions of Python on my machine: &lt;em&gt;system&lt;/em&gt; - the default Python provided by Mac which is Python 2.7. And then I have Python 3.4.3 (marked by asterisk meaning the current active version) and Python 3.5.2.
+&lt;br&gt;
+&lt;br&gt;
+If I want to make a virtual env corresponding to a particular python version, say 3.4.3 I can pass the path explicitly like&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;mkvirtualenv&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Users&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Manish&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pyenv&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;versions&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;3.4.3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;ml_learn_env&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will definitely have 3.4.3 as the python version on your virtual env - ml_learn_env.
 This post is not complete yet. I may make additions to this later.&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>Common docker commands</title><link href="http://manishbarnwal.github.io/blog/2017/11/23/common_docker_commands/" rel="alternate"></link><updated>2017-11-23T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-11-23:blog/2017/11/23/common_docker_commands/</id><summary type="html">&lt;p&gt;&lt;img src="http://manishbarnwal.com/images/ml-data-science/docker/docker.png" alt="Photo of docker"
 style="width:1200px;height:200px;border:thin solid black;"&gt;
 &lt;br&gt;

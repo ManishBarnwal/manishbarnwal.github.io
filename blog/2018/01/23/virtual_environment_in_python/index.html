@@ -1840,19 +1840,20 @@ Virtual environment makes it easier to work on more than one project at a time w
 <br></p>
 <h3>Python 2 or 3 or may be both</h3>
 <p>With Python making a change to Python 3, we always have this question - which version should I use. I started learning Python recently and one of my seniors recommended learning Python 3. You decide what you want to learn. My recommendation is Python 3. Having said that, you can easily have both the versions in your system. Comes to the rescue <code>pyenv</code>. <em>Pyenv</em> is a python version management tool. It lets you to switch from one version to other with just a single command.</p>
-<p>To install this package
-```pip install pyenv</p>
-<div class="highlight"><pre><span class="cp">### Create a virtual env on python3</span>
-<span class="n">You</span> <span class="n">need</span> <span class="n">to</span> <span class="n">install</span> <span class="err">`</span><span class="n">virtualenvwrapper</span><span class="err">`</span> <span class="n">package</span> <span class="n">using</span><span class="o">:</span>
+<p>To install this package</p>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">pyenv</span>
 </pre></div>
 
 
-<p>pip install virtualenvwrapper</p>
-<div class="highlight"><pre><span class="o">*</span><span class="n">virtualenvwrapper</span><span class="o">*</span> <span class="n">helps</span> <span class="n">creating</span> <span class="n">and</span> <span class="n">deleting</span> <span class="n">virtual</span> <span class="n">environments</span> <span class="n">and</span> <span class="n">I</span> <span class="n">have</span> <span class="n">already</span> <span class="n">explained</span> <span class="n">why</span> <span class="n">we</span> <span class="n">need</span> <span class="n">virtual</span> <span class="n">environments</span><span class="p">.</span>
+<h3>Create a virtual env on python3</h3>
+<p>You need to install <code>virtualenvwrapper</code> package using:</p>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenvwrapper</span>
+</pre></div>
 
-<span class="n">Once</span> <span class="n">you</span> <span class="n">have</span> <span class="n">it</span> <span class="n">installed</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">easily</span> <span class="n">create</span> <span class="n">an</span> <span class="n">environment</span> <span class="n">say</span> <span class="o">*</span><span class="n">ml_learn_env</span><span class="o">*</span> <span class="n">by</span> <span class="n">typing</span>
 
-<span class="err">```</span><span class="n">mkvirtualenv</span> <span class="n">ml_learn</span>
+<p><em>virtualenvwrapper</em> helps creating and deleting virtual environments and I have already explained why we need virtual environments.</p>
+<p>Once you have it installed, you can easily create an environment say <em>ml_learn_env</em> by typing</p>
+<div class="highlight"><pre><span class="n">mkvirtualenv</span> <span class="n">ml_learn</span>
 </pre></div>
 
 
@@ -1861,21 +1862,21 @@ Virtual environment makes it easier to work on more than one project at a time w
 <br>
 Many times, you may have to pass the path of the python version along with mkvirtualenv to ensure the virtual env is created over that python particular version.</p>
 <p>If I do <code>pyenv versions</code> on my terminal, this is what I get.</p>
-<div class="highlight"><pre><span class="nx">system</span>
-<span class="o">*</span> <span class="mf">3.4.3</span> <span class="p">(</span><span class="nb">set</span> <span class="k">by</span> <span class="p">/</span><span class="nx">Users</span><span class="p">/</span><span class="nx">manishb</span><span class="na">-imac</span><span class="p">/</span><span class="nx">.python</span><span class="na">-version</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">system</span>
+<span class="o">*</span> <span class="mf">3.4.3</span> <span class="p">(</span><span class="n">set</span> <span class="n">by</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">manishb</span><span class="o">-</span><span class="n">imac</span><span class="o">/</span><span class="p">.</span><span class="n">python</span><span class="o">-</span><span class="n">version</span><span class="p">)</span>
 <span class="mf">3.5.2</span>
- <span class="sb">``</span><span class="err">`</span>
-
-<span class="nx">There</span> <span class="nx">are</span> <span class="nx">three</span> <span class="nx">versions</span> <span class="nx">of</span> <span class="nx">Python</span> <span class="k">on</span> <span class="nx">my</span> <span class="nx">machine</span><span class="p">:</span> <span class="o">*</span><span class="nx">system</span><span class="o">*</span> <span class="o">-</span> <span class="nx">the</span> <span class="nb">default</span> <span class="nx">Python</span> <span class="nx">provided</span> <span class="k">by</span> <span class="nx">Mac</span> <span class="nx">which</span> <span class="nx">is</span> <span class="nx">Python</span> <span class="mf">2.7</span><span class="nx">.</span> <span class="ow">And</span> <span class="nx">then</span> <span class="nx">I</span> <span class="nx">have</span> <span class="nx">Python</span> <span class="mf">3.4.3</span> <span class="p">(</span><span class="nx">marked</span> <span class="k">by</span> <span class="nx">asterisk</span> <span class="nx">meaning</span> <span class="nx">the</span> <span class="nx">current</span> <span class="nx">active</span> <span class="nb">version</span><span class="p">)</span> <span class="ow">and</span> <span class="nx">Python</span> <span class="mf">3.5.2</span><span class="nx">.</span>
-<span class="o">&lt;</span><span class="nx">br</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nx">br</span><span class="o">&gt;</span>
-<span class="k">If</span> <span class="nx">I</span> <span class="nx">want</span> <span class="k">to</span> <span class="nx">make</span> <span class="nx">a</span> <span class="nx">virtual</span> <span class="nb">env</span> <span class="nx">corresponding</span> <span class="k">to</span> <span class="nx">a</span> <span class="nx">particular</span> <span class="nx">python</span> <span class="nb">version</span><span class="p">,</span> <span class="nx">say</span> <span class="mf">3.4.3</span> <span class="nx">I</span> <span class="nx">can</span> <span class="nb">pass</span> <span class="nx">the</span> <span class="nb">path</span> <span class="nx">explicitly</span> <span class="nx">like</span>
 </pre></div>
 
 
-<p>mkvirtualenv -p /Users/Manish/.pyenv/versions/3.4.3/bin/python ml_learn_env
-```
-This will definitely have 3.4.3 as the python version on your virtual env - ml_learn_env.
+<p>There are three versions of Python on my machine: <em>system</em> - the default Python provided by Mac which is Python 2.7. And then I have Python 3.4.3 (marked by asterisk meaning the current active version) and Python 3.5.2.
+<br>
+<br>
+If I want to make a virtual env corresponding to a particular python version, say 3.4.3 I can pass the path explicitly like</p>
+<div class="highlight"><pre><span class="n">mkvirtualenv</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">Manish</span><span class="o">/</span><span class="p">.</span><span class="n">pyenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mf">3.4.3</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span> <span class="n">ml_learn_env</span>
+</pre></div>
+
+
+<p>This will definitely have 3.4.3 as the python version on your virtual env - ml_learn_env.
 This post is not complete yet. I may make additions to this later.</p></div>
 <script type="text/javascript" language="javascript">
       var aax_size='728x90';
