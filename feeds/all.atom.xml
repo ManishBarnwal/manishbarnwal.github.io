@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2018-01-23T08:00:00-02:00</updated><entry><title>Creating a virtual env in Python</title><link href="http://manishbarnwal.github.io/blog/2018/01/23/virtual_environment_in_python/" rel="alternate"></link><updated>2018-01-23T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-01-23:blog/2018/01/23/virtual_environment_in_python/</id><summary type="html">&lt;p&gt;I was trying to get a virtual environment set up on Python 3 using &lt;code&gt;mkvirtualenv&lt;/code&gt; but somehow the virtual environment was getting created on Python 2.7 (my system python).
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2018-01-23T08:00:00-02:00</updated><entry><title>Creating a virtual environment in Python</title><link href="http://manishbarnwal.github.io/blog/2018/01/23/virtual_environment_in_python/" rel="alternate"></link><updated>2018-01-23T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-01-23:blog/2018/01/23/virtual_environment_in_python/</id><summary type="html">&lt;p&gt;I was trying to get a virtual environment set up on Python 3 using &lt;code&gt;mkvirtualenv&lt;/code&gt; but somehow the virtual environment was getting created on Python 2.7 (my system python).
 &lt;br&gt;
 &lt;br&gt;
 If you already know about virtual environments and why they are useful, you may skip the next two paragraphs. I came to know about virtual environments only recently. Virtual environment helps you create an isolated space wherein whatever packages you install won't have an impact outside the environment. To give you a better understanding I will tell you why I use virtual environment.
@@ -50,7 +50,56 @@ If I want to make a virtual env corresponding to a particular python version, sa
 
 
 &lt;p&gt;This will definitely have 3.4.3 as the python version on your virtual env - ml_learn_env.
-This post is not complete yet. I may make additions to this later.&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>An easy starter to music theory</title><link href="http://manishbarnwal.github.io/blog/2017/11/24/starter_music_theory/" rel="alternate"></link><updated>2017-11-24T00:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-11-24:blog/2017/11/24/starter_music_theory/</id><summary type="html">&lt;p&gt;&lt;img src="http://manishbarnwal.com/images/music/starter_music_theory/scale-notes.jpg" alt="Photo of twelve notes"
+This post is not complete yet. I may make additions to this later.&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>Eight lessons from the process of learning the guitar</title><link href="http://manishbarnwal.github.io/blog/2017/11/28/lessons_from_the_guitar/" rel="alternate"></link><updated>2017-11-28T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-11-28:blog/2017/11/28/lessons_from_the_guitar/</id><summary type="html">&lt;p&gt;It has been close to three years since the day I picked up my brother's guitar and asked him to show me how this works. And man! What a journey it has been since then. I have learned so much from the guitar apart from learning to play this beautiful instrument.
+&lt;br&gt;
+&lt;br&gt;
+I learn from everyone and anyone around me. You spend some time with me and I will find something to learn from you. You won't know this but I would have learned something beautiful from you. &lt;strong&gt;Everyone has something to offer. It is up to us to grasp it&lt;/strong&gt;. It should not come as a surprise that I strongly believe in this adage.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You are the average of five people you spend your most time with.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I have spent approximately thousand days with the guitar residing by my bed. Obviously, I can play this instrument but what other lessons has this guitar taught me. I will digress a little to admire my guitar a little. Two of my guitar teachers have complimented my guitar something like this - &lt;em&gt;your guitar has a John Mayer feeling&lt;/em&gt;. I am so proud of my guitar. It is beautiful, melodious, and elegant.
+&lt;br&gt;
+&lt;br&gt;
+Without further ado, below are the lessons the guitar has taught me:&lt;/p&gt;
+&lt;h3&gt;1. Start small&lt;/h3&gt;
+&lt;p&gt;If you pick a guitar the first time, you will realise you can't even hold it properly, you can't press the strings, every note you press sounds pathetic. You want to play your favourite song to it but you can't. You just can't. Your dream of wading your fingers on the guitar gets shattered. You get depressed. You decide maybe this is not for me. You decide to let it go. And here is when you need to realise that Rome was not built in a day. It takes time to learn new stuff. Instead of focusing on the desired output, just start and start small.
+&lt;br&gt;
+&lt;br&gt;
+The initial few months of learning guitar are just the boring finger exercises so that your fingers get accustomed and get the strength to press the string. Guitar has taught me to start small and not to give up thinking about the bigger picture. Just focus on the smallest portion of the humongous task and get it done. Pick up the next smallest task and get it done. With time, you will get closer to your end goal.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;2. People will say things when you start something new&lt;/h3&gt;
+&lt;p&gt;Obviously, you don't sound even close to music the first few months of picking the guitar. Well, it may take more than a year as well. People around you will get irritated with the cranky sound from your attempts to play the guitar. And I don't blame them. It is actually not that good a sound for the ears. But you have to fight them, ignore them, find a time when they are not around and continue your journey of learning. Don't let their voices subdue your will to learn. Keep practicing those finger exercises.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;3. It takes time&lt;/h3&gt;
+&lt;p&gt;Every time I talked to my tutor about not able to play a thing on guitar - say not able to play the painful barre chords or not able to perfect the timing of a note. He had just one answer to all of these queries - &lt;em&gt;it takes time&lt;/em&gt;. And that's it. After few months, I realised he was right. I stopped complaining to him. I told myself whenever I got stuck at something - &lt;em&gt;it takes time&lt;/em&gt;.
+&lt;br&gt;
+&lt;br&gt;
+A lot many people give up on guitar within first few months of learning because they don't see any progress in their learning. My friend, Issac calls them &lt;em&gt;6-month guitarist&lt;/em&gt;. They give up and stop learning. Don't be like them. Understand that it takes time to achieve bigger goals. Learning guitar isn't a sprint; it is a never-ending marathon. You keep on learning. I kept trying without complaints. With much practice, I realised I was improving and that was like a pat on the back. This small progress motivated me to continue the journey of learning. If there is something you suck at, just keep trying. All it takes is a little time.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;4. Track your short-term goals to achieve the end goal&lt;/h3&gt;
+&lt;p&gt;I used to see how many times I am able to change from one chord (say C) to another chord (say G). This is called as &lt;em&gt;one-minute changes&lt;/em&gt;. I kept a track of this number. I remember the first few months this number would be somewhere around twenty. Twenty changes from C to G in a minute. And I used to write it down in a notebook. The next day the same one-minute changes and I used to keep track if the number increased. Obviously, it didn't change much in a month or even two months but after six months I was doing 45 changes. That's an improvement of 80% over a few months. That is not bad! Guitar has taught me to track the progress. It does not have to be the one I explained. See, what works for you and your learning journey.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;5. Set aside a fixed time for achieving a new goal&lt;/h3&gt;
+&lt;p&gt;It helps to set aside a fixed time to learn the skill you want to acquire. And this is absolutely important in the starting few days of your learning journey. I used to wake up at 6.30 a.m. every day during the starting few months. I didn't have a guitar teacher in the beginning and discipline was of utmost importance. Choose a time that fits best into your routine. This time shouldn't be given to any other activity. This is the time you have to spend on your goal. Morning worked best for me. See what works best for you. You need to stick to this time and make the best use of it. I have applied this technique to learn other new stuff as well and this has worked for me.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;6. The best time to plant a tree was 20 years ago. The next best time is now&lt;/h3&gt;
+&lt;p&gt;A month since I started learning guitar, I thought I had so much time in college. I should have picked guitar during that time. I would have made so much progress from then until today. And it is true that most of your college days are mostly free. But then a thought from Quora came to the rescue of the disheartened heart and eased me - &lt;em&gt;The best time to plant a tree was 20 years ago. The next best time is now&lt;/em&gt;. This motivated me not to think of the lost time. Now if I want to learn a thing, I will start it today. I will start it now. Most of the times you have to just start without letting your mind convince you otherwise. Start it today. Start now.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;7. Practise what you are not good at&lt;/h3&gt;
+&lt;p&gt;Practice is extremely personal. Assess your weakness and practice to master it. I realised late into the journey of learning guitar that I am not making much progress. I felt I am stuck at a level from where I am not making progress. I am not levelling up. I talked to my guitar tutor about this. And he explained to me that it is important to practice what you are not good at. I was not good at playing barre chords and I never practiced it. I don't know why. Maybe, because it would have required some extra effort or whatever stupid reasons I had. But then, I made up my mind to practice skills I am not good at. You improve only when you know your weaknesses. Find out your gaps and start building that bridge - one day at a time.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;8. If you want to learn a skill, surrounding yourself with people better than you helps&lt;/h3&gt;
+&lt;p&gt;If you talk to an expert for an hour that is equivalent to reading hundred books. I don't know if this is entirely true but there is some truth in this. Surround yourself with people who are better than you. I am lucky to have a lot many around me who are way too better than me at playing guitar. And this has helped me enormously. First, it motivates you to keep learning to reach the other person's level. Second, you realise, obviously, you are not the best and this pushes you to work more on it.
+&lt;br&gt;
+&lt;br&gt;
+Thank you for reading!&lt;/p&gt;</summary><category term="lessons"></category><category term="guitar"></category><category term="music"></category><category term="manish barnwal"></category></entry><entry><title>An easy starter to music theory</title><link href="http://manishbarnwal.github.io/blog/2017/11/24/starter_music_theory/" rel="alternate"></link><updated>2017-11-24T00:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-11-24:blog/2017/11/24/starter_music_theory/</id><summary type="html">&lt;p&gt;&lt;img src="http://manishbarnwal.com/images/music/starter_music_theory/scale-notes.jpg" alt="Photo of twelve notes"
 style="width:1200px;height:200px;border:thin solid black;"&gt;
 &lt;br&gt;
 &lt;br&gt;
