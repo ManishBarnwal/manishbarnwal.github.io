@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/ml-data-science.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2018-01-23T08:00:00-02:00</updated><entry><title>Creating a virtual environment in Python</title><link href="http://manishbarnwal.github.io/blog/2018/01/23/virtual_environment_in_python/" rel="alternate"></link><updated>2018-01-23T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-01-23:blog/2018/01/23/virtual_environment_in_python/</id><summary type="html">&lt;p&gt;I was trying to get a virtual environment set up on Python 3 using &lt;code&gt;mkvirtualenv&lt;/code&gt; but somehow the virtual environment was getting created on Python 2.7 (my system python).
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/ml-data-science.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2018-04-18T08:00:00-03:00</updated><entry><title>git and github for data scientists</title><link href="http://manishbarnwal.github.io/blog/2018/04/18/git_and_github_for_data_scientists/" rel="alternate"></link><updated>2018-04-18T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-04-18:blog/2018/04/18/git_and_github_for_data_scientists/</id><summary type="html">&lt;p&gt;It has been close to a year since I shifted to a start-up which incidentally got acquired after a month of my joining. Before this I used to work at WalmartLabs where we always wanted to use a version control system like git but it never took off properly. Now that I am working in this start-up I got to know that just taking a course on git/github doesn't make you a master of this topic. I used to think that I understand git/github but recently I have come to know about so many features of this that I now have accepted this - 'You know nothing, Manish Barnwal!'
+&lt;br&gt;
+&lt;br&gt;
+In today's post I will not talk about theory in details. This post is more of a practical introduction to git/github. If you have never heard of git you should probably go somewhere els to learn about it. Let us get started.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h4&gt;What is git?&lt;/h4&gt;
+&lt;p&gt;Git is a version control system that allows you to capture snapshot of the progress of your code while you are developing it. There will be many versions of the code you will develop after which you have your final code written. Git allows you to capture and commit these versions so that if later the code breaks you can come back to an earlier working version and start developing from where you left.
+&lt;br&gt;
+&lt;br&gt;
+Whit is github?
+Github is the server where the various versions of the code that you have written gets stored. I understand it as a web-version of git. I may be wrong and will update this when I better understand this.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Stages in code development using git&lt;/h3&gt;
+&lt;p&gt;Let us say you made changes to a code file named - my_code.py. Once you are satisfied with your changes, you would want to commit this change and push it to github so that the web-version also gets updated.&lt;/p&gt;
+&lt;p&gt;After you have made your code changes, you should always check the status of your local repo by typing &lt;code&gt;git status&lt;/code&gt;. Once you have made changes to an existing file, you need to send it to a staging area by typing &lt;code&gt;git add my_code.py&lt;/code&gt;. To stage a file is to simply prepare it finely before commit. Once you have your file in staging area, you would like it to commit it with a message about the changes you did in your file - somethin like this: &lt;code&gt;git commit -m 'fixed the date-time issue'&lt;/code&gt;. And then you push these changes by typing &lt;code&gt;git push&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;To install this package&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Create a virtual env on python3&lt;/h3&gt;
+&lt;p&gt;You need to install &lt;code&gt;virtualenvwrapper&lt;/code&gt; package using:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;virtualenvwrapper&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;virtualenvwrapper&lt;/em&gt; helps creating and deleting virtual environments and I have already explained why we need virtual environments.&lt;/p&gt;
+&lt;p&gt;Once you have it installed, you can easily create an environment say &lt;em&gt;ml_learn_env&lt;/em&gt; by typing&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;mkvirtualenv&lt;/span&gt; &lt;span class="n"&gt;ml_learn&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will activate your virtual environment. You can now install packages in this environment that you need. Any package that you install in this env won't have any impact on anything outside this space.
+&lt;br&gt;
+&lt;br&gt;
+Many times, you may have to pass the path of the python version along with mkvirtualenv to ensure the virtual env is created over that python particular version.&lt;/p&gt;
+&lt;p&gt;If I do &lt;code&gt;pyenv versions&lt;/code&gt; on my terminal, this is what I get.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;system&lt;/span&gt;
+&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mf"&gt;3.4.3&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Users&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;manishb&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;imac&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mf"&gt;3.5.2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;There are three versions of Python on my machine: &lt;em&gt;system&lt;/em&gt; - the default Python provided by Mac which is Python 2.7. And then I have Python 3.4.3 (marked by asterisk meaning the current active version) and Python 3.5.2.
+&lt;br&gt;
+&lt;br&gt;
+If I want to make a virtual env corresponding to a particular python version, say 3.4.3 I can pass the path explicitly like&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;mkvirtualenv&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Users&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Manish&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pyenv&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;versions&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;3.4.3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;ml_learn_env&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will definitely have 3.4.3 as the python version on your virtual env - ml_learn_env.
+This post is not complete yet. I may make additions to this later.&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>Creating a virtual environment in Python</title><link href="http://manishbarnwal.github.io/blog/2018/01/23/virtual_environment_in_python/" rel="alternate"></link><updated>2018-01-23T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-01-23:blog/2018/01/23/virtual_environment_in_python/</id><summary type="html">&lt;p&gt;I was trying to get a virtual environment set up on Python 3 using &lt;code&gt;mkvirtualenv&lt;/code&gt; but somehow the virtual environment was getting created on Python 2.7 (my system python).
 &lt;br&gt;
 &lt;br&gt;
 If you already know about virtual environments and why they are useful, you may skip the next two paragraphs. I came to know about virtual environments only recently. Virtual environment helps you create an isolated space wherein whatever packages you install won't have an impact outside the environment. To give you a better understanding I will tell you why I use virtual environment.

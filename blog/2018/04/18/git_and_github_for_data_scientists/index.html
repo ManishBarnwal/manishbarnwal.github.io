@@ -5,10 +5,10 @@
 <head>
 
   <meta charset="utf-8">
-  <title>Manish Barnwal - visualization</title>
+  <title>git and github for data scientists</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="" >
-  <meta name="keywords" content="" >
+  <meta name="description" content="This is a tutorial on how to create a virtual environment in Python." >
+  <meta name="keywords" content="virtual environment, python, tutorial, manish barnwal" >
 
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1836,30 +1836,124 @@ jQuery(document).ready(function($) {
 
   <div id="main">
     <div id="content">
-<div class="blog-index">
-  		<article>
+
+<div>
+  <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">
-        <a href="http://manishbarnwal.github.io/blog/2017/01/27/visualization_is_under-rated/">Visualization in ML is under-rated</a>
-      </h1>
-      <p class="meta"><time datetime="2017-01-27T08:00:00" pubdate>Jan 27, 2017</time></p>
+      <h1 class="entry-title">git and github for data scientists</h1>
+      <p class="meta"><time datetime="2018-04-18T08:00:00" pubdate>Apr 18, 2018</time></p>
 </header>
 
-  <div class="entry-content"><p>Visualization is one of the most important pillars of data science. Every one wants to learn Machine learning but if you explain them the little tasks that involve the overall workflow of the process, it turns them off. Everyone just wants to do the cool stuff. They want to build ...</p></div>
-  <footer>
-    <a rel="full-article" href="http://manishbarnwal.github.io/blog/2017/01/27/visualization_is_under-rated/">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
+  <div class="entry-content"><p>It has been close to a year since I shifted to a start-up which incidentally got acquired after a month of my joining. Before this I used to work at WalmartLabs where we always wanted to use a version control system like git but it never took off properly. Now that I am working in this start-up I got to know that just taking a course on git/github doesn't make you a master of this topic. I used to think that I understand git/github but recently I have come to know about so many features of this that I now have accepted this - 'You know nothing, Manish Barnwal!'
+<br>
+<br>
+In today's post I will not talk about theory in details. This post is more of a practical introduction to git/github. If you have never heard of git you should probably go somewhere els to learn about it. Let us get started.
+<br>
+<br></p>
+<h4>What is git?</h4>
+<p>Git is a version control system that allows you to capture snapshot of the progress of your code while you are developing it. There will be many versions of the code you will develop after which you have your final code written. Git allows you to capture and commit these versions so that if later the code breaks you can come back to an earlier working version and start developing from where you left.
+<br>
+<br>
+Whit is github?
+Github is the server where the various versions of the code that you have written gets stored. I understand it as a web-version of git. I may be wrong and will update this when I better understand this.
+<br>
+<br></p>
+<h3>Stages in code development using git</h3>
+<p>Let us say you made changes to a code file named - my_code.py. Once you are satisfied with your changes, you would want to commit this change and push it to github so that the web-version also gets updated.</p>
+<p>After you have made your code changes, you should always check the status of your local repo by typing <code>git status</code>. Once you have made changes to an existing file, you need to send it to a staging area by typing <code>git add my_code.py</code>. To stage a file is to simply prepare it finely before commit. Once you have your file in staging area, you would like it to commit it with a message about the changes you did in your file - somethin like this: <code>git commit -m 'fixed the date-time issue'</code>. And then you push these changes by typing <code>git push</code></p>
+<p>To install this package</p>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">pyenv</span>
+</pre></div>
 
-  <br />
-</div></div>
+
+<h3>Create a virtual env on python3</h3>
+<p>You need to install <code>virtualenvwrapper</code> package using:</p>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenvwrapper</span>
+</pre></div>
+
+
+<p><em>virtualenvwrapper</em> helps creating and deleting virtual environments and I have already explained why we need virtual environments.</p>
+<p>Once you have it installed, you can easily create an environment say <em>ml_learn_env</em> by typing</p>
+<div class="highlight"><pre><span class="n">mkvirtualenv</span> <span class="n">ml_learn</span>
+</pre></div>
+
+
+<p>This will activate your virtual environment. You can now install packages in this environment that you need. Any package that you install in this env won't have any impact on anything outside this space.
+<br>
+<br>
+Many times, you may have to pass the path of the python version along with mkvirtualenv to ensure the virtual env is created over that python particular version.</p>
+<p>If I do <code>pyenv versions</code> on my terminal, this is what I get.</p>
+<div class="highlight"><pre><span class="n">system</span>
+<span class="o">*</span> <span class="mf">3.4.3</span> <span class="p">(</span><span class="n">set</span> <span class="n">by</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">manishb</span><span class="o">-</span><span class="n">imac</span><span class="o">/</span><span class="p">.</span><span class="n">python</span><span class="o">-</span><span class="n">version</span><span class="p">)</span>
+<span class="mf">3.5.2</span>
+</pre></div>
+
+
+<p>There are three versions of Python on my machine: <em>system</em> - the default Python provided by Mac which is Python 2.7. And then I have Python 3.4.3 (marked by asterisk meaning the current active version) and Python 3.5.2.
+<br>
+<br>
+If I want to make a virtual env corresponding to a particular python version, say 3.4.3 I can pass the path explicitly like</p>
+<div class="highlight"><pre><span class="n">mkvirtualenv</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">Manish</span><span class="o">/</span><span class="p">.</span><span class="n">pyenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mf">3.4.3</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span> <span class="n">ml_learn_env</span>
+</pre></div>
+
+
+<p>This will definitely have 3.4.3 as the python version on your virtual env - ml_learn_env.
+This post is not complete yet. I may make additions to this later.</p></div>
+<script type="text/javascript" language="javascript">
+      var aax_size='728x90';
+      var aax_pubname = 'manishbarnwal-21';
+      var aax_src='302';
+    </script>
+    <script type="text/javascript" language="javascript" src="http://c.amazon-adsystem.com/aax2/assoc.js"></script>
+<p class="meta">
+  <span class="affiliate disclosure" style="color:green;font-size:10pt">
+    Advertiser Disclosure: This post contains affiliate links, which means I receive a commission if you make a purchase using this link. Your purchase helps support my work.
+  </span>
+
+</p>
+
+
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Manish Barnwal</span>
+  </span>
+<time datetime="2018-04-18T08:00:00" pubdate>Apr 18, 2018</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/python.html">python</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/tutorial.html">tutorial</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/hacks.html">hacks</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/manish-barnwal.html">manish barnwal</a>
+  </span>
+</p><div class="sharing">
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2018/04/18/git_and_github_for_data_scientists/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2018/04/18/git_and_github_for_data_scientists/" >Tweet</a>
+  <div class="g-plusone" data-size="medium"></div>
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2017/01/27/visualization_is_under-rated/">Visualization in ML is under-rated</a>
+          <a href="http://manishbarnwal.github.io/blog/2018/04/18/git_and_github_for_data_scientists/">git and github for data scientists</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2018/01/23/virtual_environment_in_python/">Creating a virtual environment in Python</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/11/28/lessons_from_the_guitar/">Eight lessons learnt from the process of learning the guitar</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/11/24/starter_music_theory/">An easy starter to music theory</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2017/11/23/common_docker_commands/">Common docker commands</a>
       </li>
     </ul>
   </section>
@@ -1906,7 +2000,7 @@ jQuery(document).ready(function($) {
 
 
   <footer role="contentinfo"><p>
-    Copyright &copy;  2017  - Manish Barnwal -
+    Copyright &copy;  2014-2018  - Manish Barnwal -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">
@@ -1930,6 +2024,9 @@ jQuery(document).ready(function($) {
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
+          var disqus_identifier = '/blog/2018/04/18/git_and_github_for_data_scientists/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2018/04/18/git_and_github_for_data_scientists/';
+          var disqus_title = 'git and github for data scientists';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
