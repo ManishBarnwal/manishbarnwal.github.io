@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/ml-data-science.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2018-04-18T08:00:00-03:00</updated><entry><title>git and github for data scientists</title><link href="http://manishbarnwal.github.io/blog/2018/04/18/git_and_github_for_data_scientists/" rel="alternate"></link><updated>2018-04-18T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-04-18:blog/2018/04/18/git_and_github_for_data_scientists/</id><summary type="html">&lt;p&gt;It has been close to a year since I shifted to a start-up which incidentally got acquired after a month of my joining. Before this I used to work at WalmartLabs where we always wanted to use a version control system like git but it never took off properly. Now that I am working in this start-up I got to know that just taking a course on git/github doesn't make you a master of this topic. I used to think that I understand git/github but recently I have come to know about so many features of this that I now have accepted this - 'You know nothing, Manish Barnwal!'
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/ml-data-science.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2018-04-18T08:00:00-03:00</updated><entry><title>git and github for data scientists</title><link href="http://manishbarnwal.github.io/blog/2018/04/18/git_and_github_for_data_scientists/" rel="alternate"></link><updated>2018-04-18T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-04-18:blog/2018/04/18/git_and_github_for_data_scientists/</id><summary type="html">&lt;p&gt;It has been close to a year since I shifted to a start-up which incidentally got acquired after a month of my joining. Before this I used to work at WalmartLabs where we always wanted to use a version control system like git but it never took off properly. Now that I am working in this start-up I got to know that just taking a course on git/github doesn't make you a master of this topic. I used to think that I understand git/github but recently I have come to know about so many features of this that I now have accepted this - &lt;em&gt;You know nothing, Manish Barnwal!&lt;/em&gt;
 &lt;br&gt;
 &lt;br&gt;
 In today's post I will not talk about theory in details. This post is more of a practical introduction to git/github. If you have never heard of git you should probably go somewhere els to learn about it. Let us get started.
@@ -14,19 +14,29 @@ In today's post I will not talk about theory in details. This post is more of a 
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Stages in code development using git&lt;/h3&gt;
-&lt;p&gt;Let us say you made changes to a code file named - my_code.py. Once you are satisfied with your changes, you would want to commit this change and push it to github so that the web-version also gets updated.&lt;/p&gt;
-&lt;p&gt;After you have made your code changes, you should always check the status of your local repo by typing &lt;code&gt;git status&lt;/code&gt;. Once you have made changes to an existing file, you need to send it to a staging area by typing &lt;code&gt;git add my_code.py&lt;/code&gt;. To stage a file is to simply prepare it finely before commit.
+&lt;p&gt;Let us say you made changes to a code file named - my_code.py. Once you are satisfied with your changes, you would want to commit this change and push it to github so that the web-version also gets updated.
 &lt;br&gt;
 &lt;br&gt;
-Once you have your file in staging area, you would like it to commit it with a message about the changes you did in your file - something like this: &lt;code&gt;git commit -m 'fixed the date-time issue'&lt;/code&gt;. And then you push these changes by typing &lt;code&gt;git push&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;If everything ran without giving an error message, you should have the changes made to the file on Github as well.&lt;/p&gt;
+After you have made your code changes, you should always check the status of your local repo by typing &lt;code&gt;git status&lt;/code&gt;. Once you have made changes to an existing file, you need to send it to a staging area by typing &lt;code&gt;git add my_code.py&lt;/code&gt;. To stage a file is to simply prepare it finely before commit.
+&lt;br&gt;
+&lt;br&gt;
+Once you have your file in staging area, you would like it to commit it with a message about the changes you did in your file - something like this: &lt;code&gt;git commit -m 'fixed the date-time issue'&lt;/code&gt;. And then you push these changes by typing &lt;code&gt;git push&lt;/code&gt;
+&lt;br&gt;
+&lt;br&gt;
+If everything ran without giving an error message, you should have the changes made to the file on Github as well.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Creating a branch in git&lt;/h3&gt;
-&lt;p&gt;A branch in git allows you to work independently of the main project. If there is a feature you want to add in to the main project, you go about creating a separate branch and you work on it. Once this feature is completed, you get it reviewed from others by raising a PR (pull request). A PR is a way to get your work checked by others in your team so that they can give you a feedback if there's any changes to be made to the code you have written in the new branch created. There could be multiple to-and-fro reviews and changes before all the reviewers are satisfied with the code in the branch.
+&lt;p&gt;A branch in git allows you to work independently of the main project. If there is a feature you want to add in to the main project, you go about creating a separate branch and you work on it. Once this feature is completed, you get it reviewed from others by raising a PR (pull request).
+&lt;br&gt;
+&lt;br&gt;
+A PR is a way to get your work checked by others in your team so that they can give you a feedback if there's any changes to be made to the code you have written in the new branch created. There could be multiple to-and-fro reviews and changes before all the reviewers are satisfied with the code in the branch.
 &lt;br&gt;
 &lt;br&gt;
 Once the PR is approved, you can merge it with the master and the code you had written in the new branch becomes part of the master now.
-&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;To give an example, recently I had to work on checking the quality of data that we use for our recommendation project. The task was to assess the quality of the input data, create a few quality metrics and if there is any problem with the data, the task should fail.
+&lt;br&gt;
+&lt;br&gt;
+To give an example, recently I had to work on checking the quality of data that we use for our recommendation project. The task was to assess the quality of the input data, create a few quality metrics and if there is any problem with the data, the task should fail.
 &lt;br&gt;
 &lt;br&gt;
 Assessing the quality of the data is an independent task and so I created a new branch called data_validation. To create a branch in git type
@@ -34,20 +44,35 @@ Assessing the quality of the data is an independent task and so I created a new 
 So in my case it was &lt;code&gt;git branch data_validation&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Once a branch is created, you can have a look at all the branches in your local by typing &lt;code&gt;git branch&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;There will be a asterisk mark next to the branch on which you are currently on. If you want to change the branch, you can do so by typing
-&lt;code&gt;git checkout &amp;lt;branch-name&amp;gt;&lt;/code&gt;
-The default branch is master&lt;/p&gt;
+&lt;code&gt;git checkout &amp;lt;branch-name&amp;gt;&lt;/code&gt;. The default branch is master.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;PR is approved. What next?&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Merge pull-request from Github&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Once your PR is approved from all the reviewers, you can merge it with the master by going to that particular branch in Github and clicking on &lt;code&gt;Merge pull request&lt;/code&gt; option. If there are no conflicts, your branch will successfully get merged with the master - meaning whatever code changes you had done in your new created branch is now part of the master.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;git checkout master from git&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Now, go to git and do &lt;code&gt;git checkout master&lt;/code&gt; to move to the master branch&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;git pull&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Do a &lt;code&gt;git pull&lt;/code&gt; to get the latest changes from the master branch on Github to your local git.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;Merge pull-request from Github&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Once your PR is approved from all the reviewers, you can merge it with the master by going to that particular branch in Github and clicking on &lt;code&gt;Merge pull request&lt;/code&gt; option. If there are no conflicts, your branch will successfully get merged with the master - meaning whatever code changes you had done in your new created branch is now part of the master.
+&lt;br&gt;
+&lt;br&gt;
+2. &lt;em&gt;git checkout master from git&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Now, go to git and do &lt;code&gt;git checkout master&lt;/code&gt; to move to the master branch
+&lt;br&gt;
+&lt;br&gt;
+3. &lt;em&gt;git pull&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Do a &lt;code&gt;git pull&lt;/code&gt; to get the latest changes from the master branch on Github to your local git.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;git tag&lt;/h3&gt;
-&lt;p&gt;If you go to a repo on github.com you will see a tab called 'releases'. You will see various release-numbers there. This is done so that you have versions that one can revert back to if a release fails.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;git tag&lt;/code&gt; from command line also gives you the list of all releases for the repository.&lt;/p&gt;
-&lt;p&gt;Normally a release looks something like this 2.11.1. So there are three set of numbers to be looked at - each separated by a period - major, minor, bug-fixes&lt;/p&gt;
-&lt;p&gt;Given a version number MAJOR.MINOR.PATCH, increment the:&lt;/p&gt;
+&lt;p&gt;If you go to a repo on github.com you will see a tab called 'releases'. You will see various release-numbers there. This is done so that you have versions that one can revert back to if a release fails.
+&lt;br&gt;
+&lt;br&gt;
+&lt;code&gt;git tag&lt;/code&gt; from command line also gives you the list of all releases for the repository.
+&lt;br&gt;
+&lt;br&gt;
+Normally a release looks something like this 2.11.1. So there are three set of numbers to be looked at - each separated by a period - major, minor, bug-fixes
+&lt;br&gt;
+&lt;br&gt;
+Given a version number MAJOR.MINOR.PATCH, increment the:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;MAJOR version when you make incompatible API changes,&lt;/p&gt;
@@ -56,13 +81,14 @@ The default branch is master&lt;/p&gt;
 &lt;p&gt;MINOR version when you add functionality in a backwards-compatible manner, and&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;PATCH version when you make backwards-compatible bug fixes.&lt;/p&gt;
+&lt;p&gt;PATCH version when you make backwards-compatible bug fixes.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;So how do you add a tag?&lt;/h3&gt;
 &lt;p&gt;Depending on whether you have made a major, minor or patch level changes, you can add a tag by typing
-&lt;code&gt;git tag &amp;lt;tag-number&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;For eg. &lt;code&gt;git tag rel/2.11.0&lt;/code&gt;&lt;/p&gt;
+&lt;code&gt;git tag &amp;lt;tag-number&amp;gt;&lt;/code&gt;. For eg. &lt;code&gt;git tag rel/2.11.0&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;To push this tag to remote repo, you have to type &lt;code&gt;git push origin &amp;lt;tag-no.&amp;gt;&lt;/code&gt;. If you want to push multiple tags - &lt;code&gt;git push origin --tags&lt;/code&gt; will work.&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>Creating a virtual environment in Python</title><link href="http://manishbarnwal.github.io/blog/2018/01/23/virtual_environment_in_python/" rel="alternate"></link><updated>2018-01-23T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-01-23:blog/2018/01/23/virtual_environment_in_python/</id><summary type="html">&lt;p&gt;I was trying to get a virtual environment set up on Python 3 using &lt;code&gt;mkvirtualenv&lt;/code&gt; but somehow the virtual environment was getting created on Python 2.7 (my system python).
 &lt;br&gt;
 &lt;br&gt;
