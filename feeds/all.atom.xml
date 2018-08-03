@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2018-04-18T08:00:00-03:00</updated><entry><title>git and github for data scientists</title><link href="http://manishbarnwal.github.io/blog/2018/04/18/git_and_github_for_data_scientists/" rel="alternate"></link><updated>2018-04-18T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-04-18:blog/2018/04/18/git_and_github_for_data_scientists/</id><summary type="html">&lt;p&gt;It has been close to a year since I shifted to a start-up which incidentally got acquired after a month of my joining. Before this I used to work at WalmartLabs where we always wanted to use a version control system like git but it never took off properly. Now that I am working in this start-up I got to know that just taking a course on git/github doesn't make you a master of this topic. I used to think that I understand git/github but recently I have come to know about so many features of this that I now have accepted this - &lt;em&gt;You know nothing, Manish Barnwal!&lt;/em&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2018-06-18T08:00:00-03:00</updated><entry><title>Handling errors with try-catch in Python</title><link href="http://manishbarnwal.github.io/blog/2018/06/18/try_catch_in_python/" rel="alternate"></link><updated>2018-06-18T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-06-18:blog/2018/06/18/try_catch_in_python/</id><summary type="html">&lt;p&gt;In the previous post I discuss about how to convert a string to date format in Python. I was working on similar idea today. I had a column of object type which was string of dates. The column name is 'signed_up_at' and I wanted to convert it to date format and then calculate the number of days since the user has signed up on our site.&lt;/p&gt;
+&lt;p&gt;When I tried to apply this function to create a new column to convert an 'object' type column to date column.&lt;/p&gt;
+&lt;p&gt;df['date_signed_up'] = df.signed_up_at.apply(lambda x: x.split('T'))&lt;/p&gt;
+&lt;p&gt;But I got the below error:
+AttributeError: 'float' object has no attribute 'split'&lt;/p&gt;
+&lt;p&gt;Which implied that there is a value in 'signed_up_at' column which is float and 'split' doesn't work on float object.&lt;/p&gt;
+&lt;p&gt;I don't know where this float value is in the column but I can't also apply this 'split' unless I bypass this error.&lt;/p&gt;
+&lt;p&gt;Comes into picture - try-catch.&lt;/p&gt;
+&lt;p&gt;Try lets you try a piece of code and when encountered with an error, you can specify what to do with it. Instead of halting completely when encountered with an error, try-except lets you bypass that error and continue the code execution.&lt;/p&gt;
+&lt;p&gt;Try will try to run a block of code and if it succeeds it won't go to except at all. However, if there is an error in try block, the execution flow goes to except and does what is written in except.&lt;/p&gt;
+&lt;p&gt;We will do something similar with our error as well.&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>Working with dates in Python</title><link href="http://manishbarnwal.github.io/blog/2018/06/18/working_with_dates_in_python/" rel="alternate"></link><updated>2018-06-18T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-06-18:blog/2018/06/18/working_with_dates_in_python/</id><summary type="html">&lt;p&gt;&lt;code&gt;from datetime import datetime&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;To convert a string to date:&lt;/p&gt;
+&lt;p&gt;`datetime.strptime('string', 'format_of_the_string')``&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;d1 = datetime.strptime('2017-02-02', '%Y-%m-%d')&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;`d2 = datetime.strptime('2018-06-17', '%Y-%m-%d')``&lt;/p&gt;
+&lt;p&gt;Find the number of days between two dates
+`delta = d2 - d1
+delta.days
+``&lt;/p&gt;
+&lt;p&gt;Difference between today and some date
+&lt;code&gt;today = datetime.today()
+delta = today - d2
+delta.days&lt;/code&gt;&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>git and github for data scientists</title><link href="http://manishbarnwal.github.io/blog/2018/04/18/git_and_github_for_data_scientists/" rel="alternate"></link><updated>2018-04-18T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-04-18:blog/2018/04/18/git_and_github_for_data_scientists/</id><summary type="html">&lt;p&gt;It has been close to a year since I shifted to a start-up which incidentally got acquired after a month of my joining. Before this I used to work at WalmartLabs where we always wanted to use a version control system like git but it never took off properly. Now that I am working in this start-up I got to know that just taking a course on git/github doesn't make you a master of this topic. And this is true for anything you always wanted to learn. We tend to spend too much time on tutorials and hesitate to take the next step of actually applying it. I recently read this excellent article along the same lines - &lt;a href="https://medium.freecodecamp.org/how-to-escape-tutorial-purgatory-as-a-new-developer-or-at-any-time-in-your-career-e3a4b2384a40"&gt;Tutorial purgatory&lt;/a&gt;. I used to think that I understand git/github but recently I have come to know about so many features that I now have accepted this - &lt;em&gt;You know nothing, Manish Barnwal!&lt;/em&gt;
 &lt;br&gt;
 &lt;br&gt;
-In today's post I will not talk about theory in details. This post is more of a practical introduction to git/github. If you have never heard of git you should probably go somewhere els to learn about it. Let us get started.
+In today's post I will not talk about theory in details. This post is more of a practical introduction to git/github. If you have never heard of git you should probably go somewhere else to learn about it. Let us get started.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h4&gt;What is git?&lt;/h4&gt;
@@ -10,7 +32,7 @@ In today's post I will not talk about theory in details. This post is more of a 
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Whit is github?&lt;/h3&gt;
-&lt;p&gt;Github is the server where the various versions of the code that you have written gets stored. I understand it as a web-version of git. I may be wrong and will update this when I better understand this.
+&lt;p&gt;Github is the server where the various versions of the code you have written gets stored. I understand it as a web-version of git.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Stages in code development using git&lt;/h3&gt;
@@ -23,14 +45,16 @@ After you have made your code changes, you should always check the status of you
 Once you have your file in staging area, you would like it to commit it with a message about the changes you did in your file - something like this: &lt;code&gt;git commit -m 'fixed the date-time issue'&lt;/code&gt;. And then you push these changes by typing &lt;code&gt;git push&lt;/code&gt;
 &lt;br&gt;
 &lt;br&gt;
-If everything ran without giving an error message, you should have the changes made to the file on Github as well.
+If everything ran without giving an error message, you should have the changes reflected on Github.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Creating a branch in git&lt;/h3&gt;
-&lt;p&gt;A branch in git allows you to work independently of the main project. If there is a feature you want to add in to the main project, you go about creating a separate branch and you work on it. Once this feature is completed, you get it reviewed from others by raising a PR (pull request).
+&lt;p&gt;A branch in git allows you to work independently of the main project. If there is a feature you want to add in to the main project, you go about creating a separate branch and you work on it. Once this feature is completed, you get it reviewed from others by raising a PR (pull request).&lt;/p&gt;
+&lt;p&gt;Creating a branch makes a separate copy of the master branch in your local and now you can add your features, test new changes without affecting the master branch.
 &lt;br&gt;
 &lt;br&gt;
-A PR is a way to get your work checked by others in your team so that they can give you a feedback if there's any changes to be made to the code you have written in the new branch created. There could be multiple to-and-fro reviews and changes before all the reviewers are satisfied with the code in the branch.
+&lt;strong&gt;What is a PR?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A PR is a way to get your work checked by others in your team so that they can give you a feedback if there's any changes to be made to the code you have written in the new branch created. There could be multiple to-and-fro reviews and changes before all the reviewers are satisfied with the code in the branch. If all the reviewers are satisfied with the code changes requested for, they will approve your PR.
 &lt;br&gt;
 &lt;br&gt;
 Once the PR is approved, you can merge it with the master and the code you had written in the new branch becomes part of the master now.
@@ -63,16 +87,17 @@ So in my case it was &lt;code&gt;git branch data_validation&lt;/code&gt;.&lt;/p&
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;git tag&lt;/h3&gt;
-&lt;p&gt;If you go to a repo on github.com you will see a tab called 'releases'. You will see various release-numbers there. This is done so that you have versions that one can revert back to if a release fails.
+&lt;p&gt;If you go to a repo on github.com you will see a tab called &lt;code&gt;releases&lt;/code&gt;. You will see various release-numbers there. This is done so that you have versions that one can revert back to if a release fails.
 &lt;br&gt;
 &lt;br&gt;
 &lt;code&gt;git tag&lt;/code&gt; from command line also gives you the list of all releases for the repository.
 &lt;br&gt;
 &lt;br&gt;
-Normally a release looks something like this 2.11.1. So there are three set of numbers to be looked at - each separated by a period - major, minor, bug-fixes
+Normally a release looks something like this &lt;code&gt;2.11.1&lt;/code&gt;. So there are three set of numbers to be looked at - each separated by a period - &lt;em&gt;major, minor, bug-fixes&lt;/em&gt;. If you want to give a tag number to your release, look for the most recent tag number and update it according to the framework below.
 &lt;br&gt;
-&lt;br&gt;
-Given a version number MAJOR.MINOR.PATCH, increment the:&lt;/p&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;How to update a tag (release number) ?&lt;/h3&gt;
+&lt;p&gt;Given a version number MAJOR.MINOR.PATCH, increment the:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;MAJOR version when you make incompatible API changes,&lt;/p&gt;
@@ -89,7 +114,10 @@ Given a version number MAJOR.MINOR.PATCH, increment the:&lt;/p&gt;
 &lt;h3&gt;So how do you add a tag?&lt;/h3&gt;
 &lt;p&gt;Depending on whether you have made a major, minor or patch level changes, you can add a tag by typing
 &lt;code&gt;git tag &amp;lt;tag-number&amp;gt;&lt;/code&gt;. For eg. &lt;code&gt;git tag rel/2.11.0&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;To push this tag to remote repo, you have to type &lt;code&gt;git push origin &amp;lt;tag-no.&amp;gt;&lt;/code&gt;. If you want to push multiple tags - &lt;code&gt;git push origin --tags&lt;/code&gt; will work.&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>Creating a virtual environment in Python</title><link href="http://manishbarnwal.github.io/blog/2018/01/23/virtual_environment_in_python/" rel="alternate"></link><updated>2018-01-23T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-01-23:blog/2018/01/23/virtual_environment_in_python/</id><summary type="html">&lt;p&gt;I was trying to get a virtual environment set up on Python 3 using &lt;code&gt;mkvirtualenv&lt;/code&gt; but somehow the virtual environment was getting created on Python 2.7 (my system python).
+&lt;p&gt;To push this tag to remote repo, you have to type &lt;code&gt;git push origin &amp;lt;tag-no.&amp;gt;&lt;/code&gt;. If you want to push multiple tags - &lt;code&gt;git push origin --tags&lt;/code&gt; will work.
+&lt;br&gt;
+&lt;br&gt;
+I will keep visiting this post to add more of my notes and learnings on git/github. Thanks for reading. Keep learning!&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>Creating a virtual environment in Python</title><link href="http://manishbarnwal.github.io/blog/2018/01/23/virtual_environment_in_python/" rel="alternate"></link><updated>2018-01-23T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-01-23:blog/2018/01/23/virtual_environment_in_python/</id><summary type="html">&lt;p&gt;I was trying to get a virtual environment set up on Python 3 using &lt;code&gt;mkvirtualenv&lt;/code&gt; but somehow the virtual environment was getting created on Python 2.7 (my system python).
 &lt;br&gt;
 &lt;br&gt;
 If you already know about virtual environments and why they are useful, you may skip the next two paragraphs. I came to know about virtual environments only recently. Virtual environment helps you create an isolated space wherein whatever packages you install won't have an impact outside the environment. To give you a better understanding I will tell you why I use virtual environment.

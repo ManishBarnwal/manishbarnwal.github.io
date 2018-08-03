@@ -7,8 +7,8 @@
   <meta charset="utf-8">
   <title>git and github for data scientists</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="This is a tutorial on how to create a virtual environment in Python." >
-  <meta name="keywords" content="virtual environment, python, tutorial, manish barnwal" >
+  <meta name="description" content="This is a tutorial on git and github for anyone who wants to use it." >
+  <meta name="keywords" content="git, github, tutorial, manish barnwal" >
 
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1844,10 +1844,10 @@ jQuery(document).ready(function($) {
       <p class="meta"><time datetime="2018-04-18T08:00:00" pubdate>Apr 18, 2018</time></p>
 </header>
 
-  <div class="entry-content"><p>It has been close to a year since I shifted to a start-up which incidentally got acquired after a month of my joining. Before this I used to work at WalmartLabs where we always wanted to use a version control system like git but it never took off properly. Now that I am working in this start-up I got to know that just taking a course on git/github doesn't make you a master of this topic. I used to think that I understand git/github but recently I have come to know about so many features of this that I now have accepted this - <em>You know nothing, Manish Barnwal!</em>
+  <div class="entry-content"><p>It has been close to a year since I shifted to a start-up which incidentally got acquired after a month of my joining. Before this I used to work at WalmartLabs where we always wanted to use a version control system like git but it never took off properly. Now that I am working in this start-up I got to know that just taking a course on git/github doesn't make you a master of this topic. And this is true for anything you always wanted to learn. We tend to spend too much time on tutorials and hesitate to take the next step of actually applying it. I recently read this excellent article along the same lines - <a href="https://medium.freecodecamp.org/how-to-escape-tutorial-purgatory-as-a-new-developer-or-at-any-time-in-your-career-e3a4b2384a40">Tutorial purgatory</a>. I used to think that I understand git/github but recently I have come to know about so many features that I now have accepted this - <em>You know nothing, Manish Barnwal!</em>
 <br>
 <br>
-In today's post I will not talk about theory in details. This post is more of a practical introduction to git/github. If you have never heard of git you should probably go somewhere els to learn about it. Let us get started.
+In today's post I will not talk about theory in details. This post is more of a practical introduction to git/github. If you have never heard of git you should probably go somewhere else to learn about it. Let us get started.
 <br>
 <br></p>
 <h4>What is git?</h4>
@@ -1855,7 +1855,7 @@ In today's post I will not talk about theory in details. This post is more of a 
 <br>
 <br></p>
 <h3>Whit is github?</h3>
-<p>Github is the server where the various versions of the code that you have written gets stored. I understand it as a web-version of git. I may be wrong and will update this when I better understand this.
+<p>Github is the server where the various versions of the code you have written gets stored. I understand it as a web-version of git.
 <br>
 <br></p>
 <h3>Stages in code development using git</h3>
@@ -1868,14 +1868,16 @@ After you have made your code changes, you should always check the status of you
 Once you have your file in staging area, you would like it to commit it with a message about the changes you did in your file - something like this: <code>git commit -m 'fixed the date-time issue'</code>. And then you push these changes by typing <code>git push</code>
 <br>
 <br>
-If everything ran without giving an error message, you should have the changes made to the file on Github as well.
+If everything ran without giving an error message, you should have the changes reflected on Github.
 <br>
 <br></p>
 <h3>Creating a branch in git</h3>
-<p>A branch in git allows you to work independently of the main project. If there is a feature you want to add in to the main project, you go about creating a separate branch and you work on it. Once this feature is completed, you get it reviewed from others by raising a PR (pull request).
+<p>A branch in git allows you to work independently of the main project. If there is a feature you want to add in to the main project, you go about creating a separate branch and you work on it. Once this feature is completed, you get it reviewed from others by raising a PR (pull request).</p>
+<p>Creating a branch makes a separate copy of the master branch in your local and now you can add your features, test new changes without affecting the master branch.
 <br>
 <br>
-A PR is a way to get your work checked by others in your team so that they can give you a feedback if there's any changes to be made to the code you have written in the new branch created. There could be multiple to-and-fro reviews and changes before all the reviewers are satisfied with the code in the branch.
+<strong>What is a PR?</strong></p>
+<p>A PR is a way to get your work checked by others in your team so that they can give you a feedback if there's any changes to be made to the code you have written in the new branch created. There could be multiple to-and-fro reviews and changes before all the reviewers are satisfied with the code in the branch. If all the reviewers are satisfied with the code changes requested for, they will approve your PR.
 <br>
 <br>
 Once the PR is approved, you can merge it with the master and the code you had written in the new branch becomes part of the master now.
@@ -1908,16 +1910,17 @@ So in my case it was <code>git branch data_validation</code>.</p>
 <br>
 <br></p>
 <h3>git tag</h3>
-<p>If you go to a repo on github.com you will see a tab called 'releases'. You will see various release-numbers there. This is done so that you have versions that one can revert back to if a release fails.
+<p>If you go to a repo on github.com you will see a tab called <code>releases</code>. You will see various release-numbers there. This is done so that you have versions that one can revert back to if a release fails.
 <br>
 <br>
 <code>git tag</code> from command line also gives you the list of all releases for the repository.
 <br>
 <br>
-Normally a release looks something like this 2.11.1. So there are three set of numbers to be looked at - each separated by a period - major, minor, bug-fixes
+Normally a release looks something like this <code>2.11.1</code>. So there are three set of numbers to be looked at - each separated by a period - <em>major, minor, bug-fixes</em>. If you want to give a tag number to your release, look for the most recent tag number and update it according to the framework below.
 <br>
-<br>
-Given a version number MAJOR.MINOR.PATCH, increment the:</p>
+<br></p>
+<h3>How to update a tag (release number) ?</h3>
+<p>Given a version number MAJOR.MINOR.PATCH, increment the:</p>
 <ul>
 <li>
 <p>MAJOR version when you make incompatible API changes,</p>
@@ -1934,7 +1937,10 @@ Given a version number MAJOR.MINOR.PATCH, increment the:</p>
 <h3>So how do you add a tag?</h3>
 <p>Depending on whether you have made a major, minor or patch level changes, you can add a tag by typing
 <code>git tag &lt;tag-number&gt;</code>. For eg. <code>git tag rel/2.11.0</code></p>
-<p>To push this tag to remote repo, you have to type <code>git push origin &lt;tag-no.&gt;</code>. If you want to push multiple tags - <code>git push origin --tags</code> will work.</p></div>
+<p>To push this tag to remote repo, you have to type <code>git push origin &lt;tag-no.&gt;</code>. If you want to push multiple tags - <code>git push origin --tags</code> will work.
+<br>
+<br>
+I will keep visiting this post to add more of my notes and learnings on git/github. Thanks for reading. Keep learning!</p></div>
 <script type="text/javascript" language="javascript">
       var aax_size='728x90';
       var aax_pubname = 'manishbarnwal-21';
@@ -1977,6 +1983,12 @@ Given a version number MAJOR.MINOR.PATCH, increment the:</p>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2018/06/18/try_catch_in_python/">Handling errors with try-catch in Python</a>
+      </li>
+      <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2018/06/18/working_with_dates_in_python/">Working with dates in Python</a>
+      </li>
+      <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2018/04/18/git_and_github_for_data_scientists/">git and github for data scientists</a>
       </li>
       <li class="post">
@@ -1984,12 +1996,6 @@ Given a version number MAJOR.MINOR.PATCH, increment the:</p>
       </li>
       <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2017/11/28/lessons_from_the_guitar/">Eight lessons learnt from the process of learning the guitar</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2017/11/24/starter_music_theory/">An easy starter to music theory</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2017/11/23/common_docker_commands/">Common docker commands</a>
       </li>
     </ul>
   </section>

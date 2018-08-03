@@ -5,10 +5,10 @@
 <head>
 
   <meta charset="utf-8">
-  <title>Manish Barnwal - Articles by Manish Barnwal</title>
+  <title>Working with dates in Python</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="" >
-  <meta name="keywords" content="" >
+  <meta name="description" content="This tutorial is on ways to deal with dates in Python." >
+  <meta name="keywords" content="date, datetime, python, tutorial, manish barnwal" >
 
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1836,67 +1836,64 @@ jQuery(document).ready(function($) {
 
   <div id="main">
     <div id="content">
-<div class="blog-index">
-  		<article>
+
+<div>
+  <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">
-        <a href="http://manishbarnwal.github.io/blog/2014/06/03/beautiful_sadness/">Beautiful Sadness</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-03T10:00:00" pubdate>Jun 03, 2014</time></p>
+      <h1 class="entry-title">Working with dates in Python</h1>
+      <p class="meta"><time datetime="2018-06-18T08:00:00" pubdate>Jun 18, 2018</time></p>
 </header>
 
-  <div class="entry-content"><p>As I woke up this morning, it took me a few moments to realize where I was. I looked around, gained my consciousness and a thought thundered into my mind –I was not in Kgp. Not anymore. Life at Kgp is now a past, a past which will always be ...</p></div>
-  <footer>
-    <a rel="full-article" href="http://manishbarnwal.github.io/blog/2014/06/03/beautiful_sadness/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://manishbarnwal.github.io/blog/2014/04/16/stay_at_IIT_Kharagpur/">My stay at IIT Kharagpur -A synopsis</a>
-      </h1>
-      <p class="meta"><time datetime="2014-04-16T08:00:00" pubdate>Apr 16, 2014</time></p>
-</header>
+  <div class="entry-content"><p><code>from datetime import datetime</code></p>
+<p>To convert a string to date:</p>
+<p>`datetime.strptime('string', 'format_of_the_string')``</p>
+<p><code>d1 = datetime.strptime('2017-02-02', '%Y-%m-%d')</code></p>
+<p>`d2 = datetime.strptime('2018-06-17', '%Y-%m-%d')``</p>
+<p>Find the number of days between two dates
+`delta = d2 - d1
+delta.days
+``</p>
+<p>Difference between today and some date
+<code>today = datetime.today()
+delta = today - d2
+delta.days</code></p></div>
+<script type="text/javascript" language="javascript">
+      var aax_size='728x90';
+      var aax_pubname = 'manishbarnwal-21';
+      var aax_src='302';
+    </script>
+    <script type="text/javascript" language="javascript" src="http://c.amazon-adsystem.com/aax2/assoc.js"></script>
+<p class="meta">
+  <span class="affiliate disclosure" style="color:green;font-size:10pt">
+    Advertiser Disclosure: This post contains affiliate links, which means I receive a commission if you make a purchase using this link. Your purchase helps support my work.
+  </span>
 
-  <div class="entry-content"><p>Mathematics has always been my favorite and when I got Mathematics &amp; Computing, IIT Kharagpur I was on cloud nine. I did a quick Google and landed to the official site of our institute. That was the first time and also the last time when I had paid close attention to ...</p></div>
-  <footer>
-    <a rel="full-article" href="http://manishbarnwal.github.io/blog/2014/04/16/stay_at_IIT_Kharagpur/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://manishbarnwal.github.io/blog/2014/03/08/happy_woman_day/">Happy Women's Day</a>
-      </h1>
-      <p class="meta"><time datetime="2014-03-08T08:00:00" pubdate>Mar 08, 2014</time></p>
-</header>
+</p>
 
-  <div class="entry-content"><p>Today is 8th March, just another day except that today is women’s day. Women’s day started as a Socialist political movement but over time it has changed to a day when it’s celebrated as a sign of respect and love to women across the world. Women’s ...</p></div>
-  <footer>
-    <a rel="full-article" href="http://manishbarnwal.github.io/blog/2014/03/08/happy_woman_day/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://manishbarnwal.github.io/blog/2014/03/04/walmart_interview/">The Walmart Interview</a>
-      </h1>
-      <p class="meta"><time datetime="2014-03-04T08:00:00" pubdate>Mar 04, 2014</time></p>
-</header>
 
-  <div class="entry-content"><p>Now that you are reading this, I’ll assume that you are someone looking for an opportunity of placement or an internship. Go ahead and read. You have a long journey to cover.
-<br>
-<br>
-I was offered a job of Statistical Analyst at WalmartLabs. Let me guide you through their placement ...</p></div>
-  <footer>
-    <a rel="full-article" href="http://manishbarnwal.github.io/blog/2014/03/04/walmart_interview/">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Manish Barnwal</span>
+  </span>
+<time datetime="2018-06-18T08:00:00" pubdate>Jun 18, 2018</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/python.html">python</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/tutorial.html">tutorial</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/hacks.html">hacks</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/manish-barnwal.html">manish barnwal</a>
+  </span>
+</p><div class="sharing">
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2018/06/18/working_with_dates_in_python/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2018/06/18/working_with_dates_in_python/" >Tweet</a>
+  <div class="g-plusone" data-size="medium"></div>
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+</div>    </footer>
+  </article>
 
-    <a class="next" href="http://manishbarnwal.github.io/author/manish-barnwal4.html">Newer &rarr;</a>
-  <br />
-</div></div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
@@ -1985,6 +1982,9 @@ I was offered a job of Statistical Analyst at WalmartLabs. Let me guide you thro
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
+          var disqus_identifier = '/blog/2018/06/18/working_with_dates_in_python/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2018/06/18/working_with_dates_in_python/';
+          var disqus_title = 'Working with dates in Python';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
