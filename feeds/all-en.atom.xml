@@ -49,24 +49,24 @@ Implicit feedback data are found in abundance and are easy to collect. They don�
 &lt;br&gt;
 Let us talk about some unique characteristics of implicit feedback datasets:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;No negative preference measured directly&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;No negative preference measured directly&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Unlike explicit feedback where a user gives a poor rating for an item, he/she doesn’t like, we do not have a direct way to measure the interest of a user. Repeated action in favor of the item — for eg. listening to Coldplay’s Fix You gives us confidence that the user likes this song and we could recommend a similar song to the user. However, an absence of listening count for a song doesn’t mean that the user does not like the item — may be the user is not even aware of the existence of the song. So, there is no way to measure negative preference directly.
 &lt;br&gt;
 &lt;br&gt;
-2. The numerical value of implicit feedback denotes confidence that the user likes the item.&lt;/p&gt;
+2. &lt;strong&gt;The numerical value of implicit feedback denotes confidence that the user likes the item&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;For eg., if I’ve listened to Coldplay more number of times than that to Pink Floyd on Youtube, the system would infer with higher confidence about my likeability for Coldplay.
 &lt;br&gt;
 &lt;br&gt;
-3. A lot of noisy data to take care of&lt;/p&gt;
+3. &lt;strong&gt;A lot of noisy data to take care of&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You need to do a lot of filtering before you actually can get worthwhile data to be modeled upon. Just because I bought an item doesn’t mean I liked the item — may be I bought it for a friend or maybe I didn’t like the item at all after purchasing the item. To handle such issues, we can calculate confidence associated with the preference of the users for items. Read this excellent paper to get an idea of how to incorporate confidence in the feedback data — &lt;a href="http://yifanhu.net/PUB/cf.pdf"&gt;Collaborative Filtering For Implicit Feedback Datasets&lt;/a&gt;.
 &lt;br&gt;
 &lt;br&gt;
-4. Missing values&lt;/p&gt;
+4. &lt;strong&gt;Missing values&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Explicit feedback datasets are difficult to capture and hence a lot many values are missing and we go about modeling with whatever remaining ratings we have ignoring the missing values. While in the implicit feedback, we assign the missing values as 0 indicating no action from the user — no purchase or not listened to the song.
 &lt;br&gt;
 &lt;br&gt;
-5. Evaluation of implicit feedback models require appropriate measures&lt;/p&gt;
+5. &lt;strong&gt;Evaluation of implicit feedback models require appropriate measures&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;With explicit feedback — eg. ratings of movies in Netflix data, one can use RMSE (Root mean squared error) as a metric to see how far the predicted ratings are from the observed ratings on a test dataset. With implicit feedback, such a metric is not available. We work with other metrics like decision-support based metrics — precision, recall or rank-based metrics like MRR (mean reciprocal rank), NDCG (normalized discounted cumulative gain), precision@k.
 &lt;br&gt;
 &lt;br&gt;
