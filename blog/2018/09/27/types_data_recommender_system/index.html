@@ -5,10 +5,10 @@
 <head>
 
   <meta charset="utf-8">
-  <title>About me | Manish Barnwal </title>
+  <title>Types of data in recommender systems</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="" >
-  <meta name="keywords" content="" >
+  <meta name="description" content="This tutorial explains the type of data one deals with when building recommender systems." >
+  <meta name="keywords" content="recommendation, recommender, tutorial, manish barnwal" >
 
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1836,68 +1836,125 @@ jQuery(document).ready(function($) {
 
   <div id="main">
     <div id="content">
-<div>
-  <article role="article">
-    <header>
-      <h1 class="entry-title">About me</h1>
-    </header>
-    <p>
-<img src="http://manishbarnwal.com/images/author/profile_pic1.jpeg" alt="Photo of author" style="float:right;width:128px;height:128px;border:0;">
 
-I am a Data Scientist at Zeta Global building recommendation engines for media publishing houses. These days I am learning how recommendation engines work, exploring techniques like matrix factorization, factorization machines, and others. I have started using Python and I am loving it!
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Types of data in recommender systems</h1>
+      <p class="meta"><time datetime="2018-09-27T08:00:00" pubdate>Sep 27, 2018</time></p>
+</header>
+
+  <div class="entry-content"><p>There are two ways in which we can collect data for building recommender systems — <strong>explicit</strong> and <strong>implicit</strong>. In this post, we will talk about both types of data, their characteristics and the challenges with them.
+<br>
+<br></p>
+<h3>Explicit feedback datasets</h3>
+<p>The dictionary meaning of explicit is to state clearly and in detail. Explicit feedback data as the name suggests is an exact number given by a user to a product. Some of the examples of explicit feedback are ratings of movies by users on Netflix, ratings of products by users on Amazon. Explicit feedback takes into consideration the input from the user about how they liked or disliked a product. Explicit feedback data are quantifiable.
+<br>
+<br>
+But there are a few problems with explicit data. We will talk about them and then move to discuss the more abundant and easily available implicit feedback data.
+<br>
+<br>
+<img alt="photo of explicit feedback data" src="http://manishbarnwal.com/images/types_data_recs_system/explicit_feedback.png" />
+<br>
+<br></p>
+<h3>Issues with explicit feedback data</h3>
+<p>When was the last time you rated a movie on Netflix? People normally rate a movie or an item on extreme feelings — either they really like the product or when they just hated it. The latter being more prominent. So, chances are your dataset will be largely filled with a lot of positive ratings but very less negative ratings.
+<br>
+<br>
+Explicit feedback is hard to collect as they require additional input from the users. They need a separate system to capture this type of data. Then you’ve to decide whether you should go with ratings or like/dislike option to collect the feedback. Each having their merits/demerits.
+<br>
+<br>
+Explicit feedback doesn’t take into consideration the context of when you were watching the movie. Let us understand with an example. You watched a documentary and you really liked it and you rated it well. Now, this doesn’t mean you would like to see a lot many documentaries but with explicit ratings, this becomes difficult to take into consideration. I like to binge watch The Office tv series while having dinner and I would give it a high rating 4.5/5 but that doesn’t mean that I would watch it at any time of the day.
+<br>
+<br>
+There is another problem with explicit ratings. People rate movies/items differently. Some are lenient with their ratings while others are particular about what ratings they give. You need to take care of bias in ratings from users as well.
+<br>
+<br>
+For me a good movie will be rated 3/5 but may be, for you, a good movie is rated 4/5 so clearly our ways of rating a movie is different and this bias needs to be taken care of.
+<br>
+<br>
+We now understand explicit feedback and some of the issues with it. There is another type of feedback data in recommendation systems — implicit feedback. Let us talk about them.
+<br>
+<br></p>
+<h3>Implicit feedback datasets</h3>
+<p>The dictionary meaning of implicit is suggested though not stated clearly. And that’s exactly what implicit feedback data represents. Implicit feedback doesn’t directly reflect the interest of the user but it acts as a proxy for a user’s interest.
+<br>
+<br>
+Examples of implicit feedback datasets include browsing history, clicks on links, count of the number of times a song is played, the percentage of a webpage you have scrolled — 25%, 50% or 75 % or even the movement of your mouse.
+<br>
+<br>
+<img alt="photo of implicit feedback data" src="http://manishbarnwal.com/images/types_data_recs_system/implicit_feedback_data.png" />
+<br>
+<br>
+If you just browsed an item that doesn’t necessarily mean that you liked that item but if you have browsed this item multiple times that gives us some confidence that you may be interested in that item. Implicit feedback collects information about the user’s actions.
+<br>
+<br>
+Implicit feedback data are found in abundance and are easy to collect. They don’t need any extra input from the user. Once you have the permission of the user to collect their data, your dependence on the user is reduced.
+<br>
+<br>
+Let us talk about some unique characteristics of implicit feedback datasets:</p>
+<ol>
+<li>No negative preference measured directly</li>
+</ol>
+<p>Unlike explicit feedback where a user gives a poor rating for an item, he/she doesn’t like, we do not have a direct way to measure the interest of a user. Repeated action in favor of the item — for eg. listening to Coldplay’s Fix You gives us confidence that the user likes this song and we could recommend a similar song to the user. However, an absence of listening count for a song doesn’t mean that the user does not like the item — may be the user is not even aware of the existence of the song. So, there is no way to measure negative preference directly.
+<br>
+<br>
+2. The numerical value of implicit feedback denotes confidence that the user likes the item.</p>
+<p>For eg., if I’ve listened to Coldplay more number of times than that to Pink Floyd on Youtube, the system would infer with higher confidence about my likeability for Coldplay.
+<br>
+<br>
+3. A lot of noisy data to take care of</p>
+<p>You need to do a lot of filtering before you actually can get worthwhile data to be modeled upon. Just because I bought an item doesn’t mean I liked the item — may be I bought it for a friend or maybe I didn’t like the item at all after purchasing the item. To handle such issues, we can calculate confidence associated with the preference of the users for items. Read this excellent paper to get an idea of how to incorporate confidence in the feedback data — <a href="http://yifanhu.net/PUB/cf.pdf">Collaborative Filtering For Implicit Feedback Datasets</a>.
+<br>
+<br>
+4. Missing values</p>
+<p>Explicit feedback datasets are difficult to capture and hence a lot many values are missing and we go about modeling with whatever remaining ratings we have ignoring the missing values. While in the implicit feedback, we assign the missing values as 0 indicating no action from the user — no purchase or not listened to the song.
+<br>
+<br>
+5. Evaluation of implicit feedback models require appropriate measures</p>
+<p>With explicit feedback — eg. ratings of movies in Netflix data, one can use RMSE (Root mean squared error) as a metric to see how far the predicted ratings are from the observed ratings on a test dataset. With implicit feedback, such a metric is not available. We work with other metrics like decision-support based metrics — precision, recall or rank-based metrics like MRR (mean reciprocal rank), NDCG (normalized discounted cumulative gain), precision@k.
+<br>
+<br>
+I know it may sound counter-intuitive when I say this — <em>implicit feedback datasets are better than explicit feedback in general at getting improved recommendations</em>. I don’t have a case study to prove this but I have listened to many talks of Xavier Amatrian, a great name in recommendation systems domain and I’ve heard him iterate this point many times.
+<br>
+<br>
+So, there we have the types of data we generally deal with while building recommendation systems. Let me know your thoughts!</p></div>
+<script type="text/javascript" language="javascript">
+      var aax_size='728x90';
+      var aax_pubname = 'manishbarnwal-21';
+      var aax_src='302';
+    </script>
+    <script type="text/javascript" language="javascript" src="http://c.amazon-adsystem.com/aax2/assoc.js"></script>
+<p class="meta">
+  <span class="affiliate disclosure" style="color:green;font-size:10pt">
+    Advertiser Disclosure: This post contains affiliate links, which means I receive a commission if you make a purchase using this link. Your purchase helps support my work.
+  </span>
+
 </p>
 
-<p><br>
- I am a graduate from IIT Kharagpur with a Masters in Mathematics and Computing. I have picked up much of my understanding of machine learning at <strong><a href="https://twitter.com/WalmartLabs" target="_blank">@WalmartLabs</a></strong> where I worked as Sr. Statistical Analyst on improving forecast accuracy at item level across all of the stores in US.
-<br>
-<br>
-My interests include statistics, machine learning, big data, and programming in R and Python. I have worked extensively on R, H2O, Hadoop Streaming, Hive, and Spark.
-<br>
-<br>
-When I am not working, I enjoy playing guitar. You can see few of my song uploads at
-<a href="https://www.youtube.com/channel/UCbZuY83yIUrbm0dZYP9eFHw/videos?shelf_id=0&view=0&sort=dd" target="_blank">
-<img src="http://manishbarnwal.com/images/author/youtube.png" title="Manish Barnwal on Youtube" alt="Youtube logo" style="width:32px;height:32px;border:0;"/>
-</a>
-<br></p>
-<h3>Contact me</h3>
-<p><strong><a href="mailto:manishbarnwal.iit@gmail.com?subject=Hi%20there">Get in touch</a></strong> if you’re in Bangalore and would like to talk more about machine learning or music. We can meet over a weekend at a time when the traffic is minimal.
-<br></p>
-<div>
-<a style="float:left; margin-right:15px" href="https://www.linkedin.com/in/manish-barnwal-9b364a17/" target="_blank">
-<img src="http://manishbarnwal.com/images/author/linkedin.png" title="Manish Barnwal on LinkedIn" alt="Linkedin logo" style="width:32px;height:32px;border:0;"/>
-</a>
 
-<a style="float:left; margin-right:15px" href="https://www.quora.com/profile/Manish-Barnwal" target="_blank">
-<img src="http://manishbarnwal.com/images/author/quora.jpg" title="Manish Barnwal on Quora" alt="Quora logo" style="float:left;width:32px;height:32px;border:0;"/>
-</a>
-
-<a style="float:left; margin-right:15px" href="https://github.com/ManishBarnwal" target="_blank">
-<img src="http://manishbarnwal.com/images/author/github.jpg" title="Manish Barnwal on GitHub" alt="GitHub logo" style="float:left;width:32px;height:32px;border:0;"/>
-</a>
-
-<a style="float:left; margin-right:15px" href="https://twitter.com/ManishFirewall" target="_blank">
-<img src="http://manishbarnwal.com/images/author/twitter.png" title="@ManishFirewall on Twitter" alt="Twitter logo" style="float:left;width:32px;height:32px;border:0;"/>
-</a>
-</div>
-
-<p><br>
-<br>
-<br>
-<div style="clear:both"></p>
-<h3>Patents</h3>
-<ul>
-<li>
-<p><a href="https://www.google.co.in/patents/US20170169446?dq=SYSTEMS+AND+METHODS+OF+FORECASTING+CUSTOMER+DEMANDS+FOR+PRODUCTS+AT+RETAIL+FACILITIES&amp;cl=en">Systems and methods of utilizing multiple forecast models in forecasting customer demands for products at retail facilities</a></p>
-</li>
-<li>
-<p>Automated Resume Screening. <br> United States 1968US01. Issued March 31, 2017</p>
-</li>
-<li>
-<p>Distributed system for dynamic sensor-based trip estimation. <br> United States 62/481,933. Issued April 5, 2017
-<br></p>
-</li>
-</ul>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Manish Barnwal</span>
+  </span>
+<time datetime="2018-09-27T08:00:00" pubdate>Sep 27, 2018</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/recommendation.html">recommendation</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/recommender.html">recommender</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/tutorial.html">tutorial</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/manish-barnwal.html">manish barnwal</a>
+  </span>
+</p><div class="sharing">
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2018/09/27/types_data_recommender_system/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2018/09/27/types_data_recommender_system/" >Tweet</a>
+  <div class="g-plusone" data-size="medium"></div>
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+</div>    </footer>
   </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
 </div>
 <aside class="sidebar">
   <section>
@@ -1987,6 +2044,9 @@ When I am not working, I enjoy playing guitar. You can see few of my song upload
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
+          var disqus_identifier = '/blog/2018/09/27/types_data_recommender_system/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2018/09/27/types_data_recommender_system/';
+          var disqus_title = 'Types of data in recommender systems';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
