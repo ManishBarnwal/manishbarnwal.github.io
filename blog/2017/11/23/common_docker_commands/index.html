@@ -1884,6 +1884,10 @@ I have already talked about the use cases of docker but if you still want to kno
 <p>Once you have the docker-file base, you can build the docker and up the containers by typing</p>
 <div class="highlight"><pre><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span> <span class="o">--</span><span class="n">build</span>
 <span class="cp"># Make sure you run the above command from the folder that has the Docker file</span>
+
+<span class="n">If</span> <span class="n">you</span> <span class="n">just</span> <span class="n">want</span> <span class="n">to</span> <span class="n">up</span> <span class="n">the</span> <span class="n">containers</span><span class="p">(</span><span class="n">once</span> <span class="n">you</span> <span class="n">have</span> <span class="n">your</span> <span class="n">dockers</span> <span class="n">built</span><span class="p">),</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span>  <span class="err">#</span> <span class="n">ups</span> <span class="n">the</span> <span class="n">containers</span> <span class="n">in</span> <span class="n">background</span> <span class="n">by</span> <span class="n">passing</span> <span class="o">-</span><span class="n">d</span> <span class="n">flag</span>
 </pre></div>
 
 
@@ -1941,6 +1945,11 @@ If you want to talk to of one of the machines, say you want to go to the bash of
 </ul>
 <div class="highlight"><pre><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">docker_master</span> <span class="n">bash</span>
 <span class="cp"># This will take you to the bash of the master</span>
+</pre></div>
+
+
+<p>I recently wanted to know what all python packages were installed in my docker. I wanted to know the python packages installed in docker_worker_1 container. You can do so by typing</p>
+<div class="highlight"><pre><span class="n">docker</span> <span class="n">exec</span> <span class="n">docker_worker_1</span> <span class="n">pip</span> <span class="n">list</span>
 </pre></div>
 
 

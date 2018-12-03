@@ -282,6 +282,10 @@ I have already talked about the use cases of docker but if you still want to kno
 &lt;p&gt;Once you have the docker-file base, you can build the docker and up the containers by typing&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;docker&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;compose&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;build&lt;/span&gt;
 &lt;span class="cp"&gt;# Make sure you run the above command from the folder that has the Docker file&lt;/span&gt;
+
+&lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;just&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;containers&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;once&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;dockers&lt;/span&gt; &lt;span class="n"&gt;built&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="n"&gt;docker&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;compose&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt;
+&lt;span class="n"&gt;docker&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;compose&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;  &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ups&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;containers&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;background&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="n"&gt;passing&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;flag&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -339,6 +343,11 @@ If you want to talk to of one of the machines, say you want to go to the bash of
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;docker&lt;/span&gt; &lt;span class="n"&gt;exec&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;docker_master&lt;/span&gt; &lt;span class="n"&gt;bash&lt;/span&gt;
 &lt;span class="cp"&gt;# This will take you to the bash of the master&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I recently wanted to know what all python packages were installed in my docker. I wanted to know the python packages installed in docker_worker_1 container. You can do so by typing&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;docker&lt;/span&gt; &lt;span class="n"&gt;exec&lt;/span&gt; &lt;span class="n"&gt;docker_worker_1&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
