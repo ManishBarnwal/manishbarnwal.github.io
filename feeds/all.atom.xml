@@ -123,26 +123,43 @@ If everything ran without giving an error message, you should have the changes r
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Creating a branch in git&lt;/h3&gt;
-&lt;p&gt;A branch in git allows you to work independently of the main project. If there is a feature you want to add in to the main project, you go about creating a separate branch and you work on it. Once this feature is completed, you get it reviewed from others by raising a PR (pull request).&lt;/p&gt;
-&lt;p&gt;Creating a branch makes a separate copy of the master branch in your local and now you can add your features, test new changes without affecting the master branch.
+&lt;p&gt;A branch in git allows you to work independently of the main project. If there is a feature you want to add in to the main project, you go about creating a separate branch and you work on it. Creating a branch makes a separate copy of the master branch in your local and now you can add your features, test new changes without affecting the master branch.
 &lt;br&gt;
 &lt;br&gt;
-&lt;strong&gt;What is a PR?&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;A PR is a way to get your work checked by others in your team so that they can give you a feedback if there's any changes to be made to the code you have written in the new branch created. There could be multiple to-and-fro reviews and changes before all the reviewers are satisfied with the code in the branch. If all the reviewers are satisfied with the code changes requested for, they will approve your PR.
+Let us understand how to create a branch in git.&lt;/p&gt;
+&lt;p&gt;To give an example, recently I had to work on checking the quality of data that we use for our recommendation project. The task was to assess the quality of the input data, create a few quality metrics and if there is any problem with the data, the task should fail and generate a reminder about the same.
 &lt;br&gt;
 &lt;br&gt;
-Once the PR is approved, you can merge it with the master and the code you had written in the new branch becomes part of the master now.
-&lt;br&gt;
-&lt;br&gt;
-To give an example, recently I had to work on checking the quality of data that we use for our recommendation project. The task was to assess the quality of the input data, create a few quality metrics and if there is any problem with the data, the task should fail.
-&lt;br&gt;
-&lt;br&gt;
-Assessing the quality of the data is an independent task and so I created a new branch called data_validation. To create a branch in git type
-&lt;code&gt;git branch &amp;lt;branch-name&amp;gt;&lt;/code&gt;
-So in my case it was &lt;code&gt;git branch data_validation&lt;/code&gt;.&lt;/p&gt;
+Assessing the quality of the data is an independent task and so I created a new branch called data_validation. To create a branch in git type,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;branch&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;
+&lt;span class="n"&gt;So&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt; &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;was&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="n"&gt;data_validation&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Once a branch is created, you can have a look at all the branches in your local by typing &lt;code&gt;git branch&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;There will be a asterisk mark next to the branch on which you are currently on. If you want to change the branch, you can do so by typing
 &lt;code&gt;git checkout &amp;lt;branch-name&amp;gt;&lt;/code&gt;. The default branch is master.
+&lt;br&gt;
+&lt;br&gt;
+Once your branch is created, you would add your code to create the feature you wanted to create. This branch ensures that you don't break anything in the main code-base. Once you have tested the code in your local and you're confident that it is working fine, you would want to get it reviewed from others in your team. How do you get it reviewed from others? Comes into picture PR. But before creating a PR, you have to push your branch in local to remote. Let us see how?
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Pushing new local branch to remote Git&lt;/h3&gt;
+&lt;p&gt;You have already made changes in the code - you have added your new code for the new feature. You can have a look at what all files you have modified by typing &lt;code&gt;git status&lt;/code&gt;. You can add the code files to the staging area by typing &lt;code&gt;git add &amp;lt;file-name&amp;gt;&lt;/code&gt;. You can add a short message to describe the changes you have made by typing, &lt;code&gt;git commit 'your message'&lt;/code&gt;.
+&lt;br&gt;
+&lt;br&gt;
+You can now push your local branch to remote git by typing, &lt;code&gt;git push -u origin &amp;lt;branch-name&amp;gt;&lt;/code&gt;. You can now see this branch in Github. This branch is now accessible to everyone in your team. Now, you want people in your team to review your code. We do so by creating a PR.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;What is a PR?&lt;/h3&gt;
+&lt;p&gt;A PR (short for Pull Request) is a way to get your work checked by others in your team so that they can give you a feedback if there's any changes to be made to the code you have written in the new branch created. There could be multiple to-and-fro reviews and changes before all the reviewers are satisfied with the code in the branch. If all the reviewers are satisfied with the code changes requested for, they will approve your PR. But how to generate a PR?
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Create a pull request&lt;/h3&gt;
+&lt;p&gt;Go to Github and select the branch that have your commits. To the right of the &lt;em&gt;Branch&lt;/em&gt; menu, click &lt;strong&gt;New pull request&lt;/strong&gt;. Type a title and description for your pull request. You also have option to choose who you want your code reviewers to be. Click &lt;strong&gt;Create pull request&lt;/strong&gt; and your PR is created.
+&lt;br&gt;
+&lt;br&gt;
+The reviewers will make suggestions for changes to your code. And this may take to-and-fro dialogues between you and your reviewers. Once, your changes are approved, you can merge the PR to the main master repository.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;PR is approved. What next?&lt;/h3&gt;
