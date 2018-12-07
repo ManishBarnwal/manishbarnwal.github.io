@@ -1847,7 +1847,7 @@ jQuery(document).ready(function($) {
   <div class="entry-content"><p>It has been close to a year since I shifted to a start-up which incidentally got acquired after a month of my joining. Before this I used to work at WalmartLabs where we always wanted to use a version control system like git but it never took off properly. Now that I am working in this start-up I got to know that just taking a course on git/github doesn't make you a master of this topic. And this is true for anything you always wanted to learn. We tend to spend too much time on tutorials and hesitate to take the next step of actually applying it. I recently read this excellent article along the same lines - <a href="https://medium.freecodecamp.org/how-to-escape-tutorial-purgatory-as-a-new-developer-or-at-any-time-in-your-career-e3a4b2384a40">Tutorial purgatory</a>. I used to think that I understand git/github but recently I have come to know about so many features that I now have accepted this - <em>You know nothing, Manish Barnwal!</em>
 <br>
 <br>
-In today's post I will not talk about theory in details. This post is more of a practical introduction to git/github. If you have never heard of git you should probably go somewhere else to learn about it. Let us get started.
+In today's post I will not talk about theory in details. This post is more of a practical introduction to git/github. If you have never heard of git, you should probably go somewhere else to learn about it. Let us get started.
 <br>
 <br></p>
 <h4>What is git?</h4>
@@ -1855,20 +1855,41 @@ In today's post I will not talk about theory in details. This post is more of a 
 <br>
 <br></p>
 <h3>Whit is github?</h3>
-<p>Github is the server where the various versions of the code you have written gets stored. I understand it as a web-version of git.
+<p>Github is the server where the various versions of the code you have written gets stored. I understand it as a web-version of git. Github allows other collaborators in the project to easily get the latest version of the code. If for some reason, your laptop crashes, all your git files will be lost. Github continuously takes a back-up of the versioned files so anyone can easily <em>clone</em> the code repository to their local (laptop).
 <br>
 <br></p>
+<h3>Cloning a repository</h3>
+<p>Repository is a fancy name for the code-files and directories in a project. Cloning a repository means getting the copy of the repository into your local directory. This creates a ./git folder into your local that maintains all the commit logs, version-changes, directories, branches and other information. You can see the tree structure of the ./git folder by typing <code>tree .git/</code>. If you are on Mac, you might have to install <em>tree</em> by typing <code>brew install tree</code>
+<br>
+<br>
+When you clone a repository, you not only gets the code-files but also all the versions, all the history, all the commit messages that have been generated in the project ever since it started. So cloning is not just copying the code-files to your local. You can clone a repository by typing <code>git clone &lt;git-repository-url&gt;</code>.</p>
 <h3>Stages in code development using git</h3>
 <p>Let us say you made changes to a code file named - my_code.py. Once you are satisfied with your changes, you would want to commit this change and push it to github so that the web-version also gets updated.
 <br>
 <br>
-After you have made your code changes, you should always check the status of your local repo by typing <code>git status</code>. Once you have made changes to an existing file, you need to send it to a staging area by typing <code>git add my_code.py</code>. To stage a file is to simply prepare it finely before commit.
+After you have made your code changes, you should always check the status of your local repo by typing <code>git status</code>. Once you have made changes to an existing file, you need to send it to a staging area by typing <code>git add my_code.py</code>. To stage a file is to simply prepare it finely before commit. git add tells git to compress the file, create a hash of the file and store it as an object in the git tree.
 <br>
 <br>
 Once you have your file in staging area, you would like it to commit it with a message about the changes you did in your file - something like this: <code>git commit -m 'fixed the date-time issue'</code>. And then you push these changes by typing <code>git push</code>
 <br>
 <br>
-If everything ran without giving an error message, you should have the changes reflected on Github.
+If everything ran without giving an error message, you should have the changes reflected on Github. Let us dig in a little more into <code>push</code> and there is something along the same lines <code>pull</code>.
+<br>
+<br></p>
+<h3>Push and Pull</h3>
+<p>Push and pull are actions you perform on the <em>remote</em>. But what is remote? git allows you to manage code versions locally, but you need a way to pass on this changes to the outside world. Remote allows you to do so. Remote is a common repository that allows team members to exchange their codes changes with others. Generally, remote is stored in code-hosting services like Github or internal server.</p>
+<p>From this excellent <strong><a href="https://stackoverflow.com/questions/5617211/what-is-git-remote-add-and-git-push-origin-master/5617350#5617350" target="_blank">stackoverflow answer</a></strong>.</p>
+<blockquote>
+<p>As you probably know, git is a distributed version control system. Most operations are done locally. To communicate with the outside world, git uses what are called remotes. These are repositories other than the one on your local disk which you can push your changes into (so that other people can see them) or pull from (so that you can get others changes). The command git remote add origin git@github.com:peter/first_app.gitcreates a new remote called origin located at git@github.com:peter/first_app.git. Once you do this, in your push commands, you can push to origin instead of typing out the whole URL.</p>
+</blockquote>
+<p><br>
+<br>
+Push allows you to add your local changes to the remote by typing <code>git push &lt;name of remote&gt; &lt;name of branch&gt;</code>. Pull allows you to get the latest changes from the remotte to your local by typing <code>git pull &lt;name of remote&gt; &lt;name of branch&gt;</code>. This gets translated to <code>git pull origin master</code>.
+`</p>
+<blockquote>
+<p><code>origin</code> is the default name of the remote. And since <code>master</code> is the default branch, you can see how the command devolves into the simple name we find everywhere: <code>git pull origin master</code>.</p>
+</blockquote>
+<p>Let us now talk about branches in git.
 <br>
 <br></p>
 <h3>Creating a branch in git</h3>

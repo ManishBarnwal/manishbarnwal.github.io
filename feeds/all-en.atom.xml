@@ -98,7 +98,7 @@ delta = today - d2
 delta.days&lt;/code&gt;&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>git and github for data scientists</title><link href="http://manishbarnwal.github.io/blog/2018/04/18/git_and_github_for_data_scientists/" rel="alternate"></link><updated>2018-04-18T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-04-18:blog/2018/04/18/git_and_github_for_data_scientists/</id><summary type="html">&lt;p&gt;It has been close to a year since I shifted to a start-up which incidentally got acquired after a month of my joining. Before this I used to work at WalmartLabs where we always wanted to use a version control system like git but it never took off properly. Now that I am working in this start-up I got to know that just taking a course on git/github doesn't make you a master of this topic. And this is true for anything you always wanted to learn. We tend to spend too much time on tutorials and hesitate to take the next step of actually applying it. I recently read this excellent article along the same lines - &lt;a href="https://medium.freecodecamp.org/how-to-escape-tutorial-purgatory-as-a-new-developer-or-at-any-time-in-your-career-e3a4b2384a40"&gt;Tutorial purgatory&lt;/a&gt;. I used to think that I understand git/github but recently I have come to know about so many features that I now have accepted this - &lt;em&gt;You know nothing, Manish Barnwal!&lt;/em&gt;
 &lt;br&gt;
 &lt;br&gt;
-In today's post I will not talk about theory in details. This post is more of a practical introduction to git/github. If you have never heard of git you should probably go somewhere else to learn about it. Let us get started.
+In today's post I will not talk about theory in details. This post is more of a practical introduction to git/github. If you have never heard of git, you should probably go somewhere else to learn about it. Let us get started.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h4&gt;What is git?&lt;/h4&gt;
@@ -106,20 +106,41 @@ In today's post I will not talk about theory in details. This post is more of a 
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Whit is github?&lt;/h3&gt;
-&lt;p&gt;Github is the server where the various versions of the code you have written gets stored. I understand it as a web-version of git.
+&lt;p&gt;Github is the server where the various versions of the code you have written gets stored. I understand it as a web-version of git. Github allows other collaborators in the project to easily get the latest version of the code. If for some reason, your laptop crashes, all your git files will be lost. Github continuously takes a back-up of the versioned files so anyone can easily &lt;em&gt;clone&lt;/em&gt; the code repository to their local (laptop).
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Cloning a repository&lt;/h3&gt;
+&lt;p&gt;Repository is a fancy name for the code-files and directories in a project. Cloning a repository means getting the copy of the repository into your local directory. This creates a ./git folder into your local that maintains all the commit logs, version-changes, directories, branches and other information. You can see the tree structure of the ./git folder by typing &lt;code&gt;tree .git/&lt;/code&gt;. If you are on Mac, you might have to install &lt;em&gt;tree&lt;/em&gt; by typing &lt;code&gt;brew install tree&lt;/code&gt;
+&lt;br&gt;
+&lt;br&gt;
+When you clone a repository, you not only gets the code-files but also all the versions, all the history, all the commit messages that have been generated in the project ever since it started. So cloning is not just copying the code-files to your local. You can clone a repository by typing &lt;code&gt;git clone &amp;lt;git-repository-url&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;h3&gt;Stages in code development using git&lt;/h3&gt;
 &lt;p&gt;Let us say you made changes to a code file named - my_code.py. Once you are satisfied with your changes, you would want to commit this change and push it to github so that the web-version also gets updated.
 &lt;br&gt;
 &lt;br&gt;
-After you have made your code changes, you should always check the status of your local repo by typing &lt;code&gt;git status&lt;/code&gt;. Once you have made changes to an existing file, you need to send it to a staging area by typing &lt;code&gt;git add my_code.py&lt;/code&gt;. To stage a file is to simply prepare it finely before commit.
+After you have made your code changes, you should always check the status of your local repo by typing &lt;code&gt;git status&lt;/code&gt;. Once you have made changes to an existing file, you need to send it to a staging area by typing &lt;code&gt;git add my_code.py&lt;/code&gt;. To stage a file is to simply prepare it finely before commit. git add tells git to compress the file, create a hash of the file and store it as an object in the git tree.
 &lt;br&gt;
 &lt;br&gt;
 Once you have your file in staging area, you would like it to commit it with a message about the changes you did in your file - something like this: &lt;code&gt;git commit -m 'fixed the date-time issue'&lt;/code&gt;. And then you push these changes by typing &lt;code&gt;git push&lt;/code&gt;
 &lt;br&gt;
 &lt;br&gt;
-If everything ran without giving an error message, you should have the changes reflected on Github.
+If everything ran without giving an error message, you should have the changes reflected on Github. Let us dig in a little more into &lt;code&gt;push&lt;/code&gt; and there is something along the same lines &lt;code&gt;pull&lt;/code&gt;.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Push and Pull&lt;/h3&gt;
+&lt;p&gt;Push and pull are actions you perform on the &lt;em&gt;remote&lt;/em&gt;. But what is remote? git allows you to manage code versions locally, but you need a way to pass on this changes to the outside world. Remote allows you to do so. Remote is a common repository that allows team members to exchange their codes changes with others. Generally, remote is stored in code-hosting services like Github or internal server.&lt;/p&gt;
+&lt;p&gt;From this excellent &lt;strong&gt;&lt;a href="https://stackoverflow.com/questions/5617211/what-is-git-remote-add-and-git-push-origin-master/5617350#5617350" target="_blank"&gt;stackoverflow answer&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As you probably know, git is a distributed version control system. Most operations are done locally. To communicate with the outside world, git uses what are called remotes. These are repositories other than the one on your local disk which you can push your changes into (so that other people can see them) or pull from (so that you can get others changes). The command git remote add origin git@github.com:peter/first_app.gitcreates a new remote called origin located at git@github.com:peter/first_app.git. Once you do this, in your push commands, you can push to origin instead of typing out the whole URL.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;
+Push allows you to add your local changes to the remote by typing &lt;code&gt;git push &amp;lt;name of remote&amp;gt; &amp;lt;name of branch&amp;gt;&lt;/code&gt;. Pull allows you to get the latest changes from the remotte to your local by typing &lt;code&gt;git pull &amp;lt;name of remote&amp;gt; &amp;lt;name of branch&amp;gt;&lt;/code&gt;. This gets translated to &lt;code&gt;git pull origin master&lt;/code&gt;.
+`&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;origin&lt;/code&gt; is the default name of the remote. And since &lt;code&gt;master&lt;/code&gt; is the default branch, you can see how the command devolves into the simple name we find everywhere: &lt;code&gt;git pull origin master&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Let us now talk about branches in git.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Creating a branch in git&lt;/h3&gt;
@@ -1940,11 +1961,11 @@ write.csv(submission, 'submission.csv', row.names = F, quote = F)
 The predictions on test data shows a LogLoss of 0.694 which is same as that of the validation set. We can now hope to have same result on both validation set and test set.
 &lt;br&gt;
 &lt;br&gt;
-Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;</summary><category term="machine-learning"></category><category term="tutorial"></category><category term="manish barnwal"></category></entry><entry><title>How to use Git and Github [draft]</title><link href="http://manishbarnwal.github.io/blog/2017/02/15/git_and_github/" rel="alternate"></link><updated>2017-02-15T10:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-15:blog/2017/02/15/git_and_github/</id><summary type="html">&lt;p&gt;I had taken this course - How to use git and github some time last year. This post is an amalgamation of the course notes and other tutorials I have completed in understanding git. I will talk about the most frequently used commands.&lt;br /&gt;
+Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data-science.&lt;/p&gt;</summary><category term="machine-learning"></category><category term="tutorial"></category><category term="manish barnwal"></category></entry><entry><title>How to use Git and Github</title><link href="http://manishbarnwal.github.io/blog/2017/02/15/git_and_github/" rel="alternate"></link><updated>2017-02-15T10:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-02-15:blog/2017/02/15/git_and_github/</id><summary type="html">&lt;p&gt;I had taken this course - How to use git and github some time last year. This post is an amalgamation of the course notes and other tutorials I have completed in understanding git. I will talk about the most frequently used commands. If you already are confident of your git skills and wants more of practical tutorial, you should head to this post - &lt;strong&gt;&lt;a href="http://manishbarnwal.com/blog/2018/04/18/git_and_github_for_data_scientists/" target="_blank"&gt;git and github for data scientists&lt;/a&gt;&lt;/strong&gt;. Let us get started.
 &lt;br&gt;
 &lt;br&gt;
 &lt;strong&gt;git init&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Initializes an empty git repository in the directory. Creates a hidden folder .git in your directory. If you click on the .git folder, you will see many sub-directories and files in side this folder. But, you will hardly need to know what these files are. These folders are the guts of Git where all the magic happens.
+&lt;p&gt;Initialises an empty git repository in the directory. Creates a hidden folder .git in your directory. If you click on the .git folder, you will see many sub-directories and files in side this folder. But, you will hardly need to know what these files are. These folders are the guts of Git where all the magic happens.
 &lt;br&gt;
 &lt;br&gt;
 &lt;strong&gt;git status&lt;/strong&gt;&lt;/p&gt;
