@@ -152,8 +152,8 @@ Let us understand how to create a branch in git.&lt;/p&gt;
 &lt;br&gt;
 &lt;br&gt;
 Assessing the quality of the data is an independent task and so I created a new branch called data_validation. To create a branch in git type,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;branch&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;
-&lt;span class="n"&gt;So&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt; &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;was&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="n"&gt;data_validation&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;branch&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#  So in my case it was `git branch data_validation`.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -224,9 +224,24 @@ Normally a release looks something like this &lt;code&gt;2.11.1&lt;/code&gt;. So
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;So how do you add a tag?&lt;/h3&gt;
-&lt;p&gt;Depending on whether you have made a major, minor or patch level changes, you can add a tag by typing
-&lt;code&gt;git tag &amp;lt;tag-number&amp;gt;&lt;/code&gt;. For eg. &lt;code&gt;git tag rel/2.11.0&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;To push this tag to remote repo, you have to type &lt;code&gt;git push origin &amp;lt;tag-no.&amp;gt;&lt;/code&gt;. If you want to push multiple tags - &lt;code&gt;git push origin --tags&lt;/code&gt; will work.
+&lt;p&gt;Depending on whether you have made a major, minor or patch level changes, you can add a tag by typing&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;tag&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;tag&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#  For eg. `git tag rel/2.11.0`&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;You can additionally add a message to the tag something like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;tag&lt;/span&gt; &lt;span class="n"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;2.11.0&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Code&lt;/span&gt; &lt;span class="n"&gt;changes&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;include&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;features&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="cp"&gt;#  This message will appear on the Github corresponding to this tag.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;
+To push this tag to remote repo,
+&lt;code&gt;git push origin &amp;lt;tag-no.&amp;gt;
+ #  If you want to push multiple tags - `git push origin --tags` will work.&lt;/code&gt;
 &lt;br&gt;
 &lt;br&gt;
 I will keep visiting this post to add more of my notes and learnings on git/github. Thanks for reading. Keep learning!&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>Creating a virtual environment in Python</title><link href="http://manishbarnwal.github.io/blog/2018/01/23/virtual_environment_in_python/" rel="alternate"></link><updated>2018-01-23T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-01-23:blog/2018/01/23/virtual_environment_in_python/</id><summary type="html">&lt;p&gt;I was trying to get a virtual environment set up on Python 3 using &lt;code&gt;mkvirtualenv&lt;/code&gt; but somehow the virtual environment was getting created on Python 2.7 (my system python).

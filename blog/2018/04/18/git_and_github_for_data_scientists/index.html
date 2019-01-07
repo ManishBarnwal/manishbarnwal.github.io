@@ -1901,8 +1901,8 @@ Let us understand how to create a branch in git.</p>
 <br>
 <br>
 Assessing the quality of the data is an independent task and so I created a new branch called data_validation. To create a branch in git type,</p>
-<div class="highlight"><pre><span class="err">`</span><span class="n">git</span> <span class="n">branch</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="err">`</span>
-<span class="n">So</span> <span class="n">in</span> <span class="n">my</span> <span class="k">case</span> <span class="n">it</span> <span class="n">was</span> <span class="err">`</span><span class="n">git</span> <span class="n">branch</span> <span class="n">data_validation</span><span class="err">`</span><span class="p">.</span>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">branch</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+<span class="cp">#  So in my case it was `git branch data_validation`.</span>
 </pre></div>
 
 
@@ -1973,9 +1973,24 @@ Normally a release looks something like this <code>2.11.1</code>. So there are t
 </li>
 </ul>
 <h3>So how do you add a tag?</h3>
-<p>Depending on whether you have made a major, minor or patch level changes, you can add a tag by typing
-<code>git tag &lt;tag-number&gt;</code>. For eg. <code>git tag rel/2.11.0</code></p>
-<p>To push this tag to remote repo, you have to type <code>git push origin &lt;tag-no.&gt;</code>. If you want to push multiple tags - <code>git push origin --tags</code> will work.
+<p>Depending on whether you have made a major, minor or patch level changes, you can add a tag by typing</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">tag</span> <span class="o">&lt;</span><span class="n">tag</span><span class="o">-</span><span class="n">number</span><span class="o">&gt;</span>
+<span class="cp">#  For eg. `git tag rel/2.11.0`</span>
+</pre></div>
+
+
+<p><br></p>
+<p>You can additionally add a message to the tag something like this:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">tag</span> <span class="n">rel</span><span class="o">/</span><span class="mf">2.11.0</span> <span class="o">-</span><span class="n">m</span> <span class="err">&#39;</span><span class="n">Code</span> <span class="n">changes</span> <span class="n">to</span> <span class="n">include</span> <span class="n">new</span> <span class="n">features</span><span class="err">&#39;</span>
+<span class="cp">#  This message will appear on the Github corresponding to this tag.</span>
+</pre></div>
+
+
+<p><br>
+<br>
+To push this tag to remote repo,
+<code>git push origin &lt;tag-no.&gt;
+ #  If you want to push multiple tags - `git push origin --tags` will work.</code>
 <br>
 <br>
 I will keep visiting this post to add more of my notes and learnings on git/github. Thanks for reading. Keep learning!</p></div>
