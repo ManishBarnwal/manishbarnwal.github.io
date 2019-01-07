@@ -230,16 +230,13 @@ Normally a release looks something like this &lt;code&gt;2.11.1&lt;/code&gt;. So
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;You can additionally add a message to the tag something like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;tag&lt;/span&gt; &lt;span class="n"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;2.11.0&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Code&lt;/span&gt; &lt;span class="n"&gt;changes&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;include&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;features&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
 &lt;span class="cp"&gt;#  This message will appear on the Github corresponding to this tag.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;br&gt;
-&lt;br&gt;
-To push this tag to remote repo,
+&lt;p&gt;To push this tag to remote repo,
 &lt;code&gt;git push origin &amp;lt;tag-no.&amp;gt;
  #  If you want to push multiple tags - `git push origin --tags` will work.&lt;/code&gt;
 &lt;br&gt;
