@@ -254,12 +254,18 @@ Virtual environment makes it easier to work on more than one project at a time w
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Python 2 or 3 or may be both&lt;/h3&gt;
-&lt;p&gt;With Python making a change to Python 3, we always have this question - which version should I use. I started learning Python recently and one of my seniors recommended learning Python 3. You decide what you want to learn. My recommendation is Python 3. Having said that, you can easily have both the versions in your system. Comes to the rescue &lt;code&gt;pyenv&lt;/code&gt;. &lt;em&gt;Pyenv&lt;/em&gt; is a python version management tool. It lets you to switch from one version to other with just a single command.&lt;/p&gt;
-&lt;p&gt;To install this package&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt;
+&lt;p&gt;With Python making a change to Python 3, we always have this question - which version should I use. I started learning Python recently and one of my seniors recommended learning Python 3. You decide what you want to learn. My recommendation is Python 3. Having said that, you can easily have both the versions in your system. Comes to the rescue &lt;code&gt;pyenv&lt;/code&gt;. &lt;em&gt;Pyenv&lt;/em&gt; is a python version management tool. It lets you to switch from one version to other with just a single command.
+&lt;br&gt;
+&lt;br&gt;
+If you are on mac, consider (installing with Homebrew package manager)[https://github.com/pyenv/pyenv#homebrew-on-macos] by typing:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;update&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;You can read more on how to install, use and other details &lt;strong&gt;(here)[https://github.com/pyenv/pyenv]&lt;/strong&gt;.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Create a virtual env on python3&lt;/h3&gt;
 &lt;p&gt;You need to install &lt;code&gt;virtualenvwrapper&lt;/code&gt; package using:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;virtualenvwrapper&lt;/span&gt;
@@ -292,7 +298,13 @@ If I want to make a virtual env corresponding to a particular python version, sa
 
 
 &lt;p&gt;This will definitely have 3.4.3 as the python version on your virtual env - ml_learn_env.
-This post is not complete yet. I may make additions to this later.&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>Common docker commands</title><link href="http://manishbarnwal.github.io/blog/2017/11/23/common_docker_commands/" rel="alternate"></link><updated>2017-11-23T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-11-23:blog/2017/11/23/common_docker_commands/</id><summary type="html">&lt;p&gt;&lt;img src="http://manishbarnwal.com/images/ml-data-science/docker/docker.png" alt="Photo of docker"
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Deactivate and delete virtual environment&lt;/h3&gt;
+&lt;p&gt;If you want to delete a virtual env. (say &lt;em&gt;tmp_venv&lt;/em&gt;) you need to first get out of the virtual env. by deactivating it using: &lt;code&gt;deactivate tmp_venv&lt;/code&gt;. This will get you out of the virtual env. and now if you want to delete it, type &lt;code&gt;rmvirtualenv tmp_venv&lt;/code&gt;.
+&lt;br&gt;
+&lt;br&gt;
+This post is not complete yet. I will keep updating this as and when I learn more on virtual environments.&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>Common docker commands</title><link href="http://manishbarnwal.github.io/blog/2017/11/23/common_docker_commands/" rel="alternate"></link><updated>2017-11-23T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-11-23:blog/2017/11/23/common_docker_commands/</id><summary type="html">&lt;p&gt;&lt;img src="http://manishbarnwal.com/images/ml-data-science/docker/docker.png" alt="Photo of docker"
 style="width:1200px;height:200px;border:thin solid black;"&gt;
 &lt;br&gt;
 &lt;br&gt;
