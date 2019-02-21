@@ -1873,15 +1873,17 @@ If you have heard about decision tree, then you are not very far from understand
 <li>
 <p><strong>At column level</strong>:
 <strong>Update:</strong>
-The second level of randomness comes at column level. Say, we want to use only 10% of the columns i.e out of a total of 30 columns (from our example data), only 3 columns will be randomly selected at each <strong>node level of the decision tree</strong> getting build. So, for the first node of the tree, may be columns C1, C2, and, C4 will chosen and based on some metric (Gini coefficients or other metrics to decide on the optimal node), one of these three columns will be chosen as the optimal node. This process repeats again for the next node of the tree. Again, we will randomly choose 3 columns, say C2, C5, C6 and the best column will be chose for this node as well.
+The second level of randomness comes at column level. Say, we want to use only 10% of the columns i.e out of a total of 30 columns (from our example data), only 3 columns will be randomly selected at each <strong>node level of the decision tree</strong> getting build. So, for the first node of the tree, maybe columns C1, C2, and, C4 will be chosen and based on some metric (Gini coefficients or other metrics to decide on the optimal node), one of these three columns will be chosen as the optimal node.
+<br></p>
+</li>
+</ul>
+<p>This process repeats again for the next node of the tree. Again, we will randomly choose 3 columns, say C2, C5, C6 and the best column will be chosen for this node as well.
 <br>
 <br>
-<strong>NOTE: Many beginners and even experts mistakenly understand that the columns are randomly selected at tree level. However, the correct concept is that the columns are randomly selected at each node level of each tree. I had received an email from Prof. Adel Cutler about the same and so I have updated this post accordingly. Prof. Adel Cutler is co-author of Random forest and has worked with Prof. Breiman extensively.</strong>
+<strong>NOTE: Many beginners and even experts mistakenly understand that the columns are randomly selected at tree level. However, the correct concept is that the columns are randomly selected at each node level of each tree. I had received an email from Prof. Adel Cutler about the same (a while back) and so I have updated this post accordingly. Prof. Adel Cutler is the co-author of Random forest and has worked with Prof. Breiman extensively.</strong>
 <br>
 <br>
 Let me draw an analogy now.</p>
-</li>
-</ul>
 <p>Let us now understand how interview selection process resembles a random forest algorithm. Each panel in the interview process is actually a decision tree. Each panel gives a result whether the candidate is a pass or fail and then a majority of these results is declared as final. Say there were 5 panels, 3 said yes and 2 said no. The final verdict will be yes.
 <br>
 <br>
