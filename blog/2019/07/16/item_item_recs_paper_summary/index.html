@@ -5,10 +5,10 @@
 <head>
 
   <meta charset="utf-8">
-  <title>When R package is not available across the cluster</title>
+  <title>Amazon's item-item Collaborative filtering recommendation algorithm [paper summary]</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="This post talks about a hack which is useful if a particular R package is unavailable across the cluster" >
-  <meta name="keywords" content="big data, R, manish barnwal" >
+  <meta name="description" content="This is a paper summary of item-item collaborative filtering paper by Amazon" >
+  <meta name="keywords" content="recommendation, recommender, tutorial, manish barnwal" >
 
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1840,60 +1840,77 @@ jQuery(document).ready(function($) {
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">When R package is not available across the cluster</h1>
-      <p class="meta"><time datetime="2016-08-02T07:00:00" pubdate>Aug 02, 2016</time></p>
+      <h1 class="entry-title">Amazon's item-item Collaborative filtering recommendation algorithm [paper summary]</h1>
+      <p class="meta"><time datetime="2019-07-16T08:00:00" pubdate>Jul 16, 2019</time></p>
 </header>
 
-  <div class="entry-content"><p>When deploying R codes across the cluster, many a times the reason for the failure of the task is unavailability of a particular package across all nodes of the cluster. We wait for someone to get the package installed across all the nodes. This may take some days. Do we wait for them? <em>Naah!</em>
+  <div class="entry-content"><p><a href="https://www.cs.umd.edu/~samir/498/Amazon-Recommendations.pdf">This paper</a> published in 2003 by Amazon explains how their basic recommendation algorithm works and is one of the papers that anyone interested in recommendation systems should give a read. I have been working in RS (recommender systems) domain at my present company for the last two years. Since the paper is dated almost fifteen years back, the algorithm may sound basic to you but it still works today.
 <br>
 <br>
-Presenting a temporary solution that one of my colleague came up with. I have used this technique and this works smoothly.
-<br>
-<br>
-The following are the steps:</p>
+The paper starts with talking about the different class of techniques we have for RS and why they do not work for Amazon and then it finally talks about their item-to-item collaborative filtering algorithm.</p>
+<p><br>
+Some of the pain points of large e-commerce companies which stops them to use traditional algorithms are:</p>
 <ol>
-<li>Install the package you require on one of the edge nodes into a local directory<ul>
-<li>Create a local directory. Let's say our directory name is <em>rPackages</em><br />
-    <pre style="font-size:60%; padding:7px; margin:0em;">
-    <code class="bash">mkdir rPackages
-    </code></pre></li>
-<li>Install the required package, say 'randomForest' in the directory just created
-    <pre style="font-size:60%; padding:7px; margin:0em;">
-    <code class="r">install.packages('randomForest', repos=’repo_name', lib='rPackages/')
-    Note that you need to choose the appropriate repo_name. The one that your company allows.
-    </code></pre></li>
-</ul>
+<li>
+<p>Amazon has tens of millions of customers and millions of items. Traditional RS mostly are good for toy-datasets but they fail as soon as your data becomes huge and scalability issues come into the picture.</p>
+</li>
+<li>
+<p>A lot of their users are first-time users who have not made any transactions yet. Cold-start problems are not solved using conventional RS techniques.</p>
 </li>
 </ol>
-<p><br>
-2. Check if you can load the package from this local directory
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r">library(randomForest, lib.loc='rPackages/')
-</code></pre></p>
-<p><br>
-3. Create zip file of “dir_location” using command
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">zip -r rPackages.zip rPackages/
-</code></pre></p>
-<p><br>
-4. Add this zip file in your HIVE hql (or anything else)
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">add file rPackages.zip;
-Don’t forget the semicolon
-</code></pre></p>
-<p><br>
-5. Unzip the file inside R script i.e. each reducer will have <em>rPackages</em> directory now
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">unzip('rPackages.zip', overwrite=TRUE)
-</code></pre></p>
-<p><br>
-6. Load the package now
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="bash">library(randomForest, lib.loc='rPackages/')
-</code></pre></p>
-<p><br></p>
-<p>And you’re done! Remember, you have to build the package where you want to use, because built packages are OS dependent.</p>
-<p>Did you find the article useful? If you did, share your thoughts in the comments.</p></div>
+<p>Below are the conventional RS techniques and the problems associated with them.</p>
+<h3>1. Content-based (or search-based)</h3>
+<p>As the name suggests, it takes into considerations the content or the features as input to build the RS. This system relies just on the content/feature of the item that the user has interacted with. It is based on keywords and so do not generate interesting/new recommendations.
+<br>
+<br>
+The results from content-based are almost always obvious and there is no sense of novelty or serendipity. The recommendations from this system are narrow in scope and limited to what the user has viewed. For eg., if a user has watched the Godfather movie, chances are the user will mostly be recommended movies from the same genre i.e. drama. RS are supposed to give you suggestions that are not obvious and the content-based RS fails drastically on this front. Content-based RS produce good results when the number of users and items are relatively smaller which is clearly not the case with Amazon.
+<br>
+<br></p>
+<h3>2. Cluster-based</h3>
+<p>In this RS, users are clustered into some number of segments based on some features. Each of these segments now represents a class of customers who have similar tastes within the same class. When a new user comes, she is mapped to the closest segment based on the affinity (distance-based or some other similarity metric). This user is then recommended items that the users in the segment have interacted with.
+<br>
+<br>
+This technique is scalable since the cluster generation will be done offline but the recommendation generated from this is of poor quality.
+<br>
+<br>
+Will a cluster of some number of segments (say 5) be enough to represent the behavior and tastes of all your customers? One can say that making the clusters more granular (increasing the number of clusters) will help in forming more specific clusters, but this will lead to increase in time taken to map the user to one of the segments (now that we have a huge number of segments)
+<br>
+<br>
+How do you find the optimal number of segments? Finding the optimal number of segments and be assured that the segments generated are the best ones is one of the major problems of this method.
+<br>
+<br></p>
+<h3>3. Collaborative filtering</h3>
+<p>This technique is computationally expensive. For M users and N items, its time complexity is O(M*N) in the worst case but since the data is mostly sparse i.e. a user only buys a handful of items out of the whole lot, the complexity is approximately O(M + N). Today there are methods of dimensionality reduction that converts the hugely sparse interaction matrix to a dense one using techniques like matrix factorization. Since the paper was written in 2003, a lot of these techniques were not that developed during that time. Research in RS peaked in 2006 after Netflix announced prize money of 1 million dollars for their competition.  Cold start problem is obviously there with collaborative filtering. If a new user comes, collaborative filtering won’t be able to recommend an item for her.
+<br>
+<br></p>
+<h3>4. Item-to-item collaborative filtering</h3>
+<p>Rather than relying on finding similar customers, item-to-item CF matches each of the user’s purchased items to similar items and then combine those similar items into a recommendation list. To determine which items are similar to an item (say seed-item), the method looks at items that were purchased together with seed-item and find the similarity between them.</p>
+<p>Generating item-to-item similarity table</p>
+<p><strong>Pseudo-code</strong></p>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">each</span> <span class="n">item</span> <span class="n">in</span> <span class="n">product</span> <span class="n">catalog</span> <span class="p">(</span><span class="n">I1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="n">customer</span> <span class="n">who</span> <span class="n">bought</span> <span class="n">I1</span> <span class="p">(</span><span class="n">C1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each</span> <span class="n">item</span> <span class="n">bought</span> <span class="n">by</span> <span class="n">customer</span> <span class="p">(</span><span class="n">I2</span><span class="p">)</span>
+            <span class="n">similarity</span><span class="p">(</span><span class="n">I1</span><span class="p">,</span> <span class="n">I2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>There are two issues with the above calculation of item-to-item similarity table.</p>
+<ol>
+<li>
+<p><strong>Offline computation</strong>: First, the time complexity of this table is too huge. In the worst case, it is O(N^²M) but since most customers interact only with a fraction of items, its time complexity will ideally be O(N*M). And that is why this similarity table is to be computed offline. For larger datasets, scalable RS must perform expensive computations offline.</p>
+</li>
+<li>
+<p><strong>Calculating similarity between items</strong>: Second, how do we go about finding the similarity between the items? The simplest approach is to calculate the cosine similarity between each item pair’s item vectors. Each item vector is M dimensional which represents the customers who bought that item.
+<br>
+<br></p>
+</li>
+</ol>
+<h3>Generating recommendations online</h3>
+<p>Once we have the similarity table, we can go about generating recommendations for a user’s purchase by finding the similar items corresponding to each item in the user’s purchase and generate the final recommendation list based on the choosing the most popular similar item or correlation between them. This process is not expensive at all and is done online (as it has to just look into the similarity table that was computed offline).
+<br>
+<br></p>
+<h3>Conclusion</h3>
+<p>The most important point to keep in mind is that the most expensive task of calculating the item-item similarity table is done offline and the task to generate recommendations for a user’s purchased items is done real-time as it only depends on the items purchased by the user and not at all on the number of items in the product catalog of Amazon.  This reduces the time significantly and thus makes the item-to-item collaborative filtering approach scalable. And because the algorithm recommends highly correlated similar items, recommendation quality is excellent.</p></div>
 <script type="text/javascript" language="javascript">
       var aax_size='728x90';
       var aax_pubname = 'manishbarnwal-21';
@@ -1913,13 +1930,14 @@ Don’t forget the semicolon
   <span class="byline author vcard">
     Posted by <span class="fn">Manish Barnwal</span>
   </span>
-<time datetime="2016-08-02T07:00:00" pubdate>Aug 02, 2016</time>  <span class="categories">
-    <a class="category" href="http://manishbarnwal.github.io/tag/r.html">R</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/hacks.html">hacks</a>
+<time datetime="2019-07-16T08:00:00" pubdate>Jul 16, 2019</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/recommendation.html">recommendation</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/recommender.html">recommender</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/tutorial.html">tutorial</a>
     <a class="category" href="http://manishbarnwal.github.io/tag/manish-barnwal.html">manish barnwal</a>
   </span>
 </p><div class="sharing">
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2016/08/02/r_packages_not_in_cluster/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2016/08/02/r_packages_not_in_cluster/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2019/07/16/item_item_recs_paper_summary/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2019/07/16/item_item_recs_paper_summary/" >Tweet</a>
   <div class="g-plusone" data-size="medium"></div>
     <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
 </div>    </footer>
@@ -2018,9 +2036,9 @@ Don’t forget the semicolon
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
-          var disqus_identifier = '/blog/2016/08/02/r_packages_not_in_cluster/';
-          var disqus_url = 'http://manishbarnwal.com/blog/2016/08/02/r_packages_not_in_cluster/';
-          var disqus_title = 'When R package is not available across the cluster';
+          var disqus_identifier = '/blog/2019/07/16/item_item_recs_paper_summary/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2019/07/16/item_item_recs_paper_summary/';
+          var disqus_title = 'Amazon's item-item Collaborative filtering recommendation algorithm [paper summary]';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

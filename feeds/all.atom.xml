@@ -1,5 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2018-09-27T08:00:00-03:00</updated><entry><title>Types of data in recommender systems</title><link href="http://manishbarnwal.github.io/blog/2018/09/27/types_data_recommender_system/" rel="alternate"></link><updated>2018-09-27T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-09-27:blog/2018/09/27/types_data_recommender_system/</id><summary type="html">&lt;p&gt;There are two ways in which we can collect data for building recommender systems — &lt;strong&gt;explicit&lt;/strong&gt; and &lt;strong&gt;implicit&lt;/strong&gt;. In this post, we will talk about both types of data, their characteristics and the challenges with them.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/all.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2019-07-16T08:00:00-03:00</updated><entry><title>Amazon's item-item Collaborative filtering recommendation algorithm [paper summary]</title><link href="http://manishbarnwal.github.io/blog/2019/07/16/item_item_recs_paper_summary/" rel="alternate"></link><updated>2019-07-16T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2019-07-16:blog/2019/07/16/item_item_recs_paper_summary/</id><summary type="html">&lt;p&gt;&lt;a href="https://www.cs.umd.edu/~samir/498/Amazon-Recommendations.pdf"&gt;This paper&lt;/a&gt; published in 2003 by Amazon explains how their basic recommendation algorithm works and is one of the papers that anyone interested in recommendation systems should give a read. I have been working in RS (recommender systems) domain at my present company for the last two years. Since the paper is dated almost fifteen years back, the algorithm may sound basic to you but it still works today.
+&lt;br&gt;
+&lt;br&gt;
+The paper starts with talking about the different class of techniques we have for RS and why they do not work for Amazon and then it finally talks about their item-to-item collaborative filtering algorithm.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+Some of the pain points of large e-commerce companies which stops them to use traditional algorithms are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Amazon has tens of millions of customers and millions of items. Traditional RS mostly are good for toy-datasets but they fail as soon as your data becomes huge and scalability issues come into the picture.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A lot of their users are first-time users who have not made any transactions yet. Cold-start problems are not solved using conventional RS techniques.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Below are the conventional RS techniques and the problems associated with them.&lt;/p&gt;
+&lt;h3&gt;1. Content-based (or search-based)&lt;/h3&gt;
+&lt;p&gt;As the name suggests, it takes into considerations the content or the features as input to build the RS. This system relies just on the content/feature of the item that the user has interacted with. It is based on keywords and so do not generate interesting/new recommendations.
+&lt;br&gt;
+&lt;br&gt;
+The results from content-based are almost always obvious and there is no sense of novelty or serendipity. The recommendations from this system are narrow in scope and limited to what the user has viewed. For eg., if a user has watched the Godfather movie, chances are the user will mostly be recommended movies from the same genre i.e. drama. RS are supposed to give you suggestions that are not obvious and the content-based RS fails drastically on this front. Content-based RS produce good results when the number of users and items are relatively smaller which is clearly not the case with Amazon.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;2. Cluster-based&lt;/h3&gt;
+&lt;p&gt;In this RS, users are clustered into some number of segments based on some features. Each of these segments now represents a class of customers who have similar tastes within the same class. When a new user comes, she is mapped to the closest segment based on the affinity (distance-based or some other similarity metric). This user is then recommended items that the users in the segment have interacted with.
+&lt;br&gt;
+&lt;br&gt;
+This technique is scalable since the cluster generation will be done offline but the recommendation generated from this is of poor quality.
+&lt;br&gt;
+&lt;br&gt;
+Will a cluster of some number of segments (say 5) be enough to represent the behavior and tastes of all your customers? One can say that making the clusters more granular (increasing the number of clusters) will help in forming more specific clusters, but this will lead to increase in time taken to map the user to one of the segments (now that we have a huge number of segments)
+&lt;br&gt;
+&lt;br&gt;
+How do you find the optimal number of segments? Finding the optimal number of segments and be assured that the segments generated are the best ones is one of the major problems of this method.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;3. Collaborative filtering&lt;/h3&gt;
+&lt;p&gt;This technique is computationally expensive. For M users and N items, its time complexity is O(M*N) in the worst case but since the data is mostly sparse i.e. a user only buys a handful of items out of the whole lot, the complexity is approximately O(M + N). Today there are methods of dimensionality reduction that converts the hugely sparse interaction matrix to a dense one using techniques like matrix factorization. Since the paper was written in 2003, a lot of these techniques were not that developed during that time. Research in RS peaked in 2006 after Netflix announced prize money of 1 million dollars for their competition.  Cold start problem is obviously there with collaborative filtering. If a new user comes, collaborative filtering won’t be able to recommend an item for her.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;4. Item-to-item collaborative filtering&lt;/h3&gt;
+&lt;p&gt;Rather than relying on finding similar customers, item-to-item CF matches each of the user’s purchased items to similar items and then combine those similar items into a recommendation list. To determine which items are similar to an item (say seed-item), the method looks at items that were purchased together with seed-item and find the similarity between them.&lt;/p&gt;
+&lt;p&gt;Generating item-to-item similarity table&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pseudo-code&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;each&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;product&lt;/span&gt; &lt;span class="n"&gt;catalog&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;I1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;each&lt;/span&gt; &lt;span class="n"&gt;customer&lt;/span&gt; &lt;span class="n"&gt;who&lt;/span&gt; &lt;span class="n"&gt;bought&lt;/span&gt; &lt;span class="n"&gt;I1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;C1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;each&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="n"&gt;bought&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="n"&gt;customer&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;I2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;similarity&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;I1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;I2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;There are two issues with the above calculation of item-to-item similarity table.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Offline computation&lt;/strong&gt;: First, the time complexity of this table is too huge. In the worst case, it is O(N^²M) but since most customers interact only with a fraction of items, its time complexity will ideally be O(N*M). And that is why this similarity table is to be computed offline. For larger datasets, scalable RS must perform expensive computations offline.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Calculating similarity between items&lt;/strong&gt;: Second, how do we go about finding the similarity between the items? The simplest approach is to calculate the cosine similarity between each item pair’s item vectors. Each item vector is M dimensional which represents the customers who bought that item.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Generating recommendations online&lt;/h3&gt;
+&lt;p&gt;Once we have the similarity table, we can go about generating recommendations for a user’s purchase by finding the similar items corresponding to each item in the user’s purchase and generate the final recommendation list based on the choosing the most popular similar item or correlation between them. This process is not expensive at all and is done online (as it has to just look into the similarity table that was computed offline).
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;The most important point to keep in mind is that the most expensive task of calculating the item-item similarity table is done offline and the task to generate recommendations for a user’s purchased items is done real-time as it only depends on the items purchased by the user and not at all on the number of items in the product catalog of Amazon.  This reduces the time significantly and thus makes the item-to-item collaborative filtering approach scalable. And because the algorithm recommends highly correlated similar items, recommendation quality is excellent.&lt;/p&gt;</summary><category term="recommendation"></category><category term="recommender"></category><category term="tutorial"></category><category term="manish barnwal"></category></entry><entry><title>Types of data in recommender systems</title><link href="http://manishbarnwal.github.io/blog/2018/09/27/types_data_recommender_system/" rel="alternate"></link><updated>2018-09-27T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2018-09-27:blog/2018/09/27/types_data_recommender_system/</id><summary type="html">&lt;p&gt;There are two ways in which we can collect data for building recommender systems — &lt;strong&gt;explicit&lt;/strong&gt; and &lt;strong&gt;implicit&lt;/strong&gt;. In this post, we will talk about both types of data, their characteristics and the challenges with them.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Explicit feedback datasets&lt;/h3&gt;
