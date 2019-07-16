@@ -1858,7 +1858,9 @@ Some of the pain points of large e-commerce companies which stops them to use tr
 <p>A lot of their users are first-time users who have not made any transactions yet. Cold-start problems are not solved using conventional RS techniques.</p>
 </li>
 </ol>
-<p>Below are the conventional RS techniques and the problems associated with them.</p>
+<p>Below are the conventional RS techniques and the problems associated with them.
+<br>
+<br></p>
 <h3>1. Content-based (or search-based)</h3>
 <p>As the name suggests, it takes into considerations the content or the features as input to build the RS. This system relies just on the content/feature of the item that the user has interacted with. It is based on keywords and so do not generate interesting/new recommendations.
 <br>
@@ -1880,7 +1882,10 @@ How do you find the optimal number of segments? Finding the optimal number of se
 <br>
 <br></p>
 <h3>3. Collaborative filtering</h3>
-<p>This technique is computationally expensive. For M users and N items, its time complexity is O(M*N) in the worst case but since the data is mostly sparse i.e. a user only buys a handful of items out of the whole lot, the complexity is approximately O(M + N). Today there are methods of dimensionality reduction that converts the hugely sparse interaction matrix to a dense one using techniques like matrix factorization. Since the paper was written in 2003, a lot of these techniques were not that developed during that time. Research in RS peaked in 2006 after Netflix announced prize money of 1 million dollars for their competition.  Cold start problem is obviously there with collaborative filtering. If a new user comes, collaborative filtering won’t be able to recommend an item for her.
+<p>This technique is computationally expensive. For M users and N items, its time complexity is O(M*N) in the worst case but since the data is mostly sparse i.e. a user only buys a handful of items out of the whole lot, the complexity is approximately O(M + N). Today there are methods of dimensionality reduction that converts the hugely sparse interaction matrix to a dense one using techniques like matrix factorization.
+<br>
+<br>
+Since the paper was written in 2003, a lot of these techniques were not that developed during that time. Research in RS peaked in 2006 after Netflix announced prize money of 1 million dollars for their competition.  Cold start problem is obviously there with collaborative filtering. If a new user comes, collaborative filtering won’t be able to recommend an item for her.
 <br>
 <br></p>
 <h3>4. Item-to-item collaborative filtering</h3>
@@ -1910,7 +1915,10 @@ How do you find the optimal number of segments? Finding the optimal number of se
 <br>
 <br></p>
 <h3>Conclusion</h3>
-<p>The most important point to keep in mind is that the most expensive task of calculating the item-item similarity table is done offline and the task to generate recommendations for a user’s purchased items is done real-time as it only depends on the items purchased by the user and not at all on the number of items in the product catalog of Amazon.  This reduces the time significantly and thus makes the item-to-item collaborative filtering approach scalable. And because the algorithm recommends highly correlated similar items, recommendation quality is excellent.</p></div>
+<p>The most important point to keep in mind is that the most expensive task of calculating the item-item similarity table is done offline and the task to generate recommendations for a user’s purchased items is done real-time as it only depends on the items purchased by the user and not at all on the number of items in the product catalog of Amazon.<br />
+<br>
+<br>
+This reduces the time significantly and thus makes the item-to-item collaborative filtering approach scalable. And because the algorithm recommends highly correlated similar items, recommendation quality is excellent.</p></div>
 <script type="text/javascript" language="javascript">
       var aax_size='728x90';
       var aax_pubname = 'manishbarnwal-21';
