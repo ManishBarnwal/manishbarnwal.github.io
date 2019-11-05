@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/ml-data-science.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2019-07-16T08:00:00-03:00</updated><entry><title>Amazon's item-item Collaborative filtering recommendation algorithm [paper summary]</title><link href="http://manishbarnwal.github.io/blog/2019/07/16/item_item_recs_paper_summary/" rel="alternate"></link><updated>2019-07-16T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2019-07-16:blog/2019/07/16/item_item_recs_paper_summary/</id><summary type="html">&lt;p&gt;&lt;a href="https://www.cs.umd.edu/~samir/498/Amazon-Recommendations.pdf"&gt;This paper&lt;/a&gt; published in 2003 by Amazon explains how their basic recommendation algorithm works and is one of the papers that anyone interested in recommendation systems should give a read. I have been working in RS (recommender systems) domain at my present company for the last two years. Since the paper is dated almost fifteen years back, the algorithm may sound basic to you but it still works today.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/ml-data-science.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2019-10-28T08:00:00-02:00</updated><entry><title>Cluster NSE top 500 companies</title><link href="http://manishbarnwal.github.io/blog/2019/10/28/cluster_nse_companies/" rel="alternate"></link><updated>2019-10-28T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2019-10-28:blog/2019/10/28/cluster_nse_companies/</id><summary type="html">&lt;h3&gt;Idea&lt;/h3&gt;
+&lt;p&gt;Each company can be represented  by few metrics that would define the health of the company. Metrics like eps, revenue, market-cap, last 4 quarter earnings, RoE, PE ratio, etc. There could be other metrics or features as well. If we represent each company with these metrics and apply clustering on this data, would the clusters generated be meaningful?
+&lt;br&gt;
+&lt;br&gt;
+I had this question one night when I was sleepless and I jumped out of my bed and inked down the basic idea and approach.&lt;/p&gt;
+&lt;p&gt;We know we have companies like Bajaj Finance that has given excellent returns in the past and is continuing to do so. There would be other companies like this. Would it be possible that companies like Bajaj Finance will be clubbed into one cluster.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Objective&lt;/h3&gt;
+&lt;p&gt;Find the characteristics of each cluster by looking at few known companies mapped in each cluster and try to see which &lt;em&gt;not-so-famous&lt;/em&gt; companies can be found in the same cluster.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Approach&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Which companies to select in data?
+  We start with top 500 NSE companies. Get list of top 500 companies from NSE website&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Where to extract the data from?
+  &lt;code&gt;screener.in&lt;/code&gt;. Use &lt;code&gt;requests&lt;/code&gt; and &lt;code&gt;beautifulsoup&lt;/code&gt; library&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What features to use for clustering?
+  Start with basic set of features that are easier to get like sector, market-cap, EPS, ROE, PE ratio. I will build on this later. &lt;em&gt;Good now is better than perfect tomorrow.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Other features:
+   - debt/equity ratio
+   - last 4 quarter earnings
+   - Price info: mean price, std, 25 percentile price, median price, 75 percentile price, 52 week high, 52 week low
+   - Volume traded
+   - Some way to get user sentiments&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Start modeling
+&lt;br&gt;
+&lt;br&gt;
+The complete implementation and code can be found in this &lt;a href="https://github.com/ManishBarnwal/clustering-nse-500"&gt;github repository&lt;/a&gt;. This is a first version of the project. I plan to come back to this at a later time and add more features to represent a company.&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="clustering"></category><category term="nse"></category><category term="luigi"></category><category term="stock market"></category><category term="finance"></category><category term="manish barnwal"></category></entry><entry><title>Amazon's item-item Collaborative filtering recommendation algorithm [paper summary]</title><link href="http://manishbarnwal.github.io/blog/2019/07/16/item_item_recs_paper_summary/" rel="alternate"></link><updated>2019-07-16T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2019-07-16:blog/2019/07/16/item_item_recs_paper_summary/</id><summary type="html">&lt;p&gt;&lt;a href="https://www.cs.umd.edu/~samir/498/Amazon-Recommendations.pdf"&gt;This paper&lt;/a&gt; published in 2003 by Amazon explains how their basic recommendation algorithm works and is one of the papers that anyone interested in recommendation systems should give a read. I have been working in RS (recommender systems) domain at my present company for the last two years. Since the paper is dated almost fifteen years back, the algorithm may sound basic to you but it still works today.
 &lt;br&gt;
 &lt;br&gt;
 The paper starts with talking about the different class of techniques we have for RS and why they do not work for Amazon and then it finally talks about their item-to-item collaborative filtering algorithm.&lt;/p&gt;
