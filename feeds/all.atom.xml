@@ -25,31 +25,28 @@ I had this question one night when I was sleepless and I jumped out of my bed an
 &lt;/ul&gt;
 &lt;p&gt;Start with basic set of features that are easier to get like sector, market-cap, EPS, ROE, PE ratio. I will build on this later. &lt;em&gt;Good now is better than perfect tomorrow.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Other features&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;debt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;equity&lt;/span&gt; &lt;span class="n"&gt;ratio&lt;/span&gt;
+
+  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;quarter&lt;/span&gt; &lt;span class="n"&gt;earnings&lt;/span&gt;
+
+  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Price&lt;/span&gt; &lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;mean&lt;/span&gt; &lt;span class="n"&gt;price&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;25&lt;/span&gt; &lt;span class="n"&gt;percentile&lt;/span&gt; &lt;span class="n"&gt;price&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;median&lt;/span&gt;  &lt;span class="n"&gt;price&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;75&lt;/span&gt; &lt;span class="n"&gt;percentile&lt;/span&gt; &lt;span class="n"&gt;price&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;52&lt;/span&gt; &lt;span class="n"&gt;week&lt;/span&gt; &lt;span class="n"&gt;high&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;52&lt;/span&gt; &lt;span class="n"&gt;week&lt;/span&gt; &lt;span class="n"&gt;low&lt;/span&gt;
+
+  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Volume&lt;/span&gt; &lt;span class="n"&gt;traded&lt;/span&gt;
+
+  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Some&lt;/span&gt; &lt;span class="n"&gt;way&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="n"&gt;sentiments&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;debt/equity ratio&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;last 4 quarter earnings&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Price info: mean price, std, 25 percentile price, median price, 75 percentile price, 52 week high, 52 week low&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Volume traded&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Some way to get user sentiments&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Start modeling
+&lt;li&gt;Start modeling
 &lt;br&gt;
-&lt;br&gt;
-The complete implementation and code can be found in this &lt;a href="https://github.com/ManishBarnwal/clustering-nse-500"&gt;github repository&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
+&lt;br&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;This is a first version of the project. I plan to come back to this at a later time and add more features to represent a company.&lt;/p&gt;</summary><category term="clustering"></category><category term="nse"></category><category term="luigi"></category><category term="stock market"></category><category term="finance"></category><category term="manish barnwal"></category></entry><entry><title>Amazon's item-item Collaborative filtering recommendation algorithm [paper summary]</title><link href="http://manishbarnwal.github.io/blog/2019/07/16/item_item_recs_paper_summary/" rel="alternate"></link><updated>2019-07-16T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2019-07-16:blog/2019/07/16/item_item_recs_paper_summary/</id><summary type="html">&lt;p&gt;&lt;a href="https://www.cs.umd.edu/~samir/498/Amazon-Recommendations.pdf"&gt;This paper&lt;/a&gt; published in 2003 by Amazon explains how their basic recommendation algorithm works and is one of the papers that anyone interested in recommendation systems should give a read. I have been working in RS (recommender systems) domain at my present company for the last two years. Since the paper is dated almost fifteen years back, the algorithm may sound basic to you but it still works today.
+&lt;h3&gt;Code implementation&lt;/h3&gt;
+&lt;p&gt;The complete implementation and code can be found in this &lt;a href="https://github.com/ManishBarnwal/clustering-nse-500"&gt;github repository&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;
+This is a first version of the project. I plan to come back to this at a later time and add more features to represent a company.&lt;/p&gt;</summary><category term="clustering"></category><category term="nse"></category><category term="luigi"></category><category term="stock market"></category><category term="finance"></category><category term="manish barnwal"></category></entry><entry><title>Amazon's item-item Collaborative filtering recommendation algorithm [paper summary]</title><link href="http://manishbarnwal.github.io/blog/2019/07/16/item_item_recs_paper_summary/" rel="alternate"></link><updated>2019-07-16T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2019-07-16:blog/2019/07/16/item_item_recs_paper_summary/</id><summary type="html">&lt;p&gt;&lt;a href="https://www.cs.umd.edu/~samir/498/Amazon-Recommendations.pdf"&gt;This paper&lt;/a&gt; published in 2003 by Amazon explains how their basic recommendation algorithm works and is one of the papers that anyone interested in recommendation systems should give a read. I have been working in RS (recommender systems) domain at my present company for the last two years. Since the paper is dated almost fifteen years back, the algorithm may sound basic to you but it still works today.
 &lt;br&gt;
 &lt;br&gt;
 The paper starts with talking about the different class of techniques we have for RS and why they do not work for Amazon and then it finally talks about their item-to-item collaborative filtering algorithm.&lt;/p&gt;
