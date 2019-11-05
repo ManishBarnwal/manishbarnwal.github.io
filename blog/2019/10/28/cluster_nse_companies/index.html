@@ -1858,31 +1858,43 @@ I had this question one night when I was sleepless and I jumped out of my bed an
 <br></p>
 <h3>Approach</h3>
 <ul>
+<li>Which companies to select in data?</li>
+</ul>
+<p>We start with top 500 NSE companies. Get list of top 500 companies from NSE website</p>
+<ul>
+<li>Where to extract the data from?</li>
+</ul>
+<p><code>screener.in</code>. Use <code>requests</code> and <code>beautifulsoup</code> library</p>
+<ul>
+<li>What features to use for clustering?</li>
+</ul>
+<p>Start with basic set of features that are easier to get like sector, market-cap, EPS, ROE, PE ratio. I will build on this later. <em>Good now is better than perfect tomorrow.</em></p>
+<p>Other features</p>
+<ul>
 <li>
-<p>Which companies to select in data?
-  We start with top 500 NSE companies. Get list of top 500 companies from NSE website</p>
+<p>debt/equity ratio</p>
 </li>
 <li>
-<p>Where to extract the data from?
-  <code>screener.in</code>. Use <code>requests</code> and <code>beautifulsoup</code> library</p>
+<p>last 4 quarter earnings</p>
 </li>
 <li>
-<p>What features to use for clustering?
-  Start with basic set of features that are easier to get like sector, market-cap, EPS, ROE, PE ratio. I will build on this later. <em>Good now is better than perfect tomorrow.</em></p>
+<p>Price info: mean price, std, 25 percentile price, median price, 75 percentile price, 52 week high, 52 week low</p>
+</li>
+<li>
+<p>Volume traded</p>
+</li>
+<li>
+<p>Some way to get user sentiments</p>
+</li>
+<li>
+<p>Start modeling
+<br>
+<br>
+The complete implementation and code can be found in this <a href="https://github.com/ManishBarnwal/clustering-nse-500">github repository</a>.</p>
 </li>
 </ul>
-<p>Other features:
-   - debt/equity ratio
-   - last 4 quarter earnings
-   - Price info: mean price, std, 25 percentile price, median price, 75 percentile price, 52 week high, 52 week low
-   - Volume traded
-   - Some way to get user sentiments</p>
-<ul>
-<li>Start modeling
-<br>
-<br>
-The complete implementation and code can be found in this <a href="https://github.com/ManishBarnwal/clustering-nse-500">github repository</a>. This is a first version of the project. I plan to come back to this at a later time and add more features to represent a company.</li>
-</ul></div>
+<p><br></p>
+<p>This is a first version of the project. I plan to come back to this at a later time and add more features to represent a company.</p></div>
 <script type="text/javascript" language="javascript">
       var aax_size='728x90';
       var aax_pubname = 'manishbarnwal-21';
