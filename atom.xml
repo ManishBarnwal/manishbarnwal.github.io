@@ -1,5 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2019-10-28T08:00:00-02:00</updated><entry><title>Cluster NSE top 500 companies</title><link href="http://manishbarnwal.github.io/blog/2019/10/28/cluster_nse_companies/" rel="alternate"></link><updated>2019-10-28T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2019-10-28:blog/2019/10/28/cluster_nse_companies/</id><summary type="html">&lt;h3&gt;Idea&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2020-04-07T08:00:00-03:00</updated><entry><title>Personal finance 101</title><link href="http://manishbarnwal.github.io/blog/2020/04/07/personal_finance_101/" rel="alternate"></link><updated>2020-04-07T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2020-04-07:blog/2020/04/07/personal_finance_101/</id><summary type="html">&lt;p&gt;I am not going to talk about the power of compounding, why money is important, how can you make your money work for you, or any similar sounding cliched titles. If you are reading this blog, I assume you already understand that money is important and you would love to have more of it. 
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: I am not an expert in finance and all the viewpoints expressed here are to be used at your own discretion. But I read a lot on money and investments and adapt these learnings to my investments. Oh, if it helps, I have cleared the FRM (Financial Risk Manager) level 1 exam.
+This post will be about the meager basics one should have sorted with their money. Let us get started.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;1. Get yourself insured&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Medical insurance&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;First steps, first. Start with protecting your dependents. Insurance is something I recommend everyone to get it done as soon as possible. Mostly your employer provides medical insurance but if your employer doesn't, you should get it on your own. Make sure to get medical insurance for yourself and your dependents - mom, dad, wife, children - all your dependents. It is recommended to not have medical insurance tied just to your employer. This becomes all the more important during these times of a pandemic. Given the current pandemic situation, many are losing their job and if you lose your job, you lose the medical insurance and that is a bad situation to be in.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Term insurance&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Moving on, you should then go about getting term insurance. What is term insurance, you may ask? Term insurance is an insurance that gives your dependents a certain assured sum if you (the insurer) dies. If you would like to know more about Term insurance, you should google and read more about it.
+Go for plain vanilla term insurance. While buying the term insurance, keep in mind to not buy a mixed product insurance - one that gives you returns as well on top of the insurance. ULIP (unit linked insurance plan) is an example of a mixed insurance product. ULIPS are notoriously famous and sold by bankers and relationship managers just for the sake of the high commissions they generate by selling it to you. Run away from the person who tries to sell you an ULIP and never talk to him again.
+&lt;br&gt;
+&lt;br&gt;
+You should get just the plain, basic term insurance. We will worry about our returns in the next few paragraphs. One of the rules of investment that has worked well for me so far - do not mix investment products. If you are buying insurance, it should just provide you insurance. Do not buy ULIPs and other similar products that claim to also give you returns on top of the insurance.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;2. Build an emergency fund&lt;/h3&gt;
+&lt;p&gt;As the name suggests, this fund is to be accumulated to meet uncertainties/emergencies in your life. You decide what should be the amount you would be comfortable with. You can create this fund by putting a certain portion of your salary every month to this fund. 
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;What would an emergency look like?&lt;/strong&gt;
+If tomorrow, you lose your job, how many months would you survive? Or may be you decide you wanted a few months off to figure out things or you want to travel for the next few months. Will you be able to afford this? Nothing holds more importance in life than security and freedom. And this fund is just for that. 
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;How do you estimate how much money you need in this fund?&lt;/strong&gt;
+How many months do you want to survive without a job? Multiply this number by your monthly expense. 
+Start with estimating your monthly expense - your rent, food bills, cook's salary, internet bill, entertainment expenses - every expense (no matter how small) that you spend on a typical month. Let us say that comes out to be 50,000 INR. Now, multiply this by the number of months you would want to it to last (say 6 months), and you get your fuck-you money fund i.e. 50,000 * 6 = 300,000
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;How many months should your emergency fund last?&lt;/strong&gt;
+Again, this number of months is a number you should be comfortable with. I suggest a minimum of at least six months. You can increase this to maybe ten as well. I have my emergency fund that would last for six months -  I plan to increase this to ten. Again, financial freedom and peace of mind is of utmost importance when planning investments.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Where should I keep this money?&lt;/strong&gt;
+I keep it in a mix of cash (in your savings-bank account), fixed-deposit, and liquid funds. If you don't know what liquid funds are, google it. It is important to have this cash as liquid as possible that's why I insist on keeping a portion of this fund in your savings-bank account which would allow you to withdraw it whenever you need. Do not put this money into equity. We will come to equities in some time.
+Emergency funds will help you enjoy the little things in life, bring sanity and happiness without worrying about the next recession or layoffs.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;3. Save taxes using investments under 80-C&lt;/h3&gt;
+&lt;p&gt;Money saved is money earned. Do not miss out the opportunity to save taxes. Under 80-C, your income is exempted from taxes up to a limit of 150,000. Do not let this opportunity slip. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Where should you invest this?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I recommend a mix of PPF and ELSS. Or if you want to really keep it simple and do not want to take the extra risk of ELSS, just dump it in your PPF account. Again, if you do not know what ELSS mean, google it. If you still do not understand it, ping me. I will direct you to right links.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;4. Start investing&lt;/h3&gt;
+&lt;p&gt;Now that we have ourselves covered - medical insurance, term insurance, tax benefits all done, we will now focus on making our monies work for us. Let us begin our investment journey.
+Alternate bank account
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Start with creating an alternate bank account&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I call this bank account investment account. Now, this account is not your salary account. This account is meant to be used just for investments, emergency funds and for parking additional funds. You are never going to use this account for your personal expenditures. 
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;How much to invest?&lt;/strong&gt;
+You should have a rough estimate of your monthly expenditure. Once your salary gets credited to your salary account, keep the amount necessary for your monthly expenditures and transfer the remaining amount to your newly created alternate bank account. Say, you can invest 50k INR per month.
+Now, that you have an alternate bank account, I will answer what to do next.
+&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Start your SIP in mutual funds&lt;/strong&gt;
+If you do not understand what SIPs are, google it. Let me try to explain in a few sentences. SIP is a systematic investment plan that allows you to invest some amount at a regular time interval in an investment. SIPs are mostly talked in conjunction to mutual funds. If someone says he is doing an SIP of 10k per month, it just means that he is investing 10k per month in a a fund irrespective of market going up or down. You set up an instruction that every month (say on 5th), I want to invest 10k INR in a fund. 
+&lt;br&gt;
+&lt;br&gt;
+I will continue to add more to this. But for now, this should suffice to start your investment journey. Let me know if you have questions and I will address them in later posts. Till then, keep learning, keep writing.&lt;/p&gt;</summary><category term="personal finance"></category><category term="investment basics"></category><category term="financial freedom"></category><category term="manish barnwal"></category></entry><entry><title>Cluster NSE top 500 companies</title><link href="http://manishbarnwal.github.io/blog/2019/10/28/cluster_nse_companies/" rel="alternate"></link><updated>2019-10-28T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2019-10-28:blog/2019/10/28/cluster_nse_companies/</id><summary type="html">&lt;h3&gt;Idea&lt;/h3&gt;
 &lt;p&gt;Each company can be represented  by few metrics that would define the health of the company. Metrics like eps, revenue, market-cap, last 4 quarter earnings, RoE, PE ratio, etc. There could be other metrics or features as well. If we represent each company with these metrics and apply clustering on this data, would the clusters generated be meaningful?
 &lt;br&gt;
 &lt;br&gt;
@@ -426,6 +494,17 @@ If I want to make a virtual env corresponding to a particular python version, sa
 &lt;h3&gt;Deactivate and delete virtual environment&lt;/h3&gt;
 &lt;p&gt;If you want to delete a virtual env. (say &lt;em&gt;tmp_venv&lt;/em&gt;) you need to first get out of the virtual env. by deactivating it using: &lt;code&gt;deactivate tmp_venv&lt;/code&gt;. This will get you out of the virtual env. and now if you want to delete it, type &lt;code&gt;rmvirtualenv tmp_venv&lt;/code&gt;.
 &lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Create a Jupyter kernel over virtual env.&lt;/h3&gt;
+&lt;p&gt;Once your virtual environment is created, we want to install packages specific to the project you created the virtual environment for. When writing the code on Jupyter  notebook for this project we want to use these packages.&lt;/p&gt;
+&lt;p&gt;To do so we need to install a package called &lt;code&gt;ipykernel&lt;/code&gt; that allows us to use these packages in our jupyter notebook. We then create a kernel over this virtual environment by typing the below code.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;ipykernel&lt;/span&gt;
+&lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;ipykernel&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;ml_learn_env&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;ml_learn_kernel&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You should now able to switch to &lt;code&gt;ml_learn_kernel&lt;/code&gt; by clicking on &lt;em&gt;change kernel&lt;/em&gt; under the &lt;em&gt;Kernel&lt;/em&gt; tab of Jupyter notebook.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
 &lt;br&gt;
 This post is not complete yet. I will keep updating this as and when I learn more on virtual environments.&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>Eight lessons learnt from the process of learning the guitar</title><link href="http://manishbarnwal.github.io/blog/2017/11/28/lessons_from_the_guitar/" rel="alternate"></link><updated>2017-11-28T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-11-28:blog/2017/11/28/lessons_from_the_guitar/</id><summary type="html">&lt;p&gt;It has been close to three years since the day I picked up my brother's guitar and asked him to show me how this works. And man! What a journey it has been since then. I have learned so much from the guitar apart from learning to play this beautiful instrument.
 &lt;br&gt;

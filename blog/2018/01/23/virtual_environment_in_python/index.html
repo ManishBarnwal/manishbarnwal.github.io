@@ -1906,6 +1906,17 @@ If I want to make a virtual env corresponding to a particular python version, sa
 <h3>Deactivate and delete virtual environment</h3>
 <p>If you want to delete a virtual env. (say <em>tmp_venv</em>) you need to first get out of the virtual env. by deactivating it using: <code>deactivate tmp_venv</code>. This will get you out of the virtual env. and now if you want to delete it, type <code>rmvirtualenv tmp_venv</code>.
 <br>
+<br></p>
+<h3>Create a Jupyter kernel over virtual env.</h3>
+<p>Once your virtual environment is created, we want to install packages specific to the project you created the virtual environment for. When writing the code on Jupyter  notebook for this project we want to use these packages.</p>
+<p>To do so we need to install a package called <code>ipykernel</code> that allows us to use these packages in our jupyter notebook. We then create a kernel over this virtual environment by typing the below code.</p>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">ipykernel</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">ipykernel</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="o">--</span><span class="n">name</span> <span class="n">ml_learn_env</span> <span class="o">--</span><span class="n">display</span><span class="o">-</span><span class="n">name</span> <span class="err">&#39;</span><span class="n">ml_learn_kernel</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<p>You should now able to switch to <code>ml_learn_kernel</code> by clicking on <em>change kernel</em> under the <em>Kernel</em> tab of Jupyter notebook.</p>
+<p><br>
 <br>
 This post is not complete yet. I will keep updating this as and when I learn more on virtual environments.</p></div>
 <script type="text/javascript" language="javascript">
@@ -1950,6 +1961,9 @@ This post is not complete yet. I will keep updating this as and when I learn mor
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="http://manishbarnwal.github.io/blog/2020/04/07/personal_finance_101/">Personal finance 101</a>
+      </li>
+      <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2019/10/28/cluster_nse_companies/">Cluster NSE top 500 companies</a>
       </li>
       <li class="post">
@@ -1960,9 +1974,6 @@ This post is not complete yet. I will keep updating this as and when I learn mor
       </li>
       <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2018/06/18/try_catch_in_python/">Handling errors with try-catch in Python</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2018/06/18/working_with_dates_in_python/">Working with dates in Python</a>
       </li>
     </ul>
   </section>
@@ -1975,12 +1986,13 @@ This post is not complete yet. I will keep updating this as and when I learn mor
         <li><a href="http://manishbarnwal.github.io/category/miscellaneous.html">Miscellaneous</a></li>
         <li><a href="http://manishbarnwal.github.io/category/ml-data-science.html">ML, Data Science</a></li>
         <li><a href="http://manishbarnwal.github.io/category/music.html">Music</a></li>
+        <li><a href="http://manishbarnwal.github.io/category/personal-finance.html">Personal finance</a></li>
     </ul>
   </section>
 <!-- Commenting the tags section to remove the Tags part in the sidebar.
   <section>
   <h1>Tags</h1>
-    <a href="http://manishbarnwal.github.io/tag/original-composition.html">original composition</a>,    <a href="http://manishbarnwal.github.io/tag/big-data.html">big data</a>,    <a href="http://manishbarnwal.github.io/tag/nse.html">nse</a>,    <a href="http://manishbarnwal.github.io/tag/hadoop.html">hadoop</a>,    <a href="http://manishbarnwal.github.io/tag/college.html">college</a>,    <a href="http://manishbarnwal.github.io/tag/recommendation.html">recommendation</a>,    <a href="http://manishbarnwal.github.io/tag/tutorial.html">tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/lessons.html">lessons</a>,    <a href="http://manishbarnwal.github.io/tag/visualization.html">visualization</a>,    <a href="http://manishbarnwal.github.io/tag/recommender.html">recommender</a>,    <a href="http://manishbarnwal.github.io/tag/nostalgia.html">nostalgia</a>,    <a href="http://manishbarnwal.github.io/tag/stock-market.html">stock market</a>,    <a href="http://manishbarnwal.github.io/tag/music.html">music</a>,    <a href="http://manishbarnwal.github.io/tag/machine-learning.html">machine-learning</a>,    <a href="http://manishbarnwal.github.io/tag/interview.html">interview</a>,    <a href="http://manishbarnwal.github.io/tag/clustering.html">clustering</a>,    <a href="http://manishbarnwal.github.io/tag/life.html">life</a>,    <a href="http://manishbarnwal.github.io/tag/finance.html">finance</a>,    <a href="http://manishbarnwal.github.io/tag/python.html">python</a>,    <a href="http://manishbarnwal.github.io/tag/guitar.html">guitar</a>,    <a href="http://manishbarnwal.github.io/tag/walmart.html">walmart</a>,    <a href="http://manishbarnwal.github.io/tag/placement.html">placement</a>,    <a href="http://manishbarnwal.github.io/tag/hacks.html">hacks</a>,    <a href="http://manishbarnwal.github.io/tag/thoughts.html">thoughts</a>,    <a href="http://manishbarnwal.github.io/tag/manish-barnwal.html">manish barnwal</a>,    <a href="http://manishbarnwal.github.io/tag/hive.html">hive</a>,    <a href="http://manishbarnwal.github.io/tag/r.html">R</a>,    <a href="http://manishbarnwal.github.io/tag/luigi.html">luigi</a>  </section>
+    <a href="http://manishbarnwal.github.io/tag/original-composition.html">original composition</a>,    <a href="http://manishbarnwal.github.io/tag/big-data.html">big data</a>,    <a href="http://manishbarnwal.github.io/tag/nse.html">nse</a>,    <a href="http://manishbarnwal.github.io/tag/hadoop.html">hadoop</a>,    <a href="http://manishbarnwal.github.io/tag/college.html">college</a>,    <a href="http://manishbarnwal.github.io/tag/recommendation.html">recommendation</a>,    <a href="http://manishbarnwal.github.io/tag/financial-freedom.html">financial freedom</a>,    <a href="http://manishbarnwal.github.io/tag/tutorial.html">tutorial</a>,    <a href="http://manishbarnwal.github.io/tag/lessons.html">lessons</a>,    <a href="http://manishbarnwal.github.io/tag/visualization.html">visualization</a>,    <a href="http://manishbarnwal.github.io/tag/recommender.html">recommender</a>,    <a href="http://manishbarnwal.github.io/tag/personal-finance.html">personal finance</a>,    <a href="http://manishbarnwal.github.io/tag/nostalgia.html">nostalgia</a>,    <a href="http://manishbarnwal.github.io/tag/stock-market.html">stock market</a>,    <a href="http://manishbarnwal.github.io/tag/music.html">music</a>,    <a href="http://manishbarnwal.github.io/tag/machine-learning.html">machine-learning</a>,    <a href="http://manishbarnwal.github.io/tag/interview.html">interview</a>,    <a href="http://manishbarnwal.github.io/tag/clustering.html">clustering</a>,    <a href="http://manishbarnwal.github.io/tag/life.html">life</a>,    <a href="http://manishbarnwal.github.io/tag/finance.html">finance</a>,    <a href="http://manishbarnwal.github.io/tag/python.html">python</a>,    <a href="http://manishbarnwal.github.io/tag/guitar.html">guitar</a>,    <a href="http://manishbarnwal.github.io/tag/walmart.html">walmart</a>,    <a href="http://manishbarnwal.github.io/tag/placement.html">placement</a>,    <a href="http://manishbarnwal.github.io/tag/hacks.html">hacks</a>,    <a href="http://manishbarnwal.github.io/tag/thoughts.html">thoughts</a>,    <a href="http://manishbarnwal.github.io/tag/manish-barnwal.html">manish barnwal</a>,    <a href="http://manishbarnwal.github.io/tag/investment-basics.html">investment basics</a>,    <a href="http://manishbarnwal.github.io/tag/hive.html">hive</a>,    <a href="http://manishbarnwal.github.io/tag/r.html">R</a>,    <a href="http://manishbarnwal.github.io/tag/luigi.html">luigi</a>  </section>
 -->
 
     <section>
@@ -2009,7 +2021,7 @@ This post is not complete yet. I will keep updating this as and when I learn mor
 
 
   <footer role="contentinfo"><p>
-    Copyright &copy;  2014-2019  - Manish Barnwal -
+    Copyright &copy;  2014-2020  - Manish Barnwal -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">

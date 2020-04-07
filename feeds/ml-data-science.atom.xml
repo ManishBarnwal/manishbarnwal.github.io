@@ -426,6 +426,17 @@ If I want to make a virtual env corresponding to a particular python version, sa
 &lt;h3&gt;Deactivate and delete virtual environment&lt;/h3&gt;
 &lt;p&gt;If you want to delete a virtual env. (say &lt;em&gt;tmp_venv&lt;/em&gt;) you need to first get out of the virtual env. by deactivating it using: &lt;code&gt;deactivate tmp_venv&lt;/code&gt;. This will get you out of the virtual env. and now if you want to delete it, type &lt;code&gt;rmvirtualenv tmp_venv&lt;/code&gt;.
 &lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Create a Jupyter kernel over virtual env.&lt;/h3&gt;
+&lt;p&gt;Once your virtual environment is created, we want to install packages specific to the project you created the virtual environment for. When writing the code on Jupyter  notebook for this project we want to use these packages.&lt;/p&gt;
+&lt;p&gt;To do so we need to install a package called &lt;code&gt;ipykernel&lt;/code&gt; that allows us to use these packages in our jupyter notebook. We then create a kernel over this virtual environment by typing the below code.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;ipykernel&lt;/span&gt;
+&lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;ipykernel&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;ml_learn_env&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;ml_learn_kernel&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You should now able to switch to &lt;code&gt;ml_learn_kernel&lt;/code&gt; by clicking on &lt;em&gt;change kernel&lt;/em&gt; under the &lt;em&gt;Kernel&lt;/em&gt; tab of Jupyter notebook.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
 &lt;br&gt;
 This post is not complete yet. I will keep updating this as and when I learn more on virtual environments.&lt;/p&gt;</summary><category term="python"></category><category term="tutorial"></category><category term="hacks"></category><category term="manish barnwal"></category></entry><entry><title>Common docker commands</title><link href="http://manishbarnwal.github.io/blog/2017/11/23/common_docker_commands/" rel="alternate"></link><updated>2017-11-23T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2017-11-23:blog/2017/11/23/common_docker_commands/</id><summary type="html">&lt;p&gt;&lt;img src="http://manishbarnwal.com/images/ml-data-science/docker/docker.png" alt="Photo of docker"
 style="width:1200px;height:200px;border:thin solid black;"&gt;
