@@ -1,5 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2020-04-07T08:00:00-03:00</updated><entry><title>Personal finance 101</title><link href="http://manishbarnwal.github.io/blog/2020/04/07/personal_finance_101/" rel="alternate"></link><updated>2020-04-07T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2020-04-07:blog/2020/04/07/personal_finance_101/</id><summary type="html">&lt;p&gt;I am not going to talk about the power of compounding, why money is important, how can you make your money work for you, or any similar sounding cliched titles. If you are reading this blog, I assume you already understand that money is important and you would love to have more of it. 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2020-05-26T08:00:00-03:00</updated><entry><title>Why you should use logging instead of print statements?</title><link href="http://manishbarnwal.github.io/blog/2020/05/26/logging_in_python/" rel="alternate"></link><updated>2020-05-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2020-05-26:blog/2020/05/26/logging_in_python/</id><summary type="html">&lt;p&gt;It is a common but wrong practice to add print statements inside your code to convey message about the code/function on the standard output - at least that is what I used to do till last year. Last year, I got to know about logging and got to understand its benefits when we build platforms or work on larger projects. And in this post, we will discuss about logging. Let us begin with understanding a little about logging.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;What is logging?&lt;/h3&gt;
+&lt;p&gt;Logging as the name suggests is a way to display useful messages to the user of your code about things that would add more context to the user in understanding what is happening in the code. An example of a useful logging could be this:&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Imagine a scenario where you have code for model training in your project. A good logging practice is just before your model training you add a log message in your code that says - 'Beginning model training; Shape of input data: 10000, 50'. This extra logging code is really useful for the user who is running the project. And likewise once the model training is completed, another log message like 'Finished model training successfully; Time taken: 5 minutes' is super helpful.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Alright, we understand that logging is useful. The next question is how do we add these logging? The easiest and wrong way of doing this is adding a print() statement with the message you want to display. We won't be doing it via print(), we will use something called in-built 'logging' module in Python. There are packages for other languages as well and the basic premise of how they work is very similar.&lt;/p&gt;
+&lt;p&gt;Let us first try to understand the different levels of logging and then we will continue to understand why logging should be preferred over print statements.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Logging in Python&lt;/h3&gt;
+&lt;p&gt;We will use an inbuilt Python module called logging to do our logging in Python. Since logging module is built in, we do not need to install anything else to get started with logging in Python. Before we proceed with writing log messages using logging, let us try to understand a basic thing about logging - the different log levels.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Different levels in logging&lt;/h3&gt;
+&lt;p&gt;When you write log messages there are different use cases and based on this we classify our log messages into various levels. The most common form of log messages that I've come across is the one where we just want to add an informational message that a process has started or a process has run successfully. This form of log messages are informational and hence come under INFO log level. Likewise there are other log levels - debug, info,  warning, error, critical. Depending on what type of message and severity you want to log, you can use these log levels while logging the message.
+&lt;br&gt;
+&lt;br&gt;
+The logging level is setup depending on the severity of the message you want to display. There is an inherent order of the severity in the logging level. The default logging level is WARNING. Below are the logging levels in increasing order of severity and a rough template of when to use each level.
+&lt;br&gt;
+&lt;br&gt;
+1. &lt;code&gt;DEBUG&lt;/code&gt;: Set this as your logging level if you want to debug your program. All the levels above this are activated if you set DEBUG as your logging level i.e. messages in INFO, WARNING, ERROR, CRITICAL all will be logged out&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;INFO&lt;/code&gt;: Set this as your logging level when you want to display normal informational logs about the completion of some tasks/processes in your program.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;WARNING&lt;/code&gt;: Set this as your logging level if you are not interested in DEBUG, INFO logs and is only concerned about WARNING, ERROR, CRITICAL logs. Messages under WARNING logs just say that there are some warnings that will not stop your code from execution but in future may lead to errors so make sure to check these warnings and understand what they are saying&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ERROR&lt;/code&gt;: Set this as your log level if you are only interested in messages that raise ERROR, exceptions, and are CRITICAL.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;CRITICAL&lt;/code&gt;: Messages under this level are critical and you want to put in messages here that are invoked when there is something critical with the program and the program won't process further.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Where to log?&lt;/h3&gt;
+&lt;p&gt;Now that we have an understanding of different log levels and their potential use-case, we will now look at where can we put this log messages. You can direct the log messages to:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;standard output i.e. the messages will be displayed on the screen of the user&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;text files so that they can be used later for RCA (Root Cause Analysis)
+I've mostly logged messages to screen but as the project becomes gigantic we should direct the logs to some file system to be used later for analysis.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;How to set up logging in Python?&lt;/h3&gt;
+&lt;p&gt;To illustrate this, I will use the below code snippet&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;
+
+&lt;span class="cp"&gt;# logging level set to INFO&lt;/span&gt;
+&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;basicConfig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="n"&gt;level&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;LOG&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getLogger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;
+Once you have imported the logging module, you can setup a basing config for your logging messages that takes inputs like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;format&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;which&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="n"&gt;messages&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;well&lt;/span&gt; &lt;span class="n"&gt;here&lt;/span&gt;
+
+&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;level&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt; &lt;span class="n"&gt;level&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;DEBUG&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;WARNING&lt;/span&gt; &lt;span class="n"&gt;messages&lt;/span&gt; &lt;span class="n"&gt;won&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;logged&lt;/span&gt; &lt;span class="n"&gt;even&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt; &lt;span class="n"&gt;these&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="n"&gt;messages&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;program&lt;/span&gt;
+
+&lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;logger&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;then&lt;/span&gt; &lt;span class="n"&gt;assigned&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;LOG&lt;/span&gt; &lt;span class="n"&gt;so&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;we&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="n"&gt;various&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="n"&gt;level&lt;/span&gt; &lt;span class="n"&gt;messages&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sc"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;infile&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;company_stats_embeddings&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;infile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;LOG&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;---&lt;/span&gt; &lt;span class="n"&gt;Successfully&lt;/span&gt; &lt;span class="n"&gt;loaded&lt;/span&gt; &lt;span class="n"&gt;merged&lt;/span&gt; &lt;span class="n"&gt;company&lt;/span&gt; &lt;span class="n"&gt;stats&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;embeddings&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;---&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;LOG&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;---&lt;/span&gt; &lt;span class="n"&gt;No&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;companies&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;company_stats_embeddings&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]}&lt;/span&gt; &lt;span class="o"&gt;---&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;df_normalized&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scale_df&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;company_stats_embeddings&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;LOG&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;---&lt;/span&gt; &lt;span class="n"&gt;Starting&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;means&lt;/span&gt; &lt;span class="n"&gt;clustering&lt;/span&gt; &lt;span class="o"&gt;---&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;kmeans_model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;KMeansClustering&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_clusters&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;n_clusters&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;kmeans_model&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_normalized&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;kmeans_cluster&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;kmeans_model&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_normalized&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;company_cluster&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;company_stats_embeddings&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;company_cluster&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;cluster&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;kmeans_cluster&lt;/span&gt;
+
+    &lt;span class="n"&gt;LOG&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;---&lt;/span&gt; &lt;span class="n"&gt;Distribution&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;clusters&lt;/span&gt; &lt;span class="o"&gt;---&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;LOG&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;---&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;company_cluster&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cluster&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value_counts&lt;/span&gt;&lt;span class="p"&gt;()}&lt;/span&gt; &lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;---&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;LOG&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;---&lt;/span&gt; &lt;span class="n"&gt;Dumping&lt;/span&gt; &lt;span class="n"&gt;generated&lt;/span&gt; &lt;span class="n"&gt;clusters&lt;/span&gt; &lt;span class="o"&gt;---&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sc"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;outfile&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;company_cluster&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;outfile&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;As you can see, I've added sufficient log messages so that it is easier for the user to understand what is happening in the code while running it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;scrape_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;companies_list&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;type_data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;stand_alone&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;final_basic_stats_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;company&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;companies_list&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;type_data&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;stand_alone&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//www.screener.in/company/{company}&amp;#39;&lt;/span&gt;
+        &lt;span class="n"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;type_data&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;consolidated&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//www.screener.in/company/{company}/{type_data}&amp;#39;&lt;/span&gt;
+        &lt;span class="nl"&gt;try:&lt;/span&gt;
+
+            &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rq&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;soup&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;bs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;html.parser&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;parse&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt;
+            &lt;span class="n"&gt;basic_features_soup&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;soup&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find_all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;class_&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;full&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;basic_features_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;basic_features_soup&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="n"&gt;find_all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;class_&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt; &lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;basic_stats&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_text&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;basic_features_list&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+            &lt;span class="n"&gt;basic_stats&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sc"&gt;&amp;#39;\n&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;  &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sc"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39;_&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;basic_stats&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+            &lt;span class="n"&gt;company_stats_dict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+            &lt;span class="n"&gt;company_stats_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;symbol&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;company&lt;/span&gt;
+            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;basic_stats&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+                    &lt;span class="n"&gt;company_stats_dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+            &lt;span class="n"&gt;final_basic_stats_list&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;company_stats_dict&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+        &lt;span class="n"&gt;except&lt;/span&gt; &lt;span class="n"&gt;IndexError&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;LOG&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exception&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;---&lt;/span&gt; &lt;span class="n"&gt;Error&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;scraping&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;company&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="n"&gt;company&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Continue&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;scrape&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="o"&gt;---&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;pass&lt;/span&gt;
+
+    &lt;span class="n"&gt;company_stats_df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;final_basic_stats_list&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                                    &lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;company_stats_dict&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+    &lt;span class="n"&gt;change_col_names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;stock_p&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;stock_pe&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                        &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;sales_growth_&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;yrs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;sales_growth_3yrs&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+                        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="n"&gt;company_stats_df&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rename&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;change_col_names&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;inplace&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;company_stats_df&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In the above snippet, I've added an exception log when the code raises an &lt;code&gt;IndexError&lt;/code&gt; and I've also added the &lt;code&gt;company&lt;/code&gt; because of which the exception was raised.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;I hope this helps in understanding how to go about logging in Python. I've just scratched the surface of the topic but this should get you comfortably started with using logging in Python. If you want to learn more about logging in Python, the official Python resource is a great place to check out. Before I wrap up this post, I will end this post with a final reminder of why logging should be preferred over print statement.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Why to use logging over print statement?&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Logging has different levels of severity that allows you to display log messages according to the level you want. A print statement does not give you that flexibility&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Logging allows you to direct the log messages to separate files that can then be used for post analysis while the same is not easily available with print statement&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can set different log levels at individual code file level as well - some files may have INFO level while some may have DEBUG level&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;And that is it for now on this post. I will keep visiting this page for more additions as and when I learn more about logging.
+&lt;br&gt;
+&lt;br&gt;
+Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data science.&lt;/p&gt;</summary><category term="logging"></category><category term="python"></category><category term="print tutorial"></category><category term="manish barnwal"></category></entry><entry><title>Personal finance 101</title><link href="http://manishbarnwal.github.io/blog/2020/04/07/personal_finance_101/" rel="alternate"></link><updated>2020-04-07T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2020-04-07:blog/2020/04/07/personal_finance_101/</id><summary type="html">&lt;p&gt;I am not going to talk about the power of compounding, why money is important, how can you make your money work for you, or any similar sounding cliched titles. If you are reading this blog, I assume you already understand that money is important and you would love to have more of it. 
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -25,21 +186,21 @@ You should get just the plain, basic term insurance. We will worry about our ret
 &lt;p&gt;As the name suggests, this fund is to be accumulated to meet uncertainties/emergencies in your life. You decide what should be the amount you would be comfortable with. You can create this fund by putting a certain portion of your salary every month to this fund. 
 &lt;br&gt;
 &lt;br&gt;
-&lt;strong&gt;What would an emergency look like?&lt;/strong&gt;
-If tomorrow, you lose your job, how many months would you survive? Or may be you decide you wanted a few months off to figure out things or you want to travel for the next few months. Will you be able to afford this? Nothing holds more importance in life than security and freedom. And this fund is just for that. 
+&lt;strong&gt;What would an emergency look like?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If tomorrow, you lose your job, how many months would you survive? Or may be you decide you wanted a few months off to figure out things or you want to travel for the next few months. Will you be able to afford this? Nothing holds more importance in life than security and freedom. And this fund is just for that. 
 &lt;br&gt;
 &lt;br&gt;
-&lt;strong&gt;How do you estimate how much money you need in this fund?&lt;/strong&gt;
-How many months do you want to survive without a job? Multiply this number by your monthly expense. 
+&lt;strong&gt;How do you estimate how much money you need in this fund?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;How many months do you want to survive without a job? Multiply this number by your monthly expense. 
 Start with estimating your monthly expense - your rent, food bills, cook's salary, internet bill, entertainment expenses - every expense (no matter how small) that you spend on a typical month. Let us say that comes out to be 50,000 INR. Now, multiply this by the number of months you would want to it to last (say 6 months), and you get your fuck-you money fund i.e. 50,000 * 6 = 300,000
 &lt;br&gt;
 &lt;br&gt;
-&lt;strong&gt;How many months should your emergency fund last?&lt;/strong&gt;
-Again, this number of months is a number you should be comfortable with. I suggest a minimum of at least six months. You can increase this to maybe ten as well. I have my emergency fund that would last for six months -  I plan to increase this to ten. Again, financial freedom and peace of mind is of utmost importance when planning investments.
+&lt;strong&gt;How many months should your emergency fund last?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Again, this number of months is a number you should be comfortable with. I suggest a minimum of at least six months. You can increase this to maybe ten as well. I have my emergency fund that would last for six months -  I plan to increase this to ten. Again, financial freedom and peace of mind is of utmost importance when planning investments.
 &lt;br&gt;
 &lt;br&gt;
-&lt;strong&gt;Where should I keep this money?&lt;/strong&gt;
-I keep it in a mix of cash (in your savings-bank account), fixed-deposit, and liquid funds. If you don't know what liquid funds are, google it. It is important to have this cash as liquid as possible that's why I insist on keeping a portion of this fund in your savings-bank account which would allow you to withdraw it whenever you need. Do not put this money into equity. We will come to equities in some time.
+&lt;strong&gt;Where should I keep this money?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I keep it in a mix of cash (in your savings-bank account), fixed-deposit, and liquid funds. If you don't know what liquid funds are, google it. It is important to have this cash as liquid as possible that's why I insist on keeping a portion of this fund in your savings-bank account which would allow you to withdraw it whenever you need. Do not put this money into equity. We will come to equities in some time.
 Emergency funds will help you enjoy the little things in life, bring sanity and happiness without worrying about the next recession or layoffs.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
@@ -58,13 +219,13 @@ Alternate bank account
 &lt;p&gt;I call this bank account investment account. Now, this account is not your salary account. This account is meant to be used just for investments, emergency funds and for parking additional funds. You are never going to use this account for your personal expenditures. 
 &lt;br&gt;
 &lt;br&gt;
-&lt;strong&gt;How much to invest?&lt;/strong&gt;
-You should have a rough estimate of your monthly expenditure. Once your salary gets credited to your salary account, keep the amount necessary for your monthly expenditures and transfer the remaining amount to your newly created alternate bank account. Say, you can invest 50k INR per month.
+&lt;strong&gt;How much to invest?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You should have a rough estimate of your monthly expenditure. Once your salary gets credited to your salary account, keep the amount necessary for your monthly expenditures and transfer the remaining amount to your newly created alternate bank account. Say, you can invest 50k INR per month.
 Now, that you have an alternate bank account, I will answer what to do next.
 &lt;br&gt;
 &lt;br&gt;
-&lt;strong&gt;Start your SIP in mutual funds&lt;/strong&gt;
-If you do not understand what SIPs are, google it. Let me try to explain in a few sentences. SIP is a systematic investment plan that allows you to invest some amount at a regular time interval in an investment. SIPs are mostly talked in conjunction to mutual funds. If someone says he is doing an SIP of 10k per month, it just means that he is investing 10k per month in a a fund irrespective of market going up or down. You set up an instruction that every month (say on 5th), I want to invest 10k INR in a fund. 
+&lt;strong&gt;Start your SIP in mutual funds&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you do not understand what SIPs are, google it. Let me try to explain in a few sentences. SIP is a systematic investment plan that allows you to invest some amount at a regular time interval in an investment. SIPs are mostly talked in conjunction to mutual funds. If someone says he is doing an SIP of 10k per month, it just means that he is investing 10k per month in a a fund irrespective of market going up or down. You set up an instruction that every month (say on 5th), I want to invest 10k INR in a fund. 
 &lt;br&gt;
 &lt;br&gt;
 I will continue to add more to this. But for now, this should suffice to start your investment journey. Let me know if you have questions and I will address them in later posts. Till then, keep learning, keep writing.&lt;/p&gt;</summary><category term="personal finance"></category><category term="investment basics"></category><category term="financial freedom"></category><category term="manish barnwal"></category></entry><entry><title>Cluster NSE top 500 companies</title><link href="http://manishbarnwal.github.io/blog/2019/10/28/cluster_nse_companies/" rel="alternate"></link><updated>2019-10-28T08:00:00-02:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2019-10-28:blog/2019/10/28/cluster_nse_companies/</id><summary type="html">&lt;h3&gt;Idea&lt;/h3&gt;

@@ -5,10 +5,10 @@
 <head>
 
   <meta charset="utf-8">
-  <title>Visualization in ML is under-rated</title>
+  <title>Why you should use logging instead of print statements?</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="This post talks about visualization -one of the most important aspects of data science that often gets ignored." >
-  <meta name="keywords" content="visualization, R, data science, ML, manish barnwal" >
+  <meta name="description" content="This is a post on how one should start his journey into investments." >
+  <meta name="keywords" content="logging, python, print, tutorial, manish barnwal" >
 
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1840,65 +1840,172 @@ jQuery(document).ready(function($) {
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">Visualization in ML is under-rated</h1>
-      <p class="meta"><time datetime="2017-01-27T08:00:00" pubdate>Jan 27, 2017</time></p>
+      <h1 class="entry-title">Why you should use logging instead of print statements?</h1>
+      <p class="meta"><time datetime="2020-05-26T08:00:00" pubdate>May 26, 2020</time></p>
 </header>
 
-  <div class="entry-content"><p>Visualization is one of the most important pillars of data science. Every one wants to learn Machine learning but if you explain them the little tasks that involve the overall workflow of the process, it turns them off. Everyone just wants to do the cool stuff. They want to build models and be done with it. And I was one of them. I understand that feeling when you get the data and without much understanding of the features in the dataset, we just want to throw in the data to a model and hope that something good comes out.
-<br>
-<br>
-I have participated in many hacks relating to ML and I used to just hope the trained model would do the task. Sadly, this thought always betrayed me. Even ensemble of various models may not work. Sometimes there are patterns in data which one gets to know only when one does EDA, when one plots a few graphs. One tries to understand the relationship of one feature with the other or do univariate analysis of the columns. An ML model is not always sufficient to understand the patterns in data.
-<br>
-<br>
-After a point, the learning of a model becomes saturated. It can only perform to a certain point. If there is a pattern that you have identified, it would definitely help the model to better train on it.
-<br>
-<br>
-I have learnt this hard way - You can't ignore EDA, visualization if you want to come in the top 1% of the leaderboard. Anyone and everyone can run a random forest model. Tuning the parameters is a little tedious but that too can be done with little practice. But finding the hidden patterns in the dataset, finding the relationship, understanding the little nuances in the data is an art. It's a skill. It takes practice. A lot of practice.
-<br>
-<br>
-I have always wondered, how does the winners go about finding those patterns. Isn't there a course that could teach me these hacks to find the unseen patterns. Unfortunately, there are courses that teaches EDA, they teach you how to use ggplot2. But the thing I am talking about takes altogether a different mindset. One needs to be patient with this chunk of work. There are no defined paths to it. You just keep doing the EDA, observe the patterns, try to create new features based on this and once you have done this a hundred times, then you realize you finally understand this thing.
-<br>
-<br>
-<strong>So how do you master the art of EDA?</strong></p>
-<p>The short answer is practice. But then how do you practice EDA? You take shorter assignments, try to write the code snippet of common plots like histogram, scatterplot, bar-plot. And when you plot these graphs, I would strongly recommend to use <em>ggplot2</em> if you are using R. In one of the talks, Hadley Wickham has strongly asserted that one should start learning visualization using <em>ggplot2</em>. The syntax is very intuitive and makes plots interesting and beautiful. And when a person like Hadley advises a thing, you just follow it.
-<br>
-<br>
-I have learnt more about R by looking at other people's codes. Look at the Kernels shared on Kaggle by the top performers of Kaggle. The kind of analysis they do is just mind-blowing. And the best part is they share the code for everyone.
-<br>
-<br>
-In this post, I would just share the code snippets for the most common visualization tasks. Below are some of the most common plots to know about your data.
+  <div class="entry-content"><p>It is a common but wrong practice to add print statements inside your code to convey message about the code/function on the standard output - at least that is what I used to do till last year. Last year, I got to know about logging and got to understand its benefits when we build platforms or work on larger projects. And in this post, we will discuss about logging. Let us begin with understanding a little about logging.
 <br>
 <br></p>
-<h3>Barplot</h3>
-<p><pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r"> ggplot(data = mpg) +
-  geom_bar(mapping = aes(x = as.factor(class))) +
-  ggtitle(label = 'Plot of class of vehicle') +
-  xlab('Class of vehicle') + ylab('Count')
-</code></pre>
+<h3>What is logging?</h3>
+<p>Logging as the name suggests is a way to display useful messages to the user of your code about things that would add more context to the user in understanding what is happening in the code. An example of a useful logging could be this:</p>
+<p><br></p>
+<p>Imagine a scenario where you have code for model training in your project. A good logging practice is just before your model training you add a log message in your code that says - 'Beginning model training; Shape of input data: 10000, 50'. This extra logging code is really useful for the user who is running the project. And likewise once the model training is completed, another log message like 'Finished model training successfully; Time taken: 5 minutes' is super helpful.</p>
+<p><br></p>
+<p>Alright, we understand that logging is useful. The next question is how do we add these logging? The easiest and wrong way of doing this is adding a print() statement with the message you want to display. We won't be doing it via print(), we will use something called in-built 'logging' module in Python. There are packages for other languages as well and the basic premise of how they work is very similar.</p>
+<p>Let us first try to understand the different levels of logging and then we will continue to understand why logging should be preferred over print statements.</p>
+<p><br></p>
+<h3>Logging in Python</h3>
+<p>We will use an inbuilt Python module called logging to do our logging in Python. Since logging module is built in, we do not need to install anything else to get started with logging in Python. Before we proceed with writing log messages using logging, let us try to understand a basic thing about logging - the different log levels.
 <br>
 <br></p>
-<h3>Scatterplot</h3>
-<p>The scatterplot is useful for displaying the relationship between two continuous variables, although it can also be used with one continuous and one categorical variable, or two categorical variables.</p>
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r"> ggplot(data = mpg) +
-  geom_point(mapping = aes(x = displ, y = hwy)) +
-  ggtitle(label = 'Plot of engine size v/s mileage') +
-  xlab('Engine size (litres)') + ylab('Highway mileage')
-</code></pre>
+<h3>Different levels in logging</h3>
+<p>When you write log messages there are different use cases and based on this we classify our log messages into various levels. The most common form of log messages that I've come across is the one where we just want to add an informational message that a process has started or a process has run successfully. This form of log messages are informational and hence come under INFO log level. Likewise there are other log levels - debug, info,  warning, error, critical. Depending on what type of message and severity you want to log, you can use these log levels while logging the message.
+<br>
+<br>
+The logging level is setup depending on the severity of the message you want to display. There is an inherent order of the severity in the logging level. The default logging level is WARNING. Below are the logging levels in increasing order of severity and a rough template of when to use each level.
+<br>
+<br>
+1. <code>DEBUG</code>: Set this as your logging level if you want to debug your program. All the levels above this are activated if you set DEBUG as your logging level i.e. messages in INFO, WARNING, ERROR, CRITICAL all will be logged out</p>
+<ol>
+<li>
+<p><code>INFO</code>: Set this as your logging level when you want to display normal informational logs about the completion of some tasks/processes in your program.</p>
+</li>
+<li>
+<p><code>WARNING</code>: Set this as your logging level if you are not interested in DEBUG, INFO logs and is only concerned about WARNING, ERROR, CRITICAL logs. Messages under WARNING logs just say that there are some warnings that will not stop your code from execution but in future may lead to errors so make sure to check these warnings and understand what they are saying</p>
+</li>
+<li>
+<p><code>ERROR</code>: Set this as your log level if you are only interested in messages that raise ERROR, exceptions, and are CRITICAL.</p>
+</li>
+<li>
+<p><code>CRITICAL</code>: Messages under this level are critical and you want to put in messages here that are invoked when there is something critical with the program and the program won't process further.
+<br>
+<br></p>
+</li>
+</ol>
+<h3>Where to log?</h3>
+<p>Now that we have an understanding of different log levels and their potential use-case, we will now look at where can we put this log messages. You can direct the log messages to:</p>
+<ol>
+<li>
+<p>standard output i.e. the messages will be displayed on the screen of the user</p>
+</li>
+<li>
+<p>text files so that they can be used later for RCA (Root Cause Analysis)
+I've mostly logged messages to screen but as the project becomes gigantic we should direct the logs to some file system to be used later for analysis.
+<br>
+<br></p>
+</li>
+</ol>
+<h3>How to set up logging in Python?</h3>
+<p>To illustrate this, I will use the below code snippet</p>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">logging</span>
+
+<span class="cp"># logging level set to INFO</span>
+<span class="n">logging</span><span class="p">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="err">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="n">s</span><span class="err">&#39;</span><span class="p">,</span>
+                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="p">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="n">LOG</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+</pre></div>
+
 
 <p><br>
+<br>
+Once you have imported the logging module, you can setup a basing config for your logging messages that takes inputs like:</p>
+<div class="highlight"><pre><span class="err">`</span><span class="n">format</span><span class="err">`</span><span class="o">:</span> <span class="n">the</span> <span class="n">format</span> <span class="n">in</span> <span class="n">which</span> <span class="n">you</span> <span class="n">want</span> <span class="n">your</span> <span class="n">log</span> <span class="n">messages</span><span class="p">;</span> <span class="n">you</span> <span class="n">can</span> <span class="n">add</span> <span class="n">date</span> <span class="n">as</span> <span class="n">well</span> <span class="n">here</span>
+
+<span class="err">`</span><span class="n">level</span><span class="err">`</span><span class="o">:</span> <span class="n">the</span> <span class="n">logging</span> <span class="n">level</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">set</span><span class="p">;</span> <span class="k">if</span> <span class="n">set</span> <span class="n">to</span> <span class="n">INFO</span><span class="p">,</span> <span class="n">DEBUG</span> <span class="n">and</span> <span class="n">WARNING</span> <span class="n">messages</span> <span class="n">won</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">be</span> <span class="n">logged</span> <span class="n">even</span> <span class="k">if</span> <span class="n">you</span> <span class="n">have</span> <span class="n">added</span> <span class="n">these</span> <span class="n">log</span> <span class="n">messages</span> <span class="n">in</span> <span class="n">your</span> <span class="n">program</span>
+
+<span class="n">The</span> <span class="n">logger</span> <span class="n">is</span> <span class="n">then</span> <span class="n">assigned</span> <span class="n">to</span> <span class="n">LOG</span> <span class="n">so</span> <span class="n">that</span> <span class="n">we</span> <span class="n">can</span> <span class="n">use</span> <span class="n">this</span> <span class="n">to</span> <span class="n">log</span> <span class="n">various</span> <span class="n">log</span> <span class="n">level</span> <span class="n">messages</span><span class="p">.</span>
+</pre></div>
+
+
+<p><br></p>
+<div class="highlight"><pre><span class="n">def</span> <span class="n">run</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">with</span> <span class="n">self</span><span class="p">.</span><span class="n">input</span><span class="p">().</span><span class="n">open</span><span class="p">(</span><span class="sc">&#39;r&#39;</span><span class="p">)</span> <span class="n">as</span> <span class="n">infile</span><span class="o">:</span>
+        <span class="n">company_stats_embeddings</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">infile</span><span class="p">)</span>
+        <span class="n">LOG</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="err">&#39;</span><span class="o">---</span> <span class="n">Successfully</span> <span class="n">loaded</span> <span class="n">merged</span> <span class="n">company</span> <span class="n">stats</span> <span class="n">and</span> <span class="n">embeddings</span> <span class="n">data</span> <span class="o">---</span><span class="err">&#39;</span><span class="p">)</span>
+        <span class="n">LOG</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="err">&#39;</span><span class="o">---</span> <span class="n">No</span><span class="p">.</span> <span class="n">of</span> <span class="n">companies</span> <span class="n">in</span> <span class="n">data</span><span class="o">:</span> <span class="p">{</span><span class="n">company_stats_embeddings</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]}</span> <span class="o">---</span><span class="err">&#39;</span><span class="p">)</span>
+
+    <span class="n">df_normalized</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">scale_df</span><span class="p">(</span><span class="n">company_stats_embeddings</span><span class="p">)</span>
+
+    <span class="n">LOG</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="err">&#39;</span><span class="o">---</span> <span class="n">Starting</span> <span class="n">k</span><span class="o">-</span><span class="n">means</span> <span class="n">clustering</span> <span class="o">---</span><span class="err">&#39;</span><span class="p">)</span>
+    <span class="n">kmeans_model</span> <span class="o">=</span> <span class="n">KMeansClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">n_clusters</span><span class="p">)</span>
+    <span class="n">kmeans_model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_normalized</span><span class="p">)</span>
+    <span class="n">kmeans_cluster</span> <span class="o">=</span> <span class="n">kmeans_model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_normalized</span><span class="p">)</span>
+
+    <span class="n">company_cluster</span> <span class="o">=</span> <span class="n">company_stats_embeddings</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">company_cluster</span><span class="p">[</span><span class="err">&#39;</span><span class="n">cluster</span><span class="err">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans_cluster</span>
+
+    <span class="n">LOG</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="err">&#39;</span><span class="o">---</span> <span class="n">Distribution</span> <span class="n">of</span> <span class="n">clusters</span> <span class="o">---</span><span class="err">&#39;</span><span class="p">)</span>
+    <span class="n">LOG</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="err">&#39;</span><span class="o">---</span> <span class="err">\</span><span class="n">n</span><span class="p">{</span><span class="n">company_cluster</span><span class="p">.</span><span class="n">cluster</span><span class="p">.</span><span class="n">value_counts</span><span class="p">()}</span> <span class="err">\</span><span class="n">n</span> <span class="o">---</span><span class="err">&#39;</span><span class="p">)</span>
+
+    <span class="n">LOG</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="err">&#39;</span><span class="o">---</span> <span class="n">Dumping</span> <span class="n">generated</span> <span class="n">clusters</span> <span class="o">---</span><span class="err">&#39;</span><span class="p">)</span>
+    <span class="n">with</span> <span class="n">self</span><span class="p">.</span><span class="n">output</span><span class="p">().</span><span class="n">open</span><span class="p">(</span><span class="sc">&#39;w&#39;</span><span class="p">)</span> <span class="n">as</span> <span class="n">outfile</span><span class="o">:</span>
+        <span class="n">company_cluster</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">False</span><span class="p">)</span>
+</pre></div>
+
+
+<p>As you can see, I've added sufficient log messages so that it is easier for the user to understand what is happening in the code while running it.</p>
+<div class="highlight"><pre><span class="n">def</span> <span class="n">scrape_data</span><span class="p">(</span><span class="n">companies_list</span><span class="p">,</span> <span class="n">type_data</span><span class="o">=</span><span class="err">&#39;</span><span class="n">stand_alone</span><span class="err">&#39;</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">final_basic_stats_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">company</span> <span class="n">in</span> <span class="n">companies_list</span><span class="o">:</span>
+        <span class="k">if</span> <span class="n">type_data</span> <span class="o">==</span> <span class="err">&#39;</span><span class="n">stand_alone</span><span class="err">&#39;</span><span class="o">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="n">f</span><span class="err">&#39;</span><span class="n">https</span><span class="o">:</span><span class="c1">//www.screener.in/company/{company}&#39;</span>
+        <span class="n">elif</span> <span class="n">type_data</span> <span class="o">==</span> <span class="err">&#39;</span><span class="n">consolidated</span><span class="err">&#39;</span><span class="o">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="n">f</span><span class="err">&#39;</span><span class="n">https</span><span class="o">:</span><span class="c1">//www.screener.in/company/{company}/{type_data}&#39;</span>
+        <span class="nl">try:</span>
+
+            <span class="n">response</span> <span class="o">=</span> <span class="n">rq</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">,</span> <span class="s">&quot;html.parser&quot;</span><span class="p">)</span>  <span class="err">#</span> <span class="n">parse</span> <span class="n">the</span> <span class="n">html</span> <span class="n">page</span>
+            <span class="n">basic_features_soup</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="err">&#39;</span><span class="n">row</span><span class="o">-</span><span class="n">full</span><span class="o">-</span><span class="n">width</span><span class="err">&#39;</span><span class="p">)</span>
+            <span class="n">basic_features_list</span> <span class="o">=</span> <span class="n">basic_features_soup</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">find_all</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="err">&#39;</span><span class="n">four</span> <span class="n">columns</span><span class="err">&#39;</span><span class="p">)</span>
+            <span class="n">basic_stats</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">.</span><span class="n">get_text</span><span class="p">()</span> <span class="k">for</span> <span class="n">f</span> <span class="n">in</span> <span class="n">basic_features_list</span><span class="p">]</span>
+
+            <span class="n">basic_stats</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">.</span><span class="n">lower</span><span class="p">().</span><span class="n">strip</span><span class="p">().</span><span class="n">replace</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">,</span> <span class="err">&#39;&#39;</span><span class="p">).</span><span class="n">replace</span><span class="p">(</span><span class="err">&#39;</span>  <span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;&#39;</span><span class="p">).</span><span class="n">replace</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">,</span> <span class="sc">&#39;_&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="n">in</span> <span class="n">basic_stats</span><span class="p">]</span>
+            <span class="n">company_stats_dict</span> <span class="o">=</span> <span class="n">dict</span><span class="p">()</span>
+            <span class="n">company_stats_dict</span><span class="p">[</span><span class="err">&#39;</span><span class="n">symbol</span><span class="err">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">company</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="n">in</span> <span class="n">basic_stats</span><span class="o">:</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;:&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="o">:</span>
+                    <span class="n">company_stats_dict</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">final_basic_stats_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">list</span><span class="p">(</span><span class="n">company_stats_dict</span><span class="p">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="n">except</span> <span class="n">IndexError</span><span class="o">:</span>
+            <span class="n">LOG</span><span class="p">.</span><span class="n">exception</span><span class="p">(</span><span class="n">f</span><span class="err">&#39;</span><span class="o">---</span> <span class="n">Error</span> <span class="n">in</span> <span class="n">scraping</span> <span class="p">{</span><span class="n">company</span><span class="p">}</span> <span class="n">company</span> <span class="n">data</span><span class="p">.</span> <span class="n">Continue</span> <span class="n">to</span> <span class="n">scrape</span><span class="p">.</span> <span class="o">---</span><span class="err">&#39;</span><span class="p">)</span>
+            <span class="n">pass</span>
+
+    <span class="n">company_stats_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">final_basic_stats_list</span><span class="p">,</span>
+                                    <span class="n">columns</span><span class="o">=</span><span class="n">company_stats_dict</span><span class="p">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">change_col_names</span> <span class="o">=</span> <span class="p">{</span><span class="err">&#39;</span><span class="n">stock_p</span><span class="o">/</span><span class="n">e</span><span class="err">&#39;</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">stock_pe</span><span class="err">&#39;</span><span class="p">,</span>
+                        <span class="err">&#39;</span><span class="n">sales_growth_</span><span class="p">(</span><span class="mi">3</span><span class="n">yrs</span><span class="p">)</span><span class="err">&#39;</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">sales_growth_3yrs</span><span class="err">&#39;</span>
+                        <span class="p">}</span>
+    <span class="n">company_stats_df</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">change_col_names</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">company_stats_df</span>
+</pre></div>
+
+
+<p>In the above snippet, I've added an exception log when the code raises an <code>IndexError</code> and I've also added the <code>company</code> because of which the exception was raised.</p>
+<p><br></p>
+<p>I hope this helps in understanding how to go about logging in Python. I've just scratched the surface of the topic but this should get you comfortably started with using logging in Python. If you want to learn more about logging in Python, the official Python resource is a great place to check out. Before I wrap up this post, I will end this post with a final reminder of why logging should be preferred over print statement.
+<br>
 <br></p>
-<h3>Linechart plot</h3>
-<p><pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r"> ggplot(data = mpg) +
-  geom_line(mapping = aes(x = displ, y = hwy)) +
-  ggtitle(label = 'Plot of engine size v/s mileage') +
-  xlab('Engine size (litres)') + ylab('Highway mileage')
-</code></pre>
+<h3>Why to use logging over print statement?</h3>
+<ol>
+<li>
+<p>Logging has different levels of severity that allows you to display log messages according to the level you want. A print statement does not give you that flexibility</p>
+</li>
+<li>
+<p>Logging allows you to direct the log messages to separate files that can then be used for post analysis while the same is not easily available with print statement</p>
+</li>
+<li>
+<p>You can set different log levels at individual code file level as well - some files may have INFO level while some may have DEBUG level</p>
+</li>
+</ol>
+<p><br></p>
+<p>And that is it for now on this post. I will keep visiting this page for more additions as and when I learn more about logging.
 <br>
 <br>
-I will add a tutorial on visualization in R using <strong>ggplot2</strong> soon. Did you find the article useful? If you did, share your thoughts in the comments.</p></div>
+Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data science.</p></div>
 <script type="text/javascript" language="javascript">
       var aax_size='728x90';
       var aax_pubname = 'manishbarnwal-21';
@@ -1918,13 +2025,14 @@ I will add a tutorial on visualization in R using <strong>ggplot2</strong> soon.
   <span class="byline author vcard">
     Posted by <span class="fn">Manish Barnwal</span>
   </span>
-<time datetime="2017-01-27T08:00:00" pubdate>Jan 27, 2017</time>  <span class="categories">
-    <a class="category" href="http://manishbarnwal.github.io/tag/visualization.html">visualization</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/machine-learning.html">machine-learning</a>
+<time datetime="2020-05-26T08:00:00" pubdate>May 26, 2020</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/logging.html">logging</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/python.html">python</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/print-tutorial.html">print tutorial</a>
     <a class="category" href="http://manishbarnwal.github.io/tag/manish-barnwal.html">manish barnwal</a>
   </span>
 </p><div class="sharing">
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2017/01/27/visualization_is_under-rated/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2017/01/27/visualization_is_under-rated/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2020/05/26/logging_in_python/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2020/05/26/logging_in_python/" >Tweet</a>
   <div class="g-plusone" data-size="medium"></div>
     <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
 </div>    </footer>
@@ -2024,9 +2132,9 @@ I will add a tutorial on visualization in R using <strong>ggplot2</strong> soon.
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
-          var disqus_identifier = '/blog/2017/01/27/visualization_is_under-rated/';
-          var disqus_url = 'http://manishbarnwal.com/blog/2017/01/27/visualization_is_under-rated/';
-          var disqus_title = 'Visualization in ML is under-rated';
+          var disqus_identifier = '/blog/2020/05/26/logging_in_python/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2020/05/26/logging_in_python/';
+          var disqus_title = 'Why you should use logging instead of print statements?';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

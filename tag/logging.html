@@ -5,10 +5,10 @@
 <head>
 
   <meta charset="utf-8">
-  <title>Visualization in ML is under-rated</title>
+  <title>Manish Barnwal - logging</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="This post talks about visualization -one of the most important aspects of data science that often gets ignored." >
-  <meta name="keywords" content="visualization, R, data science, ML, manish barnwal" >
+  <meta name="description" content="" >
+  <meta name="keywords" content="" >
 
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1836,123 +1836,30 @@ jQuery(document).ready(function($) {
 
   <div id="main">
     <div id="content">
-
-<div>
-  <article class="hentry" role="article">
+<div class="blog-index">
+  		<article>
 <header>
-      <h1 class="entry-title">Visualization in ML is under-rated</h1>
-      <p class="meta"><time datetime="2017-01-27T08:00:00" pubdate>Jan 27, 2017</time></p>
+      <h1 class="entry-title">
+        <a href="http://manishbarnwal.github.io/blog/2020/05/26/logging_in_python/">Why you should use logging instead of print statements?</a>
+      </h1>
+      <p class="meta"><time datetime="2020-05-26T08:00:00" pubdate>May 26, 2020</time></p>
 </header>
 
-  <div class="entry-content"><p>Visualization is one of the most important pillars of data science. Every one wants to learn Machine learning but if you explain them the little tasks that involve the overall workflow of the process, it turns them off. Everyone just wants to do the cool stuff. They want to build models and be done with it. And I was one of them. I understand that feeling when you get the data and without much understanding of the features in the dataset, we just want to throw in the data to a model and hope that something good comes out.
-<br>
-<br>
-I have participated in many hacks relating to ML and I used to just hope the trained model would do the task. Sadly, this thought always betrayed me. Even ensemble of various models may not work. Sometimes there are patterns in data which one gets to know only when one does EDA, when one plots a few graphs. One tries to understand the relationship of one feature with the other or do univariate analysis of the columns. An ML model is not always sufficient to understand the patterns in data.
-<br>
-<br>
-After a point, the learning of a model becomes saturated. It can only perform to a certain point. If there is a pattern that you have identified, it would definitely help the model to better train on it.
-<br>
-<br>
-I have learnt this hard way - You can't ignore EDA, visualization if you want to come in the top 1% of the leaderboard. Anyone and everyone can run a random forest model. Tuning the parameters is a little tedious but that too can be done with little practice. But finding the hidden patterns in the dataset, finding the relationship, understanding the little nuances in the data is an art. It's a skill. It takes practice. A lot of practice.
-<br>
-<br>
-I have always wondered, how does the winners go about finding those patterns. Isn't there a course that could teach me these hacks to find the unseen patterns. Unfortunately, there are courses that teaches EDA, they teach you how to use ggplot2. But the thing I am talking about takes altogether a different mindset. One needs to be patient with this chunk of work. There are no defined paths to it. You just keep doing the EDA, observe the patterns, try to create new features based on this and once you have done this a hundred times, then you realize you finally understand this thing.
-<br>
-<br>
-<strong>So how do you master the art of EDA?</strong></p>
-<p>The short answer is practice. But then how do you practice EDA? You take shorter assignments, try to write the code snippet of common plots like histogram, scatterplot, bar-plot. And when you plot these graphs, I would strongly recommend to use <em>ggplot2</em> if you are using R. In one of the talks, Hadley Wickham has strongly asserted that one should start learning visualization using <em>ggplot2</em>. The syntax is very intuitive and makes plots interesting and beautiful. And when a person like Hadley advises a thing, you just follow it.
-<br>
-<br>
-I have learnt more about R by looking at other people's codes. Look at the Kernels shared on Kaggle by the top performers of Kaggle. The kind of analysis they do is just mind-blowing. And the best part is they share the code for everyone.
-<br>
-<br>
-In this post, I would just share the code snippets for the most common visualization tasks. Below are some of the most common plots to know about your data.
-<br>
-<br></p>
-<h3>Barplot</h3>
-<p><pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r"> ggplot(data = mpg) +
-  geom_bar(mapping = aes(x = as.factor(class))) +
-  ggtitle(label = 'Plot of class of vehicle') +
-  xlab('Class of vehicle') + ylab('Count')
-</code></pre>
-<br>
-<br></p>
-<h3>Scatterplot</h3>
-<p>The scatterplot is useful for displaying the relationship between two continuous variables, although it can also be used with one continuous and one categorical variable, or two categorical variables.</p>
-<pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r"> ggplot(data = mpg) +
-  geom_point(mapping = aes(x = displ, y = hwy)) +
-  ggtitle(label = 'Plot of engine size v/s mileage') +
-  xlab('Engine size (litres)') + ylab('Highway mileage')
-</code></pre>
+  <div class="entry-content"><p>It is a common but wrong practice to add print statements inside your code to convey message about the code/function on the standard output - at least that is what I used to do till last year. Last year, I got to know about logging and got to understand its ...</p></div>
+  <footer>
+    <a rel="full-article" href="http://manishbarnwal.github.io/blog/2020/05/26/logging_in_python/">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
 
-<p><br>
-<br></p>
-<h3>Linechart plot</h3>
-<p><pre style="font-size:60%; padding:7px; margin:0em;">
-<code class="r"> ggplot(data = mpg) +
-  geom_line(mapping = aes(x = displ, y = hwy)) +
-  ggtitle(label = 'Plot of engine size v/s mileage') +
-  xlab('Engine size (litres)') + ylab('Highway mileage')
-</code></pre>
-<br>
-<br>
-I will add a tutorial on visualization in R using <strong>ggplot2</strong> soon. Did you find the article useful? If you did, share your thoughts in the comments.</p></div>
-<script type="text/javascript" language="javascript">
-      var aax_size='728x90';
-      var aax_pubname = 'manishbarnwal-21';
-      var aax_src='302';
-    </script>
-    <script type="text/javascript" language="javascript" src="http://c.amazon-adsystem.com/aax2/assoc.js"></script>
-<p class="meta">
-  <span class="affiliate disclosure" style="color:green;font-size:10pt">
-    Advertiser Disclosure: This post contains affiliate links, which means I receive a commission if you make a purchase using this link. Your purchase helps support my work.
-  </span>
-
-</p>
-
-
-    <footer>
-<p class="meta">
-  <span class="byline author vcard">
-    Posted by <span class="fn">Manish Barnwal</span>
-  </span>
-<time datetime="2017-01-27T08:00:00" pubdate>Jan 27, 2017</time>  <span class="categories">
-    <a class="category" href="http://manishbarnwal.github.io/tag/visualization.html">visualization</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/machine-learning.html">machine-learning</a>
-    <a class="category" href="http://manishbarnwal.github.io/tag/manish-barnwal.html">manish barnwal</a>
-  </span>
-</p><div class="sharing">
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2017/01/27/visualization_is_under-rated/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2017/01/27/visualization_is_under-rated/" >Tweet</a>
-  <div class="g-plusone" data-size="medium"></div>
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-</div>    </footer>
-  </article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
-  </section>
-</div>
+  <br />
+</div></div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
           <a href="http://manishbarnwal.github.io/blog/2020/05/26/logging_in_python/">Why you should use logging instead of print statements?</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2020/04/07/personal_finance_101/">Personal finance 101</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2019/10/28/cluster_nse_companies/">Cluster NSE top 500 companies</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2019/07/16/item_item_recs_paper_summary/">Amazon's item-item Collaborative filtering recommendation algorithm [paper summary]</a>
-      </li>
-      <li class="post">
-          <a href="http://manishbarnwal.github.io/blog/2018/09/27/types_data_recommender_system/">Types of data in recommender systems</a>
       </li>
     </ul>
   </section>
@@ -2000,7 +1907,7 @@ I will add a tutorial on visualization in R using <strong>ggplot2</strong> soon.
 
 
   <footer role="contentinfo"><p>
-    Copyright &copy;  2014-2020  - Manish Barnwal -
+    Copyright &copy;  2020  - Manish Barnwal -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">
@@ -2024,9 +1931,6 @@ I will add a tutorial on visualization in R using <strong>ggplot2</strong> soon.
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
-          var disqus_identifier = '/blog/2017/01/27/visualization_is_under-rated/';
-          var disqus_url = 'http://manishbarnwal.com/blog/2017/01/27/visualization_is_under-rated/';
-          var disqus_title = 'Visualization in ML is under-rated';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
