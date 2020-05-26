@@ -1848,13 +1848,16 @@ jQuery(document).ready(function($) {
 <br>
 <br></p>
 <h3>What is logging?</h3>
-<p>Logging as the name suggests is a way to display useful messages to the user of your code about things that would add more context to the user in understanding what is happening in the code. An example of a useful logging could be this:</p>
-<p><br></p>
-<p>Imagine a scenario where you have code for model training in your project. A good logging practice is just before your model training you add a log message in your code that says - 'Beginning model training; Shape of input data: 10000, 50'. This extra logging code is really useful for the user who is running the project. And likewise once the model training is completed, another log message like 'Finished model training successfully; Time taken: 5 minutes' is super helpful.</p>
-<p><br></p>
-<p>Alright, we understand that logging is useful. The next question is how do we add these logging? The easiest and wrong way of doing this is adding a print() statement with the message you want to display. We won't be doing it via print(), we will use something called in-built 'logging' module in Python. There are packages for other languages as well and the basic premise of how they work is very similar.</p>
-<p>Let us first try to understand the different levels of logging and then we will continue to understand why logging should be preferred over print statements.</p>
-<p><br></p>
+<p>Logging as the name suggests is a way to display useful messages to the user of your code about things that would add more context to the user in understanding what is happening in the code. An example of a useful logging could be this:
+<br>
+<br>
+Imagine a scenario where you have code for model training in your project. A good logging practice is just before your model training you add a log message in your code that says - 'Beginning model training; Shape of input data: 10000, 50'. This extra logging code is really useful for the user who is running the project. And likewise once the model training is completed, another log message like 'Finished model training successfully; Time taken: 5 minutes' is super helpful.
+<br>
+<br>
+Alright, we understand that logging is useful. The next question is how do we add these logging? The easiest and wrong way of doing this is adding a print() statement with the message you want to display. We won't be doing it via print(), we will use something called in-built 'logging' module in Python. There are packages for other languages as well and the basic premise of how they work is very similar.</p>
+<p>Let us first try to understand the different levels of logging and then we will continue to understand why logging should be preferred over print statements.
+<br>
+<br></p>
 <h3>Logging in Python</h3>
 <p>We will use an inbuilt Python module called logging to do our logging in Python. Since logging module is built in, we do not need to install anything else to get started with logging in Python. Before we proceed with writing log messages using logging, let us try to understand a basic thing about logging - the different log levels.
 <br>
@@ -1865,9 +1868,11 @@ jQuery(document).ready(function($) {
 <br>
 The logging level is setup depending on the severity of the message you want to display. There is an inherent order of the severity in the logging level. The default logging level is WARNING. Below are the logging levels in increasing order of severity and a rough template of when to use each level.
 <br>
-<br>
-1. <code>DEBUG</code>: Set this as your logging level if you want to debug your program. All the levels above this are activated if you set DEBUG as your logging level i.e. messages in INFO, WARNING, ERROR, CRITICAL all will be logged out</p>
+<br></p>
 <ol>
+<li>
+<p><code>DEBUG</code>: Set this as your logging level if you want to debug your program. All the levels above this are activated if you set DEBUG as your logging level i.e. messages in INFO, WARNING, ERROR, CRITICAL all will be logged out</p>
+</li>
 <li>
 <p><code>INFO</code>: Set this as your logging level when you want to display normal informational logs about the completion of some tasks/processes in your program.</p>
 </li>
@@ -1878,11 +1883,11 @@ The logging level is setup depending on the severity of the message you want to 
 <p><code>ERROR</code>: Set this as your log level if you are only interested in messages that raise ERROR, exceptions, and are CRITICAL.</p>
 </li>
 <li>
-<p><code>CRITICAL</code>: Messages under this level are critical and you want to put in messages here that are invoked when there is something critical with the program and the program won't process further.
-<br>
-<br></p>
+<p><code>CRITICAL</code>: Messages under this level are critical and you want to put in messages here that are invoked when there is something critical with the program and the program won't process further.</p>
 </li>
 </ol>
+<p><br>
+<br></p>
 <h3>Where to log?</h3>
 <p>Now that we have an understanding of different log levels and their potential use-case, we will now look at where can we put this log messages. You can direct the log messages to:</p>
 <ol>
@@ -1891,11 +1896,11 @@ The logging level is setup depending on the severity of the message you want to 
 </li>
 <li>
 <p>text files so that they can be used later for RCA (Root Cause Analysis)
-I've mostly logged messages to screen but as the project becomes gigantic we should direct the logs to some file system to be used later for analysis.
-<br>
-<br></p>
+I've mostly logged messages to screen but as the project becomes gigantic we should direct the logs to some file system to be used later for analysis.</p>
 </li>
 </ol>
+<p><br>
+<br></p>
 <h3>How to set up logging in Python?</h3>
 <p>To illustrate this, I will use the below code snippet</p>
 <div class="highlight"><pre><span class="n">import</span> <span class="n">logging</span>
@@ -1909,13 +1914,10 @@ I've mostly logged messages to screen but as the project becomes gigantic we sho
 
 
 <p><br>
-<br>
-Once you have imported the logging module, you can setup a basing config for your logging messages that takes inputs like:</p>
-<div class="highlight"><pre><span class="err">`</span><span class="n">format</span><span class="err">`</span><span class="o">:</span> <span class="n">the</span> <span class="n">format</span> <span class="n">in</span> <span class="n">which</span> <span class="n">you</span> <span class="n">want</span> <span class="n">your</span> <span class="n">log</span> <span class="n">messages</span><span class="p">;</span> <span class="n">you</span> <span class="n">can</span> <span class="n">add</span> <span class="n">date</span> <span class="n">as</span> <span class="n">well</span> <span class="n">here</span>
+Note that the logger is assigned to LOG so that we can use this to log various log level messages. You can setup a basing config for your logging messages that takes inputs like:</p>
+<div class="highlight"><pre><span class="n">format</span><span class="o">:</span> <span class="n">the</span> <span class="n">format</span> <span class="k">in</span> <span class="n">which</span> <span class="n">you</span> <span class="n">want</span> <span class="n">your</span> <span class="n">log</span> <span class="n">messages</span><span class="o">;</span> <span class="n">you</span> <span class="n">can</span> <span class="n">add</span> <span class="n">date</span> <span class="k">as</span> <span class="n">well</span> <span class="n">here</span>
 
-<span class="err">`</span><span class="n">level</span><span class="err">`</span><span class="o">:</span> <span class="n">the</span> <span class="n">logging</span> <span class="n">level</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">set</span><span class="p">;</span> <span class="k">if</span> <span class="n">set</span> <span class="n">to</span> <span class="n">INFO</span><span class="p">,</span> <span class="n">DEBUG</span> <span class="n">and</span> <span class="n">WARNING</span> <span class="n">messages</span> <span class="n">won</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">be</span> <span class="n">logged</span> <span class="n">even</span> <span class="k">if</span> <span class="n">you</span> <span class="n">have</span> <span class="n">added</span> <span class="n">these</span> <span class="n">log</span> <span class="n">messages</span> <span class="n">in</span> <span class="n">your</span> <span class="n">program</span>
-
-<span class="n">The</span> <span class="n">logger</span> <span class="n">is</span> <span class="n">then</span> <span class="n">assigned</span> <span class="n">to</span> <span class="n">LOG</span> <span class="n">so</span> <span class="n">that</span> <span class="n">we</span> <span class="n">can</span> <span class="n">use</span> <span class="n">this</span> <span class="n">to</span> <span class="n">log</span> <span class="n">various</span> <span class="n">log</span> <span class="n">level</span> <span class="n">messages</span><span class="p">.</span>
+<span class="n">level</span><span class="o">:</span> <span class="n">the</span> <span class="n">logging</span> <span class="n">level</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="kd">set</span><span class="o">;</span> <span class="k">if</span> <span class="kd">set</span> <span class="n">to</span> <span class="n">INFO</span><span class="o">,</span> <span class="n">DEBUG</span> <span class="n">and</span> <span class="n">WARNING</span> <span class="n">messages</span> <span class="n">won</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">be</span> <span class="n">logged</span> <span class="n">even</span> <span class="k">if</span> <span class="n">you</span> <span class="n">have</span> <span class="n">added</span> <span class="n">these</span> <span class="n">log</span> <span class="n">messages</span> <span class="k">in</span> <span class="n">your</span> <span class="n">program</span>
 </pre></div>
 
 
@@ -1945,7 +1947,8 @@ Once you have imported the logging module, you can setup a basing config for you
 </pre></div>
 
 
-<p>As you can see, I've added sufficient log messages so that it is easier for the user to understand what is happening in the code while running it.</p>
+<p><br>
+As you can see, I've added sufficient log messages so that it is easier for the user to understand what is happening in the code while running it.</p>
 <div class="highlight"><pre><span class="n">def</span> <span class="n">scrape_data</span><span class="p">(</span><span class="n">companies_list</span><span class="p">,</span> <span class="n">type_data</span><span class="o">=</span><span class="err">&#39;</span><span class="n">stand_alone</span><span class="err">&#39;</span><span class="p">)</span><span class="o">:</span>
     <span class="n">final_basic_stats_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">company</span> <span class="n">in</span> <span class="n">companies_list</span><span class="o">:</span>
@@ -1984,28 +1987,30 @@ Once you have imported the logging module, you can setup a basing config for you
 </pre></div>
 
 
-<p>In the above snippet, I've added an exception log when the code raises an <code>IndexError</code> and I've also added the <code>company</code> because of which the exception was raised.</p>
-<p><br></p>
-<p>I hope this helps in understanding how to go about logging in Python. I've just scratched the surface of the topic but this should get you comfortably started with using logging in Python. If you want to learn more about logging in Python, the official Python resource is a great place to check out. Before I wrap up this post, I will end this post with a final reminder of why logging should be preferred over print statement.
+<p>In the above snippet, I've added an exception log when the code raises an <code>IndexError</code> and I've also added the <code>company</code> because of which the exception was raised.
+<br>
+<br>
+I hope this helps in understanding how to go about logging in Python. I've just scratched the surface of the topic but this should get you comfortably started with using logging in Python. If you want to learn more about logging in Python, the official Python resource is a great place to check out. Before I wrap up this post, I will end this post with a final reminder of why logging should be preferred over print statement.
 <br>
 <br></p>
 <h3>Why to use logging over print statement?</h3>
 <ol>
 <li>
-<p>Logging has different levels of severity that allows you to display log messages according to the level you want. A print statement does not give you that flexibility</p>
+<p>Logging has <em>different levels of severity</em> that allows you to display log messages according to the level you want. A print statement does not give you that flexibility</p>
 </li>
 <li>
-<p>Logging allows you to direct the log messages to separate files that can then be used for post analysis while the same is not easily available with print statement</p>
+<p>Logging allows you to <em>direct the log messages to separate files</em> that can then be used for post analysis while the same is not easily available with print statement</p>
 </li>
 <li>
-<p>You can set different log levels at individual code file level as well - some files may have INFO level while some may have DEBUG level</p>
+<p>You can <em>set different log levels at individual code file level as well</em> - some files may have INFO level while some may have DEBUG level
+<br>
+<br>
+And that is it for now on this post. I will keep visiting this page for more additions as and when I learn more about logging.
+<br>
+<br>
+Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data science.</p>
 </li>
-</ol>
-<p><br></p>
-<p>And that is it for now on this post. I will keep visiting this page for more additions as and when I learn more about logging.
-<br>
-<br>
-Did you find the article useful? If you did, share your thoughts in the comments. Share this post with people who you think would enjoy reading this. Let's talk more of data science.</p></div>
+</ol></div>
 <script type="text/javascript" language="javascript">
       var aax_size='728x90';
       var aax_pubname = 'manishbarnwal-21';
