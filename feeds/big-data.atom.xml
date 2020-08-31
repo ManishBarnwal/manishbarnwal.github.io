@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/big-data.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2020-08-31T08:00:00-03:00</updated><entry><title>Brief introduction to SparkUI</title><link href="http://manishbarnwal.github.io/blog/2020/08/31/brief_introduction_to_spark_ui/" rel="alternate"></link><updated>2020-08-31T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2020-08-31:blog/2020/08/31/brief_introduction_to_spark_ui/</id><summary type="html">&lt;p&gt;Recently, I've been working a lot with PySpark in AWS EMR. I have a huge data dump (~300 million users) that I needed to process and transform it into the right format for further processing. The data is in a S3 bucket in AWS and I use AWS EMR to launch a cluster of r5.2xlarge instances to run the spark application. We use a Hadoop YARN resource manager. 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/feeds/big-data.atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2020-08-31T08:00:00-03:00</updated><entry><title>Brief introduction to SparkUI</title><link href="http://manishbarnwal.github.io/blog/2020/08/31/brief_introduction_to_spark_ui/" rel="alternate"></link><updated>2020-08-31T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2020-08-31:blog/2020/08/31/brief_introduction_to_spark_ui/</id><summary type="html">&lt;p&gt;Recently, I've been working a lot with PySpark in AWS EMR. I have a huge data dump (~300 million users) that I needed to process and transform it into the right format for further processing. The data is in a S3 bucket in AWS and I use AWS EMR to launch a cluster of &lt;code&gt;r5.2xlarge&lt;/code&gt; instances to run the spark application. We use a Hadoop YARN resource manager. 
 &lt;br&gt;
 &lt;br&gt;
 Once you launch a spark application, you get access to a corresponding Spark UI interface that gives you an option to look at the overall status of the jobs, tasks, executors and other details. In today's post, I will be talking about what to look for in the Spark UI when you launch a spark application. I've been using SparkUI a lot over the last few months and thought writing a post on this would be useful for others as well. Let us begin.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Spark overview&lt;/h3&gt;
-&lt;p&gt;Before we proceed with the introduction to SparkUI, a quick refreshed on Spark vocabulary will be useful
-&lt;img alt="photo of spark cluster overview" src="http://manishbarnwal.com/images/brief_introduction_to_sparkui/spark_cluster_overview.png" /&gt;
-&lt;br&gt;
-&lt;br&gt;
-There are three main components of spark:&lt;/p&gt;
+&lt;p&gt;Before we proceed with the introduction to SparkUI, a quick refresher on Spark vocabulary will be useful. There are three main components of spark:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="photo of spark cluster overview" src="http://manishbarnwal.com/images/brief_introduction_to_sparkui/spark_cluster_overview.png" /&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Driver program (sparkContext)&lt;/strong&gt;&lt;/p&gt;
@@ -34,10 +31,12 @@ There are three main components of spark:&lt;/p&gt;
 &lt;li&gt;the instances/machines that form the cluster&lt;/li&gt;
 &lt;li&gt;they consists of executors and these executors are the actual horses that do the actual code execution
 &lt;br&gt;
-&lt;br&gt;
-Let us talk a little about the cluster managers. As I've just mentioned above, a cluster manager is the bridge between the sparkContext and the worker nodes and allocates resources to different spark applications. There are four most commonly available cluster managers:&lt;/li&gt;
+&lt;br&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Let us talk a little about the cluster managers. As I've just mentioned above, a cluster manager is the bridge between the sparkContext and the worker nodes and allocates resources to different spark applications. There are four most commonly available cluster managers:&lt;/p&gt;
+&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;In-built spark Standalone cluster manager&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -77,23 +76,25 @@ Some of the processes are:&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;JobProgressListener&lt;/strong&gt;:&lt;/p&gt;
-&lt;/li&gt;
+&lt;ol&gt;
 &lt;li&gt;responsible for collecting all data that sparkUI uses to show statistics&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;the information that we see under Jobs tab in SparkUI is because of this listener bus&lt;/p&gt;
+&lt;li&gt;the information that we see under Jobs tab in SparkUI is because of this listener bus&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Creates optional sparkUI if &lt;code&gt;spark.ui.enabled&lt;/code&gt; is set True&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;EnvironmentListener&lt;/strong&gt;, &lt;strong&gt;StorageStatusListener&lt;/strong&gt;, &lt;strong&gt;RDDOperationsGraphListener&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;ol&gt;
 &lt;li&gt;Likewise each of the above buses are responsible for other tabs in the SparkUI
 &lt;br&gt;
 &lt;br&gt;
 I won't go deep into each of these listeners (because I do not truly understand their internals) but if you are interested you should read on them. It is because of these SparkListeners that we are able to see the information on the jobs, executors, tasks in the Spark UI. So in essence, under the hood, Spark UI is a bunch of SparkListeners running and collecting all information for the jobs/executors.
 &lt;br&gt;
 &lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;SparkContext and spark applications&lt;/h3&gt;
 &lt;p&gt;A sparkContext can have multiple Spark applications running and each application will have its own corresponding Spark UI. Spark UI for an application can be accessed in port 4040 and successive applications will be given the next port numbers - 4041, 4042 and likewise. If you are running Spark in local, you can access the Spark UI at http://localhost:4040. You can change the port number using spark.ui.port in conf/spark-env.sh. To persist the Spark UI so that you can take a look at the Spark UI after the application is run, you can do so by accessing the spark history server.&lt;/p&gt;
@@ -155,10 +156,10 @@ Now before we start with the Spark UI, let us cover a quick refresher of the Spa
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Worker instances&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;the machines that form the cluster
-&lt;br&gt;
-&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;the machines that form the cluster&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;Navigating the Spark UI tabs&lt;/h3&gt;
 &lt;p&gt;Now that we understand the basic vocabulary of Spark, we will go through each of the tabs in Spark UI and what to look for in them.  The following are the six tabs available:&lt;/p&gt;
 &lt;ol&gt;
