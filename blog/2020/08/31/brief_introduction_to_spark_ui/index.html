@@ -1855,34 +1855,64 @@ Once you launch a spark application, you get access to a corresponding Spark UI 
 <img alt="photo of spark cluster overview" src="http://manishbarnwal.com/images/brief_introduction_to_sparkui/spark_cluster_overview.png" />
 <br>
 <br>
-There are three main components of spark:
-1. <strong>Driver program (sparkContext)</strong>
-    1. this is the heart of spark in cluster - keeps live status of the application
-    2. if the driver process dies due to some reason say OutOfMemory error, your spark application will be killed as well
-    3. contains the code that needs to be run
-    4. it there is only machine/process you could monitor, it has to be the driver process
-2. <strong>Cluster manager</strong>
-    1. acts as the bridge between the driver program and the worker nodes
-    2. also allocates resources to different spark applications
-3. <strong>Worker nodes</strong>
-    1. the instances/machines that form the cluster
-    2. they consists of executors and these executors are the actual horses that do the actual code execution
+There are three main components of spark:</p>
+<ol>
+<li>
+<p><strong>Driver program (sparkContext)</strong></p>
+<ol>
+<li>this is the heart of spark in cluster - keeps live status of the application</li>
+<li>if the driver process dies due to some reason say OutOfMemory error, your spark application will be killed as well</li>
+<li>contains the code that needs to be run</li>
+<li>it there is only machine/process you could monitor, it has to be the driver process</li>
+</ol>
+</li>
+<li>
+<p><strong>Cluster manager</strong></p>
+<ol>
+<li>acts as the bridge between the driver program and the worker nodes</li>
+<li>also allocates resources to different spark applications</li>
+</ol>
+</li>
+<li>
+<p><strong>Worker nodes</strong></p>
+<ol>
+<li>the instances/machines that form the cluster</li>
+<li>they consists of executors and these executors are the actual horses that do the actual code execution
 <br>
 <br>
-Let us talk a little about the cluster managers. As I've just mentioned above, a cluster manager is the bridge between the sparkContext and the worker nodes and allocates resources to different spark applications. There are four most commonly available cluster managers:
-1. <strong>In-built spark Standalone cluster manager</strong>
-    1. Good for starting but eventually you will have to graduate to other resource managers - Hadoop YARN or Apache Mesos
-    2. Not used by a lot of people because there are better alternatives available
-2. <strong>Hadoop YARN (Yet Another Resource Negotiator)</strong>
-    1. Hadoop YARN is just a framework for job scheduling and resource management
-    2. Spark has nothing to do with Hadoop in Hadoop YARN
-3. <strong>Apache Mesos</strong>
-    1. Founded by the founders of Spark itself
-    2. Apache Mesos is considered very heavy-weight and should be used only if you already have Mesos configured in your large scale production system
-4. <strong>Kubernetes cluster manager</strong>
-    1. This is open-source and is used a lot by people
+Let us talk a little about the cluster managers. As I've just mentioned above, a cluster manager is the bridge between the sparkContext and the worker nodes and allocates resources to different spark applications. There are four most commonly available cluster managers:</li>
+</ol>
+</li>
+<li>
+<p><strong>In-built spark Standalone cluster manager</strong></p>
+<ol>
+<li>Good for starting but eventually you will have to graduate to other resource managers - Hadoop YARN or Apache Mesos</li>
+<li>Not used by a lot of people because there are better alternatives available</li>
+</ol>
+</li>
+<li>
+<p><strong>Hadoop YARN (Yet Another Resource Negotiator)</strong></p>
+<ol>
+<li>Hadoop YARN is just a framework for job scheduling and resource management</li>
+<li>Spark has nothing to do with Hadoop in Hadoop YARN</li>
+</ol>
+</li>
+<li>
+<p><strong>Apache Mesos</strong></p>
+<ol>
+<li>Founded by the founders of Spark itself</li>
+<li>Apache Mesos is considered very heavy-weight and should be used only if you already have Mesos configured in your large scale production system</li>
+</ol>
+</li>
+<li>
+<p><strong>Kubernetes cluster manager</strong></p>
+<ol>
+<li>This is open-source and is used a lot by people
 <br>
-<br></p>
+<br></li>
+</ol>
+</li>
+</ol>
 <h3>SparkUI under the hood</h3>
 <p>When a spark application is launched within a sparkContext, there are few processes that are run in background that are used by the sparkUI.
 Some of the processes are:</p>
@@ -1903,13 +1933,13 @@ Some of the processes are:</p>
 <li>
 <p><strong>EnvironmentListener</strong>, <strong>StorageStatusListener</strong>, <strong>RDDOperationsGraphListener</strong></p>
 </li>
-<li>Likewise each of the above buses are responsible for other tabs in the SparkUI</li>
-</ol>
-<p><br>
+<li>Likewise each of the above buses are responsible for other tabs in the SparkUI
+<br>
 <br>
 I won't go deep into each of these listeners (because I do not truly understand their internals) but if you are interested you should read on them. It is because of these SparkListeners that we are able to see the information on the jobs, executors, tasks in the Spark UI. So in essence, under the hood, Spark UI is a bunch of SparkListeners running and collecting all information for the jobs/executors.
 <br>
-<br></p>
+<br></li>
+</ol>
 <h3>SparkContext and spark applications</h3>
 <p>A sparkContext can have multiple Spark applications running and each application will have its own corresponding Spark UI. Spark UI for an application can be accessed in port 4040 and successive applications will be given the next port numbers - 4041, 4042 and likewise. If you are running Spark in local, you can access the Spark UI at http://localhost:4040. You can change the port number using spark.ui.port in conf/spark-env.sh. To persist the Spark UI so that you can take a look at the Spark UI after the application is run, you can do so by accessing the spark history server. To enable persisting of Spark UI, the property is <code>spark.eventLog.enabled</code> which defaults to True. To enable the Spark UI, the property is <code>spark.ui.enabled</code> which defaults to True.
 <br>
@@ -1927,56 +1957,94 @@ Now before we start with the Spark UI, let us cover a quick refresher of the Spa
 <br></p>
 <h3>Spark vocabulary</h3>
 <ol>
-<li><strong>Job</strong><ol>
+<li>
+<p><strong>Job</strong></p>
+<ol>
 <li>Whenever an action is called a job is triggered</li>
 <li>Examples of action in Spark are collect, aggregation functions like count, sum, or writing data to s3</li>
 <li>A job is broken into stages, the number of which depends on how many shuffle operations are there in the job</li>
 </ol>
 </li>
-<li><strong>Stages</strong><ol>
+<li>
+<p><strong>Stages</strong></p>
+<ol>
 <li>a job is broken into DAG (directed acyclic graph) of stages</li>
 <li>a stage is a collection of similar tasks that can be performed together</li>
 <li>stages can either depend on each other or be run independently. Stages that are not interdependent on each other are run in parallel</li>
 <li>the driver keeps track of how the stages should interact with each other to finally get the job done</li>
 </ol>
 </li>
-<li><strong>Task</strong><ol>
+<li>
+<p><strong>Task</strong></p>
+<ol>
 <li>A task is a unit of computation that is applied to a block of data (partition)</li>
 <li>So, it is a combination of the operation and the block of data on which the operation will be applied</li>
 <li>It is the only abstraction of job that interacts with the hardware - task is executed in an executor in a worker node</li>
 </ol>
 </li>
-<li><strong>Executors</strong><ol>
+<li>
+<p><strong>Executors</strong></p>
+<ol>
 <li>the processes in worker nodes that do the actual execution of the code</li>
 <li>each executor is assigned a task and keeps data in memory or disk</li>
 <li>think of the executors as the horses on the ground that do the actual code execution</li>
 </ol>
 </li>
-<li><strong>Worker nodes/instances</strong></li>
-<li>the machines that form the cluster</li>
+<li>
+<p><strong>Worker nodes/instances</strong></p>
+</li>
+<li>the machines that form the cluster
+<br>
+<br></li>
 </ol>
 <h3>Navigating the Spark UI tabs</h3>
-<p>Now that we understand the basic vocabulary of Spark, we will go through each of the tabs in Spark UI and what to look for in them.  The following are the six tabs available:
-1. <strong>Jobs</strong>
-    1. This will contain all the jobs you run in your application - it also tells you how many stages and tasks were there in total in the job
-2. <strong>Stages</strong>
-    1. This shows all the information around stages - both complete and running.
-    2. Tells you how long each stage it taking and into how many tasks a stage is broken into
-3. <strong>Storage</strong>
-    1. This will contain information about the data that you may have persisted/cached. If there is not data cached, then this will be empty.
-4. <strong>Environment</strong>
-    1. Contains information about the spark configurations and other and some java configurations
-5. <strong>Executors</strong>
-    1. This is where you will see a detailed information on how your executors are doing with respect to task execution
-    2. It also gives a summary of the time taken by executors to complete the tasks
-6. <strong>SQL</strong>
-    1. Here you will see the DAG of the query that you have executed (either via Dataframes API or SQL API) in the job.</p>
-<p><br>
+<p>Now that we understand the basic vocabulary of Spark, we will go through each of the tabs in Spark UI and what to look for in them.  The following are the six tabs available:</p>
+<ol>
+<li>
+<p><strong>Jobs</strong></p>
+<ol>
+<li>This will contain all the jobs you run in your application - it also tells you how many stages and tasks were there in total in the job</li>
+</ol>
+</li>
+<li>
+<p><strong>Stages</strong></p>
+<ol>
+<li>This shows all the information around stages - both complete and running.</li>
+<li>Tells you how long each stage it taking and into how many tasks a stage is broken into</li>
+</ol>
+</li>
+<li>
+<p><strong>Storage</strong></p>
+<ol>
+<li>This will contain information about the data that you may have persisted/cached. If there is not data cached, then this will be empty.</li>
+</ol>
+</li>
+<li>
+<p><strong>Environment</strong></p>
+<ol>
+<li>Contains information about the spark configurations and other and some java configurations</li>
+</ol>
+</li>
+<li>
+<p><strong>Executors</strong></p>
+<ol>
+<li>This is where you will see a detailed information on how your executors are doing with respect to task execution</li>
+<li>It also gives a summary of the time taken by executors to complete the tasks</li>
+</ol>
+</li>
+<li>
+<p><strong>SQL</strong></p>
+<ol>
+<li>Here you will see the DAG of the query that you have executed (either via Dataframes API or SQL API) in the job.
+<br>
 <br>
 Okay, I understand what Spark UI is but what do I do with it? Understanding Spark UI is one of the first steps toward spark optimisations of your spark job. The UI tells you if there is a particular stage which is taking a long time to run and whether you can do something about it. Having a good understanding of Spark UI is of profound importance if you want to monitor/debug your Spark jobs.
 <br>
 <br>
-And with that I will end this post. Play around with the Spark UI, keep reading and this will become one of your favourite things about running spark jobs. I certainly keep an eye out for anything abnormal happening in the Spark UI when running spark jobs.</p></div>
+And with that I will end this post. Play around with the Spark UI, keep reading and this will become one of your favourite things about running spark jobs. I certainly keep an eye out for anything abnormal happening in the Spark UI when running spark jobs.</li>
+</ol>
+</li>
+</ol></div>
 <script type="text/javascript" language="javascript">
       var aax_size='728x90';
       var aax_pubname = 'manishbarnwal-21';
