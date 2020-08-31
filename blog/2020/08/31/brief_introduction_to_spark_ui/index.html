@@ -5,10 +5,10 @@
 <head>
 
   <meta charset="utf-8">
-  <title>How to use Git and Github</title>
+  <title>Brief introduction to SparkUI</title>
   <meta name="author" content="Manish Barnwal">
-  <meta name="description" content="This post talks about the usage of git and github" >
-  <meta name="keywords" content="git, github, manish barnwal" >
+  <meta name="description" content="This is a post on Spark UI and what to look for while Spark jobs are running." >
+  <meta name="keywords" content="spark, big data, spark ui, tutorial, manish barnwal" >
 
 
   <link href="http://manishbarnwal.github.io/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1840,221 +1840,143 @@ jQuery(document).ready(function($) {
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">How to use Git and Github</h1>
-      <p class="meta"><time datetime="2017-02-15T10:00:00" pubdate>Feb 15, 2017</time></p>
+      <h1 class="entry-title">Brief introduction to SparkUI</h1>
+      <p class="meta"><time datetime="2020-08-31T08:00:00" pubdate>Aug 31, 2020</time></p>
 </header>
 
-  <div class="entry-content"><p>I had taken this course - How to use git and github some time last year. This post is an amalgamation of the course notes and other tutorials I have completed in understanding git. I will talk about the most frequently used commands. If you already are confident of your git skills and wants more of practical tutorial, you should head to this post - <strong><a href="http://manishbarnwal.com/blog/2018/04/18/git_and_github_for_data_scientists/" target="_blank">git and github for data scientists</a></strong>. Let us get started.
+  <div class="entry-content"><p>Recently, I've been working a lot with PySpark in AWS EMR. I have a huge data dump (~300 million users) that I needed to process and transform it into the right format for further processing. The data is in a S3 bucket in AWS and I use AWS EMR to launch a cluster of r5.2xlarge instances to run the spark application. We use a Hadoop YARN resource manager. 
 <br>
 <br>
-<strong>git init</strong></p>
-<p>Initialises an empty git repository in the directory. Creates a hidden folder .git in your directory. If you click on the .git folder, you will see many sub-directories and files in side this folder. But, you will hardly need to know what these files are. These folders are the guts of Git where all the magic happens.
+Once you launch a spark application, you get access to a corresponding Spark UI interface that gives you an option to look at the overall status of the jobs, tasks, executors and other details. In today's post, I will be talking about what to look for in the Spark UI when you launch a spark application. I've been using SparkUI a lot over the last few months and thought writing a post on this would be useful for others as well. Let us begin.
+<br>
+<br></p>
+<h3>Spark overview</h3>
+<p>Before we proceed with the introduction to SparkUI, a quick refreshed on Spark vocabulary will be useful
+<img alt="photo of spark cluster overview" src="http://manishbarnwal.com/images/brief_introduction_to_sparkui/spark_cluster_overview.png" />
 <br>
 <br>
-<strong>git status</strong></p>
-<p>Gives you the status of the snapshot of your repository. Suppose you made some changes on your local disk, then this change doesn’t automatically gets reflected on GIT. git status tells you what all were modified since the last commit. It’s healthy to run git status often. Sometimes things change and you don’t notice it. Status of your repository could be one of the following:</p>
-<p><em>staged</em>: Files are ready to be committed.</p>
-<p><em>unstaged</em>: Files with changes that have not been prepared to be committed.</p>
-<p><em>untracked</em>: Files aren’t tracked by Git yet. This usually indicates a newly created file.</p>
-<p><em>deleted</em>: File has been deleted and is waiting to be removed from Git.
+There are three main components of spark:
+1. <strong>Driver program (sparkContext)</strong>
+    1. this is the heart of spark in cluster - keeps live status of the application
+    2. if the driver process dies due to some reason say OutOfMemory error, your spark application will be killed as well
+    3. contains the code that needs to be run
+    4. it there is only machine/process you could monitor, it has to be the driver process
+2. <strong>Cluster manager</strong>
+    1. acts as the bridge between the driver program and the worker nodes
+    2. also allocates resources to different spark applications
+3. <strong>Worker nodes</strong>
+    1. the instances/machines that form the cluster
+    2. they consists of executors and these executors are the actual horses that do the actual code execution
 <br>
 <br>
-In a nutshell, you run git status to see if anything has been modified and/or staged since your last commit so you can decide if you want to commit a new snapshot and what will be recorded in it.
+Let us talk a little about the cluster managers. As I've just mentioned above, a cluster manager is the bridge between the sparkContext and the worker nodes and allocates resources to different spark applications. There are four most commonly available cluster managers:
+1. <strong>In-built spark Standalone cluster manager</strong>
+    1. Good for starting but eventually you will have to graduate to other resource managers - Hadoop YARN or Apache Mesos
+    2. Not used by a lot of people because there are better alternatives available
+2. <strong>Hadoop YARN (Yet Another Resource Negotiator)</strong>
+    1. Hadoop YARN is just a framework for job scheduling and resource management
+    2. Spark has nothing to do with Hadoop in Hadoop YARN
+3. <strong>Apache Mesos</strong>
+    1. Founded by the founders of Spark itself
+    2. Apache Mesos is considered very heavy-weight and should be used only if you already have Mesos configured in your large scale production system
+4. <strong>Kubernetes cluster manager</strong>
+    1. This is open-source and is used a lot by people
 <br>
-<br>
-Staging Area:
-A place where we can group files together before we “commit” them to Git. Once, you add the files to Git using git add, the files come to staging area. Staged files are files we have told git that are ready to be committed. The files listed here are in the <em>Staging area</em>, and they are not in our repository yet.
-<br>
-<br>
-To store our staged changes we run the commit command with a message describing what we’ve changed.
-After using git add, make sure to use git status to see what all files are there in the staged area and be sure that you want to commit these files only.
-<br>
-<br>
-You can unstage files by using the git reset command. </p>
-<blockquote>
-<p>git reset filename.txt</p>
-</blockquote>
+<br></p>
+<h3>SparkUI under the hood</h3>
+<p>When a spark application is launched within a sparkContext, there are few processes that are run in background that are used by the sparkUI.
+Some of the processes are:</p>
+<ol>
+<li>
+<p><strong>LiveListenerBus</strong>: processes events as the application is live and kicking</p>
+</li>
+<li>
+<p><strong>JobProgressListener</strong>:</p>
+</li>
+<li>responsible for collecting all data that sparkUI uses to show statistics</li>
+<li>
+<p>the information that we see under Jobs tab in SparkUI is because of this listener bus</p>
+</li>
+<li>
+<p>Creates optional sparkUI if <code>spark.ui.enabled</code> is set True</p>
+</li>
+<li>
+<p><strong>EnvironmentListener</strong>, <strong>StorageStatusListener</strong>, <strong>RDDOperationsGraphListener</strong></p>
+</li>
+<li>Likewise each of the above buses are responsible for other tabs in the SparkUI</li>
+</ol>
 <p><br>
 <br>
-<em>git reset</em> merely unstage the files but these files will still be there in your local. So if you want to get rid of these unstaged files, you will have to use git checkout to the commit after which you added these files.
+I won't go deep into each of these listeners (because I do not truly understand their internals) but if you are interested you should read on them. It is because of these SparkListeners that we are able to see the information on the jobs, executors, tasks in the Spark UI. So in essence, under the hood, Spark UI is a bunch of SparkListeners running and collecting all information for the jobs/executors.
+<br>
+<br></p>
+<h3>SparkContext and spark applications</h3>
+<p>A sparkContext can have multiple Spark applications running and each application will have its own corresponding Spark UI. Spark UI for an application can be accessed in port 4040 and successive applications will be given the next port numbers - 4041, 4042 and likewise. If you are running Spark in local, you can access the Spark UI at http://localhost:4040. You can change the port number using spark.ui.port in conf/spark-env.sh. To persist the Spark UI so that you can take a look at the Spark UI after the application is run, you can do so by accessing the spark history server. To enable persisting of Spark UI, the property is <code>spark.eventLog.enabled</code> which defaults to True. To enable the Spark UI, the property is <code>spark.ui.enabled</code> which defaults to True.
 <br>
 <br>
-<strong>git — version</strong></p>
-<p>Gives you the version of git you are using</p>
-<h3>Commits</h3>
-<p>Commits are part of GIT VCS (version control systems) which lets you save meaningful changes of your code. It is because of commit that you will be able to go to any of the previous versions of your code.
+Few examples of Spark applications:
+1. Spark application responsible  for loading data from S3, process and transforming it and then saving it back to S3 for next job to consume it
+2. Running two jupyter notebooks in your local Spark are examples of two running applications. Spark UI of each of the applications will be available at http://localhost:4040 and http://localhost:4041
 <br>
 <br>
-A commit is a snapshot of every file in your repository at the time of commit. Commits are Git’s way of saving versions, so to save two different versions, you would create two commits.
+Each of the applications in sparkContext are run independent of each other. It is the responsibility of the cluster manager to allocate executors for each of these applications. A worker node has many executors and and the same worker node can be assigned to multiple applications but each executor will allocated to only one application. The cluster manager assures that a single executor is not allocated to more than one application.
 <br>
 <br>
-<strong>Commits with multiple files</strong></p>
-<p>You will often work with multiple files and not just one code and these file may or may not be directly related. Any collection of such files is called a repository. Now, GIT keeps track of all the changes made to each of the files and these are carried forward i.e when you save a version of a file using commit you will save a version of all the files in that repository.
+Now before we start with the Spark UI, let us cover a quick refresher of the Spark vocabulary that will help use better understand what to look for in Spark UI
 <br>
-<br>
-Git does not rename files when you save a new commit. Instead, Git uses the commit IDs to refer to different versions of the files, and you can use git checkout to access old versions of your files.</p>
-<blockquote>
-<p>git commit -m “added new feature RMSE to the function”</p>
-</blockquote>
+<br></p>
+<h3>Spark vocabulary</h3>
+<ol>
+<li><strong>Job</strong><ol>
+<li>Whenever an action is called a job is triggered</li>
+<li>Examples of action in Spark are collect, aggregation functions like count, sum, or writing data to s3</li>
+<li>A job is broken into stages, the number of which depends on how many shuffle operations are there in the job</li>
+</ol>
+</li>
+<li><strong>Stages</strong><ol>
+<li>a job is broken into DAG (directed acyclic graph) of stages</li>
+<li>a stage is a collection of similar tasks that can be performed together</li>
+<li>stages can either depend on each other or be run independently. Stages that are not interdependent on each other are run in parallel</li>
+<li>the driver keeps track of how the stages should interact with each other to finally get the job done</li>
+</ol>
+</li>
+<li><strong>Task</strong><ol>
+<li>A task is a unit of computation that is applied to a block of data (partition)</li>
+<li>So, it is a combination of the operation and the block of data on which the operation will be applied</li>
+<li>It is the only abstraction of job that interacts with the hardware - task is executed in an executor in a worker node</li>
+</ol>
+</li>
+<li><strong>Executors</strong><ol>
+<li>the processes in worker nodes that do the actual execution of the code</li>
+<li>each executor is assigned a task and keeps data in memory or disk</li>
+<li>think of the executors as the horses on the ground that do the actual code execution</li>
+</ol>
+</li>
+<li><strong>Worker nodes/instances</strong></li>
+<li>the machines that form the cluster</li>
+</ol>
+<h3>Navigating the Spark UI tabs</h3>
+<p>Now that we understand the basic vocabulary of Spark, we will go through each of the tabs in Spark UI and what to look for in them.  The following are the six tabs available:
+1. <strong>Jobs</strong>
+    1. This will contain all the jobs you run in your application - it also tells you how many stages and tasks were there in total in the job
+2. <strong>Stages</strong>
+    1. This shows all the information around stages - both complete and running.
+    2. Tells you how long each stage it taking and into how many tasks a stage is broken into
+3. <strong>Storage</strong>
+    1. This will contain information about the data that you may have persisted/cached. If there is not data cached, then this will be empty.
+4. <strong>Environment</strong>
+    1. Contains information about the spark configurations and other and some java configurations
+5. <strong>Executors</strong>
+    1. This is where you will see a detailed information on how your executors are doing with respect to task execution
+    2. It also gives a summary of the time taken by executors to complete the tasks
+6. <strong>SQL</strong>
+    1. Here you will see the DAG of the query that you have executed (either via Dataframes API or SQL API) in the job.</p>
 <p><br>
 <br>
-<strong>git checkout</strong></p>
-<p>Is sort of like restoring previous version.</p>
-<p>Say, the commit ID of the most recent commit is 3884eab839af1e82c44267484cf2945a766081f3. You can use this commit ID to return to the latest commit after checking out an older commit.</p>
-<p>Format of git checkout</p>
-<blockquote>
-<p>git checkout 3884eab839af1e82c44267484cf2945a766081f3</p>
-</blockquote>
-<h3>How often to commit</h3>
-<p>Since you can choose when to make a commit, you might be wondering how often to commit your changes. It’s usually a good idea to keep commits small. As the diff between two versions gets bigger, it gets harder to understand and less useful. However, you don’t want to make your commits too small either. If you always save a commit every time you change a line of code, your history will be harder to read since it will have a huge number of commits over a short time period.
+Okay, I understand what Spark UI is but what do I do with it? Understanding Spark UI is one of the first steps toward spark optimisations of your spark job. The UI tells you if there is a particular stage which is taking a long time to run and whether you can do something about it. Having a good understanding of Spark UI is of profound importance if you want to monitor/debug your Spark jobs.
 <br>
 <br>
-A good rule of thumb is to make one commit per logical change. For example, if you fixed a typo, then fixed a bug in a separate part of the file, you should use one commit for each change since they are logically separate. If you do this, each commit will have one purpose that can be easily understood. Git allows you to write a short message explaining what was changed in each commit, and that message will be more useful if each commit has a single logical change.
-<br>
-<br></p>
-<h3>Reflect: Manual Commits</h3>
-<p>What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs having versions automatically saved, like Google Docs does?
-<br>
-<br>
-Manually choosing when to create a commit like in Git:</p>
-<p>Pros: You won’t have to wait for some time or lines of code and then that commit will be made. It depends on you and you get to decide whether the code change that you have done deserves or needs to be mentioned in the commit.</p>
-<p>Cons: Getting you to decide when to commit is a little subjective and different people will have different answer to it and so the size of commits will be different for different user and if you are not used to it, understanding the differences in the commits can prove to be problematic for you</p>
-<p>Having versions automatically saved like Google Docs does:</p>
-<p>Pros: You don’t need to worry about manually commiting. You know this gets committed automatically</p>
-<p>Cons: Too many commits or too less commits will be generated depending on what settings are there for automatic commits
-<br>
-<br></p>
-<h3>Branching</h3>
-<p>When developers are working on a feature or bug they’ll often create a copy (aka. branch) of their code they can make separate commits to. Then when they’re done they can merge this branch back into their main master branch.
-<br>
-<br>
-Branches are what naturally happens when you want to work on multiple features at the same time. You wouldn’t want to end up with a master branch which has Feature A half done and Feature B half done.
-<br>
-<br>
-Rather you’d separate the code base into two “snapshots” (branches) and work on and commit to them separately. As soon as one was ready, you might merge this branch back into the master branch and push it to the remote server.
-<br>
-<br></p>
-<h3>Remove all the things!</h3>
-<p><strong>git rm</strong> command will not only remove the actual files from disk, but will also stage the removal of the files for us. Now that you’ve removed all the required files you’ll need to commit your changes. Feel free to run git status to check the changes you’re about to commit.
-<br>
-<br>
-Removing one file is great and all, but what if you want to remove an entire folder? You can use the recursive option on git.
-This will recursively remove all folders and files from the given directory.</p>
-<blockquote>
-<p>git rm -r folder_of_cats</p>
-</blockquote>
-<p><br>
-<br>
-<strong>git log</strong>
-Think of Git’s log as a journal that remembers all the changes we’ve committed so far, in the order we committed them. Gives you the list of all commits that have been made to the code. It gives you the commit number and an associated message that was added to the commit.
-<br>
-<br>
-Exiting git log: To stop viewing git log output, press q (which stands for quit).
-<br>
-<br>
-Getting Colored Output: To get colored diff output, run <em>git config — global color.ui auto</em>
-<br>
-<br>
-<em>git log — stat</em></p>
-<p>Gives you the statistics of all the commits that has been made, with information like which file changed and whether lines were added or deleted for each commit.
-<br>
-<br>
-<strong>git push</strong>
-The push command tells Git where to put our commits when we’re ready. </p>
-<blockquote>
-<p>git push -u origin master</p>
-<p>git push</p>
-</blockquote>
-<p>The -u tells Git to remember the parameters, so that next time we can simply run git push and Git will know what to do.
-<br>
-<br></p>
-<h3>Pulling Remotely</h3>
-<p>Let’s pretend some time has passed. We’ve invited other people to our GitHub project who have pulled your changes, made their own commits, and pushed them. We can check for changes on our GitHub repository and pull down any new changes by running this command.</p>
-<blockquote>
-<p>git pull origin master</p>
-</blockquote>
-<h3>HEAD</h3>
-<p>The HEAD is a pointer that holds your position within all your different commits. By default HEAD points to your most recent commit.
-<br>
-<br>
-<strong>git diff</strong>
-Gives you the difference between the commits that you have performed in your code. If you want to understand the differences between 2 commits (say comNo.1 and comNo.2) you just do this:</p>
-<blockquote>
-<p>git diff comNo.1 comNo.2</p>
-<p>git diff</p>
-</blockquote>
-<p>Without any extra arguments, a simple <em>git diff</em> will display in unified diff format (a patch) what code or content you’ve changed in your project since the last commit that are not yet staged for the next commit snapshot.
-<br>
-<br>
-So where git status will show you what files have changed and/or been staged since your last commit, git diff will show you what those changes actually are, line by line. It’s generally a good follow-up command to git status
-<br>
-<br></p>
-<h3>What is a README?</h3>
-<p>Many projects contain a file named “README” that gives a general description of what the project does and how to use it. It’s often a good idea to read this file before doing anything with the project, so the file is given this name to make users more likely to read it.
-<br>
-<br></p>
-<h3>Cloning a Repository</h3>
-<p>There is a difference between downloading and cloning a repository. When you clone a repository, you don’t just download the files i.e. the latest commit file but the entire commit history as well. To clone a repository, run git clone followed by a space and the repository URL.</p>
-<blockquote>
-<p>git clone <repo url></p>
-</blockquote>
-<p>Example: Use the following url to clone the Asteroids repository: https://github.com/udacity/asteroids.git</p>
-<blockquote>
-<p>git clone https://github.com/udacity/asteroids.git</p>
-</blockquote>
-<p><br></p>
-<h3>Git Errors and Warnings Solution</h3>
-<p><em>Should not be doing an octopus</em></p>
-<p>Octopus is a strategy Git uses to combine many different versions of code together. This message can appear if you try to use this strategy in an inappropriate situation.
-<br>
-<br>
-<em>You are in ‘detached HEAD’ state</em></p>
-<p>HEAD is what Git calls the commit you are currently on. You can “detach” the HEAD by switching to a previous commit. Despite what it sounds like, it’s actually not a bad thing to detach the HEAD. Git just warns you so that you’ll realize you’re doing it.
-<br>
-<br>
-<em>Panic! (the ‘impossible’ happened)</em>
-This is a real error message, but it’s not output by Git. Instead it’s output by GHC, the compiler for a programming language called Haskell. It’s reserved for particularly surprising errors!
-<br>
-<br>
-Takeaway I hope these errors and warnings amused you as much as they amused me! Now you know what kind of errors Git can throw.
-<br>
-<br></p>
-<h3>Git command review</h3>
-<ol>
-<li>Compare two commits, printing each line that is present in one commit but not the other.</li>
-</ol>
-<p>git diff will do this. It takes two arguments — the two commit ids to compare.</p>
-<ol>
-<li>Make a copy of an entire Git repository, including the history, onto your own computer.</li>
-</ol>
-<p>git clone will do this. It takes one argument — the url of the repository to copy.</p>
-<ol>
-<li>Temporarily reset all files in a directory to their state at the time of a specific commit.</li>
-</ol>
-<p>git checkout will do this. It takes one argument — the commit ID to restore.</p>
-<ol>
-<li>Show the commits made in this repository, starting with the most recent.</li>
-</ol>
-<p>git log will do this. It doesn’t take any arguments.
-<br>
-<br></p>
-<h3>Behavior of git clone</h3>
-<p>If someone else gives you the location of their directory or repository, you can copy or clone it to your own computer.
-This is true for both copying a directory and cloning a repository.
-<br>
-<br>
-If you have a URL to a repository, you can copy it to your computer using git clone. For copying a directory, you weren’t expected to know this, but it is possible to copy a directory from one computer to another using the command scp, which stands for “secure copy”. The name was chosen because the <strong>scp</strong> command lets you securely copy a directory from one computer to another.</p>
-<ul>
-<li>The history of changes to the directory or repository is copied.</li>
-</ul>
-<p>This is true for cloning a repository, but not for copying a directory. The main reason to use git clone rather than copying the directory is because git clone will also copy the commit history of the repository. However, copying can be done on any directory, whereas git clone only works on a Git repository.</p>
-<ul>
-<li>If you make changes to the copied directory or cloned repository, the original will not change.</li>
-</ul>
-<p>This is true for both copying a directory and cloning a repository. In both cases, you’re making a copy that you can alter without changing the original.</p>
-<p>- The state of every file in the directory or repository is copied.</p>
-<p>This is true for both copying a directory and cloning a repository. In both cases, all the files are copied.
- </p></div>
+And with that I will end this post. Play around with the Spark UI, keep reading and this will become one of your favourite things about running spark jobs. I certainly keep an eye out for anything abnormal happening in the Spark UI when running spark jobs.</p></div>
 <script type="text/javascript" language="javascript">
       var aax_size='728x90';
       var aax_pubname = 'manishbarnwal-21';
@@ -2074,12 +1996,15 @@ If you have a URL to a repository, you can copy it to your computer using git cl
   <span class="byline author vcard">
     Posted by <span class="fn">Manish Barnwal</span>
   </span>
-<time datetime="2017-02-15T10:00:00" pubdate>Feb 15, 2017</time>  <span class="categories">
+<time datetime="2020-08-31T08:00:00" pubdate>Aug 31, 2020</time>  <span class="categories">
+    <a class="category" href="http://manishbarnwal.github.io/tag/spark.html">spark</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/big-data.html">big data</a>
+    <a class="category" href="http://manishbarnwal.github.io/tag/spark-ui.html">spark ui</a>
     <a class="category" href="http://manishbarnwal.github.io/tag/tutorial.html">tutorial</a>
     <a class="category" href="http://manishbarnwal.github.io/tag/manish-barnwal.html">manish barnwal</a>
   </span>
 </p><div class="sharing">
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2017/02/15/git_and_github/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2017/02/15/git_and_github/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://manishbarnwal.com/blog/2020/08/31/brief_introduction_to_spark_ui/" data-via="ManishFirewall" data-counturl="manishbarnwal.com/blog/2020/08/31/brief_introduction_to_spark_ui/" >Tweet</a>
   <div class="g-plusone" data-size="medium"></div>
     <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
 </div>    </footer>
@@ -2179,9 +2104,9 @@ If you have a URL to a repository, you can copy it to your computer using git cl
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'manishbarnwal';
-          var disqus_identifier = '/blog/2017/02/15/git_and_github/';
-          var disqus_url = 'http://manishbarnwal.com/blog/2017/02/15/git_and_github/';
-          var disqus_title = 'How to use Git and Github';
+          var disqus_identifier = '/blog/2020/08/31/brief_introduction_to_spark_ui/';
+          var disqus_url = 'http://manishbarnwal.com/blog/2020/08/31/brief_introduction_to_spark_ui/';
+          var disqus_title = 'Brief introduction to SparkUI';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

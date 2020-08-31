@@ -1,5 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2020-05-26T08:00:00-03:00</updated><entry><title>Why you should use logging instead of print statements?</title><link href="http://manishbarnwal.github.io/blog/2020/05/26/logging_in_python/" rel="alternate"></link><updated>2020-05-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2020-05-26:blog/2020/05/26/logging_in_python/</id><summary type="html">&lt;p&gt;It is a common but wrong practice to add print statements inside your code to convey message about the code/function on the standard output - at least that is what I used to do till last year. Last year, I got to know about logging and got to understand its benefits when we build platforms or work on larger projects. And in this post, we will discuss about logging. Let us begin with understanding a little about logging.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Manish Barnwal</title><link href="http://manishbarnwal.github.io/" rel="alternate"></link><link href="http://manishbarnwal.github.io/atom.xml" rel="self"></link><id>http://manishbarnwal.github.io/</id><updated>2020-08-31T08:00:00-03:00</updated><entry><title>Brief introduction to SparkUI</title><link href="http://manishbarnwal.github.io/blog/2020/08/31/brief_introduction_to_spark_ui/" rel="alternate"></link><updated>2020-08-31T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2020-08-31:blog/2020/08/31/brief_introduction_to_spark_ui/</id><summary type="html">&lt;p&gt;Recently, I've been working a lot with PySpark in AWS EMR. I have a huge data dump (~300 million users) that I needed to process and transform it into the right format for further processing. The data is in a S3 bucket in AWS and I use AWS EMR to launch a cluster of r5.2xlarge instances to run the spark application. We use a Hadoop YARN resource manager. 
+&lt;br&gt;
+&lt;br&gt;
+Once you launch a spark application, you get access to a corresponding Spark UI interface that gives you an option to look at the overall status of the jobs, tasks, executors and other details. In today's post, I will be talking about what to look for in the Spark UI when you launch a spark application. I've been using SparkUI a lot over the last few months and thought writing a post on this would be useful for others as well. Let us begin.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Spark overview&lt;/h3&gt;
+&lt;p&gt;Before we proceed with the introduction to SparkUI, a quick refreshed on Spark vocabulary will be useful
+&lt;img alt="photo of spark cluster overview" src="http://manishbarnwal.com/images/brief_introduction_to_sparkui/spark_cluster_overview.png" /&gt;
+&lt;br&gt;
+&lt;br&gt;
+There are three main components of spark:
+1. &lt;strong&gt;Driver program (sparkContext)&lt;/strong&gt;
+    1. this is the heart of spark in cluster - keeps live status of the application
+    2. if the driver process dies due to some reason say OutOfMemory error, your spark application will be killed as well
+    3. contains the code that needs to be run
+    4. it there is only machine/process you could monitor, it has to be the driver process
+2. &lt;strong&gt;Cluster manager&lt;/strong&gt;
+    1. acts as the bridge between the driver program and the worker nodes
+    2. also allocates resources to different spark applications
+3. &lt;strong&gt;Worker nodes&lt;/strong&gt;
+    1. the instances/machines that form the cluster
+    2. they consists of executors and these executors are the actual horses that do the actual code execution
+&lt;br&gt;
+&lt;br&gt;
+Let us talk a little about the cluster managers. As I've just mentioned above, a cluster manager is the bridge between the sparkContext and the worker nodes and allocates resources to different spark applications. There are four most commonly available cluster managers:
+1. &lt;strong&gt;In-built spark Standalone cluster manager&lt;/strong&gt;
+    1. Good for starting but eventually you will have to graduate to other resource managers - Hadoop YARN or Apache Mesos
+    2. Not used by a lot of people because there are better alternatives available
+2. &lt;strong&gt;Hadoop YARN (Yet Another Resource Negotiator)&lt;/strong&gt;
+    1. Hadoop YARN is just a framework for job scheduling and resource management
+    2. Spark has nothing to do with Hadoop in Hadoop YARN
+3. &lt;strong&gt;Apache Mesos&lt;/strong&gt;
+    1. Founded by the founders of Spark itself
+    2. Apache Mesos is considered very heavy-weight and should be used only if you already have Mesos configured in your large scale production system
+4. &lt;strong&gt;Kubernetes cluster manager&lt;/strong&gt;
+    1. This is open-source and is used a lot by people
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;SparkUI under the hood&lt;/h3&gt;
+&lt;p&gt;When a spark application is launched within a sparkContext, there are few processes that are run in background that are used by the sparkUI.
+Some of the processes are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;LiveListenerBus&lt;/strong&gt;: processes events as the application is live and kicking&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;JobProgressListener&lt;/strong&gt;:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;responsible for collecting all data that sparkUI uses to show statistics&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;the information that we see under Jobs tab in SparkUI is because of this listener bus&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Creates optional sparkUI if &lt;code&gt;spark.ui.enabled&lt;/code&gt; is set True&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;EnvironmentListener&lt;/strong&gt;, &lt;strong&gt;StorageStatusListener&lt;/strong&gt;, &lt;strong&gt;RDDOperationsGraphListener&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Likewise each of the above buses are responsible for other tabs in the SparkUI&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;
+I won't go deep into each of these listeners (because I do not truly understand their internals) but if you are interested you should read on them. It is because of these SparkListeners that we are able to see the information on the jobs, executors, tasks in the Spark UI. So in essence, under the hood, Spark UI is a bunch of SparkListeners running and collecting all information for the jobs/executors.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;SparkContext and spark applications&lt;/h3&gt;
+&lt;p&gt;A sparkContext can have multiple Spark applications running and each application will have its own corresponding Spark UI. Spark UI for an application can be accessed in port 4040 and successive applications will be given the next port numbers - 4041, 4042 and likewise. If you are running Spark in local, you can access the Spark UI at http://localhost:4040. You can change the port number using spark.ui.port in conf/spark-env.sh. To persist the Spark UI so that you can take a look at the Spark UI after the application is run, you can do so by accessing the spark history server. To enable persisting of Spark UI, the property is &lt;code&gt;spark.eventLog.enabled&lt;/code&gt; which defaults to True. To enable the Spark UI, the property is &lt;code&gt;spark.ui.enabled&lt;/code&gt; which defaults to True.
+&lt;br&gt;
+&lt;br&gt;
+Few examples of Spark applications:
+1. Spark application responsible  for loading data from S3, process and transforming it and then saving it back to S3 for next job to consume it
+2. Running two jupyter notebooks in your local Spark are examples of two running applications. Spark UI of each of the applications will be available at http://localhost:4040 and http://localhost:4041
+&lt;br&gt;
+&lt;br&gt;
+Each of the applications in sparkContext are run independent of each other. It is the responsibility of the cluster manager to allocate executors for each of these applications. A worker node has many executors and and the same worker node can be assigned to multiple applications but each executor will allocated to only one application. The cluster manager assures that a single executor is not allocated to more than one application.
+&lt;br&gt;
+&lt;br&gt;
+Now before we start with the Spark UI, let us cover a quick refresher of the Spark vocabulary that will help use better understand what to look for in Spark UI
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;Spark vocabulary&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Job&lt;/strong&gt;&lt;ol&gt;
+&lt;li&gt;Whenever an action is called a job is triggered&lt;/li&gt;
+&lt;li&gt;Examples of action in Spark are collect, aggregation functions like count, sum, or writing data to s3&lt;/li&gt;
+&lt;li&gt;A job is broken into stages, the number of which depends on how many shuffle operations are there in the job&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stages&lt;/strong&gt;&lt;ol&gt;
+&lt;li&gt;a job is broken into DAG (directed acyclic graph) of stages&lt;/li&gt;
+&lt;li&gt;a stage is a collection of similar tasks that can be performed together&lt;/li&gt;
+&lt;li&gt;stages can either depend on each other or be run independently. Stages that are not interdependent on each other are run in parallel&lt;/li&gt;
+&lt;li&gt;the driver keeps track of how the stages should interact with each other to finally get the job done&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task&lt;/strong&gt;&lt;ol&gt;
+&lt;li&gt;A task is a unit of computation that is applied to a block of data (partition)&lt;/li&gt;
+&lt;li&gt;So, it is a combination of the operation and the block of data on which the operation will be applied&lt;/li&gt;
+&lt;li&gt;It is the only abstraction of job that interacts with the hardware - task is executed in an executor in a worker node&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Executors&lt;/strong&gt;&lt;ol&gt;
+&lt;li&gt;the processes in worker nodes that do the actual execution of the code&lt;/li&gt;
+&lt;li&gt;each executor is assigned a task and keeps data in memory or disk&lt;/li&gt;
+&lt;li&gt;think of the executors as the horses on the ground that do the actual code execution&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Worker nodes/instances&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;the machines that form the cluster&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Navigating the Spark UI tabs&lt;/h3&gt;
+&lt;p&gt;Now that we understand the basic vocabulary of Spark, we will go through each of the tabs in Spark UI and what to look for in them.  The following are the six tabs available:
+1. &lt;strong&gt;Jobs&lt;/strong&gt;
+    1. This will contain all the jobs you run in your application - it also tells you how many stages and tasks were there in total in the job
+2. &lt;strong&gt;Stages&lt;/strong&gt;
+    1. This shows all the information around stages - both complete and running.
+    2. Tells you how long each stage it taking and into how many tasks a stage is broken into
+3. &lt;strong&gt;Storage&lt;/strong&gt;
+    1. This will contain information about the data that you may have persisted/cached. If there is not data cached, then this will be empty.
+4. &lt;strong&gt;Environment&lt;/strong&gt;
+    1. Contains information about the spark configurations and other and some java configurations
+5. &lt;strong&gt;Executors&lt;/strong&gt;
+    1. This is where you will see a detailed information on how your executors are doing with respect to task execution
+    2. It also gives a summary of the time taken by executors to complete the tasks
+6. &lt;strong&gt;SQL&lt;/strong&gt;
+    1. Here you will see the DAG of the query that you have executed (either via Dataframes API or SQL API) in the job.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;
+Okay, I understand what Spark UI is but what do I do with it? Understanding Spark UI is one of the first steps toward spark optimisations of your spark job. The UI tells you if there is a particular stage which is taking a long time to run and whether you can do something about it. Having a good understanding of Spark UI is of profound importance if you want to monitor/debug your Spark jobs.
+&lt;br&gt;
+&lt;br&gt;
+And with that I will end this post. Play around with the Spark UI, keep reading and this will become one of your favourite things about running spark jobs. I certainly keep an eye out for anything abnormal happening in the Spark UI when running spark jobs.&lt;/p&gt;</summary><category term="spark"></category><category term="big data"></category><category term="spark ui"></category><category term="tutorial"></category><category term="manish barnwal"></category></entry><entry><title>Why you should use logging instead of print statements?</title><link href="http://manishbarnwal.github.io/blog/2020/05/26/logging_in_python/" rel="alternate"></link><updated>2020-05-26T08:00:00-03:00</updated><author><name>Manish Barnwal</name></author><id>tag:manishbarnwal.github.io,2020-05-26:blog/2020/05/26/logging_in_python/</id><summary type="html">&lt;p&gt;It is a common but wrong practice to add print statements inside your code to convey message about the code/function on the standard output - at least that is what I used to do till last year. Last year, I got to know about logging and got to understand its benefits when we build platforms or work on larger projects. And in this post, we will discuss about logging. Let us begin with understanding a little about logging.
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;What is logging?&lt;/h3&gt;
