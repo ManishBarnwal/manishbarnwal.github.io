@@ -1874,7 +1874,7 @@ There are three main components of spark:</p>
 </ol>
 </li>
 <li>
-<p><strong>Worker nodes</strong></p>
+<p><strong>Worker instances</strong></p>
 <ol>
 <li>the instances/machines that form the cluster</li>
 <li>they consists of executors and these executors are the actual horses that do the actual code execution
@@ -1941,12 +1941,17 @@ I won't go deep into each of these listeners (because I do not truly understand 
 <br></li>
 </ol>
 <h3>SparkContext and spark applications</h3>
-<p>A sparkContext can have multiple Spark applications running and each application will have its own corresponding Spark UI. Spark UI for an application can be accessed in port 4040 and successive applications will be given the next port numbers - 4041, 4042 and likewise. If you are running Spark in local, you can access the Spark UI at http://localhost:4040. You can change the port number using spark.ui.port in conf/spark-env.sh. To persist the Spark UI so that you can take a look at the Spark UI after the application is run, you can do so by accessing the spark history server. To enable persisting of Spark UI, the property is <code>spark.eventLog.enabled</code> which defaults to True. To enable the Spark UI, the property is <code>spark.ui.enabled</code> which defaults to True.
+<p>A sparkContext can have multiple Spark applications running and each application will have its own corresponding Spark UI. Spark UI for an application can be accessed in port 4040 and successive applications will be given the next port numbers - 4041, 4042 and likewise. If you are running Spark in local, you can access the Spark UI at http://localhost:4040. You can change the port number using spark.ui.port in conf/spark-env.sh. To persist the Spark UI so that you can take a look at the Spark UI after the application is run, you can do so by accessing the spark history server.</p>
+<p>To enable persisting of Spark UI, the property is <code>spark.eventLog.enabled</code> which defaults to True. To enable the Spark UI, the property is <code>spark.ui.enabled</code> which defaults to True.
 <br>
 <br>
-Few examples of Spark applications:
-1. Spark application responsible  for loading data from S3, process and transforming it and then saving it back to S3 for next job to consume it
-2. Running two jupyter notebooks in your local Spark are examples of two running applications. Spark UI of each of the applications will be available at http://localhost:4040 and http://localhost:4041
+Few examples of Spark applications:</p>
+<ol>
+<li>
+<p>Spark application responsible  for loading data from S3, process and transforming it and then saving it back to S3 for next job to consume it</p>
+</li>
+<li>
+<p>Running two jupyter notebooks in your local Spark are examples of two running applications. Spark UI of each of the applications will be available at http://localhost:4040 and http://localhost:4041
 <br>
 <br>
 Each of the applications in sparkContext are run independent of each other. It is the responsibility of the cluster manager to allocate executors for each of these applications. A worker node has many executors and and the same worker node can be assigned to multiple applications but each executor will allocated to only one application. The cluster manager assures that a single executor is not allocated to more than one application.
@@ -1955,6 +1960,8 @@ Each of the applications in sparkContext are run independent of each other. It i
 Now before we start with the Spark UI, let us cover a quick refresher of the Spark vocabulary that will help use better understand what to look for in Spark UI
 <br>
 <br></p>
+</li>
+</ol>
 <h3>Spark vocabulary</h3>
 <ol>
 <li>
@@ -1991,7 +1998,7 @@ Now before we start with the Spark UI, let us cover a quick refresher of the Spa
 </ol>
 </li>
 <li>
-<p><strong>Worker nodes/instances</strong></p>
+<p><strong>Worker instances</strong></p>
 </li>
 <li>the machines that form the cluster
 <br>

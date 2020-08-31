@@ -29,7 +29,7 @@ There are three main components of spark:&lt;/p&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Worker nodes&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Worker instances&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;the instances/machines that form the cluster&lt;/li&gt;
 &lt;li&gt;they consists of executors and these executors are the actual horses that do the actual code execution
@@ -96,12 +96,17 @@ I won't go deep into each of these listeners (because I do not truly understand 
 &lt;br&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;SparkContext and spark applications&lt;/h3&gt;
-&lt;p&gt;A sparkContext can have multiple Spark applications running and each application will have its own corresponding Spark UI. Spark UI for an application can be accessed in port 4040 and successive applications will be given the next port numbers - 4041, 4042 and likewise. If you are running Spark in local, you can access the Spark UI at http://localhost:4040. You can change the port number using spark.ui.port in conf/spark-env.sh. To persist the Spark UI so that you can take a look at the Spark UI after the application is run, you can do so by accessing the spark history server. To enable persisting of Spark UI, the property is &lt;code&gt;spark.eventLog.enabled&lt;/code&gt; which defaults to True. To enable the Spark UI, the property is &lt;code&gt;spark.ui.enabled&lt;/code&gt; which defaults to True.
+&lt;p&gt;A sparkContext can have multiple Spark applications running and each application will have its own corresponding Spark UI. Spark UI for an application can be accessed in port 4040 and successive applications will be given the next port numbers - 4041, 4042 and likewise. If you are running Spark in local, you can access the Spark UI at http://localhost:4040. You can change the port number using spark.ui.port in conf/spark-env.sh. To persist the Spark UI so that you can take a look at the Spark UI after the application is run, you can do so by accessing the spark history server.&lt;/p&gt;
+&lt;p&gt;To enable persisting of Spark UI, the property is &lt;code&gt;spark.eventLog.enabled&lt;/code&gt; which defaults to True. To enable the Spark UI, the property is &lt;code&gt;spark.ui.enabled&lt;/code&gt; which defaults to True.
 &lt;br&gt;
 &lt;br&gt;
-Few examples of Spark applications:
-1. Spark application responsible  for loading data from S3, process and transforming it and then saving it back to S3 for next job to consume it
-2. Running two jupyter notebooks in your local Spark are examples of two running applications. Spark UI of each of the applications will be available at http://localhost:4040 and http://localhost:4041
+Few examples of Spark applications:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Spark application responsible  for loading data from S3, process and transforming it and then saving it back to S3 for next job to consume it&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Running two jupyter notebooks in your local Spark are examples of two running applications. Spark UI of each of the applications will be available at http://localhost:4040 and http://localhost:4041
 &lt;br&gt;
 &lt;br&gt;
 Each of the applications in sparkContext are run independent of each other. It is the responsibility of the cluster manager to allocate executors for each of these applications. A worker node has many executors and and the same worker node can be assigned to multiple applications but each executor will allocated to only one application. The cluster manager assures that a single executor is not allocated to more than one application.
@@ -110,6 +115,8 @@ Each of the applications in sparkContext are run independent of each other. It i
 Now before we start with the Spark UI, let us cover a quick refresher of the Spark vocabulary that will help use better understand what to look for in Spark UI
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h3&gt;Spark vocabulary&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -146,7 +153,7 @@ Now before we start with the Spark UI, let us cover a quick refresher of the Spa
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Worker nodes/instances&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Worker instances&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;the machines that form the cluster
 &lt;br&gt;
